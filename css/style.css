@@ -435,10 +435,46 @@ hr {
   align-items: center; /* vertical centering */
 }
 
-.tm-about img {
-  max-width: 100%;
+.tm-about-image-wrapper {
+  margin-bottom: 30px;
+}
+
+.tm-about-image {
+  max-width: 40%;
   height: auto;
-  margin-top: 20px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Responsive: Stack image first, then text on small screens */
+@media screen and (max-width: 767px) {
+  #about .row {
+    display: block;
+    flex-direction: column;
+  }
+  
+  .tm-about-image-wrapper {
+    margin-bottom: 40px;
+    order: 1;
+  }
+  
+  .tm-about .col-md-6:first-child {
+    order: 1;
+  }
+  
+  .tm-about .col-md-6:last-child {
+    order: 2;
+  }
+  
+  .tm-about-image {
+    max-width: 60%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .tm-about-image {
+    max-width: 80%;
+  }
 }
 /* END ABOUT */
 
