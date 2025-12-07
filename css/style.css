@@ -226,6 +226,26 @@ hr {
   font-size: 60px;
   padding-bottom: 40px;
 }
+.tm-service-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0 0;
+  text-align: left;
+}
+.tm-service-list li {
+  color: #e0e0e0;
+  padding: 8px 0;
+  padding-left: 25px;
+  position: relative;
+  line-height: 24px;
+}
+.tm-service-list li:before {
+  content: "▸";
+  color: #eb5424;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
 /* END WORK */
 
 /* START PORTFOLIO */
