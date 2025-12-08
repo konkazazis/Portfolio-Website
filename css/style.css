@@ -568,17 +568,27 @@ hr {
 }
 .portfolio-item-title {
   font-weight: bold;
-  margin-top: 10px;
+  margin: 0 auto 10px;
   text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+}
+.portfolio-overlay p {
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
 }
 .portfolio-thumb {
   overflow: hidden;
-  margin: 0;
+  margin: 0 auto;
   position: relative;
   cursor: pointer;
   transition: transform 0.3s ease;
   width: 100%;
   height: 100%;
+  display: block;
+  text-align: center;
 }
 .portfolio-thumb:hover {
   transform: scale(1.05);
@@ -606,6 +616,10 @@ hr {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   background: #eb5424;
   color: #ffffff;
   top: 0;
@@ -692,6 +706,7 @@ hr {
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   margin: 0 auto;
   text-align: center;
 }
@@ -705,8 +720,10 @@ hr {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  align-content: center;
   gap: 15px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
   box-sizing: border-box;
 }
@@ -714,12 +731,13 @@ hr {
   position: relative;
   min-height: 50px;
   overflow: hidden;
-  margin: 0 auto;
+  margin: 0;
   width: calc(25% - 12px);
   max-width: 260px;
   flex: 0 0 auto;
   cursor: pointer;
   box-sizing: border-box;
+  display: block;
 }
 .iso-box .portfolio-link {
   display: block;
@@ -1073,7 +1091,7 @@ hr {
   .tm-about .container .row {
     justify-content: center;
   }
-  
+
   .tm-about .title {
     font-size: 36px;
   }
@@ -1218,7 +1236,47 @@ input[type="submit"]:hover {
 /* START MEDIA 980 */
 @media screen and (max-width: 980px) {
   .portfolio-overlay {
-    padding-top: 10px;
+    padding: 0 30px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .portfolio-overlay p {
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .portfolio-item-title {
+    font-size: 18px;
+    text-align: center;
+    margin: 0 auto 10px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .portfolio-overlay {
+    padding: 0 20px;
+  }
+  .portfolio-overlay p {
+    font-size: 13px;
+    line-height: 18px;
+  }
+  .portfolio-item-title {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .portfolio-overlay {
+    padding: 0 15px;
+  }
+  .portfolio-overlay p {
+    font-size: 12px;
+    line-height: 16px;
+  }
+  .portfolio-item-title {
+    font-size: 14px;
   }
 }
 /* END MEDIA 980 */
@@ -1233,7 +1291,7 @@ input[type="submit"]:hover {
   .work-wrapper {
     padding: 60px 35px;
   }
-  
+
   /* Portfolio */
   .iso-box {
     width: calc(33.333% - 12px);
@@ -1241,8 +1299,12 @@ input[type="submit"]:hover {
   }
   .iso-box-wrapper {
     justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
   }
-  
+
   /* Title */
   .title {
     font-size: 50px;
@@ -1276,7 +1338,7 @@ input[type="submit"]:hover {
     height: 45px;
     font-size: 20px;
   }
-  
+
   /* Work Section */
   .work-wrapper {
     padding: 50px 30px;
@@ -1297,7 +1359,7 @@ input[type="submit"]:hover {
     font-size: 40px;
     padding-bottom: 30px;
   }
-  
+
   /* Portfolio */
   .tm-portfolio {
     padding-left: 20px;
@@ -1320,9 +1382,12 @@ input[type="submit"]:hover {
     padding: 0 15px;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
     width: 100%;
+    max-width: 100%;
   }
   .tm-portfolio .container {
     text-align: center;
@@ -1335,7 +1400,7 @@ input[type="submit"]:hover {
     justify-content: center;
     margin: 0 auto;
   }
-  
+
   /* Contact */
   .tm-contact {
     padding-top: 60px;
@@ -1380,7 +1445,7 @@ input[type="submit"]:hover {
     line-height: 24px;
     padding: 0 15px;
   }
-  
+
   /* Work Section */
   .work-wrapper {
     padding: 40px 20px;
@@ -1405,7 +1470,7 @@ input[type="submit"]:hover {
     width: 100%;
     margin-bottom: 20px;
   }
-  
+
   /* Portfolio */
   .tm-portfolio {
     padding-left: 15px;
@@ -1427,11 +1492,14 @@ input[type="submit"]:hover {
   .iso-box-wrapper {
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
     gap: 15px;
     padding: 0 10px;
     width: 100%;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
   }
@@ -1453,7 +1521,7 @@ input[type="submit"]:hover {
     padding: 6px 12px;
     font-size: 13px;
   }
-  
+
   /* Contact */
   .tm-contact {
     padding-top: 50px;
@@ -1473,7 +1541,7 @@ input[type="submit"]:hover {
     width: 100%;
     max-width: 300px;
   }
-  
+
   /* About */
   .tm-about {
     padding-top: 50px;
@@ -1499,7 +1567,7 @@ input[type="submit"]:hover {
   .navbar-brand-text {
     font-size: 20px;
   }
-  
+
   /* Home */
   .tm-home-title {
     font-size: 24px;
@@ -1515,7 +1583,7 @@ input[type="submit"]:hover {
     font-size: 12px;
     padding: 8px 20px;
   }
-  
+
   /* General */
   .title {
     font-size: 28px;
@@ -1526,7 +1594,7 @@ input[type="submit"]:hover {
   .tm-work-h3 {
     font-size: 14px;
   }
-  
+
   /* Contact */
   .form-control {
     font-size: 13px;
