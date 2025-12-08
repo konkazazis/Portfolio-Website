@@ -90,3 +90,9 @@ jQuery(document).ready(function($){
     $('.navbar-collapse a').click(function(){
         $(".navbar-collapse").collapse('hide');
     });
+
+// PREVENT PLACEHOLDER PORTFOLIO LINKS FROM JUMPING TO TOP
+    $('.portfolio-link[href="#"]').click(function(e){
+        e.preventDefault();
+        // Add your click handler here if needed (e.g., open modal, show details, etc.)
+    });

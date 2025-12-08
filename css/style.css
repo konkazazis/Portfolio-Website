@@ -426,6 +426,16 @@ hr {
   padding-top: 100px;
   padding-bottom: 100px;
 }
+#work .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#work .col-md-4,
+#work .col-sm-4 {
+  display: flex;
+  flex-direction: column;
+}
 .tm-work-h3 {
   color: #eb5424;
   font-size: 20px;
@@ -441,6 +451,11 @@ hr {
   background: #0a0a0a;
   -webkit-transition: all 0.6s ease-in;
   transition: all 0.6s ease-in;
+  margin: 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 .work-wrapper:hover {
   border-color: #eb5424;
@@ -456,6 +471,7 @@ hr {
   padding: 0;
   margin: 20px 0 0 0;
   text-align: left;
+  flex: 1;
 }
 .tm-service-list li {
   color: #e0e0e0;
@@ -497,10 +513,18 @@ hr {
   margin-top: 10px;
   text-transform: uppercase;
 }
+.portfolio-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  cursor: pointer;
+}
 .portfolio-thumb {
   overflow: hidden;
   margin: 0;
   position: relative;
+  cursor: pointer;
 }
 .portfolio-overlay {
   display: -webkit-box;
@@ -533,6 +557,7 @@ hr {
   -moz-transition: all 0.4s ease-in-out;
   -ms-transition: all 0.4s ease-in-out;
 }
+.portfolio-link:hover .portfolio-overlay,
 .portfolio-thumb:hover .portfolio-overlay {
   opacity: 0.8;
   -webkit-transform: scale(1);
@@ -556,6 +581,7 @@ hr {
 .filter-wrapper {
   width: 100%;
   margin: 0 0 24px 0;
+  padding-left: 0;
   overflow: hidden;
   text-align: center;
 }
@@ -934,6 +960,9 @@ input[type="submit"]:hover {
   .portfolio-overlay {
     padding-top: 10px;
   }
+  #work .row {
+    justify-content: center;
+  }
 }
 /* END MEDIA 980 */
 
@@ -945,6 +974,17 @@ input[type="submit"]:hover {
     width: 150px;
     height: 150px;
     margin-bottom: 20px;
+  }
+  #work .row {
+    justify-content: center;
+  }
+  #work .col-sm-4 {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 20px auto;
+  }
+  .work-wrapper {
+    margin: 0;
   }
 }
 
