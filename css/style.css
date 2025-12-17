@@ -575,7 +575,7 @@ hr:hover {
 
 /* START WORK */
 .tm-padding-top-bottom-100 {
-  padding-top: 100px;
+  padding-top: 200px;
   padding-bottom: 100px;
   position: relative;
   z-index: 1;
@@ -886,6 +886,10 @@ hr:hover {
 }
 
 /* ISOTOPE BOX CSS */
+.iso-section {
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
 .iso-box-section {
   width: 100%;
 }
