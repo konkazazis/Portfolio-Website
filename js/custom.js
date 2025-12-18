@@ -74,11 +74,17 @@ jQuery(document).ready(function($){
 
     function mainNav() {
         var top = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
-        // Always keep navbar visible
-        $('.sticky-navigation').stop().animate({
-            "opacity": '1',
-            "top": '0'
-        });
+        if (top > 40) {
+            $('.sticky-navigation').stop().animate({
+                "opacity": '1',
+                "top": '0'
+            });
+        } else {
+            $('.sticky-navigation').stop().animate({
+                "opacity": '0',
+                "top": '-75'
+            });
+        }
     }
 
 

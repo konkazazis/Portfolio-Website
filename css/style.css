@@ -67,7 +67,7 @@ hr:hover {
 
 /* START NAVIGATION */
 .sticky-navigation {
-  opacity: 1;
+  opacity: 0;
   transition: all 0.3s ease;
 }
 .navbar-default {
