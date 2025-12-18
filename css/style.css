@@ -1,11 +1,14 @@
+html,
 body {
+  width: 100%;
+  overflow-x: hidden;
   background: #000000;
   font-family: "Raleway", sans-serif;
   font-size: 16px;
   color: #e0e0e0;
   position: relative;
-  overflow-x: hidden;
 }
+
 p a,
 .tm-about a {
   color: #eb5424;
@@ -18,11 +21,6 @@ p a:hover,
   color: #ff6b3d;
   text-decoration: underline;
   text-shadow: 0 0 10px rgba(235, 84, 36, 0.8), 0 0 20px rgba(255, 107, 61, 0.5);
-}
-html,
-body {
-  width: 100%;
-  overflow-x: hidden;
 }
 h1,
 h2,
@@ -386,25 +384,8 @@ hr:hover {
     inset 0 0 20px rgba(235, 84, 36, 0.2);
   -webkit-box-shadow: 0 0 20px rgba(235, 84, 36, 0.5),
     0 0 40px rgba(235, 84, 36, 0.3), inset 0 0 20px rgba(235, 84, 36, 0.2);
-  animation: profileGlow 3s ease-in-out infinite;
   transition: all 0.3s ease;
 }
-
-/* @keyframes profileGlow {
-  0%, 100% {
-    box-shadow: 
-      0 0 20px rgba(235, 84, 36, 0.5),
-      0 0 40px rgba(235, 84, 36, 0.3),
-      inset 0 0 20px rgba(235, 84, 36, 0.2);
-  }
-  50% {
-    box-shadow: 
-      0 0 30px rgba(235, 84, 36, 0.8),
-      0 0 60px rgba(235, 84, 36, 0.5),
-      0 0 80px rgba(255, 107, 61, 0.3),
-      inset 0 0 30px rgba(235, 84, 36, 0.3);
-  }
-} */
 .tm-home-title,
 .tm-home-subtitle {
   text-transform: uppercase;
@@ -501,32 +482,6 @@ hr:hover {
 .tm-social-link:hover::before {
   opacity: 1;
 }
-.tm-location-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  margin: 0 0 30px 0;
-  background: rgba(235, 84, 36, 0.1);
-  border: 2px solid #eb5424;
-  border-radius: 30px;
-  color: #e0e0e0;
-  font-size: 16px;
-  transition: all 0.3s ease;
-}
-.tm-location-badge:hover {
-  background: rgba(235, 84, 36, 0.2);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(235, 84, 36, 0.3);
-}
-.tm-location-badge i {
-  color: #eb5424;
-  font-size: 20px;
-}
-.tm-location-badge strong {
-  color: #eb5424;
-  font-weight: 600;
-}
 .tm-view-more-btn {
   background: #eb5424;
   color: #ffffff;
@@ -580,121 +535,6 @@ hr:hover {
   position: relative;
   z-index: 1;
 }
-#work .row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-#work .col-md-4,
-#work .col-sm-4 {
-  display: flex;
-  flex-direction: column;
-}
-.tm-work-h3 {
-  color: #eb5424;
-  font-size: 20px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  padding-bottom: 10px;
-  text-shadow: 0 0 10px rgba(235, 84, 36, 0.5);
-  transition: all 0.3s ease;
-}
-
-.work-wrapper:hover .tm-work-h3 {
-  text-shadow: 0 0 15px rgba(235, 84, 36, 0.8), 0 0 25px rgba(235, 84, 36, 0.6);
-}
-.work-wrapper {
-  border: 1px solid #333333;
-  border-radius: 2px;
-  text-align: center;
-  padding: 80px 40px 80px 40px;
-  background: #0a0a0a;
-  -webkit-transition: all 0.6s ease-in;
-  transition: all 0.6s ease-in;
-  margin: 10px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
-}
-
-.work-wrapper::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(
-    circle,
-    rgba(235, 84, 36, 0.1) 0%,
-    transparent 70%
-  );
-  opacity: 0;
-  transition: opacity 0.6s ease;
-}
-
-.work-wrapper:hover {
-  border-color: #eb5424;
-  background: #111111;
-  box-shadow: 0 0 20px rgba(235, 84, 36, 0.4), 0 0 40px rgba(235, 84, 36, 0.2),
-    inset 0 0 20px rgba(235, 84, 36, 0.1);
-  transform: translateY(-5px);
-}
-
-.work-wrapper:hover::before {
-  opacity: 1;
-}
-
-.work-wrapper .fa {
-  color: #eb5424;
-  font-size: 60px;
-  padding-bottom: 40px;
-  text-shadow: 0 0 10px rgba(235, 84, 36, 0.6), 0 0 20px rgba(235, 84, 36, 0.4);
-  transition: all 0.3s ease;
-}
-
-.work-wrapper:hover .fa {
-  text-shadow: 0 0 15px rgba(235, 84, 36, 1), 0 0 30px rgba(235, 84, 36, 0.7),
-    0 0 45px rgba(255, 107, 61, 0.5);
-  transform: scale(1.1);
-}
-.tm-service-list {
-  list-style: none;
-  padding: 0;
-  margin: 20px 0 0 0;
-  text-align: left;
-  flex: 1;
-}
-.tm-service-list li {
-  color: #e0e0e0;
-  padding: 8px 0;
-  padding-left: 25px;
-  position: relative;
-  line-height: 24px;
-  transition: all 0.3s ease;
-}
-
-.work-wrapper:hover .tm-service-list li {
-  color: #ffffff;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
-}
-.tm-service-list li:before {
-  content: "▸";
-  color: #eb5424;
-  font-weight: bold;
-  position: absolute;
-  left: 0;
-  text-shadow: 0 0 5px rgba(235, 84, 36, 0.6);
-  transition: all 0.3s ease;
-}
-
-.work-wrapper:hover .tm-service-list li:before {
-  text-shadow: 0 0 10px rgba(235, 84, 36, 1), 0 0 20px rgba(235, 84, 36, 0.6);
-  transform: translateX(3px);
-}
 
 .tm-service-btn {
   background: transparent;
@@ -746,31 +586,32 @@ hr:hover {
   left: 100%;
 }
 
-.work-wrapper:hover .tm-service-btn {
-  box-shadow: 0 0 15px rgba(235, 84, 36, 0.5),
-    inset 0 0 15px rgba(235, 84, 36, 0.15);
-}
-
 /* Services Grid */
+#work .row .col-md-12 .services-grid,
 .services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(120px, 1fr));
-  gap: 25px;
-  margin: 50px auto 0;
-  padding: 0 20px;
-  max-width: 1000px;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(120px, 1fr)) !important;
+  gap: 25px !important;
+  margin: 50px auto 0 !important;
+  padding: 0 20px !important;
+  max-width: 1000px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  float: none !important;
 }
 
 .service-item {
-  border: 1px solid #333333;
-  border-radius: 8px;
-  text-align: center;
-  padding: 35px 25px;
-  background: #0a0a0a;
-  transition: all 0.4s ease;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
+  border: 1px solid #333333 !important;
+  border-radius: 8px !important;
+  text-align: center !important;
+  padding: 35px 25px !important;
+  background: #0a0a0a !important;
+  transition: all 0.4s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+  cursor: pointer !important;
+  display: block !important;
+  box-sizing: border-box !important;
 }
 
 .service-item::before {
@@ -847,16 +688,16 @@ hr:hover {
 
 @media screen and (max-width: 1200px) {
   .services-grid {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+    gap: 20px !important;
   }
 }
 
 @media screen and (max-width: 768px) {
   .services-grid {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
-    padding: 0 10px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
+    gap: 15px !important;
+    padding: 0 10px !important;
   }
 
   .service-item {
@@ -879,33 +720,39 @@ hr:hover {
 
 @media screen and (max-width: 480px) {
   .services-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
+    grid-template-columns: 1fr !important;
+    gap: 15px !important;
   }
 }
 /* END WORK */
 
 /* START PRICING */
+#pricing .row .col-md-12 .pricing-grid,
 .pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  margin-top: 50px;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 20px;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+  gap: 30px !important;
+  margin-top: 50px !important;
+  max-width: 1200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 0 20px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  float: none !important;
 }
 
 .pricing-card {
-  border: 1px solid #333333;
-  border-radius: 12px;
-  background: #0a0a0a;
-  padding: 40px 30px;
-  text-align: center;
-  position: relative;
-  transition: all 0.4s ease;
-  overflow: hidden;
+  border: 1px solid #333333 !important;
+  border-radius: 12px !important;
+  background: #0a0a0a !important;
+  padding: 40px 30px !important;
+  text-align: center !important;
+  position: relative !important;
+  transition: all 0.4s ease !important;
+  overflow: hidden !important;
+  display: block !important;
+  box-sizing: border-box !important;
 }
 
 .pricing-card::before {
@@ -1141,23 +988,23 @@ hr:hover {
 
 @media screen and (max-width: 992px) {
   .pricing-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 25px !important;
   }
   
   .pricing-card.featured {
-    transform: scale(1);
+    transform: scale(1) !important;
   }
   
   .pricing-card.featured:hover {
-    transform: translateY(-10px);
+    transform: translateY(-10px) !important;
   }
 }
 
 @media screen and (max-width: 768px) {
   .pricing-grid {
-    grid-template-columns: 1fr;
-    max-width: 500px;
+    grid-template-columns: 1fr !important;
+    max-width: 500px !important;
   }
   
   .pricing-card {
@@ -1614,61 +1461,6 @@ hr:hover {
 }
 /* END ABOUT */
 
-/* START SOCIAL */
-.tm-social {
-  text-transform: uppercase;
-}
-.tm-social .container {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-}
-.tm-social .col-md-4 {
-  padding: 0;
-  margin: 0;
-}
-.facebook:hover,
-.twitter:hover,
-.pinterest:hover {
-  background: #000000;
-  opacity: 0.9;
-}
-.facebook {
-  background: #3b5998;
-}
-.twitter {
-  background: #55acee;
-}
-.pinterest {
-  background: #cc2127;
-}
-.media {
-  padding: 80px 40px 80px 40px;
-  -webkit-transition: all 0.6s ease-in;
-  transition: all 0.6s ease-in;
-}
-.tm-social a {
-  color: #ffffff;
-  display: inline-block;
-  text-decoration: none;
-}
-.tm-social .media .fa {
-  background: #1a1a1a;
-  border-radius: 2px;
-  color: #ffffff;
-  font-size: 30px;
-  width: 60px;
-  height: 60px;
-  line-height: 60px;
-  text-align: center;
-  margin-right: 20px;
-}
-.tm-social-title {
-  font-family: "Raleway", sans-serif;
-  font-weight: bold;
-}
-/* END SOCIAL */
-
 /* START CONTACT */
 .tm-contact {
   text-align: center;
@@ -1760,9 +1552,6 @@ input[type="submit"]:hover {
   .portfolio-overlay {
     padding-top: 10px;
   }
-  #work .row {
-    justify-content: center;
-  }
 }
 /* END MEDIA 980 */
 
@@ -1774,17 +1563,6 @@ input[type="submit"]:hover {
     width: 150px;
     height: 150px;
     margin-bottom: 20px;
-  }
-  #work .row {
-    justify-content: center;
-  }
-  #work .col-sm-4 {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto 20px auto;
-  }
-  .work-wrapper {
-    margin: 0;
   }
 }
 
