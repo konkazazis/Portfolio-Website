@@ -774,9 +774,7 @@ hr:hover {
 .pricing-card:hover {
   border-color: #eb5424;
   background: #111111;
-  box-shadow: 
-    0 0 30px rgba(235, 84, 36, 0.4), 
-    0 0 60px rgba(235, 84, 36, 0.2),
+  box-shadow: 0 0 30px rgba(235, 84, 36, 0.4), 0 0 60px rgba(235, 84, 36, 0.2),
     inset 0 0 30px rgba(235, 84, 36, 0.1);
   transform: translateY(-10px);
 }
@@ -793,9 +791,7 @@ hr:hover {
 
 .pricing-card.featured:hover {
   transform: scale(1.08) translateY(-10px);
-  box-shadow: 
-    0 0 40px rgba(235, 84, 36, 0.5), 
-    0 0 80px rgba(235, 84, 36, 0.3),
+  box-shadow: 0 0 40px rgba(235, 84, 36, 0.5), 0 0 80px rgba(235, 84, 36, 0.3),
     inset 0 0 40px rgba(235, 84, 36, 0.15);
 }
 
@@ -836,6 +832,11 @@ hr:hover {
   transform: scale(1.1) rotate(5deg);
 }
 
+.pricing-card .from {
+  font-size: 18px;
+  color: rgba(153, 153, 153, 0.5);
+}
+
 .pricing-header h3 {
   color: #ffffff;
   font-size: 24px;
@@ -864,16 +865,12 @@ hr:hover {
   font-weight: 700;
   color: #eb5424;
   line-height: 1;
-  text-shadow: 
-    0 0 15px rgba(235, 84, 36, 0.8),
-    0 0 30px rgba(235, 84, 36, 0.5);
+  text-shadow: 0 0 15px rgba(235, 84, 36, 0.8), 0 0 30px rgba(235, 84, 36, 0.5);
   display: inline-block;
 }
 
 .pricing-card:hover .pricing-price .amount {
-  text-shadow: 
-    0 0 20px rgba(235, 84, 36, 1),
-    0 0 40px rgba(235, 84, 36, 0.7),
+  text-shadow: 0 0 20px rgba(235, 84, 36, 1), 0 0 40px rgba(235, 84, 36, 0.7),
     0 0 60px rgba(255, 107, 61, 0.5);
 }
 
@@ -916,6 +913,15 @@ hr:hover {
   position: absolute;
   left: 0;
   color: #eb5424;
+  font-size: 16px;
+  text-shadow: 0 0 8px rgba(235, 84, 36, 0.6);
+  transition: all 0.3s ease;
+}
+
+.pricing-features li .fa-plus {
+  position: absolute;
+  left: 0;
+  color: #fcfcfc;
   font-size: 16px;
   text-shadow: 0 0 8px rgba(235, 84, 36, 0.6);
   transition: all 0.3s ease;
@@ -973,11 +979,8 @@ hr:hover {
   background: #eb5424;
   color: #ffffff;
   border-color: #eb5424;
-  box-shadow: 
-    0 0 25px rgba(235, 84, 36, 0.7), 
-    0 0 50px rgba(235, 84, 36, 0.5),
-    0 0 75px rgba(255, 107, 61, 0.4),
-    inset 0 0 25px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 25px rgba(235, 84, 36, 0.7), 0 0 50px rgba(235, 84, 36, 0.5),
+    0 0 75px rgba(255, 107, 61, 0.4), inset 0 0 25px rgba(255, 255, 255, 0.1);
   transform: translateY(-2px);
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
@@ -991,11 +994,11 @@ hr:hover {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
     gap: 25px !important;
   }
-  
+
   .pricing-card.featured {
     transform: scale(1) !important;
   }
-  
+
   .pricing-card.featured:hover {
     transform: translateY(-10px) !important;
   }
@@ -1006,11 +1009,11 @@ hr:hover {
     grid-template-columns: 1fr !important;
     max-width: 500px !important;
   }
-  
+
   .pricing-card {
     padding: 35px 25px;
   }
-  
+
   .pricing-price .amount {
     font-size: 48px;
   }
