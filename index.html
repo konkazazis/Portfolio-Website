@@ -256,11 +256,8 @@
                 <div class="pricing-header">
                   <i class="fa fa-cogs"></i>
                   <h3>Custom Web Apps</h3>
-                  <span class="from">from</span>
                   <div class="pricing-price">
-                    <span class="currency">€</span>
-                    <span class="amount">1,999</span>
-                    <span class="period">/project</span>
+                    <span class="period">Contact me for pricing</span>
                   </div>
                 </div>
                 <div class="pricing-features">
@@ -271,12 +268,10 @@
                     <li><i class="fa fa-check"></i> User authentication</li>
                     <li><i class="fa fa-check"></i> Payment integration</li>
                     <li><i class="fa fa-check"></i> Admin (CMS) dashboard</li>
+                    <li><i class="fa fa-plus"></i> unlimited support</li>
                     <li>
-                      <i class="fa fa-plus"></i> 125€/month unlimited support
-                    </li>
-                    <li>
-                      <i class="fa fa-plus"></i> from 75€/month unlimited
-                      (variable pricing) hosting
+                      <i class="fa fa-plus"></i> unlimited (variable pricing)
+                      hosting
                     </li>
                   </ul>
                 </div>
@@ -292,7 +287,7 @@
                   <h3>Landing Pages</h3>
                   <div class="pricing-price">
                     <span class="currency">€</span>
-                    <span class="amount">499</span>
+                    <span class="amount">449</span>
                     <span class="period">/project</span>
                   </div>
                 </div>
@@ -309,7 +304,7 @@
                     <li><i class="fa fa-check"></i> Contact form</li>
                     <li><i class="fa fa-check"></i> Top performance</li>
                     <li>
-                      <i class="fa fa-plus"></i> 75€/month unlimited support
+                      <i class="fa fa-plus"></i> 50€/month unlimited support
                     </li>
                     <li>
                       <i class="fa fa-plus"></i> 25€/month unlimited hosting
@@ -715,7 +710,9 @@
                 >kostas@kazazis.dev</a
               >
             </p>
-            <p>Copyright &copy; 2026 Kazazis Konstantinos</p>
+            <p>
+              Copyright &copy; <span id="year">2026</span> Kazazis Konstantinos
+            </p>
           </div>
         </div>
       </div>
@@ -729,6 +726,7 @@
     <script src="js/imagesloaded.min.js"></script>
     <script src="js/custom.js"></script>
     <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
       // Handle form submission according to FormSubmit documentation
       document
         .getElementById("contact-form")
