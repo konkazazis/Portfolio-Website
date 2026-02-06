@@ -1,0 +1,6 @@
+# robots.txt for kazazis.dev
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://kazazis.dev/sitemap.xml

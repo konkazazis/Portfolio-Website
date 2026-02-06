@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <!-- Preconnect for external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+
     <!-- SEO Meta Tags -->
     <meta
       name="description"
@@ -50,6 +55,83 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://kazazis.dev/" />
 
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Konstantinos Kazazis",
+      "url": "https://kazazis.dev/",
+      "image": "https://kazazis.dev/profile-pic.png",
+      "jobTitle": "Full-Stack Web Developer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Self-Employed"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Düsseldorf",
+        "addressCountry": "Germany"
+      },
+      "sameAs": [
+        "https://github.com/konkazazis",
+        "https://www.linkedin.com/in/konstantinos-kazazis-32a470228/"
+      ],
+      "knowsAbout": ["React", "JavaScript", "Java", "Spring Boot", "PostgreSQL", "TypeScript", "HTML5", "CSS3"]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Konstantinos Kazazis - Web Development Services",
+      "url": "https://kazazis.dev/",
+      "image": "https://kazazis.dev/profile-pic.png",
+      "description": "Professional Full-Stack Web Developer creating modern and responsive web applications. Specializing in React, JavaScript, Java, Spring, and PostgreSQL.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Düsseldorf",
+        "addressCountry": "Germany"
+      },
+      "priceRange": "$$",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Web Development Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Custom Web Applications",
+              "description": "Full-stack development including blogs, ecommerce, database design, and admin dashboards"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Landing Pages",
+              "description": "Custom designed responsive landing pages with SEO optimization"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Web Hosting",
+              "description": "Server setup, domain management, SSL, backups, and 24/7 monitoring"
+            }
+          }
+        ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "3"
+      }
+    }
+    </script>
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="alternate icon" type="image/png" href="favicon.png" />
@@ -64,9 +146,8 @@
     <link rel="stylesheet" href="css/font-awesome.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link
-      href="//fonts.googleapis.com/css?family=Raleway:400,300,600,700"
+      href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,700&display=swap"
       rel="stylesheet"
-      type="text/css"
     />
     <!-- Technology Icons -->
     <link
@@ -123,7 +204,7 @@
             <div class="text-center">
               <img
                 src="profile-pic.png"
-                alt="Profile"
+                alt="Konstantinos Kazazis - Full-Stack Web Developer in Düsseldorf, Germany"
                 class="tm-home-profile-img"
               />
             </div>
@@ -482,7 +563,7 @@
                         <img
                           src="ntinos.png"
                           class="fluid-img"
-                          alt="portfolio img"
+                          alt="Personal Training Platform - Full-stack ecommerce web application"
                         />
                         <div class="portfolio-overlay">
                           <h3 class="portfolio-item-title">
@@ -508,7 +589,7 @@
                         <img
                           src="karpos.png"
                           class="fluid-img"
-                          alt="portfolio img"
+                          alt="Freelancer Landing Page - Transportation Designer portfolio website"
                         />
                         <div class="portfolio-overlay">
                           <h3 class="portfolio-item-title">
@@ -586,7 +667,7 @@
             <div class="text-center tm-about-image-wrapper">
               <img
                 src="profile-pic-nobg.png"
-                alt="Profile"
+                alt="Konstantinos Kazazis - Professional Web Developer portrait"
                 class="img-responsive tm-about-image"
               />
             </div>
