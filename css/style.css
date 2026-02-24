@@ -393,6 +393,39 @@ hr:hover {
   transform: translateY(-3px) scale(1.1);
   box-shadow: 0 5px 20px rgba(235, 84, 36, 0.4);
 }
+
+.tm-blog-link {
+  background: #eb5424;
+  color: #ffffff;
+}
+
+.tm-blog-link:hover {
+  background: #d1451a;
+  border-color: #d1451a;
+  color: #ffffff;
+}
+
+/* Navbar blog link */
+.tm-blog-nav-link {
+  color: #eb5424 !important;
+  font-weight: 700 !important;
+  border: 2px solid #eb5424;
+  border-radius: 3px;
+  padding: 5px 14px !important;
+  transition: all 0.3s ease !important;
+  line-height: normal !important;
+}
+
+.tm-blog-nav-link:hover,
+.tm-blog-nav-link:focus {
+  background: #eb5424 !important;
+  color: #ffffff !important;
+  border-color: #eb5424;
+}
+
+.tm-blog-nav-link:before {
+  display: none !important;
+}
 .tm-view-more-btn {
   background: #eb5424;
   color: #ffffff;
