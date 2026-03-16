@@ -754,6 +754,16 @@
                 name="_autoresponse"
                 value="Thank you for contacting me! I'll get back to you soon."
               />
+              <!-- Honeypot: hidden from humans, bots fill this in -->
+              <input
+                type="text"
+                name="_honey"
+                id="hp-website"
+                autocomplete="off"
+                tabindex="-1"
+                style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;"
+                aria-hidden="true"
+              />
 
               <!-- Form fields -->
               <div class="col-md-6 col-sm-6">
@@ -856,6 +866,12 @@
           var submitBtn = document.getElementById("submit-btn");
           var formMessage = document.getElementById("form-message");
           var originalBtnText = submitBtn.value;
+
+          // Honeypot check: bots fill the hidden field, humans never see it
+          if (document.getElementById("hp-website").value !== "") {
+            event.preventDefault();
+            return;
+          }
 
           // Ensure method is POST (required by FormSubmit)
           form.method = "POST";
