@@ -944,15 +944,15 @@ hr:hover {
     max-width: 600px;
     gap: 20px;
   }
-  
+
   .testimonial-card {
     padding: 35px 25px;
   }
-  
+
   .testimonial-quote {
     font-size: 35px;
   }
-  
+
   .testimonial-text {
     font-size: 15px;
   }
@@ -1159,7 +1159,7 @@ hr:hover {
 /* Technology Icons */
 .tm-tech-icons {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   margin-top: 40px;
   padding: 20px 0;
@@ -1172,7 +1172,7 @@ hr:hover {
   justify-content: center;
   text-align: center;
   transition: all 0.3s ease;
-  padding: 20px;
+  padding: 25px;
   border-radius: 8px;
   background: #ffffff;
   border: 1px solid #e0e0e0;
