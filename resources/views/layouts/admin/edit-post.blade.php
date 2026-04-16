@@ -20,10 +20,10 @@
             class="px-4 py-2 text-sm font-medium text-stone-900 border-b-2 border-stone-900 -mb-px">
             Posts
         </a>
-        <a href="{{ route('admin.comments') }}"
+        {{-- <a href="{{ route('admin.comments') }}"
             class="px-4 py-2 text-sm font-medium text-stone-400 hover:text-stone-600">
             Comments
-        </a>
+        </a> --}}
         <a href="{{ route('admin.taxonomy') }}"
             class="px-4 py-2 text-sm font-medium text-stone-400 hover:text-stone-600">
             Taxonomy
