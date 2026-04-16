@@ -104,7 +104,7 @@
                     <li><a href="#technologies" class="smoothScroll">Technologies</a></li>
                     <li><a href="#about" class="smoothScroll">About</a></li>
                     <li><a href="#contact" class="smoothScroll">Contact</a></li>
-                    <li><a href="{{ route('blog') }}" class="tm-blog-nav-link">Blog</a></li>
+                    <li><a href="#blog" class="smoothScroll">Blog</a></li>
                 </ul>
             </nav>
         </div>
@@ -365,6 +365,50 @@
         </div>
     </section>
     <!-- END PORTFOLIO -->
+
+    <!-- START BLOG -->
+    @if($posts->isNotEmpty())
+    <section id="blog" class="tm-padding-top-bottom-100 tm-blog-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="title text-center">Latest <strong>Blog Posts</strong></h2>
+                    <p class="text-center tm-blog-section-subtitle">Thoughts on web development, tech, and more</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="tm-blog-grid">
+                        @foreach($posts->take(3) as $post)
+                        <article class="tm-blog-card">
+                            @if($post->category)
+                            <span class="tm-blog-category">{{ $post->category->name }}</span>
+                            @endif
+                            <h3 class="tm-blog-card-title">
+                                <a href="{{ route('posts.show', $post->slug) }}">{{ $post->title }}</a>
+                            </h3>
+                            @if($post->excerpt)
+                            <p class="tm-blog-card-excerpt">{{ Str::limit($post->excerpt, 120) }}</p>
+                            @endif
+                            <div class="tm-blog-card-footer">
+                                <span class="tm-blog-date">
+                                    <i class="fa fa-calendar"></i>
+                                    {{ $post->published_at->format('M d, Y') }}
+                                </span>
+                                <a href="{{ route('posts.show', $post->slug) }}" class="tm-blog-read-more">Read More <i class="fa fa-arrow-right"></i></a>
+                            </div>
+                        </article>
+                        @endforeach
+                    </div>
+                    <div class="text-center" style="margin-top: 50px">
+                        <a href="{{ route('blog') }}" class="btn btn-default tm-service-btn" style="padding: 15px 50px; font-size: 18px">View All Posts</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    @endif
+    <!-- END BLOG -->
 
     <!-- START TECHNOLOGIES -->
     <section id="technologies" class="tm-padding-top-bottom-100">

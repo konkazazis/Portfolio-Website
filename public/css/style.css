@@ -1341,6 +1341,109 @@ hr:hover {
 }
 /* END ABOUT */
 
+/* START BLOG SECTION */
+.tm-blog-section {
+  background: #f9f9f9;
+}
+.tm-blog-section-subtitle {
+  color: #666;
+  margin-bottom: 40px;
+  font-size: 16px;
+}
+.tm-blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.tm-blog-card {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.tm-blog-card:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+.tm-blog-category {
+  display: inline-block;
+  background: #eb5424;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 3px 10px;
+  border-radius: 2px;
+  margin-bottom: 14px;
+}
+.tm-blog-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  line-height: 1.4;
+}
+.tm-blog-card-title a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.tm-blog-card-title a:hover {
+  color: #eb5424;
+}
+.tm-blog-card-excerpt {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+  flex-grow: 1;
+  margin-bottom: 20px;
+}
+.tm-blog-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 15px;
+  margin-top: auto;
+}
+.tm-blog-date {
+  color: #999;
+  font-size: 13px;
+}
+.tm-blog-date .fa {
+  margin-right: 5px;
+  color: #eb5424;
+}
+.tm-blog-read-more {
+  color: #eb5424;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.tm-blog-read-more:hover {
+  color: #d1451a;
+  text-decoration: none;
+}
+.tm-blog-read-more .fa {
+  margin-left: 4px;
+  font-size: 11px;
+}
+@media screen and (max-width: 980px) {
+  .tm-blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 767px) {
+  .tm-blog-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* END BLOG SECTION */
+
 /* START CONTACT */
 .tm-contact {
   text-align: center;
