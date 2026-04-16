@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
@@ -9,8 +10,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 
-    <meta name="description" content="Kostas Kazazis - Professional Full-Stack Web Developer based in Düsseldorf, Germany. Specializing in modern web applications, responsive design, and custom full-stack solutions. Expert in React, JavaScript, Java, Spring, and PostgreSQL." />
-    <meta name="keywords" content="web developer, full stack developer, frontend developer, backend developer, React developer, JavaScript developer, Java developer, Spring Boot, PostgreSQL, web design, responsive design, Düsseldorf, Germany, portfolio, freelance developer" />
+    <meta name="description"
+        content="Kostas Kazazis - Professional Full-Stack Web Developer based in Düsseldorf, Germany. Specializing in modern web applications, responsive design, and custom full-stack solutions. Expert in React, JavaScript, Java, Spring, and PostgreSQL." />
+    <meta name="keywords"
+        content="web developer, full stack developer, frontend developer, backend developer, React developer, JavaScript developer, Java developer, Spring Boot, PostgreSQL, web design, responsive design, Düsseldorf, Germany, portfolio, freelance developer" />
     <meta name="author" content="Kostas Kazazis" />
     <meta name="robots" content="index, follow" />
     <meta name="language" content="English" />
@@ -19,7 +22,8 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://kazazis.dev/" />
     <meta property="og:title" content="Kostas Kazazis - Full-Stack Web Developer | kazazis.dev" />
-    <meta property="og:description" content="Professional Full-Stack Web Developer creating modern and responsive web applications. Specializing in React, JavaScript, Java, Spring, and PostgreSQL." />
+    <meta property="og:description"
+        content="Professional Full-Stack Web Developer creating modern and responsive web applications. Specializing in React, JavaScript, Java, Spring, and PostgreSQL." />
     <meta property="og:image" content="https://kazazis.dev/profile-pic.png" />
     <meta property="og:site_name" content="kazazis.dev" />
     <meta property="og:locale" content="en_US" />
@@ -27,42 +31,43 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://kazazis.dev/" />
     <meta name="twitter:title" content="Kostas Kazazis - Full-Stack Web Developer" />
-    <meta name="twitter:description" content="Professional Full-Stack Web Developer creating modern and responsive web applications. Specializing in React, JavaScript, Java, Spring, and PostgreSQL." />
+    <meta name="twitter:description"
+        content="Professional Full-Stack Web Developer creating modern and responsive web applications. Specializing in React, JavaScript, Java, Spring, and PostgreSQL." />
     <meta name="twitter:image" content="https://kazazis.dev/profile-pic.png" />
 
     <link rel="canonical" href="https://kazazis.dev/" />
 
     @verbatim
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Kostas Kazazis",
-        "url": "https://kazazis.dev/",
-        "image": "https://kazazis.dev/profile-pic.png",
-        "jobTitle": "Full-Stack Web Developer",
-        "worksFor": { "@type": "Organization", "name": "Self-Employed" },
-        "address": { "@type": "PostalAddress", "addressLocality": "Düsseldorf", "addressCountry": "Germany" },
-        "sameAs": [
-            "https://github.com/konkazazis",
-            "https://www.linkedin.com/in/Kostas-kazazis-32a470228/"
-        ],
-        "knowsAbout": ["React","JavaScript","Java","Spring Boot","PostgreSQL","TypeScript","HTML5","CSS3"]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "Kostas Kazazis - Web Development Services",
-        "url": "https://kazazis.dev/",
-        "image": "https://kazazis.dev/profile-pic.png",
-        "description": "Professional Full-Stack Web Developer creating modern and responsive web applications.",
-        "address": { "@type": "PostalAddress", "addressLocality": "Düsseldorf", "addressCountry": "Germany" },
-        "priceRange": "$$",
-        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "reviewCount": "3" }
-    }
-    </script>
+        <script type="application/ld+json">
+                                            {
+                                                "@context": "https://schema.org",
+                                                "@type": "Person",
+                                                "name": "Kostas Kazazis",
+                                                "url": "https://kazazis.dev/",
+                                                "image": "https://kazazis.dev/profile-pic.png",
+                                                "jobTitle": "Full-Stack Web Developer",
+                                                "worksFor": { "@type": "Organization", "name": "Self-Employed" },
+                                                "address": { "@type": "PostalAddress", "addressLocality": "Düsseldorf", "addressCountry": "Germany" },
+                                                "sameAs": [
+                                                    "https://github.com/konkazazis",
+                                                    "https://www.linkedin.com/in/Kostas-kazazis-32a470228/"
+                                                ],
+                                                "knowsAbout": ["React","JavaScript","Java","Spring Boot","PostgreSQL","TypeScript","HTML5","CSS3"]
+                                            }
+                                            </script>
+        <script type="application/ld+json">
+                                            {
+                                                "@context": "https://schema.org",
+                                                "@type": "ProfessionalService",
+                                                "name": "Kostas Kazazis - Web Development Services",
+                                                "url": "https://kazazis.dev/",
+                                                "image": "https://kazazis.dev/profile-pic.png",
+                                                "description": "Professional Full-Stack Web Developer creating modern and responsive web applications.",
+                                                "address": { "@type": "PostalAddress", "addressLocality": "Düsseldorf", "addressCountry": "Germany" },
+                                                "priceRange": "$$",
+                                                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "reviewCount": "3" }
+                                            }
+                                            </script>
     @endverbatim
 
     <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.ico') }}" />
@@ -76,6 +81,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
 </head>
+
 <body data-spy="scroll" data-target="#rock-navigation">
 
     <!-- START NAVIGATION -->
@@ -112,22 +118,27 @@
                 <div class="col-md-2 col-sm-1"></div>
                 <div class="col-md-8 col-sm-10">
                     <div class="text-center">
-                        <img src="{{ asset('images/profile-pic.png') }}" alt="Kostas Kazazis - Full-Stack Web Developer in Düsseldorf, Germany" class="tm-home-profile-img" />
+                        <img src="{{ asset('images/profile-pic.png') }}"
+                            alt="Kostas Kazazis - Full-Stack Web Developer in Düsseldorf, Germany"
+                            class="tm-home-profile-img" />
                     </div>
                     <h1 class="tm-home-title"><strong>Kostas Kazazis</strong></h1>
                     <h2 class="tm-home-subtitle">Web Developer</h2>
                     <div class="tm-home-social-links">
-                        <a href="https://github.com/konkazazis" target="_blank" rel="noopener noreferrer" class="tm-social-link" aria-label="GitHub">
+                        <a href="https://github.com/konkazazis" target="_blank" rel="noopener noreferrer"
+                            class="tm-social-link" aria-label="GitHub">
                             <i class="fa fa-github"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/Kostas-kazazis-32a470228/" target="_blank" rel="noopener noreferrer" class="tm-social-link" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/in/Kostas-kazazis-32a470228/" target="_blank"
+                            rel="noopener noreferrer" class="tm-social-link" aria-label="LinkedIn">
                             <i class="fa fa-linkedin"></i>
                         </a>
                         <a href="{{ route('blog') }}" class="tm-social-link tm-blog-link" aria-label="Blog">
                             <i class="fa fa-pencil"></i>
                         </a>
                     </div>
-                    <p>I am a professional <strong>Full-Stack Web Developer</strong> creating modern and responsive designs for the <strong>Web</strong>.</p>
+                    <p>I am a professional <strong>Full-Stack Web Developer</strong> creating modern and responsive
+                        designs for the <strong>Web</strong>.</p>
                     <a href="#work" class="btn btn-default smoothScroll tm-view-more-btn">Let's Begin</a>
                 </div>
                 <div class="col-md-2 col-sm-1"></div>
@@ -150,36 +161,24 @@
                         <div class="service-item">
                             <i class="fa fa-globe"></i>
                             <h4>Professional Websites</h4>
-                            <p>Beautiful, custom websites that showcase your business and attract new customers</p>
-                        </div>
-                        <div class="service-item">
-                            <i class="fa fa-shopping-cart"></i>
-                            <h4>Online Stores & Apps</h4>
-                            <p>Complete online solutions for selling products, managing customers, and growing your business</p>
+                            <p>Beautiful and custom websites that convert. With features like custom blogs and contact
+                                sections.</p>
                         </div>
                         <div class="service-item">
                             <i class="fa fa-mobile"></i>
                             <h4>Mobile-Friendly Design</h4>
-                            <p>Your website works perfectly on phones, tablets, and computers - reaching customers everywhere</p>
+                            <p>Your website works perfectly on phones, tablets, and computers - reaching customers
+                                everywhere</p>
                         </div>
                         <div class="service-item">
                             <i class="fa fa-shield"></i>
                             <h4>Secure & Protected</h4>
                             <p>Keep your business and customer data safe with professional security measures</p>
                         </div>
-                        <div class="service-item">
-                            <i class="fa fa-cloud"></i>
-                            <h4>Hosting & Support</h4>
-                            <p>I handle everything - from getting your site online to keeping it running smoothly</p>
-                        </div>
-                        <div class="service-item">
-                            <i class="fa fa-search"></i>
-                            <h4>Google Visibility</h4>
-                            <p>Get found by customers searching for your services with search engine optimization</p>
-                        </div>
                     </div>
                     <div class="text-center" style="margin-top: 50px">
-                        <a href="#contact" class="btn btn-default smoothScroll tm-service-btn" style="padding: 15px 50px; font-size: 18px">Get Started</a>
+                        <a href="#contact" class="btn btn-default smoothScroll tm-service-btn"
+                            style="padding: 15px 50px; font-size: 18px">Get Started</a>
                     </div>
                 </div>
             </div>
@@ -208,20 +207,18 @@
                             </div>
                             <div class="pricing-features">
                                 <ul>
-                                    <li><i class="fa fa-check"></i> Blogs, ecommerce, etc</li>
+                                    <li><i class="fa fa-check"></i> Blogs, SASS, etc</li>
                                     <li><i class="fa fa-check"></i> Full-stack development</li>
                                     <li><i class="fa fa-check"></i> Database design</li>
                                     <li><i class="fa fa-check"></i> User authentication</li>
                                     <li><i class="fa fa-check"></i> Payment integration</li>
                                     <li><i class="fa fa-check"></i> Admin (CMS) dashboard</li>
-                                    <li><i class="fa fa-plus"></i> unlimited support</li>
-                                    <li><i class="fa fa-plus"></i> unlimited (variable pricing) hosting</li>
                                 </ul>
                             </div>
                             <a href="#contact" class="pricing-btn smoothScroll">Get Started</a>
                         </div>
 
-                        <div class="pricing-card featured">
+                        <div class="pricing-card">
                             <div class="pricing-header">
                                 <i class="fa fa-rocket"></i>
                                 <h3>Landing Page</h3>
@@ -236,34 +233,7 @@
                                     <li><i class="fa fa-check"></i> Responsive layout</li>
                                     <li><i class="fa fa-check"></i> Technical SEO optimization</li>
                                     <li><i class="fa fa-check"></i> Contact form</li>
-                                    <li><i class="fa fa-check"></i> Top performance</li>
-                                    <li><i class="fa fa-plus"></i> unlimited support</li>
-                                    <li><i class="fa fa-plus"></i> unlimited hosting</li>
-                                </ul>
-                            </div>
-                            <a href="#contact" class="pricing-btn smoothScroll">Get Started</a>
-                        </div>
-
-                        <div class="pricing-card">
-                            <div class="pricing-header">
-                                <i class="fa fa-server"></i>
-                                <h3>Hosting</h3>
-                                <span class="from">from</span>
-                                <div class="pricing-price">
-                                    <span class="currency">€</span>
-                                    <span class="amount">25</span>
-                                    <span class="period">/month</span>
-                                </div>
-                            </div>
-                            <div class="pricing-features">
-                                <ul>
-                                    <li><i class="fa fa-check"></i> Server setup</li>
-                                    <li><i class="fa fa-check"></i> Domain management</li>
-                                    <li><i class="fa fa-check"></i> SSL certificate</li>
-                                    <li><i class="fa fa-check"></i> Database Backups</li>
-                                    <li><i class="fa fa-check"></i> 24/7 monitoring</li>
-                                    <li><i class="fa fa-check"></i> Performance optimization</li>
-                                    <li><i class="fa fa-check"></i> Technical support</li>
+                                    <li><i class="fa fa-check"></i> Proven excellent performance</li>
                                 </ul>
                             </div>
                             <a href="#contact" class="pricing-btn smoothScroll">Get Started</a>
@@ -289,10 +259,13 @@
                         <div class="testimonial-card">
                             <div class="testimonial-content">
                                 <div class="testimonial-quote"><i class="fa fa-quote-left"></i></div>
-                                <p class="testimonial-text">Kostas created an amazing website for my small business. The process was smooth, and the result exceeded my expectations. My customers love how easy it is to navigate!</p>
+                                <p class="testimonial-text">Kostas created an amazing website for my small business. The
+                                    process was smooth, and the result exceeded my expectations. My customers love how
+                                    easy it is to navigate!</p>
                                 <div class="testimonial-author">
                                     <div class="testimonial-stars">
-                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i>
                                     </div>
                                     <h5>Sarah M.</h5>
                                     <span>Small Business Owner</span>
@@ -303,10 +276,13 @@
                         <div class="testimonial-card">
                             <div class="testimonial-content">
                                 <div class="testimonial-quote"><i class="fa fa-quote-left"></i></div>
-                                <p class="testimonial-text">Professional, responsive, and delivered on time. Kostas helped me get my online store up and running quickly. Highly recommend his services!</p>
+                                <p class="testimonial-text">Professional, responsive, and delivered on time. Kostas
+                                    helped me get my online store up and running quickly. Highly recommend his services!
+                                </p>
                                 <div class="testimonial-author">
                                     <div class="testimonial-stars">
-                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i>
                                     </div>
                                     <h5>Kostas Kapratsis</h5>
                                     <span>Fitness and diet coach</span>
@@ -317,10 +293,13 @@
                         <div class="testimonial-card">
                             <div class="testimonial-content">
                                 <div class="testimonial-quote"><i class="fa fa-quote-left"></i></div>
-                                <p class="testimonial-text">Working with Kostas was a great experience. He understood my vision and brought it to life. The website looks professional and has helped grow my business significantly.</p>
+                                <p class="testimonial-text">Working with Kostas was a great experience. He understood my
+                                    vision and brought it to life. The website looks professional and has helped grow my
+                                    business significantly.</p>
                                 <div class="testimonial-author">
                                     <div class="testimonial-stars">
-                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i>
                                     </div>
                                     <h5>Christos Karpos</h5>
                                     <span>Local Business Owner and Freelance Industrial Designer</span>
@@ -351,9 +330,12 @@
                         <div class="iso-box-section">
                             <div class="iso-box-wrapper col4-iso-box">
                                 <div class="iso-box full-stack mobile col-md-3 col-sm-3 col-xs-12">
-                                    <a href="https://kostas-eshop-production.up.railway.app/" class="portfolio-link" target="_blank" rel="noopener noreferrer">
+                                    <a href="https://kostas-eshop-production.up.railway.app/" class="portfolio-link"
+                                        target="_blank" rel="noopener noreferrer">
                                         <div class="portfolio-thumb">
-                                            <img src="{{ asset('images/ntinos.png') }}" class="fluid-img" alt="Personal Training Platform - Full-stack ecommerce web application" loading="lazy" />
+                                            <img src="{{ asset('images/ntinos.png') }}" class="fluid-img"
+                                                alt="Personal Training Platform - Full-stack ecommerce web application"
+                                                loading="lazy" />
                                             <div class="portfolio-overlay">
                                                 <h3 class="portfolio-item-title">Personal Training platform</h3>
                                                 <p>Full stack application with ecommerce capabilities</p>
@@ -362,9 +344,12 @@
                                     </a>
                                 </div>
                                 <div class="iso-box websites mobile col-md-3 col-sm-3 col-xs-12">
-                                    <a href="https://chris-karpos-production.up.railway.app/" class="portfolio-link" target="_blank" rel="noopener noreferrer">
+                                    <a href="https://chris-karpos-production.up.railway.app/" class="portfolio-link"
+                                        target="_blank" rel="noopener noreferrer">
                                         <div class="portfolio-thumb">
-                                            <img src="{{ asset('images/karpos.png') }}" class="fluid-img" alt="Freelancer Landing Page - Transportation Designer portfolio website" loading="lazy" />
+                                            <img src="{{ asset('images/karpos.png') }}" class="fluid-img"
+                                                alt="Freelancer Landing Page - Transportation Designer portfolio website"
+                                                loading="lazy" />
                                             <div class="portfolio-overlay">
                                                 <h3 class="portfolio-item-title">Freelancer Landing Page</h3>
                                                 <p>Freelance Transportational Designer Page</p>
@@ -387,7 +372,8 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
                     <h2 class="title text-center"><strong>Technologies</strong></h2>
-                    <p class="text-center">Here are some of the technologies and tools I work with to build modern web applications.</p>
+                    <p class="text-center">Here are some of the technologies and tools I work with to build modern web
+                        applications.</p>
                     <div class="tm-tech-icons">
                         <div class="tech-icon-item">
                             <i class="devicon-php-plain colored"></i>
@@ -414,7 +400,9 @@
             <div class="row">
                 <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="text-center tm-about-image-wrapper">
-                        <img src="{{ asset('images/profile-pic-nobg.png') }}" alt="Kostas Kazazis - Professional Web Developer portrait" class="img-responsive tm-about-image" loading="lazy" />
+                        <img src="{{ asset('images/profile-pic-nobg.png') }}"
+                            alt="Kostas Kazazis - Professional Web Developer portrait"
+                            class="img-responsive tm-about-image" loading="lazy" />
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12 col-xs-12">
@@ -426,7 +414,14 @@
                         <i class="fa fa-map-marker"></i>
                         <span> <strong>Düsseldorf, Germany</strong></span>
                     </div>
-                    <p>I'm a passionate Full-Stack Web Developer with expertise in building scalable, user-centric web applications. With a strong foundation in modern web technologies and a keen eye for detail, I transform ideas into elegant digital solutions. My approach combines technical excellence with creative problem-solving—basically, I make computers do cool stuff without breaking anything (most of the time). Whether you're looking to launch a new web presence or need to rescue an existing platform from the digital stone age, I'm here to turn your wildest ideas into reality. Fair warning: my code is clean, my designs are responsive, and my coffee consumption is legendary.</p>
+                    <p>I'm a passionate Full-Stack Web Developer with expertise in building scalable, user-centric web
+                        applications. With a strong foundation in modern web technologies and a keen eye for detail, I
+                        transform ideas into elegant digital solutions. My approach combines technical excellence with
+                        creative problem-solving—basically, I make computers do cool stuff without breaking anything
+                        (most of the time). Whether you're looking to launch a new web presence or need to rescue an
+                        existing platform from the digital stone age, I'm here to turn your wildest ideas into reality.
+                        Fair warning: my code is clean, my designs are responsive, and my coffee consumption is
+                        legendary.</p>
                 </div>
             </div>
         </div>
@@ -443,26 +438,35 @@
                 </div>
                 <div class="col-md-1 col-sm-1"></div>
                 <div class="col-md-10 col-sm-10">
-                    <form id="contact-form" class="needs-validation" action="https://formsubmit.co/kostas@kazazis.dev" method="POST">
+                    <form id="contact-form" class="needs-validation" action="https://formsubmit.co/kostas@kazazis.dev"
+                        method="POST">
                         <input type="hidden" name="_subject" value="New Contact Form Submission from Portfolio" />
                         <input type="hidden" name="_captcha" value="false" />
                         <input type="hidden" name="_next" value="" />
                         <input type="hidden" name="_template" value="box" />
-                        <input type="hidden" name="_autoresponse" value="Thank you for contacting me! I'll get back to you soon." />
-                        <input type="text" name="_honey" id="hp-website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true" />
+                        <input type="hidden" name="_autoresponse"
+                            value="Thank you for contacting me! I'll get back to you soon." />
+                        <input type="text" name="_honey" id="hp-website" autocomplete="off" tabindex="-1"
+                            style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;"
+                            aria-hidden="true" />
 
                         <div class="col-md-6 col-sm-6">
-                            <input class="form-control" type="text" name="name" id="name" placeholder="Your Name" required />
+                            <input class="form-control" type="text" name="name" id="name" placeholder="Your Name"
+                                required />
                         </div>
                         <div class="col-md-6 col-sm-6">
-                            <input class="form-control" type="email" name="email" id="email" placeholder="Your Email" required />
+                            <input class="form-control" type="email" name="email" id="email" placeholder="Your Email"
+                                required />
                         </div>
                         <div class="col-md-12 col-sm-12">
-                            <input class="form-control" type="text" name="subject" id="subject" placeholder="Your Subject" required />
-                            <textarea class="form-control" name="message" id="message" placeholder="Your Message" rows="6" required></textarea>
+                            <input class="form-control" type="text" name="subject" id="subject"
+                                placeholder="Your Subject" required />
+                            <textarea class="form-control" name="message" id="message" placeholder="Your Message"
+                                rows="6" required></textarea>
                         </div>
                         <div class="col-md-12 col-sm-12">
-                            <div id="form-message" style="margin-bottom:20px;display:none;padding:15px;border-radius:2px;"></div>
+                            <div id="form-message"
+                                style="margin-bottom:20px;display:none;padding:15px;border-radius:2px;"></div>
                         </div>
                         <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8">
                             <input class="form-control" type="submit" value="SHOOT MESSAGE" id="submit-btn" />
@@ -472,7 +476,8 @@
                 <div class="col-md-1 col-sm-1"></div>
                 <div class="col-md-12 col-sm-12">
                     <p style="font-size:12px;color:#666;margin-top:15px;text-align:center;">
-                        Or email directly: <a href="mailto:kostas@kazazis.dev?subject=Contact%20from%20Portfolio" style="color:#eb5424">kostas@kazazis.dev</a>
+                        Or email directly: <a href="mailto:kostas@kazazis.dev?subject=Contact%20from%20Portfolio"
+                            style="color:#eb5424">kostas@kazazis.dev</a>
                     </p>
                     <p>Copyright &copy; {{ date('Y') }} Kazazis Kostas</p>
                 </div>
@@ -559,4 +564,5 @@
         });
     </script>
 </body>
+
 </html>
