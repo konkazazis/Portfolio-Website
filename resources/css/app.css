@@ -1,0 +1,29 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap');
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: "Raleway", system-ui, -apple-system, sans-serif;
+    --font-serif: "Raleway", Georgia, serif;
+    --color-brand: #eb5424;
+    --color-brand-dark: #c94219;
+}
+
+@layer base {
+    body {
+        @apply font-sans bg-stone-50 text-stone-800 leading-[1.7] antialiased;
+    }
+}
+
+@layer components {
+    .tag-badge {
+        @apply px-2 py-0.5 rounded text-xs font-medium border border-[#eb5424]/30 text-[#eb5424] bg-[#eb5424]/5;
+    }
+    .category-badge {
+        @apply px-2.5 py-0.5 rounded text-xs font-semibold uppercase tracking-wide bg-[#eb5424] text-white;
+    }
+}
