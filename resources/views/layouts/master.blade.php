@@ -35,25 +35,26 @@
 
 		<header class="sticky top-0 z-100 bg-[#1f1f1f]/95 backdrop-blur-md border-b border-white/10">
 			<div class="max-w-280 mx-auto px-6 h-16 flex items-center justify-between">
-				<a href="{{ route('home') }}"
+				<a href="{{ route('blog') }}"
 					class="text-xl font-bold text-white tracking-tight uppercase hover:text-brand transition-colors">
 					Kostas<span class="text-brand">.</span>
 				</a>
 				<nav class="flex gap-8 max-sm:gap-5 text-sm uppercase tracking-wide font-semibold">
 					<a href="{{ route('about') }}" class="transition-colors {{ request()->routeIs('about')
-						? 'text-brand'
-						: 'text-zinc-400 hover:text-white' }}">About</a>
+	? 'text-brand'
+	: 'text-zinc-400 hover:text-white' }}">About</a>
 					@auth
 						@if (auth()->user()->is_admin)
-							<a href="{{ route('admin') }}" class="transition-colors {{ request()->routeIs('admin')
-								? 'text-brand'
-								: 'text-zinc-400 hover:text-white' }}">Admin</a>
+									<a href="{{ route('admin') }}" class="transition-colors {{ request()->routeIs('admin')
+							? 'text-brand'
+							: 'text-zinc-400 hover:text-white' }}">Admin</a>
 						@endif
 					@endauth
 					<a href="{{ route('blog') }}" class="transition-colors {{ request()->routeIs('blog') || request()->routeIs('posts.show')
-						? 'text-brand'
-						: 'text-zinc-400 hover:text-white' }}">Blog</a>
-					<a href="{{ route('home') }}#contact" class="transition-colors text-zinc-400 hover:text-white">Contact</a>
+	? 'text-brand'
+	: 'text-zinc-400 hover:text-white' }}">Blog</a>
+					<a href="{{ route('home') }}#contact"
+						class="transition-colors text-zinc-400 hover:text-white">Contact</a>
 					@auth
 						<a href="{{ route('logout') }}" class="text-zinc-400 hover:text-white transition-colors">Logout</a>
 					@endauth
@@ -66,7 +67,8 @@
 		</div>
 
 		<footer class="bg-[#1f1f1f] border-t border-white/10 py-8 mt-16">
-			<div class="max-w-280 mx-auto flex justify-between items-center max-sm:flex-col max-sm:gap-4 max-sm:text-center px-6">
+			<div
+				class="max-w-280 mx-auto flex justify-between items-center max-sm:flex-col max-sm:gap-4 max-sm:text-center px-6">
 				<p class="text-sm text-zinc-500">
 					&copy; {{ date('Y') }} Kazazis Kostas. All rights reserved.
 				</p>

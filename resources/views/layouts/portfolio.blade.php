@@ -531,8 +531,6 @@
     <!-- END CONTACT -->
 
     <script src="{{ asset('js/jquery.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/smoothscroll.js') }}"></script>
     <script src="{{ asset('js/jquery.nav.js') }}"></script>
     <script src="{{ asset('js/isotope.js') }}"></script>
     <script src="{{ asset('js/imagesloaded.min.js') }}"></script>
