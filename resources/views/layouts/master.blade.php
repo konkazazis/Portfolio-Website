@@ -23,6 +23,9 @@
 	<meta name="twitter:description"
 		content="@yield('meta_description', 'A developer who loves building things for the web. Thoughts on code, design, and everything in between.')">
 
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet" />
 	@stack('schema')
 	@vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
