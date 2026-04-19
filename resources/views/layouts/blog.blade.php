@@ -5,6 +5,30 @@
 @section('og_title', 'Blog · kostas')
 @section('canonical', route('blog'))
 
+@push('schema')
+<script type="application/ld+json">
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'Blog',
+    'name' => 'Blog · kostas',
+    'description' => 'Thoughts on code, design, and the web — a developer blog by Kostas.',
+    'url' => route('blog'),
+    'author' => [
+        '@type' => 'Person',
+        'name' => 'Konstantinos Kazazis',
+        'url' => route('about'),
+    ],
+    'blogPost' => $posts->map(fn($post) => [
+        '@type' => 'BlogPosting',
+        'headline' => $post->title,
+        'url' => route('posts.show', $post->slug),
+        'datePublished' => $post->published_at->toIso8601String(),
+        'description' => $post->excerpt ?? \Illuminate\Support\Str::limit(strip_tags($post->content), 160),
+    ])->values()->all(),
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
+</script>
+@endpush
+
 @section('content')
     <div class="max-w-280 mx-auto">
 

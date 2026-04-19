@@ -16,12 +16,18 @@
 	<meta property="og:description"
 		content="@yield('meta_description', 'A developer who loves building things for the web. Thoughts on code, design, and everything in between.')">
 	<meta property="og:site_name" content="kostas">
+	<meta property="og:image" content="@yield('og_image', asset('images/og-default.jpg'))">
 
 	{{-- Twitter Card --}}
-	<meta name="twitter:card" content="summary">
+	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="@yield('og_title', 'kostas')">
 	<meta name="twitter:description"
 		content="@yield('meta_description', 'A developer who loves building things for the web. Thoughts on code, design, and everything in between.')">
+	<meta name="twitter:image" content="@yield('og_image', asset('images/og-default.jpg'))">
+
+	@if(config('services.google.site_verification'))
+		<meta name="google-site-verification" content="{{ config('services.google.site_verification') }}">
+	@endif
 
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

@@ -5,6 +5,7 @@
 @section('og_type', 'article')
 @section('og_title', $post->title)
 @section('canonical', route('posts.show', $post->slug))
+@section('og_image', asset('images/og-default.jpg'))
 
 @push('schema')
     <script type="application/ld+json">
@@ -25,6 +26,10 @@
             '@type' => 'Person',
             'name' => 'Konstantinos Kazazis',
         ],
+        'keywords' => $post->tags->pluck('name')->join(', '),
+        'articleSection' => $post->category?->name,
+        'wordCount' => str_word_count(strip_tags($post->content)),
+        'image' => asset('images/og-default.jpg'),
     ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
         </script>
 @endpush
@@ -50,7 +55,7 @@
             </h1>
 
             @if($post->excerpt)
-                <p class="text-lg text-stone-500 leading-relaxed">{!! $post->excerpt !!}}</p>
+                <p class="text-lg text-stone-500 leading-relaxed">{!! $post->excerpt !!}</p>
             @endif
 
             @if($post->tags->isNotEmpty())
