@@ -1,11 +1,11 @@
 @extends('layouts.master')
 
 @section('title', $post->title . ' · kostas')
-@section('meta_description', $post->excerpt ?? \Illuminate\Support\Str::limit(strip_tags($post->content), 160))
+@section('meta_description', \Illuminate\Support\Str::limit(strip_tags($post->excerpt ?? $post->content), 160))
 @section('og_type', 'article')
 @section('og_title', $post->title)
 @section('canonical', route('posts.show', $post->slug))
-@section('og_image', asset('images/og-default.jpg'))
+@section('og_image', asset('images/home-bg.jpg'))
 
 @push('schema')
     <script type="application/ld+json">
@@ -13,7 +13,7 @@
         '@context' => 'https://schema.org',
         '@type' => 'BlogPosting',
         'headline' => $post->title,
-        'description' => $post->excerpt ?? \Illuminate\Support\Str::limit(strip_tags($post->content), 160),
+        'description' => \Illuminate\Support\Str::limit(strip_tags($post->excerpt ?? $post->content), 160),
         'url' => route('posts.show', $post->slug),
         'datePublished' => $post->published_at->toIso8601String(),
         'dateModified' => $post->updated_at->toIso8601String(),
@@ -29,7 +29,7 @@
         'keywords' => $post->tags->pluck('name')->join(', '),
         'articleSection' => $post->category?->name,
         'wordCount' => str_word_count(strip_tags($post->content)),
-        'image' => asset('images/og-default.jpg'),
+        'image' => asset('images/home-bg.jpg'),
     ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
         </script>
 @endpush

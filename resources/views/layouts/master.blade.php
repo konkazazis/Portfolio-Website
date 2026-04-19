@@ -16,22 +16,28 @@
 	<meta property="og:description"
 		content="@yield('meta_description', 'A developer who loves building things for the web. Thoughts on code, design, and everything in between.')">
 	<meta property="og:site_name" content="kostas">
-	<meta property="og:image" content="@yield('og_image', asset('images/og-default.jpg'))">
+	<meta property="og:image" content="@yield('og_image', asset('images/home-bg.jpg'))">
 
 	{{-- Twitter Card --}}
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="@yield('og_title', 'kostas')">
 	<meta name="twitter:description"
 		content="@yield('meta_description', 'A developer who loves building things for the web. Thoughts on code, design, and everything in between.')">
-	<meta name="twitter:image" content="@yield('og_image', asset('images/og-default.jpg'))">
+	<meta name="twitter:image" content="@yield('og_image', asset('images/home-bg.jpg'))">
 
 	@if(config('services.google.site_verification'))
 		<meta name="google-site-verification" content="{{ config('services.google.site_verification') }}">
 	@endif
 
+	{{-- Favicon --}}
+	<link rel="icon" href="{{ asset('favicon.ico') }}" sizes="any">
+	<link rel="icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml">
+	<link rel="manifest" href="{{ asset('site.webmanifest') }}">
+
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet" />
+	@stack('head')
 	@stack('schema')
 	@vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>

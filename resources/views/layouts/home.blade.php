@@ -1,8 +1,8 @@
 @extends('layouts.master')
 
-@section('title', 'kostas')
-@section('meta_description', 'Kostas is a developer who loves building things for the web. Thoughts on code, design, and everything in between.')
-@section('og_title', 'kostas')
+@section('title', 'Kostas Kazazis · Full-Stack Web Developer')
+@section('meta_description', 'Full-Stack Web Developer based in Düsseldorf. I write about code, design, and everything in between.')
+@section('og_title', 'Kostas Kazazis · Full-Stack Web Developer')
 @section('canonical', route('home'))
 
 @push('schema')

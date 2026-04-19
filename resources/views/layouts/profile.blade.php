@@ -2,6 +2,10 @@
 
 @section('title', 'Profile')
 
+@push('head')
+    <meta name="robots" content="noindex, nofollow">
+@endpush
+
 @section('content')
 <div class="page-title">
 	<div class="wrap">

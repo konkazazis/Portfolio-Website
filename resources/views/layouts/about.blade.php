@@ -5,6 +5,23 @@
 @section('og_title', 'About · kostas')
 @section('canonical', route('about'))
 
+@push('schema')
+<script type="application/ld+json">
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'Person',
+    'name' => 'Konstantinos Kazazis',
+    'url' => route('about'),
+    'jobTitle' => 'Full-Stack Web Developer',
+    'email' => 'kostas@kazazis.dev',
+    'sameAs' => [
+        'https://github.com/konkazazis',
+        'https://www.linkedin.com/in/konstantinos-kazazis-32a470228/',
+    ],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
+</script>
+@endpush
+
 @section('content')
 	<div>
 		<header class="mb-12">

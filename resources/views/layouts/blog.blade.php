@@ -3,7 +3,16 @@
 @section('title', 'Blog · kostas')
 @section('meta_description', 'Thoughts on code, design, and the web — a developer blog by Kostas.')
 @section('og_title', 'Blog · kostas')
-@section('canonical', route('blog'))
+@section('canonical', request()->fullUrl())
+
+@push('head')
+    @if($posts->previousPageUrl())
+        <link rel="prev" href="{{ $posts->previousPageUrl() }}">
+    @endif
+    @if($posts->nextPageUrl())
+        <link rel="next" href="{{ $posts->nextPageUrl() }}">
+    @endif
+@endpush
 
 @push('schema')
 <script type="application/ld+json">
@@ -23,7 +32,7 @@
         'headline' => $post->title,
         'url' => route('posts.show', $post->slug),
         'datePublished' => $post->published_at->toIso8601String(),
-        'description' => $post->excerpt ?? \Illuminate\Support\Str::limit(strip_tags($post->content), 160),
+        'description' => \Illuminate\Support\Str::limit(strip_tags($post->excerpt ?? $post->content), 160),
     ])->values()->all(),
 ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
 </script>
