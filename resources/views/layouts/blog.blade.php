@@ -29,7 +29,7 @@
 
                         @if($post->excerpt)
                             <p class="text-stone-500 text-sm leading-relaxed mb-3">
-                                {{ $post->excerpt }}
+                                {!! $post->excerpt !!}
                             </p>
                         @endif
 

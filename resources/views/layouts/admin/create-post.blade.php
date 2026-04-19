@@ -58,15 +58,15 @@
 
         <div>
             <label class="block text-sm font-medium text-stone-700 mb-1">Excerpt</label>
-            <textarea name="excerpt" rows="3" placeholder="Short summary (optional)"
-                class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-stone-400 {{ $errors->has('excerpt') ? 'border-red-400' : 'border-stone-200' }}">{{ old('excerpt') }}</textarea>
-        </div>
+            <textarea name="excerpt" rows="3" id="editor-excerpt" placeholder="Short summary (optional)"
+                class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-stone-400 {{ $errors->has('excerpt') ? 'border-red-400' : 'border-stone-200' }}">{!! old('excerpt') !!}</textarea>
+            </div>
 
         <div>
             <label class="block text-sm font-medium text-stone-700 mb-1">Content</label>
-            <textarea name="content" rows="14" placeholder="Write your post here..."
-                class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-stone-400 {{ $errors->has('content') ? 'border-red-400' : 'border-stone-200' }}">{{ old('content') }}</textarea>
-        </div>
+            <textarea name="content" id="editor-content" rows="14" placeholder="Write your post here..."
+                class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-stone-400 {{ $errors->has('content') ? 'border-red-400' : 'border-stone-200' }}">{!! old('content') !!}</textarea>
+            </div>
 
         <div class="grid grid-cols-2 gap-4">
             <div>
@@ -119,4 +119,20 @@
     </form>
 
 </div>
+
 @endsection
+
+@push('scripts')
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        ClassicEditor.create(document.querySelector('#editor-excerpt'))
+            .then(editor => { editor.ui.view.editable.element.style.minHeight = '80px'; })
+            .catch(console.error);
+        ClassicEditor.create(document.querySelector('#editor-content'))
+            .then(editor => { editor.ui.view.editable.element.style.minHeight = '350px'; })
+            .catch(console.error);
+    });
+    </script>
+@endpush
