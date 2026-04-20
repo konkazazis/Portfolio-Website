@@ -13,7 +13,7 @@ class BlogController extends Controller
         $search = trim(request('search', ''));
 
         $posts = Post::published()
-            ->with(['category', 'tags'])
+            ->with(['user', 'category', 'tags'])
             ->when($categorySlug, fn($q) => $q->whereHas('category', fn($q) => $q->where('slug', $categorySlug)))
             ->when($search, function ($q) use ($search) {
                 $term = '%' . strtolower($search) . '%';

@@ -101,11 +101,21 @@
             <div class="flex flex-col divide-y divide-stone-100">
                 @foreach($posts as $post)
                     <article class="py-6">
-                        <a href="{{ route('posts.show', $post->slug) }}" class="group">
-                            <h2 class="text-xl font-bold text-stone-800 group-hover:text-brand transition-colors mb-2">
-                                {{ $post->title }}
-                            </h2>
-                        </a>
+                        <div class="flex items-start justify-between gap-4 mb-2">
+                            <a href="{{ route('posts.show', $post->slug) }}" class="group">
+                                <h2 class="text-xl font-bold text-stone-800 group-hover:text-brand transition-colors">
+                                    {{ $post->title }}
+                                </h2>
+                            </a>
+
+                            @if($post->user?->is_admin)
+                                <div class="flex items-center gap-2 shrink-0">
+                                    <span class="text-xs text-stone-500 font-medium">Kostas</span>
+                                    <img src="{{ asset('images/profile-pic-nobg.png') }}" alt="Kostas"
+                                         class="w-6 h-6 rounded-full object-cover object-top bg-stone-100">
+                                </div>
+                            @endif
+                        </div>
 
                         @if($post->excerpt)
                             <p class="text-stone-500 text-sm leading-relaxed mb-3">

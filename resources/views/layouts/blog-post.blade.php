@@ -67,6 +67,19 @@
             @endif
         </header>
 
+        @if($post->user?->is_admin)
+            <div class="flex items-center gap-3 mb-10 pb-8 border-b border-stone-100">
+                <img src="{{ asset('images/profile-pic-nobg.png') }}" alt="Kostas"
+                     class="w-10 h-10 rounded-full object-cover object-top bg-stone-100">
+                <div>
+                    <p class="text-sm font-semibold text-stone-800">Konstantinos Kazazis</p>
+                    <a href="{{ route('about') }}" class="text-xs text-stone-400 hover:text-brand transition-colors">
+                        Software Developer
+                    </a>
+                </div>
+            </div>
+        @endif
+
         <div class="prose prose-stone max-w-none text-stone-700 leading-relaxed">
             {!! $post->content !!}
         </div>
