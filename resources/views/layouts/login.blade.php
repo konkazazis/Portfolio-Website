@@ -49,7 +49,8 @@
                 class="mt-2 px-6 py-2.5 rounded-lg text-sm font-medium bg-stone-900 text-stone-50 hover:bg-stone-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 type="submit">Login</button>
 
-            <p class="register-link">Don't have an account? <a href="{{ route('register') }}" class="form-link">Register</a>
+            {{-- <p class="register-link">Don't have an account? <a href="{{ route('register') }}"
+                    class="form-link">Register</a> --}}
             </p>
 
         </form>
