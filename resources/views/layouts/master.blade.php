@@ -78,7 +78,7 @@
 			@yield('content')
 		</div>
 
-		<footer class="bg-[#1f1f1f] border-t border-white/10 py-8 mt-16">
+		<footer class="bg-[#1f1f1f] border-t border-white/10 py-8 mt-auto">
 			<div
 				class="max-w-280 mx-auto flex justify-between items-center max-sm:flex-col max-sm:gap-4 max-sm:text-center px-6">
 				<p class="text-sm text-zinc-500">

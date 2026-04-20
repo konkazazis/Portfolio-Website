@@ -10,10 +10,19 @@ class BlogController extends Controller
     public function index()
     {
         $categorySlug = request('category');
+        $search = trim(request('search', ''));
 
         $posts = Post::published()
             ->with(['category', 'tags'])
             ->when($categorySlug, fn($q) => $q->whereHas('category', fn($q) => $q->where('slug', $categorySlug)))
+            ->when($search, function ($q) use ($search) {
+                $term = '%' . strtolower($search) . '%';
+                $q->where(fn($q) => $q
+                    ->whereRaw('LOWER(title) LIKE ?', [$term])
+                    ->orWhereRaw('LOWER(excerpt) LIKE ?', [$term])
+                    ->orWhereRaw('LOWER(content) LIKE ?', [$term])
+                );
+            })
             ->latest('published_at')
             ->paginate(10)
             ->withQueryString();
@@ -24,6 +33,6 @@ class BlogController extends Controller
 
         $activeCategory = $categories->firstWhere('slug', $categorySlug);
 
-        return view('layouts.blog', compact('posts', 'categories', 'activeCategory'));
+        return view('layouts.blog', compact('posts', 'categories', 'activeCategory', 'search'));
     }
 }

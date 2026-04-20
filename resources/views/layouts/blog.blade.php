@@ -41,16 +41,38 @@
 @section('content')
     <div class="max-w-280 mx-auto">
 
-        <div class="mb-10 pb-6 border-b border-stone-200">
-            <h1 class="text-3xl font-bold tracking-tight uppercase mb-2">
-                My <strong class="text-brand">Blog</strong>
-            </h1>
-            <p class="text-stone-400 text-sm">Thoughts on code, design, and the web.</p>
+        <div class="mb-10 pb-6 border-b border-stone-200 flex items-end justify-between gap-6">
+            <div>
+                <h1 class="text-3xl font-bold tracking-tight uppercase mb-2">
+                    My <strong class="text-brand">Blog</strong>
+                </h1>
+                <p class="text-stone-400 text-sm">Thoughts on code, design, and the web.</p>
+            </div>
+
+            <form method="GET" action="{{ route('blog') }}" class="shrink-0">
+                @if(request('category'))
+                    <input type="hidden" name="category" value="{{ request('category') }}">
+                @endif
+                <div class="relative">
+                    <input
+                        type="search"
+                        name="search"
+                        value="{{ $search }}"
+                        placeholder="Search posts..."
+                        class="border border-stone-200 rounded px-4 py-2 pr-10 text-sm text-stone-700 placeholder-stone-400 focus:outline-none focus:border-stone-400 transition-colors w-56"
+                    >
+                    <button type="submit" class="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/>
+                        </svg>
+                    </button>
+                </div>
+            </form>
         </div>
 
         @if($categories->isNotEmpty())
             <div class="flex flex-wrap gap-2 mb-8">
-                <a href="{{ route('blog') }}"
+                <a href="{{ route('blog', $search ? ['search' => $search] : []) }}"
                    class="px-3 py-1 rounded text-xs font-medium tracking-wide transition-colors
                           {{ !$activeCategory
                               ? 'bg-stone-800 text-white'
@@ -58,7 +80,7 @@
                     All
                 </a>
                 @foreach($categories as $cat)
-                    <a href="{{ route('blog', ['category' => $cat->slug]) }}"
+                    <a href="{{ route('blog', array_filter(['category' => $cat->slug, 'search' => $search])) }}"
                        class="px-3 py-1 rounded text-xs font-medium tracking-wide transition-colors
                               {{ $activeCategory?->is($cat)
                                   ? 'bg-stone-800 text-white'
@@ -70,7 +92,11 @@
         @endif
 
         @if($posts->isEmpty())
-            <p class="text-stone-400">No posts yet{{ $activeCategory ? ' in this category' : '' }}.</p>
+            <p class="text-stone-400">
+                No posts found
+                @if($search) for "<span class="text-stone-600">{{ $search }}</span>"@endif
+                @if($activeCategory) in <span class="text-stone-600">{{ $activeCategory->name }}</span>@endif.
+            </p>
         @else
             <div class="flex flex-col divide-y divide-stone-100">
                 @foreach($posts as $post)
