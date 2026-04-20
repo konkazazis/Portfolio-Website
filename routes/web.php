@@ -35,8 +35,8 @@ Route::get('/posts/{slug}', [PostController::class, 'show'])->name('posts.show')
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::middleware('throttle:5,1')->post('login', [LoginController::class, 'login']);
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
-Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
-Route::post('register', [RegisterController::class, 'register']);
+//Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+//Route::post('register', [RegisterController::class, 'register']);
 
 // Comments (public submission — stored as unapproved)
 Route::middleware('throttle:10,1')->post('/comments', [CommentController::class, 'store']);
