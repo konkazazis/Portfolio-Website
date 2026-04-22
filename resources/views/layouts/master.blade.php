@@ -93,6 +93,14 @@
 						rel="noopener noreferrer" class="text-sm text-zinc-500 hover:text-brand transition-colors">
 						LinkedIn
 					</a>
+					<a href="{{ route('impressum') }}"
+						class="text-sm text-zinc-500 hover:text-brand transition-colors">
+						Impressum
+					</a>
+					<a href="{{ route('privacy') }}"
+						class="text-sm text-zinc-500 hover:text-brand transition-colors">
+						Datenschutz
+					</a>
 				</div>
 			</div>
 		</footer>
