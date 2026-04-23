@@ -33,6 +33,7 @@
             'url' => route('posts.show', $post->slug),
             'datePublished' => $post->published_at->toIso8601String(),
             'description' => \Illuminate\Support\Str::limit(strip_tags($post->excerpt ?? $post->content), 160),
+            'author' => ['@type' => 'Person', 'name' => 'Konstantinos Kazazis', 'url' => route('about')],
         ])->values()->all(),
     ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
         </script>
@@ -61,7 +62,7 @@
                         placeholder="Search posts..."
                         class="border border-stone-200 rounded px-4 py-2 pr-10 text-sm text-stone-700 placeholder-stone-400 focus:outline-none focus:border-stone-400 transition-colors w-56"
                     >
-                    <button type="submit" class="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600 transition-colors">
+                    <button type="submit" aria-label="Search posts" class="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600 transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/>
                         </svg>

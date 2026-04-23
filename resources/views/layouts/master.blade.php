@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<title>@yield('title', 'kostas')</title>
+	<title>@yield('title', 'kostas — Full-Stack Web Developer')</title>
 	<meta name="description"
 		content="@yield('meta_description', 'A developer who loves building things for the web. Thoughts on code, design, and everything in between.')">
 	<link rel="canonical" href="@yield('canonical', url()->current())">
@@ -18,9 +18,12 @@
 		content="@yield('meta_description', 'A developer who loves building things for the web. Thoughts on code, design, and everything in between.')">
 	<meta property="og:site_name" content="kostas">
 	<meta property="og:image" content="@yield('og_image', asset('images/home-bg.jpg'))">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
 
 	{{-- Twitter Card --}}
 	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:creator" content="@konkazazis">
 	<meta name="twitter:title" content="@yield('og_title', 'kostas')">
 	<meta name="twitter:description"
 		content="@yield('meta_description', 'A developer who loves building things for the web. Thoughts on code, design, and everything in between.')">

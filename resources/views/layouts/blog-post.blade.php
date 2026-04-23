@@ -15,6 +15,18 @@
     <script type="application/ld+json">
         {!! json_encode([
         '@context' => 'https://schema.org',
+        '@type' => 'BreadcrumbList',
+        'itemListElement' => [
+            ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home', 'item' => route('home')],
+            ['@type' => 'ListItem', 'position' => 2, 'name' => 'Blog', 'item' => route('blog')],
+            ['@type' => 'ListItem', 'position' => 3, 'name' => $post->title, 'item' => route('posts.show', $post->slug)],
+        ],
+    ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
+    </script>
+
+    <script type="application/ld+json">
+        {!! json_encode([
+        '@context' => 'https://schema.org',
         '@type' => 'BlogPosting',
         'headline' => $post->title,
         'description' => \Illuminate\Support\Str::limit(strip_tags($post->excerpt ?? $post->content), 160),
@@ -77,7 +89,7 @@
                      class="w-10 h-10 rounded-full object-cover object-top bg-stone-100">
                 <div>
                     <p class="text-sm font-semibold text-stone-800">Konstantinos Kazazis</p>
-                    <a href="{{ route('about') }}" class="text-xs text-stone-400 hover:text-brand transition-colors">
+                    <a href="{{ route('about') }}" rel="author" class="text-xs text-stone-400 hover:text-brand transition-colors">
                         Software Developer
                     </a>
                 </div>

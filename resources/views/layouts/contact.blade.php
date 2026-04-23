@@ -1,10 +1,9 @@
 @extends('layouts.master')
 
-@section('title', 'Contact')
-
-@push('head')
-    <meta name="robots" content="noindex, nofollow">
-@endpush
+@section('title', 'Contact · kostas')
+@section('meta_description', 'Get in touch with Kostas. Reach out via email or connect on GitHub and LinkedIn.')
+@section('og_title', 'Contact · kostas')
+@section('canonical', route('contact'))
 
 @section('content')
 <div class="page-title">

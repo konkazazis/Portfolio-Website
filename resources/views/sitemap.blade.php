@@ -19,6 +19,14 @@
         <priority>0.9</priority>
     </url>
 
+    @foreach($categories as $category)
+    <url>
+        <loc>{{ route('blog', ['category' => $category->slug]) }}</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    @endforeach
+
     @foreach($posts as $post)
     <url>
         <loc>{{ route('posts.show', $post->slug) }}</loc>

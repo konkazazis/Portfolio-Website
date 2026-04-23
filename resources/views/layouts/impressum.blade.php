@@ -4,7 +4,13 @@
 
 @section('title', 'Impressum · kostas')
 @section('meta_description', 'Legal notice (Impressum) for kostas.dev — required by German law (§5 TMG).')
-@section('canonical', route('impressum'))
+@section('canonical', route('impressum', $lang === 'en' ? ['lang' => 'en'] : []))
+
+@push('head')
+    <link rel="alternate" hreflang="de" href="{{ route('impressum') }}">
+    <link rel="alternate" hreflang="en" href="{{ route('impressum', ['lang' => 'en']) }}">
+    <link rel="alternate" hreflang="x-default" href="{{ route('impressum') }}">
+@endpush
 
 @section('content')
     <div class="max-w-2xl mx-auto">

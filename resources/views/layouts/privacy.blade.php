@@ -4,7 +4,13 @@
 
 @section('title', 'Datenschutz · kostas')
 @section('meta_description', 'Datenschutzerklärung für kostas.dev gemäß DSGVO.')
-@section('canonical', route('privacy'))
+@section('canonical', route('privacy', $lang === 'en' ? ['lang' => 'en'] : []))
+
+@push('head')
+    <link rel="alternate" hreflang="de" href="{{ route('privacy') }}">
+    <link rel="alternate" hreflang="en" href="{{ route('privacy', ['lang' => 'en']) }}">
+    <link rel="alternate" hreflang="x-default" href="{{ route('privacy') }}">
+@endpush
 
 @section('content')
     <div class="max-w-2xl mx-auto">
