@@ -55,7 +55,9 @@
 					class="text-xl font-bold text-white tracking-tight uppercase hover:text-brand transition-colors">
 					Kostas<span class="text-brand">.</span>
 				</a>
-				<nav class="flex gap-8 max-sm:gap-5 text-sm uppercase tracking-wide font-semibold">
+
+				{{-- Desktop nav --}}
+				<nav class="hidden sm:flex gap-8 text-sm uppercase tracking-wide font-semibold">
 					<a href="{{ route('about') }}" class="transition-colors {{ request()->routeIs('about')
 	? 'text-brand'
 	: 'text-zinc-400 hover:text-white' }}">About</a>
@@ -69,13 +71,48 @@
 					<a href="{{ route('blog') }}" class="transition-colors {{ request()->routeIs('blog') || request()->routeIs('posts.show')
 	? 'text-brand'
 	: 'text-zinc-400 hover:text-white' }}">Blog</a>
+					<a href="{{ route('home') }}" class="transition-colors text-zinc-400 hover:text-white">Portfolio</a>
 					<a href="{{ route('home') }}#contact"
 						class="transition-colors text-zinc-400 hover:text-white">Contact</a>
 					@auth
 						<a href="{{ route('logout') }}" class="text-zinc-400 hover:text-white transition-colors">Logout</a>
 					@endauth
 				</nav>
+
+				{{-- Burger button (mobile only) --}}
+				<button id="burger-btn"
+					class="sm:hidden flex flex-col justify-center items-center gap-1.5 w-8 h-8 text-zinc-400 hover:text-white transition-colors"
+					aria-label="Toggle menu" aria-expanded="false">
+					<span class="burger-line block w-6 h-0.5 bg-current transition-all duration-300"></span>
+					<span class="burger-line block w-6 h-0.5 bg-current transition-all duration-300"></span>
+					<span class="burger-line block w-6 h-0.5 bg-current transition-all duration-300"></span>
+				</button>
 			</div>
+
+			{{-- Mobile nav --}}
+			<nav id="mobile-nav"
+				class="sm:hidden hidden flex-col gap-0 text-sm uppercase tracking-wide font-semibold border-t border-white/10 px-6 pb-4">
+				<a href="{{ route('about') }}" class="py-3 border-b border-white/5 transition-colors {{ request()->routeIs('about')
+	? 'text-brand'
+	: 'text-zinc-400 hover:text-white' }}">About</a>
+				@auth
+					@if (auth()->user()->is_admin)
+							<a href="{{ route('admin') }}" class="py-3 border-b border-white/5 transition-colors {{ request()->routeIs('admin')
+						? 'text-brand'
+						: 'text-zinc-400 hover:text-white' }}">Admin</a>
+					@endif
+				@endauth
+				<a href="{{ route('blog') }}" class="py-3 border-b border-white/5 transition-colors {{ request()->routeIs('blog') || request()->routeIs('posts.show')
+	? 'text-brand'
+	: 'text-zinc-400 hover:text-white' }}">Blog</a>
+				<a href="{{ route('home') }}"
+					class="py-3 border-b border-white/5 transition-colors text-zinc-400 hover:text-white">Portfolio</a>
+				<a href="{{ route('home') }}#contact"
+					class="py-3 border-b border-white/5 transition-colors text-zinc-400 hover:text-white">Contact</a>
+				@auth
+					<a href="{{ route('logout') }}" class="py-3 text-zinc-400 hover:text-white transition-colors">Logout</a>
+				@endauth
+			</nav>
 		</header>
 
 		<div class="flex-1 w-full max-w-280 mx-auto px-6 py-10">
@@ -97,12 +134,10 @@
 						rel="noopener noreferrer" class="text-sm text-zinc-500 hover:text-brand transition-colors">
 						LinkedIn
 					</a>
-					<a href="{{ route('impressum') }}"
-						class="text-sm text-zinc-500 hover:text-brand transition-colors">
+					<a href="{{ route('impressum') }}" class="text-sm text-zinc-500 hover:text-brand transition-colors">
 						Impressum
 					</a>
-					<a href="{{ route('privacy') }}"
-						class="text-sm text-zinc-500 hover:text-brand transition-colors">
+					<a href="{{ route('privacy') }}" class="text-sm text-zinc-500 hover:text-brand transition-colors">
 						Datenschutz
 					</a>
 				</div>
@@ -111,6 +146,31 @@
 
 	</div>
 	@stack('scripts')
+	<script>
+		const burgerBtn = document.getElementById('burger-btn');
+		const mobileNav = document.getElementById('mobile-nav');
+		const lines = burgerBtn.querySelectorAll('.burger-line');
+
+		burgerBtn.addEventListener('click', () => {
+			const open = mobileNav.classList.toggle('hidden');
+			mobileNav.classList.toggle('flex', !open);
+			burgerBtn.setAttribute('aria-expanded', String(!open));
+			lines[0].style.transform = open ? '' : 'translateY(8px) rotate(45deg)';
+			lines[1].style.opacity = open ? '' : '0';
+			lines[2].style.transform = open ? '' : 'translateY(-8px) rotate(-45deg)';
+		});
+
+		mobileNav.querySelectorAll('a').forEach(a => {
+			a.addEventListener('click', () => {
+				mobileNav.classList.add('hidden');
+				mobileNav.classList.remove('flex');
+				burgerBtn.setAttribute('aria-expanded', 'false');
+				lines[0].style.transform = '';
+				lines[1].style.opacity = '';
+				lines[2].style.transform = '';
+			});
+		});
+	</script>
 </body>
 
 </html>

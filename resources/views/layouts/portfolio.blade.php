@@ -39,35 +39,35 @@
 
     @verbatim
         <script type="application/ld+json">
-                                            {
-                                                "@context": "https://schema.org",
-                                                "@type": "Person",
-                                                "name": "Kostas Kazazis",
-                                                "url": "https://kazazis.dev/",
-                                                "image": "https://kazazis.dev/profile-pic.png",
-                                                "jobTitle": "Full-Stack Web Developer",
-                                                "worksFor": { "@type": "Organization", "name": "Self-Employed" },
-                                                "address": { "@type": "PostalAddress", "addressLocality": "Düsseldorf", "addressCountry": "Germany" },
-                                                "sameAs": [
-                                                    "https://github.com/konkazazis",
-                                                    "https://www.linkedin.com/in/Kostas-kazazis-32a470228/"
-                                                ],
-                                                "knowsAbout": ["React","JavaScript","Java","Spring Boot","PostgreSQL","TypeScript","HTML5","CSS3"]
-                                            }
-                                            </script>
+                                                {
+                                                    "@context": "https://schema.org",
+                                                    "@type": "Person",
+                                                    "name": "Kostas Kazazis",
+                                                    "url": "https://kazazis.dev/",
+                                                    "image": "https://kazazis.dev/profile-pic.png",
+                                                    "jobTitle": "Full-Stack Web Developer",
+                                                    "worksFor": { "@type": "Organization", "name": "Self-Employed" },
+                                                    "address": { "@type": "PostalAddress", "addressLocality": "Düsseldorf", "addressCountry": "Germany" },
+                                                    "sameAs": [
+                                                        "https://github.com/konkazazis",
+                                                        "https://www.linkedin.com/in/Kostas-kazazis-32a470228/"
+                                                    ],
+                                                    "knowsAbout": ["React","JavaScript","Java","Spring Boot","PostgreSQL","TypeScript","HTML5","CSS3"]
+                                                }
+                                                </script>
         <script type="application/ld+json">
-                                            {
-                                                "@context": "https://schema.org",
-                                                "@type": "ProfessionalService",
-                                                "name": "Kostas Kazazis - Web Development Services",
-                                                "url": "https://kazazis.dev/",
-                                                "image": "https://kazazis.dev/profile-pic.png",
-                                                "description": "Professional Full-Stack Web Developer creating modern and responsive web applications.",
-                                                "address": { "@type": "PostalAddress", "addressLocality": "Düsseldorf", "addressCountry": "Germany" },
-                                                "priceRange": "$$",
-                                                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "reviewCount": "3" }
-                                            }
-                                            </script>
+                                                {
+                                                    "@context": "https://schema.org",
+                                                    "@type": "ProfessionalService",
+                                                    "name": "Kostas Kazazis - Web Development Services",
+                                                    "url": "https://kazazis.dev/",
+                                                    "image": "https://kazazis.dev/profile-pic.png",
+                                                    "description": "Professional Full-Stack Web Developer creating modern and responsive web applications.",
+                                                    "address": { "@type": "PostalAddress", "addressLocality": "Düsseldorf", "addressCountry": "Germany" },
+                                                    "priceRange": "$$",
+                                                    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "reviewCount": "3" }
+                                                }
+                                                </script>
     @endverbatim
 
     <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.ico') }}" />
@@ -368,45 +368,47 @@
 
     <!-- START BLOG -->
     @if($posts->isNotEmpty())
-    <section id="blog" class="tm-padding-top-bottom-100 tm-blog-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2 class="title text-center">Latest <strong>Blog Posts</strong></h2>
-                    <p class="text-center tm-blog-section-subtitle">Thoughts on web development, tech, and more</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="tm-blog-grid">
-                        @foreach($posts->take(3) as $post)
-                        <article class="tm-blog-card">
-                            @if($post->category)
-                            <span class="tm-blog-category">{{ $post->category->name }}</span>
-                            @endif
-                            <h3 class="tm-blog-card-title">
-                                <a href="{{ route('posts.show', $post->slug) }}">{{ $post->title }}</a>
-                            </h3>
-                            @if($post->excerpt)
-                            <p class="tm-blog-card-excerpt">{{ Str::limit($post->excerpt, 120) }}</p>
-                            @endif
-                            <div class="tm-blog-card-footer">
-                                <span class="tm-blog-date">
-                                    <i class="fa fa-calendar"></i>
-                                    {{ $post->published_at->format('M d, Y') }}
-                                </span>
-                                <a href="{{ route('posts.show', $post->slug) }}" class="tm-blog-read-more">Read More <i class="fa fa-arrow-right"></i></a>
-                            </div>
-                        </article>
-                        @endforeach
-                    </div>
-                    <div class="text-center" style="margin-top: 50px">
-                        <a href="{{ route('blog') }}" class="btn btn-default tm-service-btn" style="padding: 15px 50px; font-size: 18px">View All Posts</a>
+        <section id="blog" class="tm-padding-top-bottom-100 tm-blog-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="title text-center">Latest <strong>Blog Posts</strong></h2>
+                        <p class="text-center tm-blog-section-subtitle">Thoughts on web development, tech, and more</p>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="tm-blog-grid">
+                            @foreach($posts->take(3) as $post)
+                                <article class="tm-blog-card">
+                                    @if($post->category)
+                                        <span class="tm-blog-category">{{ $post->category->name }}</span>
+                                    @endif
+                                    <h3 class="tm-blog-card-title">
+                                        <a href="{{ route('posts.show', $post->slug) }}">{{ $post->title }}</a>
+                                    </h3>
+                                    @if($post->excerpt)
+                                        <p class="tm-blog-card-excerpt">{!! Str::limit($post->excerpt, 120) !!}</p>
+                                    @endif
+                                    <div class="tm-blog-card-footer">
+                                        <span class="tm-blog-date">
+                                            <i class="fa fa-calendar"></i>
+                                            {{ $post->published_at->format('M d, Y') }}
+                                        </span>
+                                        <a href="{{ route('posts.show', $post->slug) }}" class="tm-blog-read-more">Read More <i
+                                                class="fa fa-arrow-right"></i></a>
+                                    </div>
+                                </article>
+                            @endforeach
+                        </div>
+                        <div class="text-center" style="margin-top: 50px">
+                            <a href="{{ route('blog') }}" class="btn btn-default tm-service-btn"
+                                style="padding: 15px 50px; font-size: 18px">View All Posts</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
     @endif
     <!-- END BLOG -->
 
