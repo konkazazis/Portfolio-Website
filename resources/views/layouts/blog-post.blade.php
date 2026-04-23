@@ -7,6 +7,10 @@
 @section('canonical', route('posts.show', $post->slug))
 @section('og_image', asset('images/home-bg.jpg'))
 
+@push('head')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github-dark-dimmed.min.css">
+@endpush
+
 @push('schema')
     <script type="application/ld+json">
         {!! json_encode([
@@ -104,3 +108,10 @@
 
     </div>
 @endsection
+
+@push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => hljs.highlightAll());
+    </script>
+@endpush

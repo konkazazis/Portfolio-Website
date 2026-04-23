@@ -125,16 +125,5 @@
 @endsection
 
 @push('scripts')
-    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
-
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        ClassicEditor.create(document.querySelector('#editor-excerpt'))
-            .then(editor => { editor.ui.view.editable.element.style.minHeight = '80px'; })
-            .catch(console.error);
-        ClassicEditor.create(document.querySelector('#editor-content'))
-            .then(editor => { editor.ui.view.editable.element.style.minHeight = '350px'; })
-            .catch(console.error);
-    });
-    </script>
+    @include('layouts.admin.partials.editor-scripts')
 @endpush

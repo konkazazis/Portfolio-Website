@@ -14,6 +14,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ImageUploadController;
 use App\Http\Controllers\LegalController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\RobotsController;
@@ -54,6 +55,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/posts', [AdminController::class, 'posts'])->name('admin.posts');
     // Route::get('/admin/comments', [AdminController::class, 'comments'])->name('admin.comments');
     Route::get('/admin/taxonomy', [AdminController::class, 'taxonomy'])->name('admin.taxonomy');
+
+    // Image upload (for CKEditor)
+    Route::post('/admin/upload-image', [ImageUploadController::class, 'store'])->name('admin.upload-image');
 
     // Posts CRUD
     Route::get('/admin/posts/create', [PostController::class, 'create'])->name('posts.create');
