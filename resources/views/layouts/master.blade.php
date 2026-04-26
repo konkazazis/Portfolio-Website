@@ -60,17 +60,17 @@
 				<nav class="hidden sm:flex gap-8 text-sm uppercase tracking-wide font-semibold">
 					<a href="{{ route('about') }}" class="transition-colors {{ request()->routeIs('about')
 	? 'text-brand'
-	: 'text-zinc-400 hover:text-white' }}">About</a>
+	: 'text-white hover:text-brand' }}">About</a>
 					@auth
 						@if (auth()->user()->is_admin)
 									<a href="{{ route('admin') }}" class="transition-colors {{ request()->routeIs('admin')
 							? 'text-brand'
-							: 'text-zinc-400 hover:text-white' }}">Admin</a>
+							: 'text-white hover:text-brand' }}">Admin</a>
 						@endif
 					@endauth
 					<a href="{{ route('blog') }}" class="transition-colors {{ request()->routeIs('blog') || request()->routeIs('posts.show')
 	? 'text-brand'
-	: 'text-zinc-400 hover:text-white' }}">Blog</a>
+	: 'text-white hover:text-brand' }}">Blog</a>
 					<a href="{{ route('home') }}" class="transition-colors text-zinc-400 hover:text-white">Portfolio</a>
 					<a href="{{ route('home') }}#contact"
 						class="transition-colors text-zinc-400 hover:text-white">Contact</a>
@@ -81,7 +81,7 @@
 
 				{{-- Burger button (mobile only) --}}
 				<button id="burger-btn"
-					class="sm:hidden flex flex-col justify-center items-center gap-1.5 w-8 h-8 text-zinc-400 hover:text-white transition-colors"
+					class="sm:hidden flex flex-col justify-center items-center gap-1.5 w-8 h-8 text-white hover:text-brand transition-colors"
 					aria-label="Toggle menu" aria-expanded="false">
 					<span class="burger-line block w-6 h-0.5 bg-current transition-all duration-300"></span>
 					<span class="burger-line block w-6 h-0.5 bg-current transition-all duration-300"></span>
@@ -91,26 +91,26 @@
 
 			{{-- Mobile nav --}}
 			<nav id="mobile-nav"
-				class="sm:hidden hidden flex-col gap-0 text-sm uppercase tracking-wide font-semibold border-t border-white/10 px-6 pb-4">
+				class="sm:hidden hidden flex-col gap-0 text-sm uppercase tracking-wide font-semibold border-t border-white/10 px-6 pb-4 text-white bg-[#1f1f1f]">
 				<a href="{{ route('about') }}" class="py-3 border-b border-white/5 transition-colors {{ request()->routeIs('about')
 	? 'text-brand'
-	: 'text-zinc-400 hover:text-white' }}">About</a>
+	: 'text-white hover:text-brand' }}">About</a>
 				@auth
 					@if (auth()->user()->is_admin)
 							<a href="{{ route('admin') }}" class="py-3 border-b border-white/5 transition-colors {{ request()->routeIs('admin')
 						? 'text-brand'
-						: 'text-zinc-400 hover:text-white' }}">Admin</a>
+						: 'text-white hover:text-brand' }}">Admin</a>
 					@endif
 				@endauth
 				<a href="{{ route('blog') }}" class="py-3 border-b border-white/5 transition-colors {{ request()->routeIs('blog') || request()->routeIs('posts.show')
 	? 'text-brand'
-	: 'text-zinc-400 hover:text-white' }}">Blog</a>
+	: 'text-white hover:text-brand' }}">Blog</a>
 				<a href="{{ route('home') }}"
-					class="py-3 border-b border-white/5 transition-colors text-zinc-400 hover:text-white">Portfolio</a>
+					class="py-3 border-b border-white/5 transition-colors text-white hover:text-brand">Portfolio</a>
 				<a href="{{ route('home') }}#contact"
-					class="py-3 border-b border-white/5 transition-colors text-zinc-400 hover:text-white">Contact</a>
+					class="py-3 border-b border-white/5 transition-colors text-white hover:text-brand">Contact</a>
 				@auth
-					<a href="{{ route('logout') }}" class="py-3 text-zinc-400 hover:text-white transition-colors">Logout</a>
+					<a href="{{ route('logout') }}" class="py-3 text-white hover:text-brand transition-colors">Logout</a>
 				@endauth
 			</nav>
 		</header>
