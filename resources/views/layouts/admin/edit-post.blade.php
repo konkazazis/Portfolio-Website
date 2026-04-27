@@ -3,7 +3,7 @@
 @section('title', 'Admin | Edit Post')
 
 @section('content')
-<div class="max-w-4xl mx-auto">
+<div>
 
     {{-- Header --}}
     <div class="flex items-center justify-between mb-8">
@@ -47,7 +47,7 @@
         </div>
     @endif
 
-    <form method="POST" action="{{ route('posts.update', $post->id) }}" class="flex flex-col gap-4 max-w-2xl">
+    <form method="POST" action="{{ route('posts.update', $post->id) }}" class="flex flex-col gap-6">
         @csrf
         @method('PUT')
 
@@ -59,13 +59,13 @@
 
         <div>
             <label class="block text-sm font-medium text-stone-700 mb-1">Excerpt</label>
-            <textarea name="excerpt" rows="3" id="editor-excerpt"
+            <textarea name="excerpt" rows="5" id="editor-excerpt"
                 class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-stone-400 {{ $errors->has('excerpt') ? 'border-red-400' : 'border-stone-200' }}">{{ old('excerpt', $post->excerpt) }}</textarea>
         </div>
 
         <div>
             <label class="block text-sm font-medium text-stone-700 mb-1">Content</label>
-            <textarea name="content" id="editor-content" rows="14"
+            <textarea name="content" id="editor-content" rows="24"
                 class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-stone-400 {{ $errors->has('content') ? 'border-red-400' : 'border-stone-200' }}">{!! old('content', $post->content) !!}</textarea>
 
         </div>
