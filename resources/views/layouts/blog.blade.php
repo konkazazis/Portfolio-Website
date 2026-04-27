@@ -3,9 +3,12 @@
 @section('title', 'Blog · kostas')
 @section('meta_description', 'Thoughts on code, design, and the web — a developer blog by Kostas.')
 @section('og_title', 'Blog · kostas')
-@section('canonical', request()->fullUrl())
+@section('canonical', $activeCategory ? route('blog', ['category' => $activeCategory->slug]) : route('blog'))
 
 @push('head')
+    @if($search)
+        <meta name="robots" content="noindex, follow">
+    @endif
     @if($posts->previousPageUrl())
         <link rel="prev" href="{{ $posts->previousPageUrl() }}">
     @endif

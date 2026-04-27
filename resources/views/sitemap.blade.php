@@ -3,6 +3,7 @@
 
     <url>
         <loc>{{ route('home') }}</loc>
+        <lastmod>{{ $latestPostDate->toAtomString() }}</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
@@ -15,6 +16,7 @@
 
     <url>
         <loc>{{ route('blog') }}</loc>
+        <lastmod>{{ $latestPostDate->toAtomString() }}</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>

@@ -11,9 +11,10 @@ class SitemapController extends Controller
     {
         $posts = Post::published()->latest('published_at')->get();
         $categories = Category::whereHas('posts', fn($q) => $q->published())->orderBy('name')->get();
+        $latestPostDate = $posts->first()?->updated_at ?? now();
 
         return response()
-            ->view('sitemap', compact('posts', 'categories'))
+            ->view('sitemap', compact('posts', 'categories', 'latestPostDate'))
             ->header('Content-Type', 'application/xml');
     }
 }

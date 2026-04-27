@@ -6,4 +6,4 @@ Disallow: /logout
 Disallow: /register
 Disallow: /profile
 
-Sitemap: {{ config('app.url') }}/sitemap.xml
+Sitemap: {{ route('sitemap') }}
