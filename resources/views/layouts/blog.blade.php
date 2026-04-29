@@ -19,7 +19,7 @@
 
 @push('schema')
     <script type="application/ld+json">
-                                            {!! json_encode([
+                                                {!! json_encode([
         '@context' => 'https://schema.org',
         '@type' => 'Blog',
         'name' => 'Blog · kostas',
@@ -39,7 +39,7 @@
             'author' => ['@type' => 'Person', 'name' => 'Konstantinos Kazazis', 'url' => route('about')],
         ])->values()->all(),
     ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
-                                            </script>
+                                                </script>
 @endpush
 
 @section('content')
@@ -75,14 +75,14 @@
         @if($categories->isNotEmpty())
             <div class="flex flex-wrap gap-2 mb-8">
                 <a href="{{ route('blog', $search ? ['search' => $search] : []) }}" class="px-3 py-1 rounded text-xs font-medium tracking-wide transition-colors
-                                                                                                  {{ !$activeCategory
+                                                                                                          {{ !$activeCategory
                 ? 'bg-stone-800 text-white'
                 : 'text-stone-500 border border-stone-200 hover:border-stone-400 hover:text-stone-700' }}">
                     All
                 </a>
                 @foreach($categories as $cat)
                     <a href="{{ route('blog', array_filter(['category' => $cat->slug, 'search' => $search])) }}" class="px-3 py-1 rounded text-xs font-medium tracking-wide transition-colors
-                                                                                                                                          {{ $activeCategory?->is($cat)
+                                                                                                                                                      {{ $activeCategory?->is($cat)
                         ? 'bg-stone-800 text-white'
                         : 'text-stone-500 border border-stone-200 hover:border-stone-400 hover:text-stone-700' }}">
                         {{ $cat->name }}
@@ -111,8 +111,8 @@
                             @if($post->user?->is_admin)
                                 <div class="flex items-center gap-2 shrink-0">
                                     <span class="text-xs text-stone-500 font-medium">Kostas</span>
-                                    <img src="{{ asset('images/profile-pic-nobg.png') }}" alt="Kostas"
-                                        class="w-6 h-6 rounded-full object-cover object-top bg-stone-100">
+                                    <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/profile-pic-nobg.png"
+                                        alt="Kostas" class="w-6 h-6 rounded-full object-cover object-top bg-stone-100">
                                 </div>
                             @endif
                         </div>

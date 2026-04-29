@@ -13,7 +13,7 @@
 
 @push('schema')
     <script type="application/ld+json">
-        {!! json_encode([
+            {!! json_encode([
         '@context' => 'https://schema.org',
         '@type' => 'BreadcrumbList',
         'itemListElement' => [
@@ -22,10 +22,10 @@
             ['@type' => 'ListItem', 'position' => 3, 'name' => $post->title, 'item' => route('posts.show', $post->slug)],
         ],
     ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
-    </script>
+        </script>
 
     <script type="application/ld+json">
-        {!! json_encode([
+            {!! json_encode([
         '@context' => 'https://schema.org',
         '@type' => 'BlogPosting',
         'headline' => $post->title,
@@ -47,7 +47,7 @@
         'wordCount' => str_word_count(strip_tags($post->content)),
         'image' => asset('images/home-bg.jpg'),
     ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
-        </script>
+            </script>
 @endpush
 
 @section('content')
@@ -85,11 +85,12 @@
 
         @if($post->user?->is_admin)
             <div class="flex items-center gap-3 mb-10 pb-8 border-b border-stone-100">
-                <img src="{{ asset('images/profile-pic-nobg.png') }}" alt="Kostas"
-                     class="w-10 h-10 rounded-full object-cover object-top bg-stone-100">
+                <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/profile-pic-nobg.png"
+                    alt="Kostas" class="w-10 h-10 rounded-full object-cover object-top bg-stone-100">
                 <div>
                     <p class="text-sm font-semibold text-stone-800">Konstantinos Kazazis</p>
-                    <a href="{{ route('about') }}" rel="author" class="text-xs text-stone-400 hover:text-brand transition-colors">
+                    <a href="{{ route('about') }}" rel="author"
+                        class="text-xs text-stone-400 hover:text-brand transition-colors">
                         Software Developer
                     </a>
                 </div>

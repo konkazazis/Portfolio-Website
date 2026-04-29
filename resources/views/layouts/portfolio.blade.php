@@ -39,35 +39,35 @@
 
     @verbatim
         <script type="application/ld+json">
-                                                        {
-                                                            "@context": "https://schema.org",
-                                                            "@type": "Person",
-                                                            "name": "Kostas Kazazis",
-                                                            "url": "https://kazazis.dev/",
-                                                            "image": "https://kazazis.dev/profile-pic.png",
-                                                            "jobTitle": "Full-Stack Web Developer",
-                                                            "worksFor": { "@type": "Organization", "name": "Self-Employed" },
-                                                            "address": { "@type": "PostalAddress", "addressLocality": "Düsseldorf", "addressCountry": "Germany" },
-                                                            "sameAs": [
-                                                                "https://github.com/konkazazis",
-                                                                "https://www.linkedin.com/in/Kostas-kazazis-32a470228/"
-                                                            ],
-                                                            "knowsAbout": ["React","JavaScript","Java","Spring Boot","PostgreSQL","TypeScript","HTML5","CSS3"]
-                                                        }
-                                                        </script>
+                                                                            {
+                                                                                "@context": "https://schema.org",
+                                                                                "@type": "Person",
+                                                                                "name": "Kostas Kazazis",
+                                                                                "url": "https://kazazis.dev/",
+                                                                                "image": "https://kazazis.dev/profile-pic.png",
+                                                                                "jobTitle": "Full-Stack Web Developer",
+                                                                                "worksFor": { "@type": "Organization", "name": "Self-Employed" },
+                                                                                "address": { "@type": "PostalAddress", "addressLocality": "Düsseldorf", "addressCountry": "Germany" },
+                                                                                "sameAs": [
+                                                                                    "https://github.com/konkazazis",
+                                                                                    "https://www.linkedin.com/in/Kostas-kazazis-32a470228/"
+                                                                                ],
+                                                                                "knowsAbout": ["React","JavaScript","Java","Spring Boot","PostgreSQL","TypeScript","HTML5","CSS3"]
+                                                                            }
+                                                                            </script>
         <script type="application/ld+json">
-                                                        {
-                                                            "@context": "https://schema.org",
-                                                            "@type": "ProfessionalService",
-                                                            "name": "Kostas Kazazis - Web Development Services",
-                                                            "url": "https://kazazis.dev/",
-                                                            "image": "https://kazazis.dev/profile-pic.png",
-                                                            "description": "Professional Full-Stack Web Developer creating modern and responsive web applications.",
-                                                            "address": { "@type": "PostalAddress", "addressLocality": "Düsseldorf", "addressCountry": "Germany" },
-                                                            "priceRange": "$$",
-                                                            "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "reviewCount": "3" }
-                                                        }
-                                                        </script>
+                                                                            {
+                                                                                "@context": "https://schema.org",
+                                                                                "@type": "ProfessionalService",
+                                                                                "name": "Kostas Kazazis - Web Development Services",
+                                                                                "url": "https://kazazis.dev/",
+                                                                                "image": "https://kazazis.dev/profile-pic.png",
+                                                                                "description": "Professional Full-Stack Web Developer creating modern and responsive web applications.",
+                                                                                "address": { "@type": "PostalAddress", "addressLocality": "Düsseldorf", "addressCountry": "Germany" },
+                                                                                "priceRange": "$$",
+                                                                                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "reviewCount": "3" }
+                                                                            }
+                                                                            </script>
     @endverbatim
 
     <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.ico') }}" />
@@ -118,7 +118,7 @@
                 <div class="col-md-2 col-sm-1"></div>
                 <div class="col-md-8 col-sm-10">
                     <div class="text-center">
-                        <img src="{{ asset('images/profile-pic.png') }}"
+                        <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/profile-pic.png"
                             alt="Kostas Kazazis - Full-Stack Web Developer in Düsseldorf, Germany"
                             class="tm-home-profile-img" />
                     </div>
@@ -333,7 +333,8 @@
                                     <a href="https://kostas-eshop-production.up.railway.app/" class="portfolio-link"
                                         target="_blank" rel="noopener noreferrer">
                                         <div class="portfolio-thumb">
-                                            <img src="{{ asset('images/ntinos.png') }}" class="fluid-img"
+                                            <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/ntinos.png"
+                                                class="fluid-img"
                                                 alt="Personal Training Platform - Full-stack ecommerce web application"
                                                 loading="lazy" />
                                             <div class="portfolio-overlay">
@@ -347,7 +348,8 @@
                                     <a href="https://chris-karpos-production.up.railway.app/" class="portfolio-link"
                                         target="_blank" rel="noopener noreferrer">
                                         <div class="portfolio-thumb">
-                                            <img src="{{ asset('images/karpos.png') }}" class="fluid-img"
+                                            <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/karpos.png"
+                                                class="fluid-img"
                                                 alt="Freelancer Landing Page - Transportation Designer portfolio website"
                                                 loading="lazy" />
                                             <div class="portfolio-overlay">
@@ -361,8 +363,8 @@
                                     <a href="https://car-blog-production.up.railway.app/" class="portfolio-link"
                                         target="_blank" rel="noopener noreferrer">
                                         <div class="portfolio-thumb">
-                                            <img src="{{ asset('images/car-blog.png') }}" class="fluid-img"
-                                                alt="Car news site" loading="lazy" />
+                                            <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/car-blog.png"
+                                                class="fluid-img" alt="Car news site" loading="lazy" />
                                             <div class="portfolio-overlay">
                                                 <h3 class="portfolio-item-title">Car news site</h3>
                                                 <p>Custom site in Laravel</p>
@@ -459,7 +461,7 @@
             <div class="row">
                 <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="text-center tm-about-image-wrapper">
-                        <img src="{{ asset('images/profile-pic-nobg.png') }}"
+                        <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/profile-pic-nobg.png"
                             alt="Kostas Kazazis - Professional Web Developer portrait"
                             class="img-responsive tm-about-image" loading="lazy" />
                     </div>
