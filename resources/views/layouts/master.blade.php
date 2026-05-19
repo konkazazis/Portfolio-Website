@@ -51,23 +51,22 @@
 	<div class="min-h-screen flex flex-col">
 
 		<header class="sticky top-0 z-100 bg-[#1f1f1f]/95 backdrop-blur-md border-b border-white/10">
-			<div class="max-w-280 mx-auto px-6 h-16 flex items-center justify-between">
+			{{-- <div class="max-w-350 mx-auto px-6 h-16 flex items-center justify-between">
 				<a href="{{ route('blog') }}"
 					class="text-xl font-bold text-white tracking-tight uppercase hover:text-brand transition-colors">
 					Kostas<span class="text-brand">.</span>
 				</a>
 
-				{{-- Desktop nav --}}
 				<nav class="hidden sm:flex gap-8 text-sm uppercase tracking-wide font-semibold">
 					<a href="{{ route('about') }}" class="transition-colors {{ request()->routeIs('about')
 	? 'text-brand'
 	: 'text-white hover:text-brand' }}">About</a>
 					@auth
-						@if (auth()->user()->is_admin)
-									<a href="{{ route('admin') }}" class="transition-colors {{ request()->routeIs('admin')
+					@if (auth()->user()->is_admin)
+					<a href="{{ route('admin') }}" class="transition-colors {{ request()->routeIs('admin')
 							? 'text-brand'
 							: 'text-white hover:text-brand' }}">Admin</a>
-						@endif
+					@endif
 					@endauth
 					<a href="{{ route('blog') }}" class="transition-colors {{ request()->routeIs('blog') || request()->routeIs('posts.show')
 	? 'text-brand'
@@ -76,11 +75,10 @@
 					<a href="{{ route('home') }}#contact"
 						class="transition-colors text-zinc-400 hover:text-white">Contact</a>
 					@auth
-						<a href="{{ route('logout') }}" class="text-zinc-400 hover:text-white transition-colors">Logout</a>
+					<a href="{{ route('logout') }}" class="text-zinc-400 hover:text-white transition-colors">Logout</a>
 					@endauth
 				</nav>
 
-				{{-- Burger button (mobile only) --}}
 				<button id="burger-btn"
 					class="sm:hidden flex flex-col justify-center items-center gap-1.5 w-8 h-8 text-white hover:text-brand transition-colors"
 					aria-label="Toggle menu" aria-expanded="false">
@@ -88,7 +86,7 @@
 					<span class="burger-line block w-6 h-0.5 bg-current transition-all duration-300"></span>
 					<span class="burger-line block w-6 h-0.5 bg-current transition-all duration-300"></span>
 				</button>
-			</div>
+			</div> --}}
 
 			{{-- Mobile nav --}}
 			<nav id="mobile-nav"
@@ -116,13 +114,13 @@
 			</nav>
 		</header>
 
-		<div class="flex-1 w-full max-w-280 mx-auto px-6 py-10">
+		<div class="flex-1 w-full max-w-350 mx-auto">
 			@yield('content')
 		</div>
 
-		<footer class="bg-[#1f1f1f] border-t border-white/10 py-8 mt-auto">
+		{{-- <footer class="bg-[#1f1f1f] border-t border-white/10 py-8 mt-auto">
 			<div
-				class="max-w-280 mx-auto flex justify-between items-center max-sm:flex-col max-sm:gap-4 max-sm:text-center px-6">
+				class="max-w-350 mx-auto flex justify-between items-center max-sm:flex-col max-sm:gap-4 max-sm:text-center px-6">
 				<p class="text-sm text-zinc-500">
 					&copy; {{ date('Y') }} Kazazis Kostas. All rights reserved.
 				</p>
@@ -143,7 +141,7 @@
 					</a>
 				</div>
 			</div>
-		</footer>
+		</footer> --}}
 
 	</div>
 	@stack('scripts')
