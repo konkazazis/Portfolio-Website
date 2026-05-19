@@ -50,126 +50,122 @@
 <body>
 	<div class="min-h-screen flex flex-col">
 
-		<header class="sticky top-0 z-100 bg-[#1f1f1f]/95 backdrop-blur-md border-b border-white/10">
-			{{-- <div class="max-w-350 mx-auto px-6 h-16 flex items-center justify-between">
-				<a href="{{ route('blog') }}"
-					class="text-xl font-bold text-white tracking-tight uppercase hover:text-brand transition-colors">
-					Kostas<span class="text-brand">.</span>
+		<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-stone-200">
+			<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+				<a href="{{ route('home') }}"
+					class="text-base font-semibold uppercase tracking-[0.35em] text-stone-900">
+					kostas
 				</a>
 
-				<nav class="hidden sm:flex gap-8 text-sm uppercase tracking-wide font-semibold">
-					<a href="{{ route('about') }}" class="transition-colors {{ request()->routeIs('about')
-	? 'text-brand'
-	: 'text-white hover:text-brand' }}">About</a>
+				<nav class="hidden sm:flex gap-8 text-sm uppercase tracking-[0.35em] font-medium text-stone-600">
+					<a href="{{ route('about') }}"
+						class="transition-colors {{ request()->routeIs('about') ? 'text-stone-900' : 'hover:text-stone-900' }}">About</a>
 					@auth
-					@if (auth()->user()->is_admin)
-					<a href="{{ route('admin') }}" class="transition-colors {{ request()->routeIs('admin')
-							? 'text-brand'
-							: 'text-white hover:text-brand' }}">Admin</a>
-					@endif
+						@if (auth()->user()->is_admin)
+							<a href="{{ route('admin') }}"
+								class="transition-colors {{ request()->routeIs('admin') ? 'text-stone-900' : 'hover:text-stone-900' }}">Admin</a>
+						@endif
 					@endauth
-					<a href="{{ route('blog') }}" class="transition-colors {{ request()->routeIs('blog') || request()->routeIs('posts.show')
-	? 'text-brand'
-	: 'text-white hover:text-brand' }}">Blog</a>
-					<a href="{{ route('home') }}" class="transition-colors text-zinc-400 hover:text-white">Portfolio</a>
-					<a href="{{ route('home') }}#contact"
-						class="transition-colors text-zinc-400 hover:text-white">Contact</a>
+					<a href="{{ route('blog') }}"
+						class="transition-colors {{ request()->routeIs('blog') || request()->routeIs('posts.show') ? 'text-stone-900' : 'hover:text-stone-900' }}">Blog</a>
+					<a href="{{ route('home') }}"
+						class="transition-colors {{ request()->routeIs('home') ? 'text-stone-900' : 'hover:text-stone-900' }}">Portfolio</a>
+					<a href="{{ route('home') }}#contact" class="transition-colors hover:text-stone-900">Contact</a>
 					@auth
-					<a href="{{ route('logout') }}" class="text-zinc-400 hover:text-white transition-colors">Logout</a>
+						<a href="{{ route('logout') }}" class="transition-colors hover:text-stone-900">Logout</a>
 					@endauth
 				</nav>
 
 				<button id="burger-btn"
-					class="sm:hidden flex flex-col justify-center items-center gap-1.5 w-8 h-8 text-white hover:text-brand transition-colors"
+					class="sm:hidden flex flex-col justify-center items-center gap-1.5 w-8 h-8 text-stone-700 hover:text-stone-900 transition-colors"
 					aria-label="Toggle menu" aria-expanded="false">
 					<span class="burger-line block w-6 h-0.5 bg-current transition-all duration-300"></span>
 					<span class="burger-line block w-6 h-0.5 bg-current transition-all duration-300"></span>
 					<span class="burger-line block w-6 h-0.5 bg-current transition-all duration-300"></span>
 				</button>
-			</div> --}}
+			</div>
 
-			{{-- Mobile nav --}}
 			<nav id="mobile-nav"
-				class="sm:hidden hidden flex-col gap-0 text-sm uppercase tracking-wide font-semibold border-t border-white/10 px-6 pb-4 text-white bg-[#1f1f1f]">
-				<a href="{{ route('about') }}" class="py-3 border-b border-white/5 transition-colors {{ request()->routeIs('about')
-	? 'text-brand'
-	: 'text-white hover:text-brand' }}">About</a>
+				class="sm:hidden hidden flex-col gap-0 text-sm uppercase tracking-wide font-semibold border-t border-stone-200 px-6 pb-4 text-stone-700 bg-white">
+				<a href="{{ route('about') }}"
+					class="py-3 border-b border-stone-100 transition-colors {{ request()->routeIs('about') ? 'text-stone-900' : 'hover:text-stone-900' }}">About</a>
 				@auth
 					@if (auth()->user()->is_admin)
-							<a href="{{ route('admin') }}" class="py-3 border-b border-white/5 transition-colors {{ request()->routeIs('admin')
-						? 'text-brand'
-						: 'text-white hover:text-brand' }}">Admin</a>
+						<a href="{{ route('admin') }}"
+							class="py-3 border-b border-stone-100 transition-colors {{ request()->routeIs('admin') ? 'text-stone-900' : 'hover:text-stone-900' }}">Admin</a>
 					@endif
 				@endauth
-				<a href="{{ route('blog') }}" class="py-3 border-b border-white/5 transition-colors {{ request()->routeIs('blog') || request()->routeIs('posts.show')
-	? 'text-brand'
-	: 'text-white hover:text-brand' }}">Blog</a>
+				<a href="{{ route('blog') }}"
+					class="py-3 border-b border-stone-100 transition-colors {{ request()->routeIs('blog') || request()->routeIs('posts.show') ? 'text-stone-900' : 'hover:text-stone-900' }}">Blog</a>
 				<a href="{{ route('home') }}"
-					class="py-3 border-b border-white/5 transition-colors text-white hover:text-brand">Portfolio</a>
+					class="py-3 border-b border-stone-100 transition-colors hover:text-stone-900">Portfolio</a>
 				<a href="{{ route('home') }}#contact"
-					class="py-3 border-b border-white/5 transition-colors text-white hover:text-brand">Contact</a>
+					class="py-3 border-b border-stone-100 transition-colors hover:text-stone-900">Contact</a>
 				@auth
-					<a href="{{ route('logout') }}" class="py-3 text-white hover:text-brand transition-colors">Logout</a>
+					<a href="{{ route('logout') }}"
+						class="py-3 text-stone-700 hover:text-stone-900 transition-colors">Logout</a>
 				@endauth
 			</nav>
 		</header>
 
-		<div class="flex-1 w-full max-w-350 mx-auto">
-			@yield('content')
-		</div>
-
-		{{-- <footer class="bg-[#1f1f1f] border-t border-white/10 py-8 mt-auto">
-			<div
-				class="max-w-350 mx-auto flex justify-between items-center max-sm:flex-col max-sm:gap-4 max-sm:text-center px-6">
-				<p class="text-sm text-zinc-500">
-					&copy; {{ date('Y') }} Kazazis Kostas. All rights reserved.
-				</p>
-				<div class="flex gap-6">
-					<a href="https://github.com/konkazazis" target="_blank" rel="noopener noreferrer"
-						class="text-sm text-zinc-500 hover:text-brand transition-colors">
-						GitHub
-					</a>
-					<a href="https://www.linkedin.com/in/konstantinos-kazazis-32a470228/" target="_blank"
-						rel="noopener noreferrer" class="text-sm text-zinc-500 hover:text-brand transition-colors">
-						LinkedIn
-					</a>
-					<a href="{{ route('impressum') }}" class="text-sm text-zinc-500 hover:text-brand transition-colors">
-						Impressum
-					</a>
-					<a href="{{ route('privacy') }}" class="text-sm text-zinc-500 hover:text-brand transition-colors">
-						Datenschutz
-					</a>
+		<div class="flex-1 w-full max-w-7xl mx-auto">
+			{{-- <footer class="bg-[#1f1f1f] border-t border-white/10 py-8 mt-auto">
+				<div
+					class="max-w-350 mx-auto flex justify-between items-center max-sm:flex-col max-sm:gap-4 max-sm:text-center px-6">
+					<p class="text-sm text-zinc-500">
+						&copy; {{ date('Y') }} Kazazis Kostas. All rights reserved.
+					</p>
+					<div class="flex gap-6">
+						<a href="https://github.com/konkazazis" target="_blank" rel="noopener noreferrer"
+							class="text-sm text-zinc-500 hover:text-brand transition-colors">
+							GitHub
+						</a>
+						<a href="https://www.linkedin.com/in/konstantinos-kazazis-32a470228/" target="_blank"
+							rel="noopener noreferrer" class="text-sm text-zinc-500 hover:text-brand transition-colors">
+							LinkedIn
+						</a>
+						<a href="{{ route('impressum') }}"
+							class="text-sm text-zinc-500 hover:text-brand transition-colors">
+							Impressum
+						</a>
+						<a href="{{ route('privacy') }}"
+							class="text-sm text-zinc-500 hover:text-brand transition-colors">
+							Datenschutz
+						</a>
+					</div>
 				</div>
-			</div>
-		</footer> --}}
+			</footer> --}}
 
-	</div>
-	@stack('scripts')
-	<script>
-		const burgerBtn = document.getElementById('burger-btn');
-		const mobileNav = document.getElementById('mobile-nav');
-		const lines = burgerBtn.querySelectorAll('.burger-line');
+			<div class="flex-1 w-full max-w-350 mx-auto">
+				@yield('content')</div>
 
-		burgerBtn.addEventListener('click', () => {
-			const open = mobileNav.classList.toggle('hidden');
-			mobileNav.classList.toggle('flex', !open);
-			burgerBtn.setAttribute('aria-expanded', String(!open));
-			lines[0].style.transform = open ? '' : 'translateY(8px) rotate(45deg)';
-			lines[1].style.opacity = open ? '' : '0';
-			lines[2].style.transform = open ? '' : 'translateY(-8px) rotate(-45deg)';
-		});
+		</div>
+		@stack('scripts')
+		<script>
+			const burgerBtn = document.getElementById('burger-btn');
+			const mobileNav = document.getElementById('mobile-nav');
+			const lines = burgerBtn.querySelectorAll('.burger-line');
 
-		mobileNav.querySelectorAll('a').forEach(a => {
-			a.addEventListener('click', () => {
-				mobileNav.classList.add('hidden');
-				mobileNav.classList.remove('flex');
-				burgerBtn.setAttribute('aria-expanded', 'false');
-				lines[0].style.transform = '';
-				lines[1].style.opacity = '';
-				lines[2].style.transform = '';
+			burgerBtn.addEventListener('click', () => {
+				const open = mobileNav.classList.toggle('hidden');
+				mobileNav.classList.toggle('flex', !open);
+				burgerBtn.setAttribute('aria-expanded', String(!open));
+				lines[0].style.transform = open ? '' : 'translateY(8px) rotate(45deg)';
+				lines[1].style.opacity = open ? '' : '0';
+				lines[2].style.transform = open ? '' : 'translateY(-8px) rotate(-45deg)';
 			});
-		});
-	</script>
+
+			mobileNav.querySelectorAll('a').forEach(a => {
+				a.addEventListener('click', () => {
+					mobileNav.classList.add('hidden');
+					mobileNav.classList.remove('flex');
+					burgerBtn.setAttribute('aria-expanded', 'false');
+					lines[0].style.transform = '';
+					lines[1].style.opacity = '';
+					lines[2].style.transform = '';
+				});
+			});
+		</script>
 </body>
 
 </html>
