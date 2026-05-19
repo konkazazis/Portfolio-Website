@@ -6,8 +6,8 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: "Raleway", system-ui, -apple-system, sans-serif;
-    --font-serif: "Raleway", Georgia, serif;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --font-serif: "Playfair Display", "Playfair Display Italic", Georgia, serif;
     --color-brand: #eb5424;
     --color-brand-dark: #c94219;
 }

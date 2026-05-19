@@ -1,243 +1,210 @@
-<!doctype html>
-<html lang="en">
+@extends('layouts.auth')
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+@section('title', 'Portfolio')
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-
-    <meta name="description"
-        content="Kostas Kazazis - Professional Full-Stack Web Developer based in Düsseldorf, Germany. Specializing in modern web applications, responsive design, and custom full-stack solutions. Expert in React, JavaScript, Java, Spring, and PostgreSQL." />
-    <meta name="keywords"
-        content="web developer, full stack developer, frontend developer, backend developer, React developer, JavaScript developer, Java developer, Spring Boot, PostgreSQL, web design, responsive design, Düsseldorf, Germany, portfolio, freelance developer" />
-    <meta name="author" content="Kostas Kazazis" />
-    <meta name="robots" content="index, follow" />
-    <meta name="language" content="English" />
-    <meta name="revisit-after" content="7 days" />
-
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://kazazis.dev/" />
-    <meta property="og:title" content="Kostas Kazazis - Full-Stack Web Developer | kazazis.dev" />
-    <meta property="og:description"
-        content="Professional Full-Stack Web Developer creating modern and responsive web applications. Specializing in React, JavaScript, Java, Spring, and PostgreSQL." />
-    <meta property="og:image" content="https://kazazis.dev/profile-pic.png" />
-    <meta property="og:site_name" content="kazazis.dev" />
-    <meta property="og:locale" content="en_US" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://kazazis.dev/" />
-    <meta name="twitter:title" content="Kostas Kazazis - Full-Stack Web Developer" />
-    <meta name="twitter:description"
-        content="Professional Full-Stack Web Developer creating modern and responsive web applications. Specializing in React, JavaScript, Java, Spring, and PostgreSQL." />
-    <meta name="twitter:image" content="https://kazazis.dev/profile-pic.png" />
-
-    <link rel="canonical" href="https://kazazis.dev/" />
-
-    @verbatim
-        <script type="application/ld+json">
-                                                                                            {
-                                                                                                "@context": "https://schema.org",
-                                                                                                "@type": "Person",
-                                                                                                "name": "Kostas Kazazis",
-                                                                                                "url": "https://kazazis.dev/",
-                                                                                                "image": "https://kazazis.dev/profile-pic.png",
-                                                                                                "jobTitle": "Full-Stack Web Developer",
-                                                                                                "worksFor": { "@type": "Organization", "name": "Self-Employed" },
-                                                                                                "address": { "@type": "PostalAddress", "addressLocality": "Düsseldorf", "addressCountry": "Germany" },
-                                                                                                "sameAs": [
-                                                                                                    "https://github.com/konkazazis",
-                                                                                                    "https://www.linkedin.com/in/Kostas-kazazis-32a470228/"
-                                                                                                ],
-                                                                                                "knowsAbout": ["React","JavaScript","Java","Spring Boot","PostgreSQL","TypeScript","HTML5","CSS3"]
-                                                                                            }
-                                                                                            </script>
-        <script type="application/ld+json">
-                                                                                            {
-                                                                                                "@context": "https://schema.org",
-                                                                                                "@type": "ProfessionalService",
-                                                                                                "name": "Kostas Kazazis - Web Development Services",
-                                                                                                "url": "https://kazazis.dev/",
-                                                                                                "image": "https://kazazis.dev/profile-pic.png",
-                                                                                                "description": "Professional Full-Stack Web Developer creating modern and responsive web applications.",
-                                                                                                "address": { "@type": "PostalAddress", "addressLocality": "Düsseldorf", "addressCountry": "Germany" },
-                                                                                                "priceRange": "$$",
-                                                                                                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "reviewCount": "3" }
-                                                                                            }
-                                                                                            </script>
-    @endverbatim
-
-    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.ico') }}" />
-    <link rel="manifest" href="{{ asset('site.webmanifest') }}" />
-
-    <title>Kostas Kazazis - Full-Stack Web Developer | kazazis.dev</title>
-
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}?v=2.0" />
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
-</head>
-
-<body data-spy="scroll" data-target="#rock-navigation">
+@section('content')
 
     <!-- START NAVIGATION -->
-    <div class="navbar navbar-default bs-dos-nav navbar-fixed-top sticky-navigation" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button class="navbar-toggle" data-toggle="collapse" data-target="#rock-navigation">
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
+    <nav class="fixed top-0 w-full bg-stone-50/95 backdrop-blur-sm border-b border-stone-200 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#home" class="font-serif text-2xl font-bold text-[#eb5424] smoothScroll">KK</a>
+                <button id="mobile-menu-btn" class="md:hidden text-stone-800">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
                 </button>
-            </div>
-            <nav class="collapse navbar-collapse" id="rock-navigation">
-                <ul class="nav navbar-nav navbar-right main-navigation text-uppercase">
-                    <li><a href="#home" class="smoothScroll">Home</a></li>
-                    <li><a href="#work" class="smoothScroll">My Work</a></li>
-                    <li><a href="#pricing" class="smoothScroll">Pricing</a></li>
-                    <li><a href="#testimonials" class="smoothScroll">Testimonials</a></li>
-                    <li><a href="#portfolio" class="smoothScroll">Portfolio</a></li>
-                    <li><a href="#technologies" class="smoothScroll">Technologies</a></li>
-                    <li><a href="#about" class="smoothScroll">About</a></li>
-                    <li><a href="#contact" class="smoothScroll">Contact</a></li>
-                    <li><a href="#blog" class="smoothScroll">Blog</a></li>
+                <ul id="nav-menu" class="hidden md:flex gap-8 text-sm font-medium text-stone-700">
+                    <li><a href="#home" class="hover:text-[#eb5424] transition smoothScroll">Home</a></li>
+                    <li><a href="#work" class="hover:text-[#eb5424] transition smoothScroll">Services</a></li>
+                    <li><a href="#pricing" class="hover:text-[#eb5424] transition smoothScroll">Pricing</a></li>
+                    <li><a href="#portfolio" class="hover:text-[#eb5424] transition smoothScroll">Portfolio</a></li>
+                    <li><a href="#blog" class="hover:text-[#eb5424] transition smoothScroll">Blog</a></li>
+                    <li><a href="#about" class="hover:text-[#eb5424] transition smoothScroll">About</a></li>
+                    <li><a href="#contact" class="hover:text-[#eb5424] transition smoothScroll">Contact</a></li>
                 </ul>
-            </nav>
+            </div>
         </div>
-    </div>
+    </nav>
     <!-- END NAVIGATION -->
 
+
     <!-- START HOME -->
-    <section id="home" class="templatemo-home">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-2 col-sm-1"></div>
-                <div class="col-md-8 col-sm-10">
-                    <div class="text-center">
-                        <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/profile-pic.png"
-                            alt="Kostas Kazazis - Full-Stack Web Developer in Düsseldorf, Germany"
-                            class="tm-home-profile-img" />
-                    </div>
-                    <h1 class="tm-home-title"><strong>Kostas Kazazis</strong></h1>
-                    <h2 class="tm-home-subtitle">Web Developer</h2>
-                    <div class="tm-home-social-links">
-                        <a href="https://github.com/konkazazis" target="_blank" rel="noopener noreferrer"
-                            class="tm-social-link" aria-label="GitHub">
-                            <i class="fa fa-github"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/Kostas-kazazis-32a470228/" target="_blank"
-                            rel="noopener noreferrer" class="tm-social-link" aria-label="LinkedIn">
-                            <i class="fa fa-linkedin"></i>
-                        </a>
-                        <a href="{{ route('blog') }}" class="tm-social-link tm-blog-link" aria-label="Blog">
-                            <i class="fa fa-pencil"></i>
-                        </a>
-                    </div>
-                    <p>I am a professional <strong>Full-Stack Web Developer</strong> creating modern and responsive
-                        designs for the <strong>Web</strong>.</p>
-                    <a href="#work" class="btn btn-default smoothScroll tm-view-more-btn">Let's Begin</a>
-                </div>
-                <div class="col-md-2 col-sm-1"></div>
+    <section id="home" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-stone-50 via-stone-50 to-[#eb5424]/5">
+        <div class="max-w-4xl mx-auto text-center">
+            <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/profile-pic.png"
+                alt="Kostas Kazazis - Full-Stack Web Developer in Düsseldorf, Germany"
+                class="w-32 h-32 rounded-full mx-auto mb-8 border-4 border-[#eb5424] shadow-lg object-cover" />
+            <h1 class="font-serif text-5xl md:text-6xl font-bold text-stone-900 mb-4">Kostas Kazazis</h1>
+            <p class="text-xl md:text-2xl text-[#eb5424] font-medium mb-6">Full-Stack Web Developer</p>
+            <p class="text-lg text-stone-700 mb-8 leading-relaxed">I craft beautiful, responsive websites and web applications that convert. Based in Düsseldorf, Germany, I help businesses establish a powerful online presence.</p>
+            
+            <!-- Social Links -->
+            <div class="flex justify-center gap-6 mb-10">
+                <a href="https://github.com/konkazazis" target="_blank" rel="noopener noreferrer"
+                    class="w-12 h-12 rounded-full bg-[#eb5424] text-white flex items-center justify-center hover:bg-[#c94219] transition transform hover:scale-110"
+                    aria-label="GitHub">
+                    <i class="fa fa-github text-lg"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/Kostas-kazazis-32a470228/" target="_blank" rel="noopener noreferrer"
+                    class="w-12 h-12 rounded-full bg-[#eb5424] text-white flex items-center justify-center hover:bg-[#c94219] transition transform hover:scale-110"
+                    aria-label="LinkedIn">
+                    <i class="fa fa-linkedin text-lg"></i>
+                </a>
+                <a href="{{ route('blog') }}"
+                    class="w-12 h-12 rounded-full bg-[#eb5424] text-white flex items-center justify-center hover:bg-[#c94219] transition transform hover:scale-110"
+                    aria-label="Blog">
+                    <i class="fa fa-pencil text-lg"></i>
+                </a>
             </div>
+
+            <a href="#work" class="inline-block px-8 py-3 bg-[#eb5424] text-white font-semibold rounded-lg hover:bg-[#c94219] transition transform hover:scale-105 smoothScroll">
+                Let's Begin
+            </a>
         </div>
     </section>
     <!-- END HOME -->
 
     <!-- START WORK -->
-    <section id="work" class="tm-padding-top-bottom-100">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2 class="title text-center">My <strong>Services</strong></h2>
+    <section id="work" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-stone-900 mb-4">
+                    My <span class="text-[#eb5424]">Services</span>
+                </h2>
+                <p class="text-stone-600 text-lg">What I offer to help your business thrive online</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <!-- Service 1 -->
+                <div class="p-8 bg-stone-50 rounded-xl border border-stone-200 hover:border-[#eb5424] hover:shadow-lg transition transform hover:scale-105">
+                    <div class="w-16 h-16 bg-[#eb5424] rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa fa-globe text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-stone-900 mb-3">Professional Websites</h3>
+                    <p class="text-stone-600">Beautiful and custom websites that convert. With features like custom blogs and contact sections.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="p-8 bg-stone-50 rounded-xl border border-stone-200 hover:border-[#eb5424] hover:shadow-lg transition transform hover:scale-105">
+                    <div class="w-16 h-16 bg-[#eb5424] rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa fa-mobile text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-stone-900 mb-3">Mobile-Friendly Design</h3>
+                    <p class="text-stone-600">Your website works perfectly on phones, tablets, and computers - reaching customers everywhere.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="p-8 bg-stone-50 rounded-xl border border-stone-200 hover:border-[#eb5424] hover:shadow-lg transition transform hover:scale-105">
+                    <div class="w-16 h-16 bg-[#eb5424] rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa fa-shield text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-stone-900 mb-3">Secure & Protected</h3>
+                    <p class="text-stone-600">Keep your business and customer data safe with professional security measures.</p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="services-grid">
-                        <div class="service-item">
-                            <i class="fa fa-globe"></i>
-                            <h4>Professional Websites</h4>
-                            <p>Beautiful and custom websites that convert. With features like custom blogs and contact
-                                sections.</p>
-                        </div>
-                        <div class="service-item">
-                            <i class="fa fa-mobile"></i>
-                            <h4>Mobile-Friendly Design</h4>
-                            <p>Your website works perfectly on phones, tablets, and computers - reaching customers
-                                everywhere</p>
-                        </div>
-                        <div class="service-item">
-                            <i class="fa fa-shield"></i>
-                            <h4>Secure & Protected</h4>
-                            <p>Keep your business and customer data safe with professional security measures</p>
-                        </div>
-                    </div>
-                    <div class="text-center" style="margin-top: 50px">
-                        <a href="#contact" class="btn btn-default smoothScroll tm-service-btn"
-                            style="padding: 15px 50px; font-size: 18px">Get Started</a>
-                    </div>
-                </div>
+
+            <div class="text-center">
+                <a href="#contact" class="inline-block px-8 py-3 bg-[#eb5424] text-white font-semibold rounded-lg hover:bg-[#c94219] transition transform hover:scale-105 smoothScroll">
+                    Get Started
+                </a>
             </div>
         </div>
     </section>
     <!-- END WORK -->
 
     <!-- START PRICING -->
-    <section id="pricing" class="tm-padding-top-bottom-100">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2 class="title text-center">Pricing <strong>Packages</strong></h2>
-                </div>
+    <section id="pricing" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-stone-50 to-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-stone-900 mb-4">
+                    Pricing <span class="text-[#eb5424]">Packages</span>
+                </h2>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="pricing-grid">
-                        <div class="pricing-card">
-                            <div class="pricing-header">
-                                <i class="fa fa-cogs"></i>
-                                <h3>Custom Web Apps</h3>
-                                <div class="pricing-price">
-                                    <span class="period">Contact me for pricing</span>
-                                </div>
-                            </div>
-                            <div class="pricing-features">
-                                <ul>
-                                    <li><i class="fa fa-check"></i> Blogs, SASS, etc</li>
-                                    <li><i class="fa fa-check"></i> Full-stack development</li>
-                                    <li><i class="fa fa-check"></i> Database design</li>
-                                    <li><i class="fa fa-check"></i> User authentication</li>
-                                    <li><i class="fa fa-check"></i> Payment integration</li>
-                                    <li><i class="fa fa-check"></i> Admin (CMS) dashboard</li>
-                                </ul>
-                            </div>
-                            <a href="#contact" class="pricing-btn smoothScroll">Get Started</a>
-                        </div>
 
-                        <div class="pricing-card">
-                            <div class="pricing-header">
-                                <i class="fa fa-rocket"></i>
-                                <h3>Landing Page</h3>
-                                <div class="pricing-price">
-                                    <span class="period">Contact me for pricing</span>
-                                </div>
-                            </div>
-                            <div class="pricing-features">
-                                <ul>
-                                    <li><i class="fa fa-check"></i> 5 pages included</li>
-                                    <li><i class="fa fa-check"></i> Custom design</li>
-                                    <li><i class="fa fa-check"></i> Responsive layout</li>
-                                    <li><i class="fa fa-check"></i> Technical SEO optimization</li>
-                                    <li><i class="fa fa-check"></i> Contact form</li>
-                                    <li><i class="fa fa-check"></i> Proven excellent performance</li>
-                                </ul>
-                            </div>
-                            <a href="#contact" class="pricing-btn smoothScroll">Get Started</a>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Pricing Card 1 -->
+                <div class="bg-white rounded-2xl border-2 border-stone-200 overflow-hidden hover:border-[#eb5424] transition hover:shadow-xl">
+                    <div class="p-8 border-b-2 border-stone-100">
+                        <div class="w-14 h-14 bg-[#eb5424] rounded-lg flex items-center justify-center mb-4 mx-auto">
+                            <i class="fa fa-cogs text-white text-xl"></i>
                         </div>
+                        <h3 class="font-serif text-2xl font-bold text-center text-stone-900 mb-4">Custom Web Apps</h3>
+                        <p class="text-center text-[#eb5424] font-semibold text-lg">Contact for pricing</p>
+                    </div>
+                    <div class="p-8">
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center text-stone-700">
+                                <i class="fa fa-check text-[#eb5424] w-5 mr-3"></i>
+                                Blogs, SASS, etc
+                            </li>
+                            <li class="flex items-center text-stone-700">
+                                <i class="fa fa-check text-[#eb5424] w-5 mr-3"></i>
+                                Full-stack development
+                            </li>
+                            <li class="flex items-center text-stone-700">
+                                <i class="fa fa-check text-[#eb5424] w-5 mr-3"></i>
+                                Database design
+                            </li>
+                            <li class="flex items-center text-stone-700">
+                                <i class="fa fa-check text-[#eb5424] w-5 mr-3"></i>
+                                User authentication
+                            </li>
+                            <li class="flex items-center text-stone-700">
+                                <i class="fa fa-check text-[#eb5424] w-5 mr-3"></i>
+                                Payment integration
+                            </li>
+                            <li class="flex items-center text-stone-700">
+                                <i class="fa fa-check text-[#eb5424] w-5 mr-3"></i>
+                                Admin (CMS) dashboard
+                            </li>
+                        </ul>
+                        <a href="#contact" class="block w-full text-center px-6 py-3 bg-[#eb5424] text-white font-semibold rounded-lg hover:bg-[#c94219] transition smoothScroll">
+                            Get Started
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Pricing Card 2 -->
+                <div class="bg-white rounded-2xl border-2 border-[#eb5424] overflow-hidden shadow-xl relative">
+                    <div class="absolute top-0 right-0 bg-[#eb5424] text-white px-4 py-1 text-sm font-semibold rounded-bl-lg">Popular</div>
+                    <div class="p-8 border-b-2 border-stone-100">
+                        <div class="w-14 h-14 bg-[#eb5424] rounded-lg flex items-center justify-center mb-4 mx-auto">
+                            <i class="fa fa-rocket text-white text-xl"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-center text-stone-900 mb-4">Landing Page</h3>
+                        <p class="text-center text-[#eb5424] font-semibold text-lg">Contact for pricing</p>
+                    </div>
+                    <div class="p-8">
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center text-stone-700">
+                                <i class="fa fa-check text-[#eb5424] w-5 mr-3"></i>
+                                5 pages included
+                            </li>
+                            <li class="flex items-center text-stone-700">
+                                <i class="fa fa-check text-[#eb5424] w-5 mr-3"></i>
+                                Custom design
+                            </li>
+                            <li class="flex items-center text-stone-700">
+                                <i class="fa fa-check text-[#eb5424] w-5 mr-3"></i>
+                                Responsive layout
+                            </li>
+                            <li class="flex items-center text-stone-700">
+                                <i class="fa fa-check text-[#eb5424] w-5 mr-3"></i>
+                                Technical SEO optimization
+                            </li>
+                            <li class="flex items-center text-stone-700">
+                                <i class="fa fa-check text-[#eb5424] w-5 mr-3"></i>
+                                Contact form
+                            </li>
+                            <li class="flex items-center text-stone-700">
+                                <i class="fa fa-check text-[#eb5424] w-5 mr-3"></i>
+                                Proven excellent performance
+                            </li>
+                        </ul>
+                        <a href="#contact" class="block w-full text-center px-6 py-3 bg-[#eb5424] text-white font-semibold rounded-lg hover:bg-[#c94219] transition smoothScroll">
+                            Get Started
+                        </a>
                     </div>
                 </div>
             </div>
@@ -246,66 +213,75 @@
     <!-- END PRICING -->
 
     <!-- START TESTIMONIALS -->
-    <section id="testimonials" class="tm-padding-top-bottom-100">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2 class="title text-center">What <strong>Clients Say</strong></h2>
-                </div>
+    <section id="testimonials" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-stone-900 mb-4">
+                    What <span class="text-[#eb5424]">Clients Say</span>
+                </h2>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="testimonials-grid">
-                        <div class="testimonial-card">
-                            <div class="testimonial-content">
-                                <div class="testimonial-quote"><i class="fa fa-quote-left"></i></div>
-                                <p class="testimonial-text">Kostas created an amazing website for my small business. The
-                                    process was smooth, and the result exceeded my expectations. My customers love how
-                                    easy it is to navigate!</p>
-                                <div class="testimonial-author">
-                                    <div class="testimonial-stars">
-                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i>
-                                    </div>
-                                    <h5>Sarah M.</h5>
-                                    <span>Small Business Owner</span>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="testimonial-card">
-                            <div class="testimonial-content">
-                                <div class="testimonial-quote"><i class="fa fa-quote-left"></i></div>
-                                <p class="testimonial-text">Professional, responsive, and delivered on time. Kostas
-                                    helped me get my online store up and running quickly. Highly recommend his services!
-                                </p>
-                                <div class="testimonial-author">
-                                    <div class="testimonial-stars">
-                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i>
-                                    </div>
-                                    <h5>Kostas Kapratsis</h5>
-                                    <span>Fitness and diet coach</span>
-                                </div>
-                            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-stone-50 rounded-xl p-8 border border-stone-200 hover:shadow-lg transition">
+                    <div class="flex items-center justify-center mb-4">
+                        <i class="fa fa-quote-left text-[#eb5424] text-2xl"></i>
+                    </div>
+                    <p class="text-stone-700 text-center mb-6 italic">
+                        "Kostas created an amazing website for my small business. The process was smooth, and the result exceeded my expectations. My customers love how easy it is to navigate!"
+                    </p>
+                    <div class="text-center border-t border-stone-200 pt-4">
+                        <div class="flex justify-center gap-1 mb-2">
+                            <i class="fa fa-star text-[#eb5424]"></i>
+                            <i class="fa fa-star text-[#eb5424]"></i>
+                            <i class="fa fa-star text-[#eb5424]"></i>
+                            <i class="fa fa-star text-[#eb5424]"></i>
+                            <i class="fa fa-star text-[#eb5424]"></i>
                         </div>
+                        <h5 class="font-serif font-bold text-stone-900">Sarah M.</h5>
+                        <span class="text-sm text-stone-600">Small Business Owner</span>
+                    </div>
+                </div>
 
-                        <div class="testimonial-card">
-                            <div class="testimonial-content">
-                                <div class="testimonial-quote"><i class="fa fa-quote-left"></i></div>
-                                <p class="testimonial-text">Working with Kostas was a great experience. He understood my
-                                    vision and brought it to life. The website looks professional and has helped grow my
-                                    business significantly.</p>
-                                <div class="testimonial-author">
-                                    <div class="testimonial-stars">
-                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i>
-                                    </div>
-                                    <h5>Christos Karpos</h5>
-                                    <span>Local Business Owner and Freelance Industrial Designer</span>
-                                </div>
-                            </div>
+                <!-- Testimonial 2 -->
+                <div class="bg-stone-50 rounded-xl p-8 border border-stone-200 hover:shadow-lg transition">
+                    <div class="flex items-center justify-center mb-4">
+                        <i class="fa fa-quote-left text-[#eb5424] text-2xl"></i>
+                    </div>
+                    <p class="text-stone-700 text-center mb-6 italic">
+                        "Professional, responsive, and delivered on time. Kostas helped me get my online store up and running quickly. Highly recommend his services!"
+                    </p>
+                    <div class="text-center border-t border-stone-200 pt-4">
+                        <div class="flex justify-center gap-1 mb-2">
+                            <i class="fa fa-star text-[#eb5424]"></i>
+                            <i class="fa fa-star text-[#eb5424]"></i>
+                            <i class="fa fa-star text-[#eb5424]"></i>
+                            <i class="fa fa-star text-[#eb5424]"></i>
+                            <i class="fa fa-star text-[#eb5424]"></i>
                         </div>
+                        <h5 class="font-serif font-bold text-stone-900">Kostas Kapratsis</h5>
+                        <span class="text-sm text-stone-600">Fitness and diet coach</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-stone-50 rounded-xl p-8 border border-stone-200 hover:shadow-lg transition">
+                    <div class="flex items-center justify-center mb-4">
+                        <i class="fa fa-quote-left text-[#eb5424] text-2xl"></i>
+                    </div>
+                    <p class="text-stone-700 text-center mb-6 italic">
+                        "Working with Kostas was a great experience. He understood my vision and brought it to life. The website looks professional and has helped grow my business significantly."
+                    </p>
+                    <div class="text-center border-t border-stone-200 pt-4">
+                        <div class="flex justify-center gap-1 mb-2">
+                            <i class="fa fa-star text-[#eb5424]"></i>
+                            <i class="fa fa-star text-[#eb5424]"></i>
+                            <i class="fa fa-star text-[#eb5424]"></i>
+                            <i class="fa fa-star text-[#eb5424]"></i>
+                            <i class="fa fa-star text-[#eb5424]"></i>
+                        </div>
+                        <h5 class="font-serif font-bold text-stone-900">Christos Karpos</h5>
+                        <span class="text-sm text-stone-600">Local Business Owner</span>
                     </div>
                 </div>
             </div>
@@ -314,127 +290,115 @@
     <!-- END TESTIMONIALS -->
 
     <!-- START PORTFOLIO -->
-    <section id="portfolio" class="tm-portfolio">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 wow bounce">
-                    <div class="title">
-                        <h2 class="tm-portfolio-title">My <strong>Portfolio</strong></h2>
-                    </div>
-                    <div class="iso-section">
-                        <ul class="filter-wrapper clearfix">
-                            <li><a href="#" class="opc-main-bg selected" data-filter="*">All</a></li>
-                            <li><a href="#" class="opc-main-bg" data-filter=".websites">Websites</a></li>
-                            <li><a href="#" class="opc-main-bg" data-filter=".full-stack">Full Stack Solutions</a></li>
-                        </ul>
-                        <div class="iso-box-section">
-                            <div class="iso-box-wrapper col4-iso-box">
-                                <div class="iso-box full-stack mobile col-md-3 col-sm-3 col-xs-12">
-                                    <a href="https://kostas-eshop-production.up.railway.app/" class="portfolio-link"
-                                        target="_blank" rel="noopener noreferrer">
-                                        <div class="portfolio-thumb">
-                                            <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/ntinos.png"
-                                                class="fluid-img"
-                                                alt="Personal Training Platform - Full-stack ecommerce web application"
-                                                loading="lazy" />
-                                            <div class="portfolio-overlay">
-                                                <h3 class="portfolio-item-title">Personal Training platform</h3>
-                                                <p>Full stack application with ecommerce capabilities</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="iso-box websites mobile col-md-3 col-sm-3 col-xs-12">
-                                    <a href="https://chris-karpos-production.up.railway.app/" class="portfolio-link"
-                                        target="_blank" rel="noopener noreferrer">
-                                        <div class="portfolio-thumb">
-                                            <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/karpos.png"
-                                                class="fluid-img"
-                                                alt="Freelancer Landing Page - Transportation Designer portfolio website"
-                                                loading="lazy" />
-                                            <div class="portfolio-overlay">
-                                                <h3 class="portfolio-item-title">Freelancer Landing Page</h3>
-                                                <p>Freelance Transportational Designer Page</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="iso-box websites mobile col-md-3 col-sm-3 col-xs-12">
-                                    <a href="https://car-blog-production.up.railway.app/" class="portfolio-link"
-                                        target="_blank" rel="noopener noreferrer">
-                                        <div class="portfolio-thumb">
-                                            <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/car-blog.png"
-                                                class="fluid-img" alt="Car news site" loading="lazy" />
-                                            <div class="portfolio-overlay">
-                                                <h3 class="portfolio-item-title">Car news site</h3>
-                                                <p>Custom site in Laravel</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
+    <section id="portfolio" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-stone-50 to-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-stone-900 mb-4">
+                    My <span class="text-[#eb5424]">Portfolio</span>
+                </h2>
+            </div>
 
-                                <div class="iso-box websites mobile col-md-3 col-sm-3 col-xs-12">
-                                    <a href="https://car-blog-production.up.railway.app/" class="portfolio-link"
-                                        target="_blank" rel="noopener noreferrer">
-                                        <div class="portfolio-thumb">
-                                            <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/kostas-photography.png"
-                                                class="fluid-img" alt="Car news site" loading="lazy" />
-                                            <div class="portfolio-overlay">
-                                                <h3 class="portfolio-item-title">Photographer Portfolio page</h3>
-                                                <p>Website using HTML, Tailwind</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Portfolio Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Portfolio Item 1 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition">
+                    <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/ntinos.png"
+                        alt="Personal Training Platform"
+                        class="w-full h-64 object-cover group-hover:scale-110 transition duration-300" />
+                    <a href="https://kostas-eshop-production.up.railway.app/" target="_blank" rel="noopener noreferrer"
+                        class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <h3 class="font-serif text-xl font-bold text-white mb-2">Personal Training Platform</h3>
+                        <p class="text-stone-200 text-sm">Full stack with ecommerce</p>
+                    </a>
+                </div>
+
+                <!-- Portfolio Item 2 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition">
+                    <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/karpos.png"
+                        alt="Freelancer Landing Page"
+                        class="w-full h-64 object-cover group-hover:scale-110 transition duration-300" />
+                    <a href="https://chris-karpos-production.up.railway.app/" target="_blank" rel="noopener noreferrer"
+                        class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <h3 class="font-serif text-xl font-bold text-white mb-2">Freelancer Landing Page</h3>
+                        <p class="text-stone-200 text-sm">Designer Portfolio</p>
+                    </a>
+                </div>
+
+                <!-- Portfolio Item 3 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition">
+                    <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/car-blog.png"
+                        alt="Car news site"
+                        class="w-full h-64 object-cover group-hover:scale-110 transition duration-300" />
+                    <a href="https://car-blog-production.up.railway.app/" target="_blank" rel="noopener noreferrer"
+                        class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <h3 class="font-serif text-xl font-bold text-white mb-2">Car News Site</h3>
+                        <p class="text-stone-200 text-sm">Custom site in Laravel</p>
+                    </a>
+                </div>
+
+                <!-- Portfolio Item 4 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition">
+                    <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/kostas-photography.png"
+                        alt="Photographer Portfolio"
+                        class="w-full h-64 object-cover group-hover:scale-110 transition duration-300" />
+                    <a href="https://car-blog-production.up.railway.app/" target="_blank" rel="noopener noreferrer"
+                        class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <h3 class="font-serif text-xl font-bold text-white mb-2">Photographer Portfolio</h3>
+                        <p class="text-stone-200 text-sm">HTML & Tailwind</p>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
     <!-- END PORTFOLIO -->
 
+
     <!-- START BLOG -->
     @if($posts->isNotEmpty())
-        <section id="blog" class="tm-padding-top-bottom-100 tm-blog-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h2 class="title text-center">Latest <strong>Blog Posts</strong></h2>
-                        <p class="text-center tm-blog-section-subtitle">Thoughts on web development, tech, and more</p>
-                    </div>
+        <section id="blog" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-stone-900 mb-4">
+                        Latest <span class="text-[#eb5424]">Blog Posts</span>
+                    </h2>
+                    <p class="text-stone-600 text-lg">Thoughts on web development, tech, and more</p>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="tm-blog-grid">
-                            @foreach($posts->take(3) as $post)
-                                <article class="tm-blog-card">
-                                    @if($post->category)
-                                        <span class="tm-blog-category">{{ $post->category->name }}</span>
-                                    @endif
-                                    <h3 class="tm-blog-card-title">
-                                        <a href="{{ route('posts.show', $post->slug) }}">{{ $post->title }}</a>
-                                    </h3>
-                                    @if($post->excerpt)
-                                        <p class="tm-blog-card-excerpt">{!! Str::limit($post->excerpt, 120) !!}</p>
-                                    @endif
-                                    <div class="tm-blog-card-footer">
-                                        <span class="tm-blog-date">
-                                            <i class="fa fa-calendar"></i>
-                                            {{ $post->published_at->format('M d, Y') }}
-                                        </span>
-                                        <a href="{{ route('posts.show', $post->slug) }}" class="tm-blog-read-more">Read More <i
-                                                class="fa fa-arrow-right"></i></a>
-                                    </div>
-                                </article>
-                            @endforeach
-                        </div>
-                        <div class="text-center" style="margin-top: 50px">
-                            <a href="{{ route('blog') }}" class="btn btn-default tm-service-btn"
-                                style="padding: 15px 50px; font-size: 18px">View All Posts</a>
-                        </div>
-                    </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                    @foreach($posts->take(3) as $post)
+                        <article class="bg-stone-50 rounded-xl overflow-hidden border border-stone-200 hover:border-[#eb5424] hover:shadow-lg transition">
+                            @if($post->category)
+                                <div class="px-6 pt-6">
+                                    <span class="inline-block px-3 py-1 bg-[#eb5424] text-white text-xs font-semibold rounded-full">
+                                        {{ $post->category->name }}
+                                    </span>
+                                </div>
+                            @endif
+                            <div class="p-6">
+                                <h3 class="font-serif text-xl font-bold text-stone-900 mb-3 hover:text-[#eb5424] transition">
+                                    <a href="{{ route('posts.show', $post->slug) }}">{{ $post->title }}</a>
+                                </h3>
+                                @if($post->excerpt)
+                                    <p class="text-stone-600 mb-6">{!! Str::limit($post->excerpt, 120) !!}</p>
+                                @endif
+                                <div class="flex items-center justify-between border-t border-stone-200 pt-4">
+                                    <span class="text-sm text-stone-500">
+                                        <i class="fa fa-calendar mr-2"></i>
+                                        {{ $post->published_at->format('M d, Y') }}
+                                    </span>
+                                    <a href="{{ route('posts.show', $post->slug) }}" class="text-[#eb5424] font-semibold hover:text-[#c94219] transition">
+                                        Read More <i class="fa fa-arrow-right ml-1"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                    @endforeach
+                </div>
+
+                <div class="text-center">
+                    <a href="{{ route('blog') }}" class="inline-block px-8 py-3 bg-[#eb5424] text-white font-semibold rounded-lg hover:bg-[#c94219] transition transform hover:scale-105">
+                        View All Posts
+                    </a>
                 </div>
             </div>
         </section>
@@ -442,27 +406,39 @@
     <!-- END BLOG -->
 
     <!-- START TECHNOLOGIES -->
-    <section id="technologies" class="tm-padding-top-bottom-100">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
-                    <h2 class="title text-center"><strong>Technologies</strong></h2>
-                    <p class="text-center">Here are some of the technologies and tools I work with to build modern web
-                        applications.</p>
-                    <div class="tm-tech-icons">
-                        <div class="tech-icon-item">
-                            <i class="devicon-php-plain colored"></i>
-                            <span>PHP</span>
-                        </div>
-                        <div class="tech-icon-item">
-                            <i class="devicon-react-plain colored"></i>
-                            <span>React</span>
-                        </div>
-                        <div class="tech-icon-item">
-                            <i class="devicon-laravel-plain colored"></i>
-                            <span>Laravel</span>
-                        </div>
-                    </div>
+    <section id="technologies" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-stone-50 to-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-stone-900 mb-4">
+                    <span class="text-[#eb5424]">Technologies</span> I Use
+                </h2>
+                <p class="text-stone-600 text-lg">Modern tools and frameworks for building scalable applications</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center p-6 bg-white rounded-xl border border-stone-200 hover:border-[#eb5424] hover:shadow-lg transition">
+                    <i class="devicon-php-plain colored text-4xl mb-3"></i>
+                    <span class="font-semibold text-stone-900">PHP</span>
+                </div>
+                <div class="flex flex-col items-center p-6 bg-white rounded-xl border border-stone-200 hover:border-[#eb5424] hover:shadow-lg transition">
+                    <i class="devicon-laravel-plain colored text-4xl mb-3"></i>
+                    <span class="font-semibold text-stone-900">Laravel</span>
+                </div>
+                <div class="flex flex-col items-center p-6 bg-white rounded-xl border border-stone-200 hover:border-[#eb5424] hover:shadow-lg transition">
+                    <i class="devicon-react-plain colored text-4xl mb-3"></i>
+                    <span class="font-semibold text-stone-900">React</span>
+                </div>
+                <div class="flex flex-col items-center p-6 bg-white rounded-xl border border-stone-200 hover:border-[#eb5424] hover:shadow-lg transition">
+                    <i class="devicon-javascript-plain colored text-4xl mb-3"></i>
+                    <span class="font-semibold text-stone-900">JavaScript</span>
+                </div>
+                <div class="flex flex-col items-center p-6 bg-white rounded-xl border border-stone-200 hover:border-[#eb5424] hover:shadow-lg transition">
+                    <i class="devicon-tailwindcss-plain colored text-4xl mb-3"></i>
+                    <span class="font-semibold text-stone-900">Tailwind CSS</span>
+                </div>
+                <div class="flex flex-col items-center p-6 bg-white rounded-xl border border-stone-200 hover:border-[#eb5424] hover:shadow-lg transition">
+                    <i class="devicon-mysql-plain colored text-4xl mb-3"></i>
+                    <span class="font-semibold text-stone-900">MySQL</span>
                 </div>
             </div>
         </div>
@@ -470,33 +446,35 @@
     <!-- END TECHNOLOGIES -->
 
     <!-- START ABOUT -->
-    <section id="about" class="tm-about">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-sm-12 col-xs-12">
-                    <div class="text-center tm-about-image-wrapper">
-                        <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/profile-pic-nobg.png"
-                            alt="Kostas Kazazis - Professional Web Developer portrait"
-                            class="img-responsive tm-about-image" loading="lazy" />
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="text-center md:text-left">
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-stone-900 mb-4">
+                        This is <span class="text-[#eb5424]">Me</span>
+                    </h2>
+                    <p class="font-serif text-2xl font-bold text-stone-800 mb-6">
+                        Web<span class="text-[#eb5424]">Developer</span>
+                    </p>
+                    
+                    <div class="flex items-center gap-2 mb-8 md:justify-start justify-center text-stone-700">
+                        <i class="fa fa-map-marker text-[#eb5424] text-xl"></i>
+                        <span class="font-semibold">Düsseldorf, Germany</span>
                     </div>
+
+                    <p class="text-stone-700 leading-relaxed mb-6">
+                        I'm a passionate Full-Stack Web Developer with expertise in building scalable, user-centric web applications. With a strong foundation in modern web technologies and a keen eye for detail, I transform ideas into elegant digital solutions.
+                    </p>
+                    
+                    <p class="text-stone-700 leading-relaxed">
+                        My approach combines technical excellence with creative problem-solving—basically, I make computers do cool stuff without breaking anything (most of the time). Whether you're looking to launch a new web presence or need to rescue an existing platform from the digital stone age, I'm here to turn your wildest ideas into reality.
+                    </p>
                 </div>
-                <div class="col-md-6 col-sm-12 col-xs-12">
-                    <div class="title">
-                        <h2>This is <strong>me</strong></h2>
-                        <h1 class="tm-red-text">Web<strong>Developer</strong></h1>
-                    </div>
-                    <div class="tm-location-highlight">
-                        <i class="fa fa-map-marker"></i>
-                        <span> <strong>Düsseldorf, Germany</strong></span>
-                    </div>
-                    <p>I'm a passionate Full-Stack Web Developer with expertise in building scalable, user-centric web
-                        applications. With a strong foundation in modern web technologies and a keen eye for detail, I
-                        transform ideas into elegant digital solutions. My approach combines technical excellence with
-                        creative problem-solving—basically, I make computers do cool stuff without breaking anything
-                        (most of the time). Whether you're looking to launch a new web presence or need to rescue an
-                        existing platform from the digital stone age, I'm here to turn your wildest ideas into reality.
-                        Fair warning: my code is clean, my designs are responsive, and my coffee consumption is
-                        legendary.</p>
+
+                <div class="text-center">
+                    <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/profile-pic-nobg.png"
+                        alt="Kostas Kazazis - Professional Web Developer portrait"
+                        class="rounded-xl shadow-2xl mx-auto max-w-md" />
                 </div>
             </div>
         </div>
@@ -504,138 +482,89 @@
     <!-- END ABOUT -->
 
     <!-- START CONTACT -->
-    <section id="contact" class="tm-contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2 class="title">Drop <strong>me a line</strong></h2>
-                    <hr />
-                </div>
-                <div class="col-md-1 col-sm-1"></div>
-                <div class="col-md-10 col-sm-10">
-                    <form id="contact-form" class="needs-validation" action="https://formsubmit.co/kostas@kazazis.dev"
-                        method="POST">
-                        <input type="hidden" name="_subject" value="New Contact Form Submission from Portfolio" />
-                        <input type="hidden" name="_captcha" value="false" />
-                        <input type="hidden" name="_next" value="" />
-                        <input type="hidden" name="_template" value="box" />
-                        <input type="hidden" name="_autoresponse"
-                            value="Thank you for contacting me! I'll get back to you soon." />
-                        <input type="text" name="_honey" id="hp-website" autocomplete="off" tabindex="-1"
-                            style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;"
-                            aria-hidden="true" />
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-stone-900 to-stone-800 text-white">
+        <div class="max-w-2xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-2">
+                    Drop <span class="text-[#eb5424]">me a line</span>
+                </h2>
+                <p class="text-stone-300">Let's talk about your project and how I can help</p>
+            </div>
 
-                        <div class="col-md-6 col-sm-6">
-                            <input class="form-control" type="text" name="name" id="name" placeholder="Your Name"
-                                required />
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <input class="form-control" type="email" name="email" id="email" placeholder="Your Email"
-                                required />
-                        </div>
-                        <div class="col-md-12 col-sm-12">
-                            <input class="form-control" type="text" name="subject" id="subject"
-                                placeholder="Your Subject" required />
-                            <textarea class="form-control" name="message" id="message" placeholder="Your Message"
-                                rows="6" required></textarea>
-                        </div>
-                        <div class="col-md-12 col-sm-12">
-                            <div id="form-message"
-                                style="margin-bottom:20px;display:none;padding:15px;border-radius:2px;"></div>
-                        </div>
-                        <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8">
-                            <input class="form-control" type="submit" value="SHOOT MESSAGE" id="submit-btn" />
-                        </div>
-                    </form>
+            <form id="contact-form" class="space-y-6" action="https://formsubmit.co/kostas@kazazis.dev" method="POST">
+                <input type="hidden" name="_subject" value="New Contact Form Submission from Portfolio" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_next" value="" />
+                <input type="hidden" name="_template" value="box" />
+                <input type="hidden" name="_autoresponse" value="Thank you for contacting me! I'll get back to you soon." />
+                <input type="text" name="_honey" id="hp-website" autocomplete="off" tabindex="-1"
+                    style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true" />
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <input class="w-full px-4 py-3 bg-stone-700 border border-stone-600 rounded-lg text-white placeholder-stone-400 focus:outline-none focus:border-[#eb5424] transition"
+                        type="text" name="name" id="name" placeholder="Your Name" required />
+                    <input class="w-full px-4 py-3 bg-stone-700 border border-stone-600 rounded-lg text-white placeholder-stone-400 focus:outline-none focus:border-[#eb5424] transition"
+                        type="email" name="email" id="email" placeholder="Your Email" required />
                 </div>
-                <div class="col-md-1 col-sm-1"></div>
-                <div class="col-md-12 col-sm-12">
-                    <p style="font-size:12px;color:#666;margin-top:15px;text-align:center;">
-                        Or email directly: <a href="mailto:kostas@kazazis.dev?subject=Contact%20from%20Portfolio"
-                            style="color:#eb5424">kostas@kazazis.dev</a>
-                    </p>
-                    <p>Copyright &copy; {{ date('Y') }} Kazazis Kostas</p>
-                </div>
+
+                <input class="w-full px-4 py-3 bg-stone-700 border border-stone-600 rounded-lg text-white placeholder-stone-400 focus:outline-none focus:border-[#eb5424] transition"
+                    type="text" name="subject" id="subject" placeholder="Subject" required />
+
+                <textarea class="w-full px-4 py-3 bg-stone-700 border border-stone-600 rounded-lg text-white placeholder-stone-400 focus:outline-none focus:border-[#eb5424] transition resize-none"
+                    name="message" id="message" placeholder="Your Message" rows="6" required></textarea>
+
+                <div id="form-message" class="hidden p-4 rounded-lg text-sm"></div>
+
+                <button type="submit" class="w-full py-3 bg-[#eb5424] hover:bg-[#c94219] text-white font-semibold rounded-lg transition transform hover:scale-105">
+                    Send Message
+                </button>
+            </form>
+
+            <p class="text-center text-stone-400 text-sm mt-8">
+                Or email directly: 
+                <a href="mailto:kostas@kazazis.dev?subject=Contact%20from%20Portfolio" class="text-[#eb5424] hover:underline">
+                    kostas@kazazis.dev
+                </a>
+            </p>
+
+            <div class="border-t border-stone-700 mt-8 pt-8 text-center text-stone-400 text-sm">
+                <p>Copyright &copy; {{ date('Y') }} Kazazis Kostas</p>
             </div>
         </div>
     </section>
     <!-- END CONTACT -->
 
-    <script src="{{ asset('js/jquery.js') }}"></script>
-    <script src="{{ asset('js/jquery.nav.js') }}"></script>
-    <script src="{{ asset('js/isotope.js') }}"></script>
-    <script src="{{ asset('js/imagesloaded.min.js') }}"></script>
-    <script src="{{ asset('js/custom.js') }}"></script>
     <script>
-        document.getElementById('year') && (document.getElementById('year').textContent = new Date().getFullYear());
-
-        document.getElementById('contact-form').addEventListener('submit', function (event) {
-            var form = this;
-            var submitBtn = document.getElementById('submit-btn');
-            var formMessage = document.getElementById('form-message');
-            var originalBtnText = submitBtn.value;
-
-            if (document.getElementById('hp-website').value !== '') {
-                event.preventDefault();
-                return;
-            }
-
-            form.method = 'POST';
-
-            var emailField = document.getElementById('email');
-            var replyToInput = form.querySelector('input[name="_replyto"]');
-            if (!replyToInput) {
-                replyToInput = document.createElement('input');
-                replyToInput.type = 'hidden';
-                replyToInput.name = '_replyto';
-                form.appendChild(replyToInput);
-            }
-            replyToInput.value = emailField.value;
-
-            submitBtn.disabled = true;
-            submitBtn.value = 'Sending...';
-            formMessage.style.display = 'none';
-
-            var formData = new FormData(form);
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', form.action, true);
-            xhr.setRequestHeader('Accept', 'application/json');
-
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                        formMessage.style.display = 'block';
-                        formMessage.style.background = 'rgba(76,175,80,0.2)';
-                        formMessage.style.border = '1px solid #4caf50';
-                        formMessage.style.color = '#4caf50';
-                        formMessage.innerHTML = "Message sent successfully! I'll get back to you soon!";
-                        form.reset();
-                    } else {
-                        formMessage.style.display = 'block';
-                        formMessage.style.background = 'rgba(244,67,54,0.2)';
-                        formMessage.style.border = '1px solid #f44336';
-                        formMessage.style.color = '#f44336';
-                        formMessage.innerHTML = 'Failed to send message. Please try again or <a href="mailto:kostas@kazazis.dev" style="color:#eb5424">email me directly</a>.';
+        // Smooth scroll handling for anchor links
+        document.querySelectorAll('a.smoothScroll').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const element = document.querySelector(href);
+                    if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
-                    submitBtn.disabled = false;
-                    submitBtn.value = originalBtnText;
                 }
-            };
-
-            xhr.onerror = function () {
-                formMessage.style.display = 'block';
-                formMessage.style.background = 'rgba(244,67,54,0.2)';
-                formMessage.style.border = '1px solid #f44336';
-                formMessage.style.color = '#f44336';
-                formMessage.innerHTML = 'Network error. Please check your connection and try again or <a href="mailto:kostas@kazazis.dev" style="color:#eb5424">email me directly</a>.';
-                submitBtn.disabled = false;
-                submitBtn.value = originalBtnText;
-            };
-
-            xhr.send(formData);
-            event.preventDefault();
+            });
         });
-    </script>
-</body>
 
-</html>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', function() {
+                navMenu.classList.toggle('hidden');
+                navMenu.classList.toggle('flex');
+                navMenu.classList.toggle('flex-col');
+                navMenu.classList.toggle('absolute');
+                navMenu.classList.toggle('top-16');
+                navMenu.classList.toggle('left-0');
+                navMenu.classList.toggle('right-0');
+                navMenu.classList.toggle('bg-white');
+                navMenu.classList.toggle('border-b');
+            });
+        }
+    </script>
+@endsection
