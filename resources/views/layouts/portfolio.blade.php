@@ -448,7 +448,7 @@
                 <div class="mb-4 lg:mb-0">
                     <p>Copyright © {{ date('Y') }} Kostas Kazazis</p>
                 </div>
-                <div class="flex justify-between">
+                <div class="flex justify-between lg:gap-4">
                     <a href="https://github.com/konkazazis" target="_blank" rel="noopener noreferrer"
                         class="text-sm text-zinc-500 hover:text-brand transition-colors">
                         GitHub
