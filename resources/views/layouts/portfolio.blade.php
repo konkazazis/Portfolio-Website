@@ -411,7 +411,8 @@
                 Get in Touch
             </h2>
             <p class="mb-12 text-stone-400 text-center">kostas@kazazis.dev</p>
-            <form id="contact-form" class="space-y-6 mb-12" action="https://formsubmit.co/kostas@kazazis.dev" method="POST">
+            <form id="contact-form" class="space-y-6 mb-12" action="{{ route('send') }}" method="POST">
+                @csrf
                 <input type="hidden" name="_subject" value="New Contact Form Submission from Portfolio" />
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_next" value="" />
