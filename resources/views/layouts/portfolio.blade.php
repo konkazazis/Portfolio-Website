@@ -6,7 +6,7 @@
 
     <!-- START HOME -->
     <section id="home" class="pt-40 pb-32 px-6 sm:px-8 bg-white">
-        <div class="max-w-3xl mx-auto flex gap-12">
+        <div class="max-w-3xl mx-auto flex lg:gap-12">
 
             <div class="pb-12">
                 <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/profile-pic.png" alt="Kostas Kazazis"
@@ -444,11 +444,11 @@
                 </button>
             </form>
 
-            <div class="flex text-center justify-between border-t border-stone-800 pt-8 text-stone-400 text-sm">
-                <div>
+            <div class="lg:flex text-center lg:justify-between border-t border-stone-800 pt-8 text-stone-400 text-sm">
+                <div class="mb-4 lg:mb-0">
                     <p>Copyright © {{ date('Y') }} Kostas Kazazis</p>
                 </div>
-                <div class="flex gap-6">
+                <div class="flex justify-between">
                     <a href="https://github.com/konkazazis" target="_blank" rel="noopener noreferrer"
                         class="text-sm text-zinc-500 hover:text-brand transition-colors">
                         GitHub
