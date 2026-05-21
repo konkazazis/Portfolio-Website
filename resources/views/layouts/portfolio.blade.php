@@ -415,7 +415,7 @@
                 @csrf
                 <input type="hidden" name="_subject" value="New Contact Form Submission from Portfolio" />
                 <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_next" value="" />
+                <input type="hidden" name="_next" value="https://kazazis.dev" />
                 <input type="hidden" name="_template" value="box" />
                 <input type="hidden" name="_autoresponse" value="Thank you for contacting me! I'll get back to you soon." />
                 <input type="text" name="_honey" id="hp-website" autocomplete="off" tabindex="-1"
