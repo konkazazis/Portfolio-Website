@@ -33,7 +33,7 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/posts/{slug}', [PostController::class, 'show'])->name('posts.show');
 Route::get('/impressum', [LegalController::class, 'impressum'])->name('impressum');
-Route::get('/datenschutz', [LegalController::class, 'privacy'])->name('privacy');
+Route::get('/privacy', [LegalController::class, 'privacy'])->name('privacy');
 Route::post('/', [ContactController::class, 'send'])->name('send');
 
 // Auth

@@ -50,7 +50,7 @@
 <body>
 	<div class="min-h-screen flex flex-col">
 
-		<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-stone-200">
+		<header class="sticky top-0 z-50 px-4 md:px-0 bg-white/95 backdrop-blur-sm border-b border-stone-200">
 			<div class="max-w-7xl mx-auto h-20 flex items-center justify-between">
 				<a href="{{ route('home') }}"
 					class="text-base font-semibold uppercase tracking-[0.35em] text-stone-900">
@@ -68,8 +68,6 @@
 					@endauth
 					<a href="{{ route('blog') }}"
 						class="transition-colors {{ request()->routeIs('blog') || request()->routeIs('posts.show') ? 'text-stone-900' : 'hover:text-stone-900' }}">Blog</a>
-					<a href="{{ route('home') }}"
-						class="transition-colors {{ request()->routeIs('home') ? 'text-stone-900' : 'hover:text-stone-900' }}">Portfolio</a>
 					<a href="{{ route('home') }}#contact" class="transition-colors hover:text-stone-900">Contact</a>
 					@auth
 						<a href="{{ route('logout') }}" class="transition-colors hover:text-stone-900">Logout</a>
@@ -97,10 +95,12 @@
 				@endauth
 				<a href="{{ route('blog') }}"
 					class="py-3 border-b border-stone-100 transition-colors {{ request()->routeIs('blog') || request()->routeIs('posts.show') ? 'text-stone-900' : 'hover:text-stone-900' }}">Blog</a>
-				<a href="{{ route('home') }}"
-					class="py-3 border-b border-stone-100 transition-colors hover:text-stone-900">Portfolio</a>
 				<a href="{{ route('home') }}#contact"
 					class="py-3 border-b border-stone-100 transition-colors hover:text-stone-900">Contact</a>
+				<a href="{{ route('impressum') }}"
+					class="py-3 border-b border-stone-100 transition-colors hover:text-stone-900">Impressum</a>
+				<a href="{{ route('privacy') }}"
+					class="py-3 border-b border-stone-100 transition-colors hover:text-stone-900">Privacy</a>
 				@auth
 					<a href="{{ route('logout') }}"
 						class="py-3 text-stone-700 hover:text-stone-900 transition-colors">Logout</a>

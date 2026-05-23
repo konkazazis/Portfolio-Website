@@ -457,7 +457,7 @@
                         Impressum
                     </a>
                     <a href="{{ route('privacy') }}" class="text-sm text-zinc-500 hover:text-brand transition-colors">
-                        Datenschutz
+                        Privacy
                     </a>
                 </div>
             </div>

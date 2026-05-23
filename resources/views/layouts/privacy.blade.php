@@ -13,9 +13,9 @@
 @endpush
 
 @section('content')
-    <div class="max-w-2xl mx-auto">
+    <div class="max-w-2xl my-8 mx-6 lg:mx-auto">
 
-        <div class="mt-8 mb-10 pb-6 border-b border-stone-200 flex items-end justify-between gap-4">
+        <div class="mb-10 pb-6 border-b border-stone-200 flex items-end justify-between gap-4">
             <div>
                 <h1 class="text-3xl font-bold tracking-tight uppercase mb-2">
                     Daten<strong class="text-brand">schutz</strong>
@@ -27,12 +27,12 @@
             <div class="flex gap-1 shrink-0">
                 <a href="{{ route('privacy') }}"
                     class="px-3 py-1 rounded text-xs font-medium tracking-wide transition-colors
-                              {{ $lang === 'de' ? 'bg-stone-800 text-white' : 'text-stone-500 border border-stone-200 hover:border-stone-400 hover:text-stone-700' }}">
+                                          {{ $lang === 'de' ? 'bg-stone-800 text-white' : 'text-stone-500 border border-stone-200 hover:border-stone-400 hover:text-stone-700' }}">
                     DE
                 </a>
                 <a href="{{ route('privacy', ['lang' => 'en']) }}"
                     class="px-3 py-1 rounded text-xs font-medium tracking-wide transition-colors
-                              {{ $lang === 'en' ? 'bg-stone-800 text-white' : 'text-stone-500 border border-stone-200 hover:border-stone-400 hover:text-stone-700' }}">
+                                          {{ $lang === 'en' ? 'bg-stone-800 text-white' : 'text-stone-500 border border-stone-200 hover:border-stone-400 hover:text-stone-700' }}">
                     EN
                 </a>
             </div>
