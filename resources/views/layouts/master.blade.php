@@ -51,7 +51,7 @@
 	<div class="min-h-screen flex flex-col">
 
 		<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-stone-200">
-			<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+			<div class="max-w-7xl mx-auto h-20 flex items-center justify-between">
 				<a href="{{ route('home') }}"
 					class="text-base font-semibold uppercase tracking-[0.35em] text-stone-900">
 					kostas

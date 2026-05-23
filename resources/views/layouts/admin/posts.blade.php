@@ -3,7 +3,7 @@
 @section('title', 'Admin | Posts')
 
 @section('content')
-    <div>
+    <div class="mt-8">
 
         {{-- Header --}}
         <div class="flex items-center justify-between mb-8">
@@ -54,7 +54,7 @@
                             <p class="text-xs text-stone-400 mt-0.5">
                                 <span
                                     class="inline-block px-2 py-0.5 rounded-full text-xs mr-2
-                                                                                                        {{ $post->status === 'published' ? 'bg-green-100 text-green-700' : 'bg-stone-100 text-stone-500' }}">
+                                                                                                                    {{ $post->status === 'published' ? 'bg-green-100 text-green-700' : 'bg-stone-100 text-stone-500' }}">
                                     {{ $post->status }}
                                 </span>
                                 {{ $post->category?->name ?? 'No category' }} &middot;

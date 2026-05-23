@@ -3,7 +3,7 @@
 @section('title', 'Admin | Taxonomy')
 
 @section('content')
-    <div class="mx-auto">
+    <div class="mt-8">
 
         {{-- Header --}}
         <div class="flex items-center justify-between mb-8">
@@ -61,8 +61,8 @@
                             @csrf
                             @method('PUT')
                             <input name="name" value="{{ $category->name }}" class="flex-1 px-3 py-1.5 text-sm border border-transparent rounded-lg
-                                                           focus:outline-none focus:border-stone-300 focus:ring-1 focus:ring-stone-300
-                                                           bg-transparent focus:bg-white">
+                                                                   focus:outline-none focus:border-stone-300 focus:ring-1 focus:ring-stone-300
+                                                                   bg-transparent focus:bg-white">
                             <span class="text-xs text-stone-400">{{ $category->posts_count }} posts</span>
                             <button type="submit"
                                 class="text-xs text-amber-600 hover:text-amber-800 transition-colors opacity-0 group-hover:opacity-100">
@@ -107,8 +107,8 @@
                             @csrf
                             @method('PUT')
                             <input name="name" value="{{ $tag->name }}" class="flex-1 px-3 py-1.5 text-sm border border-transparent rounded-lg
-                                                           focus:outline-none focus:border-stone-300 focus:ring-1 focus:ring-stone-300
-                                                           bg-transparent focus:bg-white">
+                                                                   focus:outline-none focus:border-stone-300 focus:ring-1 focus:ring-stone-300
+                                                                   bg-transparent focus:bg-white">
                             <span class="text-xs text-stone-400">{{ $tag->posts_count }} posts</span>
                             <button type="submit"
                                 class="text-xs text-amber-600 hover:text-amber-800 transition-colors opacity-0 group-hover:opacity-100">
