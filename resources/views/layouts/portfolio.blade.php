@@ -283,22 +283,11 @@
 
                 <!-- Portfolio Item 3 -->
                 <div class="group relative overflow-hidden bg-stone-100 aspect-square">
-                    <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/car-blog.png" alt="Car news site"
+                    <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/redline.png" alt="Car news site"
                         class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
-                    <a href="https://car-blog-production.up.railway.app/" target="_blank" rel="noopener noreferrer"
+                    <a href="https://redline-production-186a.up.railway.app/" target="_blank" rel="noopener noreferrer"
                         class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
                         <h3 class="font-serif text-lg font-bold text-white text-center">Car Blog</h3>
-                    </a>
-                </div>
-
-                <!-- Portfolio Item 4 -->
-                <div class="group relative overflow-hidden bg-stone-100 aspect-square">
-                    <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/kostas-photography.png"
-                        alt="Photographer Portfolio"
-                        class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
-                    <a href="https://car-blog-production.up.railway.app/" target="_blank" rel="noopener noreferrer"
-                        class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                        <h3 class="font-serif text-lg font-bold text-white text-center">Photography</h3>
                     </a>
                 </div>
             </div>
