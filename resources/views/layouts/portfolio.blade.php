@@ -263,11 +263,13 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <!-- Portfolio Item 1 -->
                 <div class="group relative overflow-hidden bg-stone-100 aspect-square">
-                    <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/ntinos.png" alt="Personal Training Platform"
+                    <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/landhaus.png"
+                        alt="Hotel/Restaurant landing page"
                         class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
-                    <a href="https://kostas-eshop-production.up.railway.app/" target="_blank" rel="noopener noreferrer"
+                    <a href="https://landhaus-spickermann-production-3995.up.railway.app/" target="_blank"
+                        rel="noopener noreferrer"
                         class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                        <h3 class="font-serif text-lg font-bold text-white text-center">Personal Training</h3>
+                        <h3 class="font-serif text-lg font-bold text-white text-center">Landhaus Spickermann</h3>
                     </a>
                 </div>
 
