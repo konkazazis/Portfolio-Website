@@ -9,6 +9,9 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\RobotsController;
 use App\Http\Controllers\SitemapController;
 use App\Livewire\Admin\Dashboard as AdminDashboard;
+use App\Livewire\Admin\Settings\Profile as SettingsProfile;
+use App\Livewire\Admin\Settings\Security as SettingsSecurity;
+use App\Livewire\Admin\Settings\Appearance as SettingsAppearance;
 use App\Livewire\Admin\Post\PostManager;
 use App\Livewire\Admin\Category\CategoryManager;
 use App\Livewire\Admin\Tag\TagManager;
@@ -51,4 +54,8 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/categories', CategoryManager::class)->name('categories.index');
     Route::get('/tags', TagManager::class)->name('tags.index');
     Route::get('/comments', CommentManager::class)->name('comments.index');
+    Route::redirect('/settings', '/admin/settings/profile')->name('settings');
+    Route::get('/settings/profile', SettingsProfile::class)->name('settings.profile');
+    Route::get('/settings/security', SettingsSecurity::class)->name('settings.security');
+    Route::get('/settings/appearance', SettingsAppearance::class)->name('settings.appearance');
 });

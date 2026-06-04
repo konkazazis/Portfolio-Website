@@ -13,6 +13,10 @@
             </div>
         </div>
         <flux:menu.separator />
+        <flux:menu.item icon="cog-6-tooth" :href="route('admin.settings.profile')" wire:navigate>
+            Settings
+        </flux:menu.item>
+        <flux:menu.separator />
         <flux:menu.radio.group>
             <form method="POST" action="{{ route('logout') }}" class="w-full">
                 @csrf

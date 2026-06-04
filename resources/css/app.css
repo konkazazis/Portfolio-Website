@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "../../vendor/livewire/flux/dist/flux.css";
 
+@variant dark (&:where(.dark, .dark *));
+
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
@@ -28,7 +30,7 @@
         font-family: var(--font-serif);
     }
 
-    a {
+    :where(a) {
         @apply text-stone-900 transition-colors;
     }
 }

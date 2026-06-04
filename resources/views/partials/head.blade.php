@@ -5,7 +5,5 @@
     {{ filled($title ?? null) ? $title . ' — ' . config('app.name', 'Laravel') : config('app.name', 'Laravel') }}
 </title>
 
-@fonts
-
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 @fluxAppearance

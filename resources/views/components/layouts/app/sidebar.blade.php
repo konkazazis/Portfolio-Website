@@ -5,7 +5,7 @@
     @include('partials.head')
 </head>
 
-<body class="min-h-screen bg-zinc-50 dark:bg-zinc-950">
+<body class="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-800 dark:text-zinc-100">
     <flux:sidebar sticky collapsible="mobile" class="border-e border-zinc-200 bg-white shadow-sm dark:bg-zinc-900 dark:border-zinc-800">
 
         <flux:sidebar.header class="py-4">
@@ -57,6 +57,10 @@
         <flux:sidebar.nav>
             <flux:sidebar.item icon="arrow-top-right-on-square" href="{{ route('home') }}" target="_blank">
                 View site
+            </flux:sidebar.item>
+            <flux:sidebar.item icon="cog-6-tooth" :href="route('admin.settings.profile')"
+                :current="request()->routeIs('admin.settings.*')" wire:navigate>
+                Settings
             </flux:sidebar.item>
         </flux:sidebar.nav>
 
