@@ -86,7 +86,7 @@ class ProjectManager extends Component
                 }
             }
 
-            $data['cover_image'] = $this->cover->storePublicly('projects/covers', 's3');
+            $data['cover_image'] = $this->cover->store('projects/covers', 's3');
         }
 
         if ($this->editingId) {
