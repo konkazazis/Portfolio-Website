@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class Project extends Model
@@ -29,6 +30,6 @@ class Project extends Model
 
     public function coverUrl(): ?string
     {
-        return $this->cover_image ? asset('storage/'.$this->cover_image) : null;
+        return $this->cover_image ? Storage::disk('s3')->url($this->cover_image) : null;
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Project;
 
 use App\Models\Project;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
@@ -68,11 +69,6 @@ class ProjectManager extends Component
     {
         $this->validate();
 
-        $coverPath = null;
-        if ($this->cover) {
-            $coverPath = $this->cover->store('projects/covers', 'public');
-        }
-
         $data = [
             'title'        => $this->title,
             'description'  => $this->description ?: null,
@@ -82,17 +78,25 @@ class ProjectManager extends Component
             'is_published' => $this->is_published,
         ];
 
-        if ($coverPath) {
-            $data['cover_image'] = $coverPath;
+        if ($this->cover) {
+            if ($this->editingId) {
+                $old = Project::findOrFail($this->editingId)->cover_image;
+                if ($old) {
+                    Storage::disk('s3')->delete($old);
+                }
+            }
+
+            $data['cover_image'] = $this->cover->storePublicly('projects/covers', 's3');
         }
 
         if ($this->editingId) {
             Project::findOrFail($this->editingId)->update($data);
         } else {
-            Project::create(array_merge($data, [
+            Project::create([
+                ...$data,
                 'slug'  => Project::generateSlug($this->title),
                 'order' => (Project::max('order') ?? 0) + 1,
-            ]));
+            ]);
         }
 
         $this->showModal = false;
@@ -112,7 +116,13 @@ class ProjectManager extends Component
     public function delete(): void
     {
         if ($this->deletingId) {
-            Project::findOrFail($this->deletingId)->delete();
+            $project = Project::findOrFail($this->deletingId);
+
+            if ($project->cover_image) {
+                Storage::disk('s3')->delete($project->cover_image);
+            }
+
+            $project->delete();
             $this->deletingId = null;
         }
     }
