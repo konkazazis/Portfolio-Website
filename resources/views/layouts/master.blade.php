@@ -62,8 +62,8 @@
 						class="transition-colors {{ request()->routeIs('about') ? 'text-stone-900' : 'hover:text-stone-900' }}">About</a>
 					@auth
 						@if (auth()->user()->is_admin)
-							<a href="{{ route('admin') }}"
-								class="transition-colors {{ request()->routeIs('admin') ? 'text-stone-900' : 'hover:text-stone-900' }}">Admin</a>
+							<a href="{{ route('admin.dashboard') }}"
+								class="transition-colors {{ request()->routeIs('admin.*') ? 'text-stone-900' : 'hover:text-stone-900' }}">Admin</a>
 						@endif
 					@endauth
 					<a href="{{ route('blog') }}"
@@ -89,8 +89,8 @@
 					class="py-3 border-b border-stone-100 transition-colors {{ request()->routeIs('about') ? 'text-stone-900' : 'hover:text-stone-900' }}">About</a>
 				@auth
 					@if (auth()->user()->is_admin)
-						<a href="{{ route('admin') }}"
-							class="py-3 border-b border-stone-100 transition-colors {{ request()->routeIs('admin') ? 'text-stone-900' : 'hover:text-stone-900' }}">Admin</a>
+						<a href="{{ route('admin.dashboard') }}"
+							class="py-3 border-b border-stone-100 transition-colors {{ request()->routeIs('admin.*') ? 'text-stone-900' : 'hover:text-stone-900' }}">Admin</a>
 					@endif
 				@endauth
 				<a href="{{ route('blog') }}"
