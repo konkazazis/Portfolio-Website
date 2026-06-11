@@ -1,54 +1,144 @@
 @import "tailwindcss";
-@import "../../vendor/livewire/flux/dist/flux.css";
 
-@variant dark (&:where(.dark, .dark *));
-
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
-
+/* ============================================================
+   Design tokens  (Tailwind v4 — these generate bg-*/text-*/etc.)
+   ============================================================ */
 @theme {
-    --font-sans:
-        system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    --font-serif: "Playfair Display", Georgia, serif;
-    --color-brand: #eb5424;
-    --color-brand-dark: #c94219;
+  --color-paper:      oklch(0.982 0.006 80);
+  --color-paper-2:    oklch(0.955 0.008 78);
+  --color-card:       oklch(0.995 0.004 85);
+  --color-ink:        oklch(0.225 0.012 60);
+  --color-ink-soft:   oklch(0.40 0.012 60);
+  --color-muted:      oklch(0.55 0.010 62);
+  --color-faint:      oklch(0.70 0.008 70);
+  --color-line:       oklch(0.895 0.008 72);
+  --color-line-soft:  oklch(0.93 0.006 75);
+  --color-accent:     oklch(0.585 0.135 42);
+  --color-accent-ink: oklch(0.46 0.13 40);
+  --color-dark:       oklch(0.245 0.014 62);
+  --color-dark-2:     oklch(0.205 0.012 62);
+  --color-dark-line:  oklch(0.36 0.012 64);
+  --color-on-dark:    oklch(0.93 0.006 80);
+  --color-on-dark-mut:oklch(0.70 0.008 72);
+
+  --font-sans:  "Schibsted Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-mono:  "JetBrains Mono", ui-monospace, monospace;
 }
 
+:root { --ease: cubic-bezier(0.22, 1, 0.36, 1); }
+
+/* ============================================================
+   Base
+   ============================================================ */
 @layer base {
-    body {
-        @apply font-sans bg-stone-50 text-stone-800 leading-[1.75] antialiased;
-    }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-family: var(--font-serif);
-    }
-
-    :where(a) {
-        @apply text-stone-900 transition-colors;
-    }
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    font-size: 17px;
+    line-height: 1.55;
+    text-rendering: optimizeLegibility;
+  }
+  img { display: block; max-width: 100%; }
+  ::selection { background: color-mix(in oklch, var(--color-accent) 18%, transparent); }
+  .serif-it { @apply font-serif italic font-normal; letter-spacing: 0; }
 }
 
+/* ============================================================
+   Components
+   ============================================================ */
 @layer components {
-    .tag-badge {
-        @apply px-2 py-0.5 rounded text-xs font-medium border border-[#eb5424]/30 text-[#eb5424] bg-[#eb5424]/5;
-    }
-    .category-badge {
-        @apply px-3 py-1 rounded text-xs font-semibold uppercase tracking-wide bg-[#eb5424] text-white;
-    }
-    .panel-card {
-        @apply rounded-3xl border border-stone-200 bg-white p-8 shadow-sm;
-    }
-    .section-label {
-        @apply text-sm uppercase tracking-[0.35em] text-stone-500 mb-4 block;
-    }
-    .section-heading {
-        @apply font-serif text-5xl font-bold tracking-tight text-stone-900 mb-6;
-    }
+
+  .u-wrap { @apply w-full mx-auto; max-width: 1180px; padding-inline: clamp(20px, 5vw, 64px); }
+  .section-pad { padding-block: clamp(72px, 11vw, 132px); }
+
+  .eyebrow {
+    @apply font-mono text-muted font-medium uppercase;
+    font-size: 12.5px; letter-spacing: 0.16em;
+  }
+
+  /* Section header */
+  .s-title { @apply font-bold leading-[1.05] m-0; font-size: clamp(1.7rem, 3.6vw, 2.7rem); letter-spacing: -0.02em; }
+  .s-sub   { @apply text-muted m-0; margin-top: 8px; font-size: 1.02rem; max-width: 46ch; }
+  .s-num   { @apply font-mono font-medium text-accent-ink; font-size: 13px; letter-spacing: 0.04em; }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center gap-2.5 rounded-full font-semibold;
+    padding: 13px 22px; font-size: 0.96rem; letter-spacing: -0.01em;
+    border: 1px solid transparent;
+    transition: transform .35s var(--ease), background .25s var(--ease), color .25s, border-color .25s;
+  }
+  .btn .arr { transition: transform .35s var(--ease); }
+  .btn:hover .arr { transform: translateX(4px); }
+  .btn-primary { @apply bg-ink text-paper; }
+  .btn-primary:hover { transform: translateY(-2px); background: oklch(0.18 0.012 60); }
+  .btn-ghost { @apply text-ink; border-color: var(--color-line); }
+  .btn-ghost:hover { border-color: var(--color-ink); transform: translateY(-2px); }
+  .btn-on-dark { @apply text-on-dark; border-color: var(--color-dark-line); }
+  .btn-on-dark:hover { border-color: var(--color-on-dark); transform: translateY(-2px); }
+
+  .chip {
+    @apply font-mono text-ink-soft bg-card rounded-full;
+    font-size: 12.5px; padding: 6px 11px; border: 1px solid var(--color-line);
+  }
+  .p-tag {
+    @apply font-mono text-ink-soft bg-card;
+    font-size: 11.5px; padding: 5px 10px; border: 1px solid var(--color-line-soft); border-radius: 7px;
+  }
+
+  .card {
+    @apply bg-card rounded-[14px];
+    border: 1px solid var(--color-line);
+    transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+  }
+  .card-lift:hover { transform: translateY(-4px); box-shadow: 0 26px 50px -34px oklch(0.3 0.04 60 / 0.5); }
+
+  /* Contact form fields */
+  .field-label { @apply font-mono uppercase; font-size: 11px; letter-spacing: 0.1em; color: var(--color-on-dark-mut); }
+  .field-input {
+    @apply w-full text-on-dark rounded-[10px];
+    font-size: 1rem; background: var(--color-dark-2);
+    border: 1px solid var(--color-dark-line); padding: 13px 15px;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .field-input::placeholder { color: oklch(0.58 0.01 70); }
+  .field-input:focus {
+    outline: none; border-color: oklch(0.72 0.1 45);
+    box-shadow: 0 0 0 3px oklch(0.585 0.135 42 / 0.22);
+  }
+  .field-error .field-input { border-color: oklch(0.6 0.16 28); }
+
+  /* Blog category filter */
+  .filter-pill {
+    @apply font-mono rounded-full text-ink-soft bg-card;
+    font-size: 12.5px; padding: 8px 16px; border: 1px solid var(--color-line);
+    cursor: pointer; transition: background .2s, color .2s, border-color .2s;
+  }
+  .filter-pill:hover { border-color: var(--color-ink); color: var(--color-ink); }
+  .filter-pill.is-active { background: var(--color-ink); color: var(--color-paper); border-color: var(--color-ink); }
+  .cat-tag { @apply font-mono uppercase text-accent-ink; font-size: 11.5px; letter-spacing: 0.08em; }
+}
+
+/* ============================================================
+   Live dot + reveal (plain CSS — degrades to visible)
+   ============================================================ */
+.live-dot { position: relative; }
+.live-dot::after {
+  content: ""; position: absolute; inset: -4px; border-radius: 50%;
+  background: oklch(0.62 0.16 150 / 0.4);
+  animation: kk-ping 2.4s var(--ease) infinite;
+}
+@keyframes kk-ping { 0% { transform: scale(0.6); opacity: 0.9; } 80%,100% { transform: scale(2.1); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .live-dot::after { animation: none; } }
+
+/* Content is visible by default; only hidden once JS confirms it can animate */
+@media (prefers-reduced-motion: no-preference) {
+  .js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+  .js .reveal.in { opacity: 1; transform: none; }
+  .js .reveal[data-d="1"] { transition-delay: .07s; }
+  .js .reveal[data-d="2"] { transition-delay: .14s; }
+  .js .reveal[data-d="3"] { transition-delay: .21s; }
 }
