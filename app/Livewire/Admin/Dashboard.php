@@ -19,16 +19,17 @@ class Dashboard extends Component
         $publishedProjects = Project::where('is_published', true)->count();
         $totalCategories = Category::count();
         $totalTags       = Tag::count();
-        $pendingComments = Comment::where('is_approved', false)->count();
-        $totalComments   = Comment::count();
+        $unreadMessages  = ContactMessage::where('is_read', false)->count();
+        $totalMessages   = ContactMessage::count();
+
+        $recentMessages = ContactMessage::latest()->take(5)->get();
 
         $recentPosts    = Post::latest()->take(5)->get();
-        $recentComments = Comment::with('post')->latest()->take(5)->get();
 
         return view('livewire.admin.dashboard', compact(
             'totalPosts', 'publishedPosts', 'totalProjects', 'publishedProjects',
-            'totalCategories', 'totalTags', 'pendingComments', 'totalComments',
-            'recentPosts', 'recentComments'
+            'totalCategories', 'totalTags', 'unreadMessages', 'totalMesssages',
+            'recentPosts', 'recentMessages'
         ))->layout('layouts.app', ['title' => 'Overview — CMS']);
     }
 }
