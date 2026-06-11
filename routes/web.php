@@ -17,6 +17,7 @@ use App\Livewire\Admin\Category\CategoryManager;
 use App\Livewire\Admin\Tag\TagManager;
 use App\Livewire\Admin\Comment\CommentManager;
 use App\Livewire\Admin\Project\ProjectManager;
+use App\Livewire\Admin\Contact\ContactManager;
 use Illuminate\Support\Facades\Route;
 
 // ─── SEO ──────────────────────────────────────────────────────────────────────
@@ -33,7 +34,7 @@ Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/posts/{slug}', [PostController::class, 'show'])->name('posts.show');
 Route::get('/impressum', [LegalController::class, 'impressum'])->name('impressum');
 Route::get('/privacy', [LegalController::class, 'privacy'])->name('privacy');
-Route::get('/contact', ContactPage::class)->name('contact');
+//Route::get('/contact', ContactPage::class)->name('contact');
 
 // Post-login redirect: admins go to CMS, everyone else to home
 Route::get('/dashboard', function () {

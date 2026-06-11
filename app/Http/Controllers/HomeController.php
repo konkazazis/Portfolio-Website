@@ -20,7 +20,7 @@ class HomeController extends Controller
             ->orderBy('order')
             ->get();
 
-        return view('layouts.portfolio', compact('posts', 'projects'));
+        return view('home', compact('posts', 'projects'));
     }
 }
 
