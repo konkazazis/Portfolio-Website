@@ -20,12 +20,6 @@ class AdminController extends Controller
         return view('layouts.admin.posts', compact('posts'));
     }
 
-    public function comments()
-    {
-        $comments = Comment::with('post')->latest()->get();
-        return view('layouts.admin.comments', compact('comments'));
-    }
-
     public function taxonomy()
     {
         $categories = Category::withCount('posts')->orderBy('name')->get();

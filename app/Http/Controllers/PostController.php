@@ -14,7 +14,7 @@ class PostController extends Controller
     public function show(string $slug)
     {
         $post = Post::published()
-            ->with(['user', 'category', 'tags', 'comments' => fn($q) => $q->where('is_approved', true)->latest()])
+            ->with(['user', 'category', 'tags'])
             ->where('slug', $slug)
             ->firstOrFail();
 

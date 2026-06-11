@@ -35,9 +35,6 @@ Route::get('/impressum', [LegalController::class, 'impressum'])->name('impressum
 Route::get('/privacy', [LegalController::class, 'privacy'])->name('privacy');
 Route::post('/', [ContactController::class, 'send'])->name('send');
 
-// Comments (public submission — stored as unapproved)
-Route::middleware('throttle:10,1')->post('/comments', [\App\Http\Controllers\CommentController::class, 'store']);
-
 // Post-login redirect: admins go to CMS, everyone else to home
 Route::get('/dashboard', function () {
     return auth()->user()?->isAdmin()
@@ -53,7 +50,6 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/projects', ProjectManager::class)->name('projects.index');
     Route::get('/categories', CategoryManager::class)->name('categories.index');
     Route::get('/tags', TagManager::class)->name('tags.index');
-    Route::get('/comments', CommentManager::class)->name('comments.index');
     Route::redirect('/settings', '/admin/settings/profile')->name('settings');
     Route::get('/settings/profile', SettingsProfile::class)->name('settings.profile');
     Route::get('/settings/security', SettingsSecurity::class)->name('settings.security');
