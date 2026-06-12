@@ -1,4 +1,5 @@
 <section id="home" class="pt-40 pb-32 px-6 sm:px-8 bg-white">
+    
     <div class="max-w-3xl mx-auto flex lg:gap-12">
 
         <div class="pb-12">
@@ -30,15 +31,31 @@
         </div>
 
         <div class="text-center pb-12">
+            
             <h1 class="font-serif text-6xl md:text-7xl font-bold text-stone-900 mb-6 leading-tight">
                 Kostas Kazazis
             </h1>
-            <p class="font-serif text-2xl md:text-3xl text-stone-700 mb-8 font-light">
+            <p class="font-serif text-2xl md:text-3xl text-stone-700 mb-4 font-light">
                 Full-Stack Web Developer
             </p>
             <p class="text-lg text-stone-600 leading-relaxed mb-8 font-light">
-                Crafting elegant digital experiences for the web. Based in Düsseldorf.
+                Crafting clean code for any business. Based in Düsseldorf.
             </p>
+          <div class="mb-8 flex justify-center">
+  <span class="reveal inline-flex items-center gap-[9px] pl-3 pr-3.5 py-[7px] border border-line rounded-full font-mono text-[12px] text-ink-soft bg-card">
+    
+    <!-- Container for the dot -->
+    <span class="relative flex h-2 w-2 flex-shrink-0">
+      <!-- The Ping Ring (Absolute) -->
+      <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[oklch(0.62_0.16_150)] opacity-75"></span>
+      <!-- The Static Dot (Relative) -->
+      <span class="relative inline-flex h-2 w-2 rounded-full bg-[oklch(0.62_0.16_150)]"></span>
+    </span>
+
+    <!-- Text -->
+    <p class="m-0 p-0 leading-none">Available for new freelance work — Summer 2026</p>
+  </span>
+</div>   
         </div>
     </div>
 </section>
