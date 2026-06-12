@@ -15,7 +15,7 @@ use App\Livewire\Admin\Settings\Appearance as SettingsAppearance;
 use App\Livewire\Admin\Post\PostManager;
 use App\Livewire\Admin\Category\CategoryManager;
 use App\Livewire\Admin\Tag\TagManager;
-use App\Livewire\Admin\Comment\CommentManager;
+use App\Livewire\Admin\Contact\ContactManager;
 use App\Livewire\Admin\Project\ProjectManager;
 use Illuminate\Support\Facades\Route;
 
@@ -33,7 +33,7 @@ Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/posts/{slug}', [PostController::class, 'show'])->name('posts.show');
 Route::get('/impressum', [LegalController::class, 'impressum'])->name('impressum');
 Route::get('/privacy', [LegalController::class, 'privacy'])->name('privacy');
-//Route::get('/contact', ContactPage::class)->name('contact');
+
 
 // Post-login redirect: admins go to CMS, everyone else to home
 Route::get('/dashboard', function () {
@@ -50,7 +50,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/projects', ProjectManager::class)->name('projects.index');
     Route::get('/categories', CategoryManager::class)->name('categories.index');
     Route::get('/tags', TagManager::class)->name('tags.index');
-    //Route::get('/messages', ContactManager::class)->name('messages.index');
+    Route::get('/messages', ContactManager::class)->name('messages.index');
     Route::redirect('/settings', '/admin/settings/profile')->name('settings');
     Route::get('/settings/profile', SettingsProfile::class)->name('settings.profile');
     Route::get('/settings/security', SettingsSecurity::class)->name('settings.security');

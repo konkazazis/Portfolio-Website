@@ -38,6 +38,10 @@
                     :current="request()->routeIs('admin.tags.*')" wire:navigate>
                     Tags
                 </flux:sidebar.item>
+                <flux:sidebar.item icon="inbox" :href="route('admin.messages.index')"
+                    :current="request()->routeIs('admin.messages.*')" wire:navigate>
+                    Messages
+                </flux:sidebar.item>
             </flux:sidebar.group>
 
             <flux:sidebar.group heading="Admin" class="grid">

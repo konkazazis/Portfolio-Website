@@ -17,7 +17,7 @@
                         class="text-stone-600 hover:text-stone-900 transition text-xl">
                         <i class="fa-brands fa-github"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/Kostas-kazazis-32a470228/" target="_blank"
+                    <a href="https://www.linkedin.com/in/konstantinos-kazazis-32a470228/" target="_blank"
                         rel="noopener noreferrer" aria-label="LinkedIn"
                         class="text-stone-600 hover:text-stone-900 transition text-xl">
                         <i class="fa-brands fa-linkedin"></i>
@@ -381,15 +381,8 @@
                 Get in Touch
             </h2>
             <p class="mb-12 text-stone-400 text-center">kostas@kazazis.dev</p>
-            <form id="contact-form" class="space-y-6 mb-12" action="https://formsubmit.co/kostas@kazazis.dev" method="POST">
+            <form wire:submit="send" id="contact-form" class="space-y-6 mb-12" >
                 @csrf
-                <input type="hidden" name="_subject" value="New Contact Form Submission from Portfolio" />
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_next" value="https://kazazis.dev" />
-                <input type="hidden" name="_template" value="box" />
-                <input type="hidden" name="_autoresponse" value="Thank you for contacting me! I'll get back to you soon." />
-                <input type="text" name="_honey" id="hp-website" autocomplete="off" tabindex="-1"
-                    style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true" />
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <input
