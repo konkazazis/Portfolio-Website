@@ -28,13 +28,10 @@ Route::get('/robots.txt', [RobotsController::class, 'index'])->name('robots');
 // ─── Public Routes ────────────────────────────────────────────────────────────
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/about', [AboutController::class, 'index'])->name('about');
-Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/posts/{slug}', [PostController::class, 'show'])->name('posts.show');
 Route::get('/impressum', [LegalController::class, 'impressum'])->name('impressum');
 Route::get('/privacy', [LegalController::class, 'privacy'])->name('privacy');
-//Route::get('/contact', ContactPage::class)->name('contact');
 
 // Post-login redirect: admins go to CMS, everyone else to home
 Route::get('/dashboard', function () {
