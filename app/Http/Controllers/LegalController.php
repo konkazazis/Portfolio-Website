@@ -6,11 +6,11 @@ class LegalController extends Controller
 {
     public function impressum()
     {
-        return view('layouts.impressum');
+        return view('impressum');
     }
 
     public function privacy()
     {
-        return view('layouts.privacy');
+        return view('privacy');
     }
 }

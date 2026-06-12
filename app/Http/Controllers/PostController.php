@@ -18,7 +18,7 @@ class PostController extends Controller
             ->where('slug', $slug)
             ->firstOrFail();
 
-        return view('layouts.blog-post', compact('post'));
+        return view('posts.show', compact('post'));
     }
 
     // Admin: show create form

@@ -33,6 +33,6 @@ class BlogController extends Controller
 
         $activeCategory = $categories->firstWhere('slug', $categorySlug);
 
-        return view('layouts.blog', compact('posts', 'categories', 'activeCategory', 'search'));
+        return view('blog', compact('posts', 'categories', 'activeCategory', 'search'));
     }
 }
