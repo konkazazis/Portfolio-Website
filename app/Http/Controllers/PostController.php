@@ -18,7 +18,14 @@ class PostController extends Controller
             ->where('slug', $slug)
             ->firstOrFail();
 
-        return view('posts.show', compact('post'));
+        $more = Post::published()
+            ->with(['category'])
+            ->where('id', '!=', $post->id)
+            ->latest('published_at')
+            ->limit(2)
+            ->get();
+
+        return view('posts.show', compact('post', 'more'));
     }
 
     // Admin: show create form
