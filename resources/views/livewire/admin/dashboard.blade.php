@@ -9,8 +9,6 @@
         @foreach([
             ['label' => 'Published posts',    'value' => "{$publishedPosts} / {$totalPosts}",       'icon' => 'document-text'],
             ['label' => 'Published projects', 'value' => "{$publishedProjects} / {$totalProjects}", 'icon' => 'briefcase'],
-            ['label' => 'Pending comments',   'value' => number_format($pendingComments),            'icon' => 'chat-bubble-left-right'],
-            ['label' => 'Total comments',     'value' => number_format($totalComments),              'icon' => 'chat-bubble-oval-left'],
             ['label' => 'Categories',         'value' => number_format($totalCategories),            'icon' => 'tag'],
             ['label' => 'Tags',               'value' => number_format($totalTags),                  'icon' => 'hashtag'],
         ] as $kpi)
@@ -42,38 +40,6 @@
                                 <p class="text-xs text-zinc-400 dark:text-zinc-500">{{ $post->status }}</p>
                             </div>
                             <span class="text-xs text-zinc-300 dark:text-zinc-600 shrink-0">{{ $post->created_at->diffForHumans(null, true) }}</span>
-                        </div>
-                    @endforeach
-                </div>
-            @endif
-        </div>
-
-        {{-- Recent comments --}}
-        <div class="bg-white dark:bg-zinc-900 rounded-3xl border border-zinc-100 dark:border-zinc-800 shadow-sm p-6">
-            <div class="flex items-center justify-between mb-5">
-                <h2 class="text-base font-bold text-zinc-800 dark:text-zinc-100">Recent comments</h2>
-                <a href="{{ route('admin.comments.index') }}" wire:navigate
-                   class="text-xs font-bold text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100">View all →</a>
-            </div>
-            @if($recentComments->isEmpty())
-                <p class="text-sm text-zinc-400 dark:text-zinc-500 py-4">No comments yet.</p>
-            @else
-                <div class="space-y-3">
-                    @foreach($recentComments as $comment)
-                        <div class="flex items-center gap-3">
-                            <div class="w-8 h-8 rounded-xl bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-500 font-bold text-xs shrink-0">
-                                {{ strtoupper(substr($comment->name, 0, 1)) }}
-                            </div>
-                            <div class="flex-1 min-w-0">
-                                <div class="flex items-center gap-1.5">
-                                    @if(!$comment->is_approved)
-                                        <span class="w-1.5 h-1.5 bg-amber-500 rounded-full shrink-0"></span>
-                                    @endif
-                                    <p class="text-sm font-semibold text-zinc-800 dark:text-zinc-100 truncate">{{ $comment->name }}</p>
-                                </div>
-                                <p class="text-xs text-zinc-400 dark:text-zinc-500 truncate">{{ $comment->post?->title ?? '—' }}</p>
-                            </div>
-                            <span class="text-xs text-zinc-300 dark:text-zinc-600 shrink-0">{{ $comment->created_at->diffForHumans(null, true) }}</span>
                         </div>
                     @endforeach
                 </div>
