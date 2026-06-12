@@ -3,7 +3,7 @@
 namespace App\Livewire\Admin;
 
 use App\Models\Category;
-use App\Models\Comment;
+use App\Models\ContactMessage;
 use App\Models\Post;
 use App\Models\Project;
 use App\Models\Tag;
@@ -28,7 +28,7 @@ class Dashboard extends Component
 
         return view('livewire.admin.dashboard', compact(
             'totalPosts', 'publishedPosts', 'totalProjects', 'publishedProjects',
-            'totalCategories', 'totalTags', 'unreadMessages', 'totalMesssages',
+            'totalCategories', 'totalTags', 'unreadMessages', 'totalMessages',
             'recentPosts', 'recentMessages'
         ))->layout('layouts.app', ['title' => 'Overview — CMS']);
     }

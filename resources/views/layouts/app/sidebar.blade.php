@@ -38,10 +38,6 @@
                     :current="request()->routeIs('admin.tags.*')" wire:navigate>
                     Tags
                 </flux:sidebar.item>
-                <flux:sidebar.item icon="chat-bubble-left-right" :href="route('admin.comments.index')"
-                    :current="request()->routeIs('admin.comments.*')" wire:navigate>
-                    Comments
-                </flux:sidebar.item>
             </flux:sidebar.group>
 
             <flux:sidebar.group heading="Admin" class="grid">
