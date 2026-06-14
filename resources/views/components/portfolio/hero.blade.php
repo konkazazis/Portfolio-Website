@@ -42,20 +42,20 @@
                 Crafting clean code for any business. Based in Düsseldorf.
             </p>
           <div class="mb-8 flex justify-center">
-  <span class="reveal inline-flex items-center gap-[9px] pl-3 pr-3.5 py-[7px] border border-line rounded-full font-mono text-[12px] text-ink-soft bg-card">
-    
-    <!-- Container for the dot -->
-    <span class="relative flex h-2 w-2 flex-shrink-0">
-      <!-- The Ping Ring (Absolute) -->
-      <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[oklch(0.62_0.16_150)] opacity-75"></span>
-      <!-- The Static Dot (Relative) -->
-      <span class="relative inline-flex h-2 w-2 rounded-full bg-[oklch(0.62_0.16_150)]"></span>
-    </span>
+            <span class="reveal inline-flex items-center gap-[9px] pl-3 pr-3.5 py-[7px] border border-line rounded-full font-mono text-[12px] text-ink-soft bg-card">
+                
+                <!-- Container for the dot -->
+                <span class="relative flex h-2 w-2 flex-shrink-0">
+                <!-- The Ping Ring (Absolute) -->
+                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[oklch(0.62_0.16_150)] opacity-75"></span>
+                <!-- The Static Dot (Relative) -->
+                <span class="relative inline-flex h-2 w-2 rounded-full bg-[oklch(0.62_0.16_150)]"></span>
+                </span>
 
-    <!-- Text -->
-    <p class="m-0 p-0 leading-none">Available for new freelance work — Summer 2026</p>
-  </span>
-</div>   
+                <!-- Text -->
+                <p class="m-0 p-0 leading-none">Available for new freelance work — Summer 2026</p>
+            </span>
+            </div>   
         </div>
     </div>
 </section>
