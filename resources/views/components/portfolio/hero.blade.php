@@ -1,6 +1,6 @@
 <section id="home" class="pt-40 pb-32 px-6 sm:px-8 bg-white">
     
-    <div class="max-w-3xl mx-auto flex lg:gap-12">
+    <div class="max-w-3xl mx-auto flex flex-col lg:flex-row lg:gap-12">
     
         <div class="flex-col justify-between">
             
@@ -33,9 +33,9 @@
             </div>   
         </div>
 
-        <div class="pb-12">
+        <div class="pb-12 flex-shrink-0">
             <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/profile-pic.png" alt="Kostas Kazazis"
-                class=" w-82 h-82 rounded-none mx-auto mb-10 object-cover border border-stone-300" />
+                class="w-56 h-56 sm:w-72 sm:h-72 lg:w-82 lg:h-82 rounded-none mx-auto mb-10 object-cover border border-stone-300" />
 
             <div class="flex justify-center gap-8 mb-12">
                 <a href="https://github.com/konkazazis" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
