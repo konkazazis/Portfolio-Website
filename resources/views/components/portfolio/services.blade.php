@@ -6,23 +6,54 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div class="border-l-2 border-stone-400 pl-6">
-                <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">Professional Websites</h3>
+                <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">Custom Websites</h3>
                 <p class="text-stone-600 leading-relaxed font-light">
-                    Beautiful and custom websites that convert. With features like custom blogs and contact sections.
+                    Beautiful and custom websites, including blogs and an internal CMS. 
+                    Custom crafted code that allowes you to post and edit blogposts,
+                    read email or even create a gallery for your shots.
                 </p>
             </div>
 
             <div class="border-l-2 border-stone-400 pl-6">
                 <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">Mobile-Friendly Design</h3>
                 <p class="text-stone-600 leading-relaxed font-light">
-                    Your website works perfectly on phones, tablets, and computers—reaching customers everywhere.
+                    Your website works perfectly on phones, tablets, and computers. Visitors can reach you on any device.
                 </p>
             </div>
 
             <div class="border-l-2 border-stone-400 pl-6">
                 <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">Secure & Protected</h3>
                 <p class="text-stone-600 leading-relaxed font-light">
-                    Keep your business and customer data safe with professional security measures.
+                    I follow the best practises to secure your website. 
+                    Login sessions that can identify if its really you who is logging in and 
+                    encryption over all passwords and sensitive data.
+                </p>
+            </div>
+
+             <div class="border-l-2 border-stone-400 pl-6">
+                <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">Performance in mind</h3>
+                <p class="text-stone-600 leading-relaxed font-light">
+                    The decision to make custom solutions for my clients comes from the need for total control
+                    over my code but also performance.
+                    Guarranted 100 scores across Google Lighthouse.
+                </p>
+            </div>
+
+             <div class="border-l-2 border-stone-400 pl-6">
+                <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">Overall business support</h3>
+                <p class="text-stone-600 leading-relaxed font-light">
+                    As a fellow freelancer I will provide guidance for buisness domains handling
+                    and recommendations for hosting, email suites, office software and many more.
+                    
+                </p>
+            </div>
+
+             <div class="border-l-2 border-stone-400 pl-6">
+                <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">Custom Enquires</h3>
+                <p class="text-stone-600 leading-relaxed font-light">
+                    Do you need something that my CMS doesn't contain?
+                    Always ready to take on special requests,
+                    so bring it on!
                 </p>
             </div>
         </div>
