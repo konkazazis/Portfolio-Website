@@ -85,7 +85,7 @@
 
         @if($post->user?->is_admin)
             <div class="flex items-center gap-3 mb-10 pb-8 border-b border-stone-100">
-                <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/profile-pic-nobg.png" alt="Kostas"
+                <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/profile-pic.png" alt="Kostas"
                     class="w-10 h-10 rounded-full object-cover object-top bg-stone-100">
                 <div>
                     <p class="text-sm font-semibold text-stone-800">Konstantinos Kazazis</p>
@@ -100,24 +100,6 @@
         <div class="prose prose-stone max-w-none text-stone-700 leading-relaxed">
             {!! $post->content !!}
         </div>
-
-        @if($post->comments->isNotEmpty())
-            <section class="mt-16 pt-10 border-t border-stone-200">
-                <h2 class="text-xl font-bold uppercase mb-6">
-                    {{ $post->comments->count() }} {{ Str::plural('Comment', $post->comments->count()) }}
-                </h2>
-
-                <div class="flex flex-col gap-6">
-                    @foreach($post->comments as $comment)
-                        <div class="border-l-2 border-brand pl-4">
-                            <p class="text-sm font-semibold text-stone-800 mb-1">{{ $comment->name }}</p>
-                            <p class="text-sm text-stone-600 leading-relaxed">{{ $comment->content }}</p>
-                            <p class="text-xs text-stone-400 mt-1">{{ $comment->created_at->format('M d, Y') }}</p>
-                        </div>
-                    @endforeach
-                </div>
-            </section>
-        @endif
 
     </div>
 @endsection
