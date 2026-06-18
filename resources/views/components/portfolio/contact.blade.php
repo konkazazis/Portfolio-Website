@@ -1,4 +1,4 @@
-<section id="contact" class="py-24 px-6 sm:px-8 bg-stone-900 text-white border-t border-stone-800">
+<section id="contact" class="pt-24 pb-8 px-6 sm:px-8 bg-stone-900 text-white border-t border-stone-800">
     <div class="max-w-3xl mx-auto">
         <div class="reveal mb-8">
             <span class="eyebrow text-on-dark-mut">Contact</span>

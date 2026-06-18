@@ -8,7 +8,7 @@
 
         <div class="lex flex-col gap-[clamp(40px,6vw,76px)]">
             @foreach($projects as $i => $project)
-                <article class="reveal grid items-center gap-[clamp(28px,4vw,56px)] grid-cols-1 md:grid-cols-[1.05fr_0.95fr]">
+                <article class="mb-8 reveal grid items-center gap-[clamp(28px,4vw,56px)] grid-cols-1 md:grid-cols-[1.05fr_0.95fr]">
                     <a href="{{ $project->live_url ?? '#' }}" @if($project->live_url) target="_blank" rel="noopener" @endif
                        class="group relative rounded-[14px] overflow-hidden border border-line bg-paper-2 aspect-[16/11] shadow-[0_30px_70px_-44px_oklch(0.3_0.04_60_/_0.55)] {{ $i % 2 ? 'md:order-2' : '' }}">
                         @if($project->coverUrl())
