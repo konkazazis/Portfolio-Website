@@ -113,7 +113,7 @@
                                 </div>
                                 @if($post->user?->is_admin)
                                     <div class="mt-4 md:mt-0 flex items-center gap-3">
-                                        <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/profile-pic-nobg.png" alt="Kostas"
+                                        <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/profile-pic.png" alt="Kostas"
                                             class="w-10 h-10 rounded-full object-cover bg-stone-100">
                                         <div class="text-xs text-stone-500 uppercase tracking-[0.25em] font-semibold">Kostas</div>
                                     </div>

@@ -50,8 +50,16 @@ class Post extends Model
     {
         static::creating(function (Post $post) {
             if (empty($post->slug)) {
-                $post->slug = Str::slug($post->title);
+                $post->slug = static::generateSlug($post->title);
             }
         });
+    }
+
+    public static function generateSlug(string $title): string
+    {
+        $slug  = Str::slug($title);
+        $count = static::where('slug', 'like', "{$slug}%")->count();
+
+        return $count ? "{$slug}-{$count}" : $slug;
     }
 }

@@ -5,7 +5,6 @@ namespace App\Livewire\Admin\Post;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
-use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
@@ -91,7 +90,7 @@ class PostManager extends Component
             'title'        => $this->title,
             'slug'         => $this->editingId
                 ? Post::find($this->editingId)->slug
-                : Str::slug($this->title),
+                : Post::generateSlug($this->title),
             'excerpt'      => $this->excerpt ?: null,
             'content'      => $this->content,
             'status'       => $this->status,

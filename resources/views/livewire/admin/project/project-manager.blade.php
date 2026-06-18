@@ -23,6 +23,7 @@
         @if($projects->isEmpty())
             <div class="py-16 text-center text-zinc-400 dark:text-zinc-500 text-sm">No projects yet.</div>
         @else
+            <div class="overflow-x-auto">
             <table class="w-full text-sm">
                 <thead class="border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800/40">
                     <tr>
@@ -79,6 +80,7 @@
                     @endforeach
                 </tbody>
             </table>
+            </div>
             @if($projects->hasPages())
                 <div class="px-6 py-4 border-t border-zinc-100 dark:border-zinc-800">{{ $projects->links() }}</div>
             @endif
@@ -124,7 +126,7 @@
                            class="w-full border border-zinc-200 dark:border-zinc-700 rounded-lg px-3 py-2 text-sm bg-white dark:bg-zinc-800 text-zinc-800 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-900">
                 </div>
 
-                <div class="grid grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-xs font-semibold text-zinc-600 dark:text-zinc-300 mb-1.5 uppercase tracking-wide">Live URL</label>
                         <input type="url" wire:model="live_url" placeholder="https://…"

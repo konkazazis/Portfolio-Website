@@ -34,6 +34,7 @@
         @if($posts->isEmpty())
             <div class="py-16 text-center text-zinc-400 dark:text-zinc-500 text-sm">No posts found.</div>
         @else
+            <div class="overflow-x-auto">
             <table class="w-full text-sm">
                 <thead class="border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800/40">
                     <tr>
@@ -80,6 +81,7 @@
                     @endforeach
                 </tbody>
             </table>
+            </div>
 
             @if($posts->hasPages())
                 <div class="px-6 py-4 border-t border-zinc-100 dark:border-zinc-800">
@@ -152,7 +154,7 @@
         }"
     >
         {{-- Page header --}}
-        <div class="flex items-center justify-between mb-6">
+        <div class="flex flex-wrap items-center justify-between mb-6 gap-y-3">
             <div class="flex items-center gap-3">
                 <button wire:click="cancel"
                     class="p-1.5 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors">
@@ -207,10 +209,10 @@
         </div>
 
         {{-- 3-column editor layout --}}
-        <div class="flex rounded-2xl border border-zinc-100 dark:border-zinc-800 shadow-sm overflow-hidden bg-white dark:bg-zinc-900">
+        <div class="flex flex-col lg:flex-row rounded-2xl border border-zinc-100 dark:border-zinc-800 shadow-sm overflow-hidden bg-white dark:bg-zinc-900">
 
-            {{-- Posts list sidebar --}}
-            <aside class="w-44 shrink-0 border-r border-zinc-100 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/60 flex flex-col">
+            {{-- Posts list sidebar — hidden on mobile, vertical on desktop --}}
+            <aside class="hidden lg:flex w-44 shrink-0 border-r border-zinc-100 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/60 flex-col">
                 <div class="px-3 py-3 border-b border-zinc-100 dark:border-zinc-800">
                     <p class="text-[10px] uppercase tracking-widest font-semibold text-zinc-400 dark:text-zinc-500">Posts</p>
                 </div>
@@ -242,7 +244,7 @@
 
             {{-- Writing area --}}
             <main class="flex-1 flex flex-col min-w-0 bg-white dark:bg-zinc-950">
-                <div class="border-b border-zinc-100 dark:border-zinc-800 px-6 py-4 space-y-2">
+                <div class="border-b border-zinc-100 dark:border-zinc-800 px-4 sm:px-6 py-4 space-y-2">
                     <input type="text" wire:model.lazy="title" placeholder="Post title"
                         class="w-full bg-transparent border-none outline-none text-xl font-bold font-serif text-zinc-900 dark:text-zinc-100 placeholder-zinc-300 dark:placeholder-zinc-600 focus:ring-0">
                     @error('title') <p class="text-xs text-red-500">{{ $message }}</p> @enderror
@@ -253,11 +255,12 @@
                 <div wire:ignore>
                     <div x-ref="quillEditor" data-initial-content="{{ $content }}"></div>
                 </div>
-                @error('content') <p class="px-6 py-1 text-xs text-red-500">{{ $message }}</p> @enderror
+                @error('content') <p class="px-4 sm:px-6 py-1 text-xs text-red-500">{{ $message }}</p> @enderror
             </main>
 
-            {{-- Meta sidebar --}}
-            <aside class="w-52 shrink-0 border-l border-zinc-100 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/60 p-4 space-y-5">
+            {{-- Meta sidebar — full-width row on mobile, fixed column on desktop --}}
+            <aside class="w-full lg:w-52 shrink-0 border-t lg:border-t-0 lg:border-l border-zinc-100 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/60 p-4">
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-1 gap-4 lg:gap-5">
                 <div>
                     <label class="block text-[10px] uppercase tracking-widest font-semibold text-zinc-400 dark:text-zinc-500 mb-2">Status</label>
                     <select wire:model="status"
@@ -277,9 +280,9 @@
                     </select>
                 </div>
                 @if($tags->isNotEmpty())
-                <div>
+                <div class="col-span-2 sm:col-span-3 lg:col-span-1">
                     <label class="block text-[10px] uppercase tracking-widest font-semibold text-zinc-400 dark:text-zinc-500 mb-3">Tags</label>
-                    <div class="flex flex-col gap-2">
+                    <div class="flex flex-wrap gap-2">
                         @foreach($tags as $tag)
                             <label class="inline-flex items-center gap-2 cursor-pointer">
                                 <input type="checkbox" wire:model="selectedTags" value="{{ $tag->id }}"
@@ -290,6 +293,7 @@
                     </div>
                 </div>
                 @endif
+            </div>{{-- end meta grid --}}
             </aside>
         </div>
     </div>

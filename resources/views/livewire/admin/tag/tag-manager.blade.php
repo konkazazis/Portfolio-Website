@@ -23,12 +23,13 @@
         @if($tags->isEmpty())
             <div class="py-16 text-center text-zinc-400 dark:text-zinc-500 text-sm">No tags found.</div>
         @else
+            <div class="overflow-x-auto">
             <table class="w-full text-sm">
                 <thead class="border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800/40">
                     <tr>
                         <th class="text-left px-6 py-3 text-xs font-semibold text-zinc-500 uppercase tracking-wide">Name</th>
-                        <th class="text-left px-4 py-3 text-xs font-semibold text-zinc-500 uppercase tracking-wide">Slug</th>
-                        <th class="text-left px-4 py-3 text-xs font-semibold text-zinc-500 uppercase tracking-wide">Posts</th>
+                        <th class="text-left px-4 py-3 text-xs font-semibold text-zinc-500 uppercase tracking-wide hidden sm:table-cell">Slug</th>
+                        <th class="text-left px-4 py-3 text-xs font-semibold text-zinc-500 uppercase tracking-wide hidden sm:table-cell">Posts</th>
                         <th class="px-6 py-3"></th>
                     </tr>
                 </thead>
@@ -36,8 +37,8 @@
                     @foreach($tags as $tag)
                         <tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/30 transition-colors">
                             <td class="px-6 py-4 font-semibold text-zinc-800 dark:text-zinc-100">{{ $tag->name }}</td>
-                            <td class="px-4 py-4 text-zinc-400 dark:text-zinc-500 text-xs font-mono">{{ $tag->slug }}</td>
-                            <td class="px-4 py-4 text-zinc-600 dark:text-zinc-300">{{ $tag->posts_count }}</td>
+                            <td class="px-4 py-4 text-zinc-400 dark:text-zinc-500 text-xs font-mono hidden sm:table-cell">{{ $tag->slug }}</td>
+                            <td class="px-4 py-4 text-zinc-600 dark:text-zinc-300 hidden sm:table-cell">{{ $tag->posts_count }}</td>
                             <td class="px-6 py-4">
                                 <div class="flex items-center justify-end gap-2">
                                     <button wire:click="openEdit({{ $tag->id }})"
@@ -50,6 +51,7 @@
                     @endforeach
                 </tbody>
             </table>
+            </div>
             @if($tags->hasPages())
                 <div class="px-6 py-4 border-t border-zinc-100 dark:border-zinc-800">{{ $tags->links() }}</div>
             @endif
