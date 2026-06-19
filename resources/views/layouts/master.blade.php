@@ -84,11 +84,28 @@
                         <a href="{{ route("home") }}#contact" class="transition-colors hover:text-stone-900">
                             Contact
                         </a>
-                        @auth
+                        <div>
+                    </nav>
+                    <div class="group relative inline-block text-left" id="dropdown-container">
+    <!-- Trigger Button -->
+    <!-- Trigger Button: Hidden on mobile, visible on md (768px) and up -->
+<button type="button" id="dropdown-button" class="hidden md:inline-flex justify-center w-full px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100">
+    <!-- Content remains the same -->
+    <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/profile-pic.png" alt="Kostas" class="w-10 h-10 rounded-full object-cover bg-stone-100">
+    <svg class="-mr-1 ml-2 h-5 w-5 transition-transform duration-200" id="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+    </svg>
+</button>   
+
+    <!-- Dropdown Menu -->
+    <!-- Removed 'group-focus-within:block', now controlled by JS via 'hidden' class -->
+    <div id="dropdown-menu" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden">
+        <div class="py-1">
+            @auth
                             @if (auth()->user()->is_admin)
                                 <a
                                     href="{{ route("admin.dashboard") }}"
-                                    class="transition-colors {{ request()->routeIs("admin.*") ? "text-stone-900" : "hover:text-stone-900" }}"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors"
                                 >
                                     Admin
                                 </a>
@@ -96,10 +113,11 @@
                         @endauth
 
                         @auth
-                            <a href="{{ route("logout") }}" class="transition-colors hover:text-stone-900">Logout</a>
+                            <a href="{{ route("logout") }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Logout</a>
                         @endauth
-                    </nav>
-
+        </div>
+    </div>
+</div>
                     <button
                         id="burger-btn"
                         class="sm:hidden flex flex-col justify-center items-center gap-1.5 w-8 h-8 text-stone-700 hover:text-stone-900 transition-colors"
@@ -197,6 +215,33 @@
                         lines[1].style.opacity = '';
                         lines[2].style.transform = '';
                     });
+                });
+            </script>
+
+            <script>
+                const button = document.getElementById('dropdown-button');
+                const menu = document.getElementById('dropdown-menu');
+                const arrow = document.getElementById('dropdown-arrow');
+
+                button.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent click from bubbling to document
+                    const isHidden = menu.classList.contains('hidden');
+                    
+                    if (isHidden) {
+                        menu.classList.remove('hidden');
+                        arrow.classList.add('rotate-180');
+                    } else {
+                        menu.classList.add('hidden');
+                        arrow.classList.remove('rotate-180');
+                    }
+                });
+
+                // Close when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!document.getElementById('dropdown-container').contains(e.target)) {
+                        menu.classList.add('hidden');
+                        arrow.classList.remove('rotate-180');
+                    }
                 });
             </script>
         </div>
