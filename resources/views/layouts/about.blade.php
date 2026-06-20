@@ -7,9 +7,13 @@
 
 @push('schema')
 	<script type="application/ld+json">
+	@php
+		$ldContext = '@context';
+		$ldType = '@type';
+	@endphp
 	{!! json_encode([
-		'@context' => 'https://schema.org',
-		'@type' => 'Person',
+		$ldContext => 'https://schema.org',
+		$ldType => 'Person',
 		'name' => 'Konstantinos Kazazis',
 		'url' => route('about'),
 		'jobTitle' => 'Full-Stack Web Developer',

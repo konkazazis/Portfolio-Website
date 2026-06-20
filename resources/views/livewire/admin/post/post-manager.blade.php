@@ -297,7 +297,6 @@
             </aside>
         </div>
     </div>
-    </div>
 
 @endif
 

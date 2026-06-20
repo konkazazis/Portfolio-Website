@@ -19,24 +19,28 @@
 
 @push('schema')
     <script type="application/ld+json">
+    @php
+        $ldContext = '@context';
+        $ldType = '@type';
+    @endphp
             {!! json_encode([
-        '@context' => 'https://schema.org',
-        '@type' => 'Blog',
+        $ldContext => 'https://schema.org',
+        $ldType => 'Blog',
         'name' => 'Blog · kostas',
         'description' => 'Thoughts on code, design, and the web — a developer blog by Kostas.',
         'url' => route('blog'),
         'author' => [
-            '@type' => 'Person',
+            $ldType => 'Person',
             'name' => 'Konstantinos Kazazis',
             'url' => route('about'),
         ],
         'blogPost' => $posts->map(fn($post) => [
-            '@type' => 'BlogPosting',
+            $ldType => 'BlogPosting',
             'headline' => $post->title,
             'url' => route('posts.show', $post->slug),
             'datePublished' => $post->published_at->toIso8601String(),
             'description' => \Illuminate\Support\Str::limit(strip_tags($post->excerpt ?? $post->content), 160),
-            'author' => ['@type' => 'Person', 'name' => 'Konstantinos Kazazis', 'url' => route('about')],
+            'author' => [$ldType => 'Person', 'name' => 'Konstantinos Kazazis', 'url' => route('about')],
         ])->values()->all(),
     ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
         </script>
@@ -94,7 +98,7 @@
                 <p class="text-stone-500">
                     No posts found
                     @if($search) for "<span class="text-stone-700">{{ $search }}</span>"@endif
-                    @if($activeCategory) in <span class="text-stone-700">{{ $activeCategory->name }}</span>@endif.
+                    @if($activeCategory) in <span class="text-stone-700">{{ $activeCategory->name }}</span>@endif{{-- --}}.
                 </p>
             @else
                 <div class="divide-y divide-stone-200 bg-white rounded-3xl border border-stone-200">

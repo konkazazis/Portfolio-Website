@@ -13,33 +13,41 @@
 
 @push('schema')
     <script type="application/ld+json">
+    @php
+        $ldContext = '@context';
+        $ldType = '@type';
+    @endphp
                 {!! json_encode([
-        '@context' => 'https://schema.org',
-        '@type' => 'BreadcrumbList',
+        $ldContext => 'https://schema.org',
+        $ldType => 'BreadcrumbList',
         'itemListElement' => [
-            ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home', 'item' => route('home')],
-            ['@type' => 'ListItem', 'position' => 2, 'name' => 'Blog', 'item' => route('blog')],
-            ['@type' => 'ListItem', 'position' => 3, 'name' => $post->title, 'item' => route('posts.show', $post->slug)],
+            [$ldType => 'ListItem', 'position' => 1, 'name' => 'Home', 'item' => route('home')],
+            [$ldType => 'ListItem', 'position' => 2, 'name' => 'Blog', 'item' => route('blog')],
+            [$ldType => 'ListItem', 'position' => 3, 'name' => $post->title, 'item' => route('posts.show', $post->slug)],
         ],
     ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
             </script>
 
     <script type="application/ld+json">
+    @php
+        $ldContext = '@context';
+        $ldType = '@type';
+    @endphp
                 {!! json_encode([
-        '@context' => 'https://schema.org',
-        '@type' => 'BlogPosting',
+        $ldContext => 'https://schema.org',
+        $ldType => 'BlogPosting',
         'headline' => $post->title,
         'description' => \Illuminate\Support\Str::limit(strip_tags($post->excerpt ?? $post->content), 160),
         'url' => route('posts.show', $post->slug),
         'datePublished' => $post->published_at->toIso8601String(),
         'dateModified' => $post->updated_at->toIso8601String(),
         'author' => [
-            '@type' => 'Person',
+            $ldType => 'Person',
             'name' => 'Konstantinos Kazazis',
             'url' => route('about'),
         ],
         'publisher' => [
-            '@type' => 'Person',
+            $ldType => 'Person',
             'name' => 'Konstantinos Kazazis',
         ],
         'keywords' => $post->tags->pluck('name')->join(', '),
