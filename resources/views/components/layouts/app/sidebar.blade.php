@@ -7,8 +7,8 @@
     <script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script>
     <style>
         .ql-toolbar.ql-snow { border-left: none; border-right: none; border-top: none; background: #fff; position: sticky; top: 0; z-index: 1; }
-        .ql-container.ql-snow { border: none; font-size: 1.0625rem; height: auto !important; min-height: 480px; }
-        .ql-editor { height: auto !important; min-height: 480px; padding: 1.5rem 2rem; line-height: 1.8; }
+        .ql-container.ql-snow { border: none; size: 1.0625rem; min-height: 480px; }
+        .ql-editor { height: 480px; ing: 1.5rem 2rem; line-height: 1.8; }
         .ql-editor.ql-blank::before { font-style: normal; color: #d4d4d4; }
     </style>
 </head>
