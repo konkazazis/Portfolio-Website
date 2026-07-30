@@ -94,7 +94,6 @@ class ProjectManager extends Component
         } else {
             Project::create([
                 ...$data,
-                'slug'  => Project::generateSlug($this->title),
                 'order' => (Project::max('order') ?? 0) + 1,
             ]);
         }
