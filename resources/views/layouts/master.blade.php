@@ -75,18 +75,19 @@
                 class="sticky top-0 z-50 px-4 md:px-0 bg-white/95 backdrop-blur-sm border-b border-stone-200"
             >
                 <div
-                    class="max-w-7xl mx-auto h-20 flex items-center justify-between"
+                    class="max-w-7xl mx-auto h-20 grid grid-cols-[1fr_auto_1fr] items-center"
                 >
-                    <a
-                        href="{{ route("home") }}"
-                        class="text-base font-semibold uppercase tracking-[0.35em] text-stone-900"
-                    >
-                        kostas
-                    </a>
+                    <div></div>
 
                     <nav
-                        class="hidden sm:flex gap-8 text-sm uppercase tracking-[0.35em] font-medium text-stone-600"
+                        class="hidden sm:flex justify-self-center gap-8 text-sm uppercase tracking-[0.35em] font-medium text-stone-600"
                     >
+                        <a
+                            href="{{ route("home") }}"
+                            class="transition-colors {{ request()->routeIs("home") ? "text-stone-900" : "hover:text-stone-900" }}"
+                        >
+                            Home
+                        </a>
                         <a
                             href="{{ route("about") }}"
                             class="transition-colors {{ request()->routeIs("about") ? "text-stone-900" : "hover:text-stone-900" }}"
@@ -107,7 +108,7 @@
                         </a>
                     </nav>
                     <div
-                        class="group relative inline-block text-left"
+                        class="group relative inline-block justify-self-end text-left"
                         id="dropdown-container"
                     >
                         @auth
@@ -115,13 +116,13 @@
                                 <button
                                     type="button"
                                     id="dropdown-button"
-                                    class="hidden md:inline-flex justify-center w-full px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100"
+                                    class="hidden md:inline-flex justify-center w-full px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
                                 >
-                                    <img
-                                        src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/profile-pic.png"
-                                        alt="Kostas"
-                                        class="w-10 h-10 rounded-full object-cover bg-stone-100"
-                                    />
+                                    <span
+                                        class="flex items-center justify-center w-10 h-10 rounded-full text-stone-500 text-2xl"
+                                    >
+                                        <i class="fa-solid fa-user"></i>
+                                    </span>
                                     <svg
                                         class="-mr-1 ml-2 h-5 w-5 transition-transform duration-200"
                                         id="dropdown-arrow"
@@ -189,6 +190,12 @@
                     class="sm:hidden hidden flex-col gap-0 text-sm uppercase tracking-wide font-semibold border-t border-stone-200 px-6 pb-4 text-stone-700 bg-white"
                 >
                     <a
+                        href="{{ route("home") }}"
+                        class="py-3 border-b border-stone-100 transition-colors {{ request()->routeIs("home") ? "text-stone-900" : "hover:text-stone-900" }}"
+                    >
+                        Home
+                    </a>
+                    <a
                         href="{{ route("about") }}"
                         class="py-3 border-b border-stone-100 transition-colors {{ request()->routeIs("about") ? "text-stone-900" : "hover:text-stone-900" }}"
                     >
@@ -243,6 +250,38 @@
                 </nav>
             </header>
 
+            @php
+                $availabilityMonth = now()->translatedFormat('F Y');
+                $availabilityQuarter =
+                    'Q' . (int) ceil(now()->month / 3) . ' ' . now()->year;
+                $availabilityMessages = [
+                    "Available for new freelance projects — booking now for {$availabilityMonth}",
+                    'Open for full-stack web development work',
+                    "Currently accepting new clients for {$availabilityQuarter}",
+                ];
+            @endphp
+
+            <div
+                class="bg-stone-900 text-white text-xs sm:text-sm tracking-wide"
+            >
+                <div
+                    class="max-w-7xl mx-auto px-4 md:px-0 h-9 flex items-center justify-center gap-2 overflow-hidden"
+                >
+                    <span class="relative flex h-2 w-2 shrink-0">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
+                        ></span>
+                        <span
+                            class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"
+                        ></span>
+                    </span>
+                    <span
+                        id="availability-ticker"
+                        class="availability-ticker-text truncate"
+                    ></span>
+                </div>
+            </div>
+
             <div class="flex-1 w-full max-w-7xl mx-auto">
                 <div class="flex-1 w-full max-w-350 mx-auto">
                     @yield("content")
@@ -277,6 +316,32 @@
                         lines[2].style.transform = '';
                     });
                 });
+            </script>
+
+            <script>
+                const availabilityMessages = @json($availabilityMessages);
+                const tickerEl = document.getElementById(
+                    'availability-ticker'
+                );
+                let tickerIndex = 0;
+
+                if (tickerEl && availabilityMessages.length) {
+                    tickerEl.textContent = availabilityMessages[0];
+
+                    if (availabilityMessages.length > 1) {
+                        setInterval(() => {
+                            tickerEl.classList.add('ticker-out');
+                            setTimeout(() => {
+                                tickerIndex =
+                                    (tickerIndex + 1) %
+                                    availabilityMessages.length;
+                                tickerEl.textContent =
+                                    availabilityMessages[tickerIndex];
+                                tickerEl.classList.remove('ticker-out');
+                            }, 300);
+                        }, 4000);
+                    }
+                }
             </script>
 
             <script>

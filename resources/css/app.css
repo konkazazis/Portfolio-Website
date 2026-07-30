@@ -9,8 +9,8 @@
 @source '../**/*.js';
 
 @font-face {
-    font-family: "deedoo";
-    src: url('../../public/fonts/deedoo.ttf') format('truetype');
+    font-family: "halo-dek";
+    src: url('../../public/fonts/halo-dek.otf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -19,7 +19,7 @@
 @theme {
     --font-sans:
         system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    --font-serif: "deedoo", "Playfair Display", Georgia, serif;
+    --font-serif: "halo-dek", "Playfair Display", Georgia, serif;
     --color-brand: #eb5424;
     --color-brand-dark: #c94219;
 }
@@ -65,5 +65,19 @@
 
     .section-heading {
         @apply font-serif text-5xl font-bold tracking-tight text-stone-900 mb-6;
+    }
+
+    .availability-ticker-text {
+        display: inline-block;
+        opacity: 1;
+        transform: translateY(0);
+        transition:
+            opacity 300ms ease,
+            transform 300ms ease;
+    }
+
+    .availability-ticker-text.ticker-out {
+        opacity: 0;
+        transform: translateY(-6px);
     }
 }

@@ -7,31 +7,13 @@
                 Every freelancer needs a website. Crafting clean, reliable and custom sites that get your name out
                 there. My support, in your journey. Based in Düsseldorf.
             </p>
-            <div class="mb-8 flex">
-                <span
-                    class="reveal inline-flex items-center gap-[9px] pl-3 pr-3.5 py-[7px] border border-line rounded-full font-mono text-[12px] text-ink-soft bg-card"
-                >
-                    <!-- Container for the dot -->
-                    <span class="relative flex h-2 w-2 flex-shrink-0">
-                        <!-- The Ping Ring (Absolute) -->
-                        <span
-                            class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[oklch(0.62_0.16_150)] opacity-75"
-                        ></span>
-                        <!-- The Static Dot (Relative) -->
-                        <span class="relative inline-flex h-2 w-2 rounded-full bg-[oklch(0.62_0.16_150)]"></span>
-                    </span>
-
-                    <!-- Text -->
-                    <p class="m-0 p-0 leading-none">Available for new freelance work — Summer 2026</p>
-                </span>
-            </div>
         </div>
 
         <div class="pb-12 flex-shrink-0">
             <img
                 src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/profile-pic.png"
                 alt="Kostas Kazazis"
-                class="w-56 h-56 sm:w-72 sm:h-72 lg:w-82 lg:h-82 rounded-none mx-auto mb-10 object-cover border border-stone-300"
+                class="w-56 h-56 sm:w-72 sm:h-72 lg:w-82 lg:h-82 rounded-full mx-auto mb-10 object-cover border border-stone-300"
             />
 
             <div class="flex justify-center gap-8 mb-12">
