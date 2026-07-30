@@ -15,7 +15,7 @@
                             {{ $post->category->name }}
                         </span>
                     @endif
-                    <h3 class="font-serif text-3xl font-bold text-stone-900 my-3 hover:text-stone-700 transition">
+                    <h3 class="font-sans text-3xl font-bold text-stone-900 my-3 hover:text-stone-700 transition">
                         <a href="{{ route('posts.show', $post->slug) }}">{{ $post->title }}</a>
                     </h3>
                     @if($post->excerpt)

@@ -107,7 +107,7 @@
                             <div class="md:flex md:items-start md:justify-between gap-6 mb-4">
                                 <div>
                                     <a href="{{ route('posts.show', $post->slug) }}" class="group">
-                                        <h2 class="text-2xl font-semibold text-stone-900 group-hover:text-brand transition-colors">
+                                        <h2 class="font-sans text-2xl font-semibold text-stone-900 group-hover:text-brand transition-colors">
                                             {{ $post->title }}
                                         </h2>
                                     </a>

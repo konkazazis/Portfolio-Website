@@ -246,7 +246,7 @@
             <main class="flex-1 flex flex-col min-w-0 bg-white dark:bg-zinc-950">
                 <div class="border-b border-zinc-100 dark:border-zinc-800 px-4 sm:px-6 py-4 space-y-2">
                     <input type="text" wire:model.lazy="title" placeholder="Post title"
-                        class="w-full bg-transparent border-none outline-none text-xl font-bold font-serif text-zinc-900 dark:text-zinc-100 placeholder-zinc-300 dark:placeholder-zinc-600 focus:ring-0">
+                        class="w-full bg-transparent border-none outline-none text-xl font-bold font-sans text-zinc-900 dark:text-zinc-100 placeholder-zinc-300 dark:placeholder-zinc-600 focus:ring-0">
                     @error('title') <p class="text-xs text-red-500">{{ $message }}</p> @enderror
                     <textarea wire:model.lazy="excerpt" rows="2" placeholder="Short excerpt…"
                         class="w-full bg-transparent border-none outline-none text-sm text-zinc-400 dark:text-zinc-500 placeholder-zinc-300 dark:placeholder-zinc-600 focus:ring-0 resize-none leading-relaxed"></textarea>

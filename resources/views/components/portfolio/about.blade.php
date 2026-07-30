@@ -5,7 +5,7 @@
                 <h2 class="font-serif text-5xl md:text-6xl font-bold text-stone-900 mb-6">
                     About
                 </h2>
-                <p class="font-serif text-xl text-stone-700 mb-8 font-light">
+                <p class="text-xl text-stone-700 mb-8 font-light">
                     Full-Stack Web Developer based in Düsseldorf, Germany.
                 </p>
                 <p class="text-stone-600 leading-relaxed mb-6 font-light">

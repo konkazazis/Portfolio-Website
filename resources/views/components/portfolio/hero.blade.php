@@ -2,7 +2,7 @@
     <div class="max-w-3xl mx-auto flex flex-col lg:flex-row lg:gap-12">
         <div class="flex-col justify-between">
             <h1 class="font-serif text-6xl md:text-7xl font-bold text-stone-900 mb-6 leading-tight">Kostas Kazazis</h1>
-            <p class="font-serif text-2xl md:text-3xl text-stone-700 mb-4 font-light">Full-Stack Web Developer</p>
+            <p class="text-2xl md:text-3xl text-stone-700 mb-4 font-light">Full-Stack Web Developer</p>
             <p class="text-lg text-stone-600 leading-relaxed mb-8 font-light">
                 Every freelancer needs a website. Crafting clean, reliable and custom sites that get your name out
                 there. My support, in your journey. Based in Düsseldorf.

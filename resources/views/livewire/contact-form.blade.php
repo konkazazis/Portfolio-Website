@@ -1,7 +1,7 @@
 <div>
     @if($sent)
         <div class="text-center py-12">
-            <p class="font-serif text-2xl text-white mb-4">Message received.</p>
+            <p class="text-2xl text-white mb-4">Message received.</p>
             <p class="text-stone-400 mb-8">Thank you — I'll get back to you soon.</p>
             <button wire:click="$set('sent', false)"
                 class="text-sm font-medium text-stone-400 border border-stone-700 px-6 py-2 hover:border-stone-500 transition tracking-wide">

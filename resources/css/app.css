@@ -83,4 +83,25 @@
         opacity: 0;
         transform: translateY(-6px);
     }
+
+    .prose [style*="background-color"],
+    .prose [style*="background:"] {
+        background-color: transparent !important;
+        color: inherit !important;
+    }
+
+    .prose h1,
+    .prose h2,
+    .prose h3,
+    .prose h4,
+    .prose h5,
+    .prose h6,
+    .ql-editor h1,
+    .ql-editor h2,
+    .ql-editor h3,
+    .ql-editor h4,
+    .ql-editor h5,
+    .ql-editor h6 {
+        font-family: var(--font-sans);
+    }
 }

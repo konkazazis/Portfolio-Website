@@ -74,7 +74,7 @@
                 <span class="text-stone-400">{{ $post->published_at->format('M d, Y') }}</span>
             </div>
 
-            <h1 class="text-4xl max-sm:text-3xl font-bold tracking-tight text-stone-900 mb-4 leading-tight">
+            <h1 class="font-sans text-4xl max-sm:text-3xl font-bold tracking-tight text-stone-900 mb-4 leading-tight">
                 {{ $post->title }}
             </h1>
 
