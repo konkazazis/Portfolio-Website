@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'About · kostas')
+@section('title', 'About')
 @section('meta_description', 'Hi, I\'m Kostas — a developer who loves building things for the web. Learn more about me and this blog.')
 @section('og_title', 'About · kostas')
 @section('canonical', route('about'))

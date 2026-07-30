@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', $post->title . ' · kostas')
+@section('title', $post->title)
 @section('meta_description', \Illuminate\Support\Str::limit(strip_tags($post->excerpt ?? $post->content), 160))
 @section('og_type', 'article')
 @section('og_title', $post->title)
@@ -59,7 +59,7 @@
 @endpush
 
 @section('content')
-    <div class="max-w-2xl mx-auto mt-8">
+    <div class="max-w-2xl mx-auto mt-8 px-6 sm:px-8">
 
         <a href="{{ route('blog') }}"
             class="text-sm text-brand hover:text-brand-dark font-semibold transition-colors mb-8 inline-block">

@@ -2,7 +2,7 @@
 
 @php $lang = request('lang') === 'en' ? 'en' : 'de'; @endphp
 
-@section('title', 'Datenschutz · kostas')
+@section('title', 'Datenschutz')
 @section('meta_description', 'Datenschutzerklärung für kostas.dev gemäß DSGVO.')
 @section('canonical', route('privacy', $lang === 'en' ? ['lang' => 'en'] : []))
 

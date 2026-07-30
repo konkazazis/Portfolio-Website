@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta name="csrf-token" content="{{ csrf_token() }}" />
         <meta name="viewport" content="width=device-width,minimum-scale=1" />
-        <title>@yield("title", "kostas — Full-Stack Web Developer")</title>
+        <title>@yield("title", "kostas")</title>
         <meta
             name="description"
             content="@yield("meta_description", "A developer who loves building things for the web. Thoughts on code, design, and everything in between.")"
@@ -69,7 +69,7 @@
         @vite(["resources/css/app.css", "resources/js/app.js"])
     </head>
 
-    <body>
+    <body class="{{ request()->routeIs('home') ? 'has-doodle-bg' : '' }}">
         <div class="min-h-screen flex flex-col">
             <header
                 class="sticky top-0 z-50 px-4 md:px-0 bg-white/95 backdrop-blur-sm border-b border-stone-200"

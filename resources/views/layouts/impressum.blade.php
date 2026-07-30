@@ -2,7 +2,7 @@
 
 @php $lang = request('lang') === 'en' ? 'en' : 'de'; @endphp
 
-@section('title', 'Impressum · kostas')
+@section('title', 'Impressum')
 @section('meta_description', 'Legal notice (Impressum) for kostas.dev — required by German law (§5 TMG).')
 @section('canonical', route('impressum', $lang === 'en' ? ['lang' => 'en'] : []))
 
