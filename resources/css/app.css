@@ -19,7 +19,7 @@
 @theme {
     --font-sans:
         system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    --font-serif: "halo-dek", "Playfair Display", Georgia, serif;
+    --font-serif: "halo-dek", Georgia, serif;
     --color-brand: #eb5424;
     --color-brand-dark: #c94219;
 }
