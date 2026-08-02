@@ -116,15 +116,15 @@
                                 <button
                                     type="button"
                                     id="dropdown-button"
-                                    class="hidden md:inline-flex justify-center w-full px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
+                                    class="hidden sm:inline-flex items-center gap-1 rounded-full px-1.5 py-1.5 text-sm font-medium text-stone-600 hover:bg-stone-100 transition-colors focus:outline-none"
                                 >
                                     <span
-                                        class="flex items-center justify-center w-10 h-10 rounded-full text-stone-500 text-2xl"
+                                        class="flex items-center justify-center w-9 h-9 rounded-full bg-stone-100 text-stone-500 text-lg"
                                     >
                                         <i class="fa-solid fa-user"></i>
                                     </span>
                                     <svg
-                                        class="-mr-1 ml-2 h-5 w-5 transition-transform duration-200"
+                                        class="mr-1 h-4 w-4 text-stone-400 transition-transform duration-200"
                                         id="dropdown-arrow"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 20 20"
@@ -139,14 +139,17 @@
                                 </button>
                                 <div
                                     id="dropdown-menu"
-                                    class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
+                                    class="origin-top-right absolute right-0 mt-2 w-52 rounded-lg shadow-lg bg-white ring-1 ring-stone-200 focus:outline-none hidden overflow-hidden"
                                 >
                                     <div class="py-1">
                                         <a
                                             href="{{ route("admin.dashboard") }}"
-                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors"
+                                            class="flex items-center gap-2.5 px-4 py-2.5 text-sm text-stone-700 hover:bg-stone-50 hover:text-stone-900 transition-colors"
                                         >
-                                            Admin
+                                            <i
+                                                class="fa-solid fa-gauge w-4 text-stone-400"
+                                            ></i>
+                                            Admin Panel
                                         </a>
 
                                         <form
@@ -156,8 +159,11 @@
                                             @csrf
                                             <button
                                                 type="submit"
-                                                class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                                                class="flex items-center gap-2.5 w-full text-left px-4 py-2.5 text-sm text-stone-700 hover:bg-stone-50 hover:text-stone-900 border-t border-stone-100 transition-colors"
                                             >
+                                                <i
+                                                    class="fa-solid fa-arrow-right-from-bracket w-4 text-stone-400"
+                                                ></i>
                                                 Logout
                                             </button>
                                         </form>
@@ -348,31 +354,32 @@
                 const button = document.getElementById('dropdown-button');
                 const menu = document.getElementById('dropdown-menu');
                 const arrow = document.getElementById('dropdown-arrow');
+                const container = document.getElementById(
+                    'dropdown-container'
+                );
 
-                button.addEventListener('click', (e) => {
-                    e.stopPropagation(); // Prevent click from bubbling to document
-                    const isHidden = menu.classList.contains('hidden');
+                if (button && menu && arrow) {
+                    button.addEventListener('click', (e) => {
+                        e.stopPropagation(); // Prevent click from bubbling to document
+                        const isHidden = menu.classList.contains('hidden');
 
-                    if (isHidden) {
-                        menu.classList.remove('hidden');
-                        arrow.classList.add('rotate-180');
-                    } else {
-                        menu.classList.add('hidden');
-                        arrow.classList.remove('rotate-180');
-                    }
-                });
+                        if (isHidden) {
+                            menu.classList.remove('hidden');
+                            arrow.classList.add('rotate-180');
+                        } else {
+                            menu.classList.add('hidden');
+                            arrow.classList.remove('rotate-180');
+                        }
+                    });
 
-                // Close when clicking outside
-                document.addEventListener('click', (e) => {
-                    if (
-                        !document
-                            .getElementById('dropdown-container')
-                            .contains(e.target)
-                    ) {
-                        menu.classList.add('hidden');
-                        arrow.classList.remove('rotate-180');
-                    }
-                });
+                    // Close when clicking outside
+                    document.addEventListener('click', (e) => {
+                        if (!container.contains(e.target)) {
+                            menu.classList.add('hidden');
+                            arrow.classList.remove('rotate-180');
+                        }
+                    });
+                }
             </script>
         </div>
     </body>
