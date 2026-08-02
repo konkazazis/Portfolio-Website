@@ -4,6 +4,7 @@ namespace App\Livewire\Admin\Category;
 
 use App\Models\Category;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -22,7 +23,12 @@ class CategoryManager extends Component
     protected function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:100'],
+            'name' => [
+                'required',
+                'string',
+                'max:100',
+                Rule::unique('categories', 'name')->ignore($this->editingId),
+            ],
         ];
     }
 

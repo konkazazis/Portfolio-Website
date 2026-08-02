@@ -5,7 +5,7 @@
 @section('og_type', 'article')
 @section('og_title', $post->title)
 @section('canonical', route('posts.show', $post->slug))
-@section('og_image', asset('images/home-bg.jpg'))
+@section('og_image', asset('images/doodle.jpg'))
 
 @push('head')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github-dark-dimmed.min.css">
@@ -53,7 +53,7 @@
         'keywords' => $post->tags->pluck('name')->join(', '),
         'articleSection' => $post->category?->name,
         'wordCount' => str_word_count(strip_tags($post->content)),
-        'image' => asset('images/home-bg.jpg'),
+        'image' => asset('images/doodle.jpg'),
     ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
                 </script>
 @endpush

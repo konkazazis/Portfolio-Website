@@ -25,7 +25,7 @@
         <meta property="og:site_name" content="kostas" />
         <meta
             property="og:image"
-            content="@yield("og_image", asset("images/home-bg.jpg"))"
+            content="@yield("og_image", asset("images/doodle.jpg"))"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -40,7 +40,7 @@
         />
         <meta
             name="twitter:image"
-            content="@yield("og_image", asset("images/home-bg.jpg"))"
+            content="@yield("og_image", asset("images/doodle.jpg"))"
         />
 
         @if (config("services.google.site_verification"))

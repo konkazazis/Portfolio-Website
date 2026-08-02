@@ -35,22 +35,5 @@
                 }
             });
         });
-
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const navMenu = document.getElementById('nav-menu');
-
-        if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', function () {
-                navMenu.classList.toggle('hidden');
-                navMenu.classList.toggle('flex');
-                navMenu.classList.toggle('flex-col');
-                navMenu.classList.toggle('absolute');
-                navMenu.classList.toggle('top-16');
-                navMenu.classList.toggle('left-0');
-                navMenu.classList.toggle('right-0');
-                navMenu.classList.toggle('bg-white');
-                navMenu.classList.toggle('border-b');
-            });
-        }
     </script>
 @endsection
