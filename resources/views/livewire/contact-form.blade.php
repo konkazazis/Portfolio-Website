@@ -47,6 +47,11 @@
                 <span wire:loading>Sending…</span>
             </button>
 
+            <p class="text-xs text-stone-500 text-center">
+                By submitting this form, your data will be processed in accordance with the
+                <a href="{{ route('privacy') }}" class="underline hover:text-stone-300">privacy policy</a>.
+            </p>
+
         </form>
     @endif
 </div>

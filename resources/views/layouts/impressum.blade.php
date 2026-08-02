@@ -56,7 +56,7 @@
                     <h2 class="text-lg font-bold text-stone-800 mb-2">Kontakt</h2>
                     <p>
                         E-Mail:
-                        <a href="mailto:kazaziskonstantinos@gmail.com" class="text-brand hover:underline">
+                        <a href="mailto:kostas@kazazis.dev" class="text-brand hover:underline">
                             kostas@kazazis.dev
                         </a>
                     </p>
@@ -65,6 +65,16 @@
                 <section>
                     <h2 class="text-lg font-bold text-stone-800 mb-2">Umsatzsteuer-ID</h2>
                     <p>DE460984115</p>
+                </section>
+
+                <section>
+                    <h2 class="text-lg font-bold text-stone-800 mb-2">Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+                    <p>
+                        Konstantinos Kazazis<br>
+                        Oberratherstrassse 24<br>
+                        40472, Düsseldorf<br>
+                        Deutschland
+                    </p>
                 </section>
 
                 <section>
@@ -114,7 +124,7 @@
                     <h2 class="text-lg font-bold text-stone-800 mb-2">Contact</h2>
                     <p>
                         Email:
-                        <a href="mailto:kazaziskonstantinos@gmail.com" class="text-brand hover:underline">
+                        <a href="mailto:kostas@kazazis.dev" class="text-brand hover:underline">
                             kostas@kazazis.dev
                         </a>
                     </p>
@@ -123,6 +133,16 @@
                 <section>
                     <h2 class="text-lg font-bold text-stone-800 mb-2">VAT Number</h2>
                     <p>DE460984115</p>
+                </section>
+
+                <section>
+                    <h2 class="text-lg font-bold text-stone-800 mb-2">Responsible for Content per § 18(2) MStV</h2>
+                    <p>
+                        Konstantinos Kazazis<br>
+                        Oberratherstrassse 24<br>
+                        40472, Düsseldorf<br>
+                        Germany
+                    </p>
                 </section>
 
                 <section>

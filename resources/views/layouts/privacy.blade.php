@@ -50,14 +50,31 @@
                         40472, Düsseldorf<br>
                         Deutschland<br>
                         E-Mail:
-                        <a href="mailto:kazaziskonstantinos@gmail.com" class="text-brand hover:underline">
+                        <a href="mailto:kostas@kazazis.dev" class="text-brand hover:underline">
                             kostas@kazazis.dev
                         </a>
                     </p>
                 </section>
 
                 <section>
-                    <h2 class="text-lg font-bold text-stone-800 mb-2">2. Cookies & Session</h2>
+                    <h2 class="text-lg font-bold text-stone-800 mb-2">2. Hosting</h2>
+                    <p>
+                        Diese Website wird bei <strong>[HOSTING-ANBIETER: BITTE ERGÄNZEN — Name und Anschrift]</strong>
+                        gehostet. Beim Besuch der Website verarbeitet der Hosting-Anbieter automatisch technische
+                        Informationen (Server-Logfiles), die Ihr Browser übermittelt, z. B. IP-Adresse, Datum und
+                        Uhrzeit der Anfrage, Browsertyp und -version, verwendetes Betriebssystem sowie die zuvor
+                        besuchte Seite (Referrer-URL). Diese Daten dienen ausschließlich der Gewährleistung eines
+                        störungsfreien und sicheren Betriebs der Website und werden nicht mit anderen Datenquellen
+                        zusammengeführt.
+                    </p>
+                    <p class="mt-2">
+                        Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem technisch
+                        fehlerfreien und sicheren Betrieb der Website).
+                    </p>
+                </section>
+
+                <section>
+                    <h2 class="text-lg font-bold text-stone-800 mb-2">3. Cookies & Session</h2>
                     <p>
                         Diese Website setzt technisch notwendige Cookies ein, um den Betrieb der Website
                         zu gewährleisten (z. B. Session-Cookie für CSRF-Schutz). Diese Cookies enthalten
@@ -70,16 +87,70 @@
                 </section>
 
                 <section>
-                    <h2 class="text-lg font-bold text-stone-800 mb-2">3. Google Fonts</h2>
+                    <h2 class="text-lg font-bold text-stone-800 mb-2">4. Kontaktformular</h2>
                     <p>
-                        Diese Website verwendet Google Fonts (Anbieter: Google LLC, 1600 Amphitheatre Parkway,
-                        Mountain View, CA 94043, USA). Beim Laden der Seite wird eine Verbindung zu den Servern
-                        von Google hergestellt, wodurch Ihre IP-Adresse an Google übermittelt wird.
+                        Wenn Sie das Kontaktformular auf dieser Website nutzen, verarbeiten wir die von Ihnen
+                        eingegebenen Daten (Name, E-Mail-Adresse, Betreff, Nachricht), um Ihre Anfrage zu
+                        bearbeiten und zu beantworten. Die Daten werden in einer Datenbank gespeichert und sind
+                        ausschließlich für den Websitebetreiber einsehbar; eine Weitergabe an Dritte findet nicht statt.
                     </p>
                     <p class="mt-2">
-                        Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO. Weitere Informationen finden Sie in der
-                        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer"
-                            class="text-brand hover:underline">Datenschutzerklärung von Google</a>.
+                        Die Angaben werden gespeichert, bis der Zweck Ihrer Anfrage erfüllt ist bzw. bis Sie die
+                        Löschung verlangen. Gesetzliche Aufbewahrungspflichten bleiben unberührt.
+                    </p>
+                    <p class="mt-2">
+                        Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Bearbeitung Ihrer Anfrage) bzw.
+                        Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung von Anfragen).
+                    </p>
+                </section>
+
+                <section>
+                    <h2 class="text-lg font-bold text-stone-800 mb-2">5. Eingebundene Bilder</h2>
+                    <p>
+                        Zur Darstellung von Profil- und Beitragsbildern bindet diese Website Bilddateien ein, die
+                        von einem Amazon-Web-Services-(AWS)-S3-Speicher (Amazon Web Services EMEA SARL,
+                        38 Avenue John F. Kennedy, L-1855 Luxemburg) ausgeliefert werden. Beim Laden dieser Bilder
+                        wird Ihre IP-Adresse an AWS übermittelt.
+                    </p>
+                    <p class="mt-2">
+                        Alle Schriftarten und Icon-Bibliotheken dieser Website werden selbst gehostet; insoweit
+                        findet keine Datenübertragung an Dritte statt.
+                    </p>
+                    <p class="mt-2">
+                        Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer performanten
+                        Auslieferung von Inhalten).
+                    </p>
+                </section>
+
+                <section>
+                    <h2 class="text-lg font-bold text-stone-800 mb-2">6. Ihre Rechte</h2>
+                    <p>Ihnen stehen nach der DSGVO folgende Rechte gegenüber dem Verantwortlichen zu:</p>
+                    <ul class="list-disc pl-6 mt-2 space-y-1">
+                        <li>Recht auf Auskunft (Art. 15 DSGVO)</li>
+                        <li>Recht auf Berichtigung (Art. 16 DSGVO)</li>
+                        <li>Recht auf Löschung (Art. 17 DSGVO)</li>
+                        <li>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+                        <li>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</li>
+                        <li>Recht auf Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)</li>
+                    </ul>
+                    <p class="mt-2">
+                        Zur Ausübung dieser Rechte genügt eine formlose Mitteilung an die oben genannte
+                        E-Mail-Adresse.
+                    </p>
+                </section>
+
+                <section>
+                    <h2 class="text-lg font-bold text-stone-800 mb-2">7. Beschwerderecht</h2>
+                    <p>
+                        Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung
+                        Ihrer personenbezogenen Daten zu beschweren. Zuständige Aufsichtsbehörde für den
+                        Verantwortlichen ist:
+                    </p>
+                    <p class="mt-2">
+                        Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen (LDI NRW)<br>
+                        Kavalleriestraße 2–4, 40213 Düsseldorf<br>
+                        <a href="https://www.ldi.nrw.de" target="_blank" rel="noopener noreferrer"
+                            class="text-brand hover:underline">www.ldi.nrw.de</a>
                     </p>
                 </section>
 
@@ -93,14 +164,30 @@
                         40472, Düsseldorf<br>
                         Germany<br>
                         Email:
-                        <a href="mailto:kazaziskonstantinos@gmail.com" class="text-brand hover:underline">
+                        <a href="mailto:kostas@kazazis.dev" class="text-brand hover:underline">
                             kostas@kazazis.dev
                         </a>
                     </p>
                 </section>
 
                 <section>
-                    <h2 class="text-lg font-bold text-stone-800 mb-2">2. Cookies & Session</h2>
+                    <h2 class="text-lg font-bold text-stone-800 mb-2">2. Hosting</h2>
+                    <p>
+                        This website is hosted by <strong>[HOSTING PROVIDER: PLEASE FILL IN — name and address]</strong>.
+                        When you visit the site, the hosting provider automatically processes technical
+                        information transmitted by your browser (server log files), such as IP address, date
+                        and time of the request, browser type and version, operating system, and the
+                        previously visited page (referrer URL). This data is used solely to ensure reliable
+                        and secure operation of the website and is not combined with other data sources.
+                    </p>
+                    <p class="mt-2">
+                        Legal basis: Art. 6(1)(f) GDPR (legitimate interest in technically error-free and
+                        secure operation of the website).
+                    </p>
+                </section>
+
+                <section>
+                    <h2 class="text-lg font-bold text-stone-800 mb-2">3. Cookies & Session</h2>
                     <p>
                         This website uses technically necessary cookies to ensure its operation
                         (e.g. a session cookie for CSRF protection). These cookies contain no personal
@@ -113,16 +200,69 @@
                 </section>
 
                 <section>
-                    <h2 class="text-lg font-bold text-stone-800 mb-2">3. Google Fonts</h2>
+                    <h2 class="text-lg font-bold text-stone-800 mb-2">4. Contact Form</h2>
                     <p>
-                        This website uses Google Fonts (provider: Google LLC, 1600 Amphitheatre Parkway,
-                        Mountain View, CA 94043, USA). When the page loads, a connection is established
-                        to Google's servers, which transmits your IP address to Google.
+                        If you use the contact form on this website, we process the data you enter (name,
+                        email address, subject, message) to handle and respond to your inquiry. The data is
+                        stored in a database and is accessible only to the website operator; it is not shared
+                        with third parties.
                     </p>
                     <p class="mt-2">
-                        Legal basis: Art. 6(1)(f) GDPR. For more information, see
-                        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer"
-                            class="text-brand hover:underline">Google's Privacy Policy</a>.
+                        The data is retained until the purpose of your inquiry has been fulfilled or until
+                        you request its deletion. Statutory retention obligations remain unaffected.
+                    </p>
+                    <p class="mt-2">
+                        Legal basis: Art. 6(1)(b) GDPR (handling your request) and/or Art. 6(1)(f) GDPR
+                        (legitimate interest in responding to inquiries).
+                    </p>
+                </section>
+
+                <section>
+                    <h2 class="text-lg font-bold text-stone-800 mb-2">5. Embedded Images</h2>
+                    <p>
+                        To display profile and post images, this website embeds image files served from an
+                        Amazon Web Services (AWS) S3 storage bucket (Amazon Web Services EMEA SARL,
+                        38 Avenue John F. Kennedy, L-1855 Luxembourg). Loading these images transmits your
+                        IP address to AWS.
+                    </p>
+                    <p class="mt-2">
+                        All fonts and icon libraries used on this website are self-hosted; no data is
+                        transmitted to third parties in connection with them.
+                    </p>
+                    <p class="mt-2">
+                        Legal basis: Art. 6(1)(f) GDPR (legitimate interest in performant content delivery).
+                    </p>
+                </section>
+
+                <section>
+                    <h2 class="text-lg font-bold text-stone-800 mb-2">6. Your Rights</h2>
+                    <p>Under the GDPR, you have the following rights against the controller:</p>
+                    <ul class="list-disc pl-6 mt-2 space-y-1">
+                        <li>Right of access (Art. 15 GDPR)</li>
+                        <li>Right to rectification (Art. 16 GDPR)</li>
+                        <li>Right to erasure (Art. 17 GDPR)</li>
+                        <li>Right to restriction of processing (Art. 18 GDPR)</li>
+                        <li>Right to data portability (Art. 20 GDPR)</li>
+                        <li>Right to object to processing (Art. 21 GDPR)</li>
+                    </ul>
+                    <p class="mt-2">
+                        To exercise these rights, an informal message to the email address above is
+                        sufficient.
+                    </p>
+                </section>
+
+                <section>
+                    <h2 class="text-lg font-bold text-stone-800 mb-2">7. Right to Lodge a Complaint</h2>
+                    <p>
+                        You have the right to lodge a complaint with a data protection supervisory authority
+                        regarding the processing of your personal data. The supervisory authority responsible
+                        for the controller is:
+                    </p>
+                    <p class="mt-2">
+                        Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen (LDI NRW)<br>
+                        Kavalleriestraße 2–4, 40213 Düsseldorf, Germany<br>
+                        <a href="https://www.ldi.nrw.de" target="_blank" rel="noopener noreferrer"
+                            class="text-brand hover:underline">www.ldi.nrw.de</a>
                     </p>
                 </section>
 

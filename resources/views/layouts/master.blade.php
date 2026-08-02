@@ -52,13 +52,6 @@
 
         <link rel="manifest" href="{{ asset("site.webmanifest") }}" />
 
-        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-            crossorigin="anonymous"
-        />
-
         @stack("head")
         @stack("schema")
         @vite(["resources/css/app.css", "resources/js/app.js"])

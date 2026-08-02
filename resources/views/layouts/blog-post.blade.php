@@ -8,8 +8,7 @@
 @section('og_image', asset('images/doodle.jpg'))
 
 @push('head')
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github-dark-dimmed.min.css">
+    @vite(['resources/js/highlight.js'])
 @endpush
 
 @push('schema')
@@ -113,9 +112,3 @@
     </div>
 @endsection
 
-@push('scripts')
-    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => hljs.highlightAll());
-    </script>
-@endpush
