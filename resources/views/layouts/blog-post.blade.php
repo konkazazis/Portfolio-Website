@@ -8,6 +8,7 @@
 @section('og_image', asset('images/doodle.jpg'))
 
 @push('head')
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github-dark-dimmed.min.css">
 @endpush
 

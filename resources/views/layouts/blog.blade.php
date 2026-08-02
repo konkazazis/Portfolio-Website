@@ -3,7 +3,10 @@
 @section('title', 'Blog')
 @section('meta_description', 'Thoughts on code, design, and the web — a developer blog by Kostas.')
 @section('og_title', 'Blog · kostas')
-@section('canonical', $activeCategory ? route('blog', ['category' => $activeCategory->slug]) : route('blog'))
+@section('canonical', route('blog', array_filter([
+    'category' => $activeCategory?->slug,
+    'page' => $posts->currentPage() > 1 ? $posts->currentPage() : null,
+])))
 
 @push('head')
     @if($search)
@@ -118,6 +121,7 @@
                                 @if($post->user?->is_admin)
                                     <div class="mt-4 md:mt-0 flex items-center gap-3">
                                         <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/profile-pic.png" alt="Kostas"
+                                            loading="lazy"
                                             class="w-10 h-10 rounded-full object-cover bg-stone-100">
                                         <div class="text-xs text-stone-500 uppercase tracking-[0.25em] font-semibold">Kostas</div>
                                     </div>
