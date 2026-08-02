@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'username' => 'Admin',
             'email' => 'admin@proton.me',
-            'password' =>  password_hash(123456789, PASSWORD_BCRYPT)
+            'password' =>  password_hash(123456789, PASSWORD_BCRYPT),
+            'is_admin' => true,
         ]);
     }
 }
