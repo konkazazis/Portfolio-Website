@@ -11,7 +11,7 @@
 
         <div class="pb-12 flex-shrink-0">
             <img
-                src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/profile-pic.png"
+                src="https://images.kazazis.dev/profile-pic.png"
                 alt="Kostas Kazazis"
                 class="w-56 h-56 sm:w-72 sm:h-72 lg:w-82 lg:h-82 rounded-full mx-auto mb-10 object-cover border border-stone-300"
             />

@@ -108,9 +108,8 @@
                     <h2 class="text-lg font-bold text-stone-800 mb-2">5. Eingebundene Bilder</h2>
                     <p>
                         Zur Darstellung von Profil- und Beitragsbildern bindet diese Website Bilddateien ein, die
-                        von einem Amazon-Web-Services-(AWS)-S3-Speicher (Amazon Web Services EMEA SARL,
-                        38 Avenue John F. Kennedy, L-1855 Luxemburg) ausgeliefert werden. Beim Laden dieser Bilder
-                        wird Ihre IP-Adresse an AWS übermittelt.
+                        von einem Clouflare ausgeliefert werden. Beim Laden dieser Bilder
+                        wird Ihre IP-Adresse an Cloudflare übermittelt.
                     </p>
                     <p class="mt-2">
                         Alle Schriftarten und Icon-Bibliotheken dieser Website werden selbst gehostet; insoweit
@@ -221,9 +220,8 @@
                     <h2 class="text-lg font-bold text-stone-800 mb-2">5. Embedded Images</h2>
                     <p>
                         To display profile and post images, this website embeds image files served from an
-                        Amazon Web Services (AWS) S3 storage bucket (Amazon Web Services EMEA SARL,
-                        38 Avenue John F. Kennedy, L-1855 Luxembourg). Loading these images transmits your
-                        IP address to AWS.
+                        Cloudflare storage bucket . Loading these images transmits your
+                        IP address to Cloudflare.
                     </p>
                     <p class="mt-2">
                         All fonts and icon libraries used on this website are self-hosted; no data is

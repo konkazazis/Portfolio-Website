@@ -93,7 +93,7 @@
 
         @if($post->user?->is_admin)
             <div class="flex items-center gap-3 mb-10 pb-8 border-b border-stone-100">
-                <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/profile-pic.png" alt="Kostas"
+                <img src="https://images.kazazis.dev/profile-pic.png" alt="Kostas"
                     class="w-10 h-10 rounded-full object-cover object-top bg-stone-100">
                 <div>
                     <p class="text-sm font-semibold text-stone-800">Konstantinos Kazazis</p>

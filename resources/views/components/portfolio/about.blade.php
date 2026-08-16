@@ -19,7 +19,7 @@
             </div>
 
             <div class="md:col-span-2">
-                <img src="https://s3.eu-north-1.amazonaws.com/kazazis.dev/profile-hanaro.png" alt="Kostas Kazazis"
+                <img src="https://images.kazazis.dev/profile-hanaro.png" alt="Kostas Kazazis"
                     class="w-full max-w-xs mx-auto" />
             </div>
         </div>
