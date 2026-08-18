@@ -129,6 +129,10 @@
                                     id="dropdown-menu"
                                     class="origin-top-right absolute right-0 mt-2 w-52 rounded-lg shadow-lg bg-white ring-1 ring-stone-200 focus:outline-none hidden overflow-hidden"
                                 >
+                                    <div class="px-4 py-3 border-b border-stone-100">
+                                        <p class="text-sm font-medium text-stone-800 truncate">{{ auth()->user()->username }}</p>
+                                        <p class="text-sm text-stone-500 truncate">{{ auth()->user()->email }}</p>
+                                    </div>
                                     <div class="py-1">
                                         <a
                                             href="{{ route("admin.dashboard") }}"
