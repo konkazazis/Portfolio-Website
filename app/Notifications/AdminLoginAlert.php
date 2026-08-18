@@ -19,6 +19,7 @@ class AdminLoginAlert extends Notification
     }
 
     public function toMail(object $notifiable): MailMessage
+    {
         return (new MailMessage)
             ->subject('New admin sign-in on kazazis.dev')
             ->greeting('New sign-in detected')
