@@ -8,11 +8,9 @@
         <div class="flex w-full max-w-sm flex-col gap-2">
             <a href="{{ route('home') }}" class="flex flex-col items-center gap-2 font-medium mb-2">
                 <div class="w-10 h-10 rounded-xl bg-zinc-900 flex items-center justify-center">
-                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-                    </svg>
+                    <span class="text-white text-sm font-bold tracking-tight">KK</span>
                 </div>
-                <span class="sr-only">{{ config('app.name', 'Laravel') }}</span>
+                <span class="text-sm font-semibold text-zinc-800 dark:text-zinc-100">kazazis.dev</span>
             </a>
             <div class="flex flex-col gap-6">
                 {{ $slot }}

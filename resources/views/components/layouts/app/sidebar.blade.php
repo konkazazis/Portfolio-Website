@@ -19,11 +19,9 @@
         <flux:sidebar.header class="py-4">
             <a href="{{ route('home') }}" class="flex items-center gap-2 px-1" wire:navigate target="_blank">
                 <div class="w-8 h-8 rounded-md bg-zinc-900 flex items-center justify-center shrink-0">
-                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-                    </svg>
+                    <span class="text-white text-xs font-bold tracking-tight">KK</span>
                 </div>
-                <span class="font-bold text-base text-zinc-800 dark:text-zinc-100 tracking-tight">Portfolio CMS</span>
+                <span class="font-bold text-base text-zinc-800 dark:text-zinc-100 tracking-tight">kazazis.dev</span>
             </a>
             <flux:sidebar.collapse class="lg:hidden" />
         </flux:sidebar.header>
@@ -70,9 +68,13 @@
                 :current="request()->routeIs('admin.settings.*')" wire:navigate>
                 Settings
             </flux:sidebar.item>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <flux:sidebar.item type="submit" icon="arrow-right-start-on-rectangle" class="w-full">
+                    Log out
+                </flux:sidebar.item>
+            </form>
         </flux:sidebar.nav>
-
-        <x-desktop-user-menu class="hidden lg:block" />
     </flux:sidebar>
 
     {{-- Mobile Header --}}
@@ -80,7 +82,7 @@
         <flux:sidebar.toggle class="lg:hidden" icon="bars-2" inset="left" />
 
         <a href="{{ route('admin.dashboard') }}" wire:navigate class="flex items-center gap-2 mx-auto">
-            <span class="font-bold text-sm text-zinc-800 dark:text-zinc-100">Portfolio CMS</span>
+            <span class="font-bold text-sm text-zinc-800 dark:text-zinc-100">kazazis.dev</span>
         </a>
 
         <flux:spacer />
