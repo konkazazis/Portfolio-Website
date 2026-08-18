@@ -3,6 +3,11 @@
 namespace App\Livewire;
 
 use App\Models\ContactMessage;
+use App\Models\User;
+use App\Notifications\ContactMessageConfirmation;
+use App\Notifications\NewContactMessageReceived;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Notification;
 use Livewire\Component;
 
 class ContactForm extends Component
@@ -24,12 +29,19 @@ class ContactForm extends Component
     {
         $this->validate();
 
-        ContactMessage::create([
+        $contactMessage = ContactMessage::create([
             'name'    => $this->name,
             'email'   => $this->email,
             'subject' => $this->subject,
             'message' => $this->message,
         ]);
+
+        try {
+            Notification::send(User::where('is_admin', true)->get(), new NewContactMessageReceived($contactMessage));
+            Notification::route('mail', $contactMessage->email)->notify(new ContactMessageConfirmation($contactMessage));
+        } catch (\Throwable $e) {
+            Log::error('Failed to send contact form notifications: '.$e->getMessage());
+        }
 
         $this->reset(['name', 'email', 'subject', 'message']);
         $this->sent = true;
