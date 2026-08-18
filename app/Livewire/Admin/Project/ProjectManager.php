@@ -82,11 +82,11 @@ class ProjectManager extends Component
             if ($this->editingId) {
                 $old = Project::findOrFail($this->editingId)->cover_image;
                 if ($old) {
-                    Storage::disk('s3')->delete($old);
+                    Storage::disk('r2')->delete($old);
                 }
             }
 
-            $data['cover_image'] = $this->cover->store('projects/covers', 's3');
+            $data['cover_image'] = $this->cover->store('projects/covers', 'r2');
         }
 
         if ($this->editingId) {
@@ -118,7 +118,7 @@ class ProjectManager extends Component
             $project = Project::findOrFail($this->deletingId);
 
             if ($project->cover_image) {
-                Storage::disk('s3')->delete($project->cover_image);
+                Storage::disk('r2')->delete($project->cover_image);
             }
 
             $project->delete();

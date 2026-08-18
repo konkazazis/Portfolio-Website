@@ -21,6 +21,6 @@ class Project extends Model
 
     public function coverUrl(): ?string
     {
-        return $this->cover_image ? Storage::disk('s3')->url($this->cover_image) : null;
+        return $this->cover_image ? Storage::disk('r2')->url($this->cover_image) : null;
     }
 }
