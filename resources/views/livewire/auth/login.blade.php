@@ -11,7 +11,8 @@
             </div>
         @endif
 
-        <form method="POST" action="{{ route('login') }}" class="flex flex-col gap-4">
+        <form method="POST" action="{{ route('login') }}" class="flex flex-col gap-4"
+              onsubmit="this.querySelector('button[type=submit]').disabled = true">
             @csrf
 
             <flux:input
