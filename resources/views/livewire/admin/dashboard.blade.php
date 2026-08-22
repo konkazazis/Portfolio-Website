@@ -1,4 +1,4 @@
-<div class="p-6 lg:p-10">
+<div>
     <div class="mb-8">
         <h1 class="text-2xl font-bold text-zinc-800 dark:text-zinc-100">Overview</h1>
         <p class="text-zinc-500 dark:text-zinc-400 text-sm mt-1">Your portfolio at a glance.</p>

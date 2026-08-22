@@ -17,10 +17,51 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: "Quicksand";
+    src: url('../../public/fonts/Quicksand-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Quicksand";
+    src: url('../../public/fonts/Quicksand-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Quicksand";
+    src: url('../../public/fonts/Quicksand-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Quicksand";
+    src: url('../../public/fonts/Quicksand-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Quicksand";
+    src: url('../../public/fonts/Quicksand-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
 @theme {
     --font-sans:
         system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     --font-serif: "halo-dek", Georgia, serif;
+    --font-cms: "Quicksand", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     --color-brand: #eb5424;
     --color-brand-dark: #c94219;
 }
@@ -132,4 +173,18 @@
             transition: none;
         }
     }
+}
+
+/* Admin CMS: flat, square-cornered look — overrides Flux's default rounded corners everywhere. */
+.admin-flat,
+.admin-flat * {
+    border-radius: 0 !important;
+}
+
+html:has(body.admin-flat) {
+    font-size: 125%;
+}
+
+.admin-flat {
+    font-family: var(--font-cms);
 }

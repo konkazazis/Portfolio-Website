@@ -1,4 +1,4 @@
-<div class="p-6 lg:p-10">
+<div>
 
     <div class="flex items-start justify-between mb-8">
         <div>

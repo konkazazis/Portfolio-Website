@@ -13,15 +13,15 @@
     </style>
 </head>
 
-<body class="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-800 dark:text-zinc-100">
-    <flux:sidebar sticky collapsible="mobile" class="border-e border-zinc-200 bg-white shadow-sm dark:bg-zinc-900 dark:border-zinc-800">
+<body class="admin-flat min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-800 dark:text-zinc-100">
+    <flux:sidebar sticky collapsible="mobile" class="dark border-e border-zinc-800 bg-zinc-900 shadow-sm p-0!">
 
-        <flux:sidebar.header class="py-4">
+        <flux:sidebar.header class="py-4 px-4">
             <a href="{{ route('home') }}" class="flex items-center gap-2 px-1" wire:navigate target="_blank">
-                <div class="w-8 h-8 rounded-md bg-zinc-900 flex items-center justify-center shrink-0">
-                    <span class="text-white text-xs font-bold tracking-tight">KK</span>
+                <div class="w-8 h-8 bg-white flex items-center justify-center shrink-0">
+                    <span class="text-zinc-900 text-xs font-bold tracking-tight">KK</span>
                 </div>
-                <span class="font-bold text-base text-zinc-800 dark:text-zinc-100 tracking-tight">kazazis.dev</span>
+                <span class="font-bold text-base text-zinc-100 tracking-tight">kazazis.dev</span>
             </a>
             <flux:sidebar.collapse class="lg:hidden" />
         </flux:sidebar.header>
@@ -78,11 +78,11 @@
     </flux:sidebar>
 
     {{-- Mobile Header --}}
-    <flux:header class="lg:hidden bg-white border-b border-zinc-200 dark:bg-zinc-900 dark:border-zinc-800">
+    <flux:header class="dark lg:hidden bg-zinc-900 border-b border-zinc-800">
         <flux:sidebar.toggle class="lg:hidden" icon="bars-2" inset="left" />
 
         <a href="{{ route('admin.dashboard') }}" wire:navigate class="flex items-center gap-2 mx-auto">
-            <span class="font-bold text-sm text-zinc-800 dark:text-zinc-100">kazazis.dev</span>
+            <span class="font-bold text-sm text-zinc-100">kazazis.dev</span>
         </a>
 
         <flux:spacer />
