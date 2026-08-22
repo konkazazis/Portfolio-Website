@@ -100,6 +100,7 @@
             wordCount: 0,
             saveStatus: '',
             saveTimer: null,
+            uploadRange: null,
 
             init() {
                 this.$nextTick(() => {
@@ -109,14 +110,19 @@
                         theme: 'snow',
                         placeholder: 'Start writing your post…',
                         modules: {
-                            toolbar: [
-                                [{ header: [1, 2, 3, false] }],
-                                ['bold', 'italic', 'underline', 'strike'],
-                                ['blockquote', 'code-block'],
-                                [{ list: 'ordered' }, { list: 'bullet' }],
-                                ['link', 'image'],
-                                ['clean']
-                            ]
+                            toolbar: {
+                                container: [
+                                    [{ header: [1, 2, 3, false] }],
+                                    ['bold', 'italic', 'underline', 'strike'],
+                                    ['blockquote', 'code-block'],
+                                    [{ list: 'ordered' }, { list: 'bullet' }],
+                                    ['link', 'image'],
+                                    ['clean']
+                                ],
+                                handlers: {
+                                    image: () => this.pickAndUploadImage()
+                                }
+                            }
                         }
                     });
 
@@ -139,6 +145,36 @@
                     this.saveStatus = '';
                     clearTimeout(this.saveTimer);
                 });
+
+                $wire.on('content-image-uploaded', ({ url }) => {
+                    const range = this.uploadRange || this.quill.getSelection(true);
+                    this.quill.insertEmbed(range.index, 'image', url, 'user');
+                    this.quill.setSelection(range.index + 1);
+                    this.uploadRange = null;
+                });
+
+                $wire.on('content-image-upload-failed', () => {
+                    this.uploadRange = null;
+                    alert('Image upload failed. Please try again.');
+                });
+            },
+
+            pickAndUploadImage() {
+                this.uploadRange = this.quill.getSelection(true);
+
+                const input = document.createElement('input');
+                input.type = 'file';
+                input.accept = 'image/*';
+                input.onchange = () => {
+                    const file = input.files[0];
+                    if (!file) return;
+
+                    $wire.upload('contentImage', file, () => {}, () => {
+                        this.uploadRange = null;
+                        alert('Image upload failed. Please try again.');
+                    });
+                };
+                input.click();
             },
 
             async autoSave() {

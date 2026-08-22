@@ -5,6 +5,9 @@ namespace App\Livewire\Admin\Post;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
@@ -26,6 +29,29 @@ class PostManager extends Component
     public array  $selectedTags = [];
 
     public ?int $deletingId = null;
+
+    public $contentImage;
+
+    public function updatedContentImage(): void
+    {
+        $this->validate([
+            'contentImage' => ['image', 'max:5120'],
+        ]);
+
+        $folder = $this->editingId
+            ? Post::find($this->editingId)->slug
+            : (Str::slug($this->title) ?: 'untitled');
+
+        try {
+            $path = $this->contentImage->store("posts/content/{$folder}", 'r2');
+            $this->dispatch('content-image-uploaded', url: Storage::disk('r2')->url($path));
+        } catch (\Throwable $e) {
+            Log::error('Failed to upload post content image: '.$e->getMessage());
+            $this->dispatch('content-image-upload-failed');
+        } finally {
+            $this->contentImage = null;
+        }
+    }
 
     protected function rules(): array
     {
