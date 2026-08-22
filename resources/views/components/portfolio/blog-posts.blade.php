@@ -9,7 +9,7 @@
 
         <div class="space-y-12 mb-16">
             @foreach($posts->take(3) as $post)
-                <article class="border-b border-stone-300 pb-12">
+                <article class="border-b border-stone-300 pb-12 reveal" style="transition-delay: {{ $loop->index * 100 }}ms">
                     @if($post->category)
                         <span class="text-xs font-medium text-stone-600 uppercase tracking-widest">
                             {{ $post->category->name }}

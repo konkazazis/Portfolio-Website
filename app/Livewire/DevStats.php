@@ -20,12 +20,74 @@ class DevStats extends Component
 
     public function mount(): void
     {
-        $githubRepos = $this->fetchGithubRepos();
-        $codebergRepos = $this->fetchCodebergRepos();
+        $github = $this->fetchGithub();
+        $codeberg = $this->fetchCodeberg();
 
-        $this->github = $this->summarizeGithub($githubRepos);
-        $this->codeberg = $this->summarizeCodeberg($codebergRepos);
-        $this->latestRepos = $this->buildLatestRepos($githubRepos, $codebergRepos);
+        $this->github = $github['summary'] ?? null;
+        $this->codeberg = $codeberg['summary'] ?? null;
+        $this->latestRepos = $this->buildLatestRepos($github['repos'] ?? [], $codeberg['repos'] ?? []);
+    }
+
+    private function fetchGithub(): ?array
+    {
+        return Cache::remember('dev-stats:github:v2', now()->addHours(6), function () {
+            try {
+                $user = Http::timeout(5)->get('https://api.github.com/users/konkazazis')->throw()->json();
+                $repos = Http::timeout(5)
+                    ->get('https://api.github.com/users/konkazazis/repos', ['per_page' => 100])
+                    ->throw()
+                    ->json();
+
+                if (! isset($user['login']) || empty($repos)) {
+                    throw new \RuntimeException('Unexpected GitHub API response shape.');
+                }
+
+                return [
+                    'repos'   => $repos,
+                    'summary' => [
+                        'url'       => 'https://github.com/konkazazis',
+                        'repos'     => count($repos),
+                        'followers' => $user['followers'] ?? 0,
+                        'stars'     => collect($repos)->sum('stargazers_count'),
+                    ],
+                ];
+            } catch (\Throwable $e) {
+                Log::warning('Failed to fetch GitHub stats: '.$e->getMessage());
+
+                return null;
+            }
+        });
+    }
+
+    private function fetchCodeberg(): ?array
+    {
+        return Cache::remember('dev-stats:codeberg:v2', now()->addHours(6), function () {
+            try {
+                $user = Http::timeout(5)->get('https://codeberg.org/api/v1/users/konkazazis')->throw()->json();
+                $repos = Http::timeout(5)
+                    ->get('https://codeberg.org/api/v1/users/konkazazis/repos', ['limit' => 50])
+                    ->throw()
+                    ->json();
+
+                if (! isset($user['login']) || empty($repos)) {
+                    throw new \RuntimeException('Unexpected Codeberg API response shape.');
+                }
+
+                return [
+                    'repos'   => $repos,
+                    'summary' => [
+                        'url'       => 'https://codeberg.org/konkazazis',
+                        'repos'     => count($repos),
+                        'followers' => $user['followers_count'] ?? 0,
+                        'stars'     => collect($repos)->sum('stars_count'),
+                    ],
+                ];
+            } catch (\Throwable $e) {
+                Log::warning('Failed to fetch Codeberg stats: '.$e->getMessage());
+
+                return null;
+            }
+        });
     }
 
     private function buildLatestRepos(array $githubRepos, array $codebergRepos): array
@@ -64,86 +126,6 @@ class DevStats extends Component
 
             return [];
         }
-    }
-
-    private function fetchGithubRepos(): array
-    {
-        return Cache::remember('dev-stats:github:repos', now()->addHours(6), function () {
-            try {
-                return Http::timeout(5)
-                    ->get('https://api.github.com/users/konkazazis/repos', ['per_page' => 100])
-                    ->throw()
-                    ->json();
-            } catch (\Throwable $e) {
-                Log::warning('Failed to fetch GitHub repos: '.$e->getMessage());
-
-                return [];
-            }
-        });
-    }
-
-    private function fetchCodebergRepos(): array
-    {
-        return Cache::remember('dev-stats:codeberg:repos', now()->addHours(6), function () {
-            try {
-                return Http::timeout(5)
-                    ->get('https://codeberg.org/api/v1/users/konkazazis/repos', ['limit' => 50])
-                    ->throw()
-                    ->json();
-            } catch (\Throwable $e) {
-                Log::warning('Failed to fetch Codeberg repos: '.$e->getMessage());
-
-                return [];
-            }
-        });
-    }
-
-    private function summarizeGithub(array $repos): ?array
-    {
-        if (empty($repos)) {
-            return null;
-        }
-
-        return Cache::remember('dev-stats:github:summary', now()->addHours(6), function () use ($repos) {
-            try {
-                $user = Http::timeout(5)->get('https://api.github.com/users/konkazazis')->throw()->json();
-
-                return [
-                    'url'       => 'https://github.com/konkazazis',
-                    'repos'     => $user['public_repos'] ?? count($repos),
-                    'followers' => $user['followers'] ?? 0,
-                    'stars'     => collect($repos)->sum('stargazers_count'),
-                ];
-            } catch (\Throwable $e) {
-                Log::warning('Failed to fetch GitHub user: '.$e->getMessage());
-
-                return null;
-            }
-        });
-    }
-
-    private function summarizeCodeberg(array $repos): ?array
-    {
-        if (empty($repos)) {
-            return null;
-        }
-
-        return Cache::remember('dev-stats:codeberg:summary', now()->addHours(6), function () use ($repos) {
-            try {
-                $user = Http::timeout(5)->get('https://codeberg.org/api/v1/users/konkazazis')->throw()->json();
-
-                return [
-                    'url'       => 'https://codeberg.org/konkazazis',
-                    'repos'     => count($repos),
-                    'followers' => $user['followers_count'] ?? 0,
-                    'stars'     => collect($repos)->sum('stars_count'),
-                ];
-            } catch (\Throwable $e) {
-                Log::warning('Failed to fetch Codeberg user: '.$e->getMessage());
-
-                return null;
-            }
-        });
     }
 
     public function placeholder(): string

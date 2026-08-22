@@ -4,7 +4,7 @@
             Technologies
         </h2>
 
-        <div class="flex flex-col sm:flex-row gap-8 sm:gap-12">
+        <div class="flex flex-col sm:flex-row gap-8 sm:gap-12 reveal">
             <div class="flex flex-col items-center text-center sm:gap-0">
                 <i class="fa-brands fa-laravel colored text-5xl mb-4"></i>
                 <span class="font-bold text-stone-900 text-sm">Laravel</span>

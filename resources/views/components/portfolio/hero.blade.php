@@ -1,6 +1,6 @@
 <section id="home" class="pt-26 pb-32 px-6 sm:px-8 bg-white">
     <div class="max-w-3xl mx-auto flex flex-col lg:flex-row lg:gap-12">
-        <div class="flex-col justify-between">
+        <div class="flex-col justify-between reveal">
             <h1 class="font-serif text-6xl md:text-7xl font-bold text-stone-900 mb-6 leading-tight">Kostas Kazazis</h1>
             <p class="text-2xl md:text-3xl text-stone-700 mb-4 font-light">Full-Stack Web Developer</p>
             <p class="text-lg text-stone-600 leading-relaxed mb-8 font-light">
@@ -9,11 +9,11 @@
             </p>
         </div>
 
-        <div class="pb-12 flex-shrink-0">
+        <div class="pb-12 flex-shrink-0 reveal reveal-delay-2">
             <img
                 src="https://images.kazazis.dev/profile-pic.png"
                 alt="Kostas Kazazis"
-                class="w-56 h-56 sm:w-72 sm:h-72 lg:w-82 lg:h-82 rounded-full mx-auto mb-10 object-cover border border-stone-300"
+                class="w-56 h-56 sm:w-72 sm:h-72 lg:w-82 lg:h-82 rounded-full mx-auto mb-10 object-cover border border-stone-300 transition-transform duration-500 hover:scale-105"
             />
 
             <div class="flex justify-center gap-8 mb-12">

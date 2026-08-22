@@ -5,7 +5,7 @@
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div class="border border-stone-400 p-10">
+            <div class="border border-stone-400 p-10 reveal transition-transform duration-300 hover:-translate-y-1">
                 <h3 class="font-serif text-2xl font-bold text-stone-900 mb-2">Custom Web Apps</h3>
                 <p class="text-stone-600 text-lg font-light mb-8">Contact for pricing</p>
                 <ul class="space-y-3 text-stone-700">
@@ -25,7 +25,7 @@
                 </a>
             </div>
 
-            <div class="border-2 border-stone-900 p-10">
+            <div class="border-2 border-stone-900 p-10 reveal reveal-delay-2 transition-transform duration-300 hover:-translate-y-1">
                 <div class="mb-8 pb-6 border-b-2 border-stone-300">
                     <p class="text-xs font-medium text-stone-600 uppercase tracking-widest mb-2">Most Popular</p>
                     <h3 class="font-serif text-2xl font-bold text-stone-900">Landing Page</h3>

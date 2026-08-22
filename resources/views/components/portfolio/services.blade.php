@@ -5,7 +5,7 @@
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div class="border-l-2 border-stone-400 pl-6">
+            <div class="border-l-2 border-stone-400 pl-6 reveal transition-transform duration-300 hover:-translate-y-1">
                 <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">Custom Websites</h3>
                 <p class="text-stone-600 leading-relaxed font-light">
                     Beautiful and custom websites, including blogs and an internal CMS. 
@@ -14,14 +14,14 @@
                 </p>
             </div>
 
-            <div class="border-l-2 border-stone-400 pl-6">
+            <div class="border-l-2 border-stone-400 pl-6 reveal reveal-delay-1 transition-transform duration-300 hover:-translate-y-1">
                 <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">Mobile-Friendly Design</h3>
                 <p class="text-stone-600 leading-relaxed font-light">
                     Your website works perfectly on phones, tablets, and computers. Visitors can reach you on any device.
                 </p>
             </div>
 
-            <div class="border-l-2 border-stone-400 pl-6">
+            <div class="border-l-2 border-stone-400 pl-6 reveal reveal-delay-2 transition-transform duration-300 hover:-translate-y-1">
                 <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">Secure & Protected</h3>
                 <p class="text-stone-600 leading-relaxed font-light">
                     I follow the best practises to secure your website. 
@@ -30,7 +30,7 @@
                 </p>
             </div>
 
-             <div class="border-l-2 border-stone-400 pl-6">
+             <div class="border-l-2 border-stone-400 pl-6 reveal reveal-delay-3 transition-transform duration-300 hover:-translate-y-1">
                 <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">Performance in mind</h3>
                 <p class="text-stone-600 leading-relaxed font-light">
                     The decision to make custom solutions for my clients comes from the need for total control
@@ -39,7 +39,7 @@
                 </p>
             </div>
 
-             <div class="border-l-2 border-stone-400 pl-6">
+             <div class="border-l-2 border-stone-400 pl-6 reveal reveal-delay-4 transition-transform duration-300 hover:-translate-y-1">
                 <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">Overall business support</h3>
                 <p class="text-stone-600 leading-relaxed font-light">
                     As a fellow freelancer I will provide guidance for buisness domains handling
@@ -48,7 +48,7 @@
                 </p>
             </div>
 
-             <div class="border-l-2 border-stone-400 pl-6">
+             <div class="border-l-2 border-stone-400 pl-6 reveal reveal-delay-5 transition-transform duration-300 hover:-translate-y-1">
                 <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">Custom Enquires</h3>
                 <p class="text-stone-600 leading-relaxed font-light">
                     Do you need something that my CMS doesn't contain?

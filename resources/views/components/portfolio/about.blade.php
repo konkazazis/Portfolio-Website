@@ -1,6 +1,6 @@
 <section id="about" class="py-24 px-6 sm:px-8 bg-white border-t border-stone-300">
     <div class="max-w-5xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-5 gap-12 items-center">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-12 items-center reveal">
             <div class="md:col-span-3">
                 <h2 class="font-serif text-5xl md:text-6xl font-bold text-stone-900 mb-6">
                     About
