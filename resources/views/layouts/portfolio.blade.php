@@ -51,8 +51,6 @@
 
     <x-portfolio.about />
 
-    <livewire:dev-stats />
-
     <x-portfolio.contact />
 
     <script>
