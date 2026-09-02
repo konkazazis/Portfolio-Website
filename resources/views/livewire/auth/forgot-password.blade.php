@@ -1,4 +1,4 @@
-<x-layouts.auth.simple :title="__('Forgot password')">
+<x-simple :title="__('Forgot password')">
     <div class="flex flex-col gap-6">
         <div class="text-center">
             <h1 class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">Reset password</h1>
@@ -38,4 +38,4 @@
             </a>
         </p>
     </div>
-</x-layouts.auth.simple>
+</x-simple>

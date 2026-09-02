@@ -1,4 +1,4 @@
-<x-layouts.auth.simple :title="__('Reset password')">
+<x-simple :title="__('Reset password')">
     <div class="flex flex-col gap-6">
         <div class="text-center">
             <h1 class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">New password</h1>
@@ -49,4 +49,4 @@
             </flux:button>
         </form>
     </div>
-</x-layouts.auth.simple>
+</x-simple>
