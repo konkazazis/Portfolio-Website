@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('master')
 
 @section('title', 'Blog')
 @section('meta_description', 'Thoughts on code, design, and the web — a developer blog by Kostas.')

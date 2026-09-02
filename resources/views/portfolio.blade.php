@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('master')
 
 @section('title', 'kostas')
 
@@ -35,23 +35,23 @@
 
 @section('content')
 
-    <x-portfolio.hero />
+    <x-hero />
 
-    <x-portfolio.services />
+    <x-services />
 
-    <x-portfolio.pricing />
+    <x-pricing />
 
-    <x-portfolio.testimonials />
+    <x-testimonials />
 
-    <x-portfolio.projects :projects="$projects" />
+    <x-projects :projects="$projects" />
 
-    <x-portfolio.blog-posts :posts="$posts" />
+    <x-blog-posts :posts="$posts" />
 
-    <x-portfolio.technologies />
+    <x-technologies />
 
-    <x-portfolio.about />
+    <x-about />
 
-    <x-portfolio.contact />
+    <x-contact />
 
     <script>
         document.querySelectorAll('a.smoothScroll').forEach(link => {

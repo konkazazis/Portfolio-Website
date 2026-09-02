@@ -13,6 +13,6 @@ class PostController extends Controller
             ->where('slug', $slug)
             ->firstOrFail();
 
-        return view('layouts.blog-post', compact('post'));
+        return view('blog-post', compact('post'));
     }
 }

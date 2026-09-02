@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('master')
 
 @php $lang = request('lang') === 'en' ? 'en' : 'de'; @endphp
 

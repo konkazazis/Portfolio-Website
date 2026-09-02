@@ -1,6 +1,4 @@
 <section class="w-full">
-    @include('partials.settings-heading')
-
     <x-settings.layout :heading="__('Profile')" :subheading="__('Update your display name and email address')">
         <form wire:submit="updateProfileInformation" class="my-6 w-full space-y-6">
             <flux:input wire:model="username" :label="__('Display name')" type="text" required autofocus autocomplete="username" />
