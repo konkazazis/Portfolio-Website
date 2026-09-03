@@ -194,10 +194,19 @@
     border-radius: 0 !important;
 }
 
-html:has(body.admin-flat) {
-    font-size: 125%;
-}
-
 .admin-flat {
     font-family: var(--font-cms);
+    zoom: 1.25;
+}
+
+@media (max-width: 1100px) {
+    .admin-flat {
+        zoom: 1.80;
+    }
+}
+
+@media (max-width: 640px) {
+    .admin-flat {
+        zoom: 1.35;
+    }
 }
