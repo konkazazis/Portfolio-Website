@@ -59,7 +59,7 @@
 @endpush
 
 @section('content')
-    <div class="max-w-2xl mx-auto mt-8 px-6 sm:px-8">
+    <div class="max-w-6xl mx-auto mt-8 px-6 sm:px-8">
 
         <a href="{{ route('blog') }}"
             class="text-sm text-brand hover:text-brand-dark font-semibold transition-colors mb-8 inline-block">
@@ -71,7 +71,6 @@
                 @if($post->category)
                     <span class="category-badge">{{ $post->category->name }}</span>
                 @endif
-                <span class="text-stone-400">{{ $post->published_at->format('M d, Y') }}</span>
             </div>
 
             <h1 class="font-sans text-4xl max-sm:text-3xl font-bold tracking-tight text-stone-900 mb-4 leading-tight">
@@ -92,6 +91,7 @@
         </header>
 
         @if($post->user?->is_admin)
+        <div class="flex justify-between">
             <div class="flex items-center gap-3 mb-10 pb-8 border-b border-stone-100">
                 <img src="https://images.kazazis.dev/profile-pic.png" alt="Kostas"
                     class="w-10 h-10 rounded-full object-cover object-top bg-stone-100">
@@ -103,6 +103,10 @@
                     </a>
                 </div>
             </div>
+            <div> 
+                <span class="text-stone-400">{{ $post->published_at->format('H:m M d, Y') }}</span>
+            </div>
+        </div>
         @endif
 
         <div class="prose prose-stone max-w-none text-stone-700 leading-relaxed">
