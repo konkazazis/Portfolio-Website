@@ -51,12 +51,53 @@
 
 @section('content')
     <section class="py-24 px-6 sm:px-8 bg-stone-50">
-        <div class="max-w-7xl mx-auto">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row  gap-4">
+            <div>
+             <div class="max-w-3xl mx-auto lg:flex-row lg:gap-12">
+                <div class="flex-col justify-between reveal">
+                    <h1 class="font-serif text-6xl md:text-7xl font-bold text-stone-900 mb-6 leading-tight">Kostas Kazazis</h1>
+                    <p class="text-2xl md:text-3xl text-stone-700 mb-4 font-light">Full-Stack Web Developer</p>
+                    <p class="text-lg text-stone-600 leading-relaxed mb-8 font-light">
+                        Every freelancer needs a website. Crafting clean, reliable and custom sites that get your name out
+                        there. My support, in your journey. Based in Düsseldorf.
+                    </p>
+                </div>
+                <div class="flex justify-items-start gap-8 mb-12">
+                        <a
+                            href="https://github.com/konkazazis"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="GitHub"
+                            class="text-stone-600 hover:text-stone-900 transition text-xl"
+                        >
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a
+                            href="https://www.linkedin.com/in/konstantinos-kazazis-32a470228/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="LinkedIn"
+                            class="text-stone-600 hover:text-stone-900 transition text-xl"
+                        >
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                        <a
+                            href="{{ route("blog") }}"
+                            aria-label="Blog"
+                            class="text-stone-600 hover:text-stone-900 transition text-xl"
+                        >
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                    </div>
+                </div>
+        </div>
+        <div>
             <div class="panel-card mb-10">
                 <div class="md:flex md:items-end md:justify-between gap-6">
+                    
                     <div>
                         <span class="section-label">Writing</span>
-                        <h1 class="section-heading">Thoughts on code, design and the web.</h1>
+                        <h3 class="section-heading font-light">Thoughts on code, design and the web.</h3>
                         <p class="text-stone-600 max-w-2xl">A quiet collection of notes, projects and technical ideas.</p>
                     </div>
 
