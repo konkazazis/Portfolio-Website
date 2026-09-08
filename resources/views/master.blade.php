@@ -65,7 +65,9 @@
                 <div
                     class="max-w-7xl mx-auto h-20 grid grid-cols-[1fr_auto_1fr] items-center"
                 >
-                    <div></div>
+                    <div>
+                        <h1 class="pl-8 font-bold">kazazis.dev</h1>
+                    </div>
 
                     <nav
                         class="hidden sm:flex justify-self-center gap-8 text-sm uppercase tracking-[0.35em] font-medium text-stone-600"
