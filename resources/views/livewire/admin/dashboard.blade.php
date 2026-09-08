@@ -1,8 +1,9 @@
 <div>
-    <div class="mb-8">
+    <div class="mb-4">
         <h1 class="text-2xl font-bold text-zinc-800 dark:text-zinc-100">Overview</h1>
-        <p class="text-zinc-500 dark:text-zinc-400 text-sm mt-1">Your portfolio at a glance.</p>
+        <p class="text-zinc-500 dark:text-zinc-400 text-sm mt-1">Your stats at a glance.</p>
     </div>
+    <flux:separator variant="subtle" class="mb-4" />
 
     {{-- KPI Cards --}}
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">

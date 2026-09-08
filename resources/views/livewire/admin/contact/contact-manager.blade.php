@@ -11,6 +11,7 @@
             <p class="text-zinc-500 dark:text-zinc-400 text-sm mt-1">Contact form submissions from your portfolio.</p>
         </div>
     </div>
+    <flux:separator variant="subtle" class="mb-4" />
 
     <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
 

@@ -13,6 +13,7 @@
             New Tag
         </button>
     </div>
+    <flux:separator variant="subtle" class="mb-4" />
 
     <div class="mb-6">
         <input wire:model.live.debounce.300ms="search" type="text" placeholder="Search tags…"

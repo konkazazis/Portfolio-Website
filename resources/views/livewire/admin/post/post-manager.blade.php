@@ -16,6 +16,7 @@
             New Post
         </button>
     </div>
+    <flux:separator variant="subtle" class="mb-4" />
 
     <div class="flex flex-wrap gap-3 mb-6">
         <input wire:model.live.debounce.300ms="search"
