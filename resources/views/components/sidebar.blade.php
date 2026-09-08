@@ -11,54 +11,58 @@
         .ql-editor { height: 480px; ing: 1.5rem 2rem; line-height: 1.8; }
         .ql-editor.ql-blank::before { font-style: normal; color: #d4d4d4; }
     </style>
+    @fluxAppearance
 </head>
 
-<body class="admin-flat min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-800 dark:text-zinc-100">
-    <flux:sidebar sticky collapsible="mobile" class="dark border-e border-zinc-800 bg-zinc-900 shadow-sm p-0!">
+<body class="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-800 dark:text-zinc-100">
+    <flux:sidebar sticky collapsible class="dark border-e border-zinc-800 bg-zinc-900 shadow-sm p-0!">
 
-        <flux:sidebar.header class="py-4 px-4">
+        <flux:sidebar.header class="pt-4 px-4 items-center justify-center">
             <a href="{{ route('home') }}" class="flex items-center gap-2 px-1" wire:navigate target="_blank">
-                <div class="w-8 h-8 bg-white flex items-center justify-center shrink-0">
-                    <span class="text-zinc-900 text-xs font-bold tracking-tight">KK</span>
+                <div class="w-8 h-8 bg-white flex items-center justify-center shrink-0 rounded-3xl">
+                    <span class="text-zinc-900 text-xs font-bold tracking-tight border-0!">KK</span>
                 </div>
-                <span class="font-bold text-base text-zinc-100 tracking-tight">kazazis.dev</span>
+                <span class="font-bold text-base text-zinc-100 tracking-tight in-data-flux-sidebar-collapsed-desktop:hidden">kazazis.dev</span>
             </a>
-            <flux:sidebar.collapse class="lg:hidden" />
+            <flux:sidebar.collapse class="in-data-flux-sidebar-on-desktop:not-in-data-flux-sidebar-collapsed-desktop:-mr-2" />
         </flux:sidebar.header>
 
-        <flux:sidebar.nav>
-            <flux:sidebar.group heading="Content" class="grid">
-                <flux:sidebar.item icon="document-text" :href="route('admin.posts.index')"
-                    :current="request()->routeIs('admin.posts.*')" wire:navigate>
-                    Posts
-                </flux:sidebar.item>
-                <flux:sidebar.item icon="briefcase" :href="route('admin.projects.index')"
-                    :current="request()->routeIs('admin.projects.*')" wire:navigate>
-                    Projects
-                </flux:sidebar.item>
-                <flux:sidebar.item icon="tag" :href="route('admin.categories.index')"
-                    :current="request()->routeIs('admin.categories.*')" wire:navigate>
-                    Categories
-                </flux:sidebar.item>
-                <flux:sidebar.item icon="hashtag" :href="route('admin.tags.index')"
-                    :current="request()->routeIs('admin.tags.*')" wire:navigate>
-                    Tags
-                </flux:sidebar.item>
-                <flux:sidebar.item icon="inbox" :href="route('admin.messages.index')"
-                    :current="request()->routeIs('admin.messages.*')" wire:navigate>
-                    Messages
-                </flux:sidebar.item>
-            </flux:sidebar.group>
+        <flux:separator/>
 
-            <flux:sidebar.group heading="Admin" class="grid">
-                <flux:sidebar.item icon="chart-bar" :href="route('admin.dashboard')"
-                    :current="request()->routeIs('admin.dashboard')" wire:navigate>
-                    Overview
-                </flux:sidebar.item>
-            </flux:sidebar.group>
+        <flux:sidebar.nav >
+            <flux:sidebar.item icon="chart-bar" :href="route('admin.dashboard')"
+                :current="request()->routeIs('admin.dashboard')" wire:navigate>
+                Overview
+            </flux:sidebar.item>
         </flux:sidebar.nav>
 
-        <flux:spacer />
+        <flux:sidebar.nav>
+            <span class="px-3 pt-4 pb-1 text-xs font-semibold uppercase tracking-wide text-zinc-500 in-data-flux-sidebar-collapsed-desktop:hidden">
+                Content
+            </span>
+            <flux:sidebar.item icon="document-text" :href="route('admin.posts.index')"
+                :current="request()->routeIs('admin.posts.*')" wire:navigate>
+                Posts
+            </flux:sidebar.item>
+            <flux:sidebar.item icon="briefcase" :href="route('admin.projects.index')"
+                :current="request()->routeIs('admin.projects.*')" wire:navigate>
+                Projects
+            </flux:sidebar.item>
+            <flux:sidebar.item icon="tag" :href="route('admin.categories.index')"
+                :current="request()->routeIs('admin.categories.*')" wire:navigate>
+                Categories
+            </flux:sidebar.item>
+            <flux:sidebar.item icon="hashtag" :href="route('admin.tags.index')"
+                :current="request()->routeIs('admin.tags.*')" wire:navigate>
+                Tags
+            </flux:sidebar.item>
+            <flux:sidebar.item icon="inbox" :href="route('admin.messages.index')"
+                :current="request()->routeIs('admin.messages.*')" wire:navigate>
+                Messages
+            </flux:sidebar.item>
+        </flux:sidebar.nav>
+
+        <flux:sidebar.spacer />
 
         <flux:sidebar.nav>
             <flux:sidebar.item icon="arrow-top-right-on-square" href="{{ route('home') }}" target="_blank">
@@ -85,32 +89,6 @@
             <span class="font-bold text-sm text-zinc-100">kazazis.dev</span>
         </a>
 
-        <flux:spacer />
-
-        <flux:dropdown position="top" align="end">
-            <flux:profile :initials="auth()->user()->initials()" icon-trailing="chevron-down" />
-            <flux:menu>
-                <flux:menu.radio.group>
-                    <div class="p-0 text-sm font-normal">
-                        <div class="flex items-center gap-2 px-1 py-1.5 text-start text-sm">
-                            <flux:avatar :initials="auth()->user()->initials()" />
-                            <div class="grid flex-1 text-start text-sm leading-tight">
-                                <flux:heading class="truncate">{{ auth()->user()->username }}</flux:heading>
-                                <flux:text class="truncate">{{ auth()->user()->email }}</flux:text>
-                            </div>
-                        </div>
-                    </div>
-                </flux:menu.radio.group>
-                <flux:menu.separator />
-                <form method="POST" action="{{ route('logout') }}" class="w-full">
-                    @csrf
-                    <flux:menu.item as="button" type="submit" icon="arrow-right-start-on-rectangle"
-                        class="w-full cursor-pointer">
-                        Log out
-                    </flux:menu.item>
-                </form>
-            </flux:menu>
-        </flux:dropdown>
     </flux:header>
 
     {{ $slot }}
