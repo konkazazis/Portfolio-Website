@@ -13,25 +13,38 @@ class Profile extends Component
 {
     public string $username = '';
     public string $email = '';
+    public string $occupation = '';
+    public string $brand_name = '';
 
     public function mount(): void
     {
-        $this->username = Auth::user()->username;
-        $this->email    = Auth::user()->email;
+        $user = Auth::user();
+
+        $this->username    = $user->username;
+        $this->email       = $user->email;
+        $this->occupation  = $user->occupation ?? '';
+        $this->brand_name  = $user->brand_name ?? '';
     }
 
     public function updateProfileInformation(): void
     {
         $user = Auth::user();
+        try {
+            $validated = $this->validate([
+                'username'    => ['required', 'string', 'max:255'],
+                'email'       => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
+                'occupation'  => ['nullable', 'string', 'max:255'],
+                'brand_name'  => ['nullable', 'string', 'max:255'],
+            ]);
 
-        $validated = $this->validate([
-            'username' => ['required', 'string', 'max:255'],
-            'email'    => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-        ]);
+            $user->forceFill($validated)->save();
 
-        $user->forceFill($validated)->save();
-
-        Flux::toast(variant: 'success', text: __('Profile updated.'));
+            Flux::toast(variant: 'success', text: __('Profile updated.'));
+        } catch (\Throwable $e){
+            report($e);
+            Flux::toast(variant: 'danger', text: __('Something went wrong.'));
+        }
+        
     }
 
     public function render()

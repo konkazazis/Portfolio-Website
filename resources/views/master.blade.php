@@ -66,7 +66,7 @@
                     class="max-w-7xl mx-auto h-20 grid grid-cols-[1fr_auto_1fr] items-center"
                 >
                     <div>
-                        <h1 class="pl-8 font-bold">kazazis.dev</h1>
+                        <h1 class="pl-8 font-bold">{{ auth()->user()->brand_name ?? 'Brand name' }}</h1>
                     </div>
 
                     <nav
