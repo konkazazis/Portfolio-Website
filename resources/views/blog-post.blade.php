@@ -73,12 +73,12 @@
                 @endif
             </div>
 
-            <h1 class="font-sans text-4xl max-sm:text-3xl font-bold tracking-tight text-stone-900 mb-4 leading-tight">
+            <h1 class="font-sans text-6xl prose-2xl max-sm:text-3xl font-bold tracking-tight text-stone-900 mb-4 leading-tight">
                 {{ $post->title }}
             </h1>
 
             @if($post->excerpt)
-                <p class="text-lg text-stone-500 leading-relaxed">{!! $post->excerpt !!}</p>
+                <p class="text-xl text-stone-500 leading-relaxed">{!! $post->excerpt !!}</p>
             @endif
 
             @if($post->tags->isNotEmpty())
@@ -104,12 +104,12 @@
                 </div>
             </div>
             <div> 
-                <span class="text-stone-400">{{ $post->published_at->format('H:m M d, Y') }}</span>
+                <span class="text-stone-400">{{ $post->published_at->format('H:m • M d, Y') }}</span>
             </div>
         </div>
         @endif
 
-        <div class="prose prose-stone max-w-none text-stone-700 leading-relaxed">
+        <div class="prose prose-stone lg:prose-2xl max-w-none text-stone-700 leading-relaxed">
             {!! $post->content !!}
         </div>
 
