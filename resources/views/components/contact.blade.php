@@ -9,8 +9,8 @@
                 Tell me a little about your project. I read every message and reply within a day or two.
             </p>
 
-            <a href="mailto:hello@kazazis.dev" class="inline-flex items-center gap-3 mt-8 font-mono text-[1.05rem] border-b border-dark-line pb-1.5 transition-all hover:border-on-dark hover:gap-4">
-                kostas@kazazis.dev <span class="arr">&rarr;</span>
+            <a href="mailto:{{ auth()->user()->email }}" class="inline-flex items-center gap-3 mt-8 font-mono text-[1.05rem] border-b border-dark-line pb-1.5 transition-all hover:border-on-dark hover:gap-4">
+                {{ auth()->user()->email }} <span class="arr">&rarr;</span>
             </a>
 
             <div class="flex gap-2.5 mt-[30px]">
@@ -29,7 +29,7 @@
 
         <div class="lg:flex text-center lg:justify-between border-t border-stone-800 pt-8 text-stone-400 text-sm">
             <div class="mb-4 lg:mb-0">
-                <p>Copyright © {{ date('Y') }} Kostas Kazazis</p>
+                <p>Copyright © {{ date('Y') }} Kostas Kazazis - <a href="kazazis.dev" class="hover:text-amber-300">kazazis.dev</a></p>
             </div>
             <div class="flex justify-between lg:gap-4">
                 <a href="https://github.com/konkazazis" target="_blank" rel="noopener noreferrer"
