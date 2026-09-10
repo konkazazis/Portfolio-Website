@@ -290,7 +290,7 @@
                 </div>
 
                 <div wire:ignore>
-                    <div x-ref="quillEditor" data-initial-content="{{ $content }}"></div>
+                    <div x-ref="quillEditor" data-initial-content="{{ $content }}" class="text-zinc-900 dark:text-zinc-100"></div>
                 </div>
                 @error('content') <p class="px-4 sm:px-6 py-1 text-xs text-red-500">{{ $message }}</p> @enderror
             </main>
