@@ -46,8 +46,7 @@
                     <h2 class="text-lg font-bold text-stone-800 mb-2">1. Verantwortlicher</h2>
                     <p>
                         Konstantinos Kazazis<br>
-                        Oberratherstrassse 24<br>
-                        40472, Düsseldorf<br>
+                        Düsseldorf<br>
                         Deutschland<br>
                         E-Mail:
                         <a href="mailto:kostas@kazazis.dev" class="text-brand hover:underline">
@@ -159,8 +158,7 @@
                     <h2 class="text-lg font-bold text-stone-800 mb-2">1. Data Controller</h2>
                     <p>
                         Konstantinos Kazazis<br>
-                        Oberratherstrassse 24<br>
-                        40472, Düsseldorf<br>
+                        Düsseldorf<br>
                         Germany<br>
                         Email:
                         <a href="mailto:kostas@kazazis.dev" class="text-brand hover:underline">

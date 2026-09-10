@@ -46,8 +46,7 @@
                     <h2 class="text-lg font-bold text-stone-800 mb-2">Verantwortlich</h2>
                     <p>
                         Konstantinos Kazazis<br>
-                        Oberratherstrassse 24<br>
-                        40472, Düsseldorf<br>
+                        Düsseldorf<br>
                         Deutschland
                     </p>
                 </section>
@@ -70,9 +69,8 @@
                 <section>
                     <h2 class="text-lg font-bold text-stone-800 mb-2">Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
                     <p>
-                        Konstantinos Kazazis<br>
-                        Oberratherstrassse 24<br>
-                        40472, Düsseldorf<br>
+                        Konstantinos Kazazis<br>                       
+                        Düsseldorf<br>
                         Deutschland
                     </p>
                 </section>
@@ -113,9 +111,8 @@
                 <section>
                     <h2 class="text-lg font-bold text-stone-800 mb-2">Responsible Party</h2>
                     <p>
-                        Konstantinos Kazazis<br>
-                        Oberratherstrassse 24<br>
-                        40472, Düsseldorf<br>
+                        Konstantinos Kazazis<br>                       
+                        Düsseldorf<br>
                         Germany
                     </p>
                 </section>
@@ -138,9 +135,8 @@
                 <section>
                     <h2 class="text-lg font-bold text-stone-800 mb-2">Responsible for Content per § 18(2) MStV</h2>
                     <p>
-                        Konstantinos Kazazis<br>
-                        Oberratherstrassse 24<br>
-                        40472, Düsseldorf<br>
+                        Konstantinos Kazazis<br>                       
+                        Düsseldorf<br>
                         Germany
                     </p>
                 </section>
