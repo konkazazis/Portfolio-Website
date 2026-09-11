@@ -9,8 +9,8 @@
                 Tell me a little about your project. I read every message and reply within a day or two.
             </p>
 
-            <a href="mailto:{{ auth()->user()->email }}" class="inline-flex items-center gap-3 mt-8 font-mono text-[1.05rem] border-b border-dark-line pb-1.5 transition-all hover:border-on-dark hover:gap-4">
-                {{ auth()->user()->email }} <span class="arr">&rarr;</span>
+            <a href="mailto:kostas@kazazis.dev" class="inline-flex items-center gap-3 mt-8 font-mono text-[1.05rem] border-b border-dark-line pb-1.5 transition-all hover:border-on-dark hover:gap-4">
+                kostas@kazazis.dev <span class="arr">&rarr;</span>
             </a>
 
             <div class="flex gap-2.5 mt-[30px]">
