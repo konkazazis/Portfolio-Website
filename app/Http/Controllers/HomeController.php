@@ -4,23 +4,36 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Post;
-use App\Models\Project;
-
+use App\Models\Category;
 class HomeController extends Controller
 {
     public function index()
     {
+        $categorySlug = request('category');
+        $search = trim(request('search', ''));
+
         $posts = Post::published()
-            ->with(['category', 'tags'])
+            ->with(['user', 'category', 'tags'])
+            ->when($categorySlug, fn($q) => $q->whereHas('category', fn($q) => $q->where('slug', $categorySlug)))
+            ->when($search, function ($q) use ($search) {
+                $term = '%' . strtolower($search) . '%';
+                $q->where(fn($q) => $q
+                    ->whereRaw('LOWER(title) LIKE ?', [$term])
+                    ->orWhereRaw('LOWER(excerpt) LIKE ?', [$term])
+                    ->orWhereRaw('LOWER(content) LIKE ?', [$term])
+                );
+            })
             ->latest('published_at')
-            ->take(5)
+            ->paginate(10)
+            ->withQueryString();
+
+        $categories = Category::whereHas('posts', fn($q) => $q->published())
+            ->orderBy('name')
             ->get();
 
-        $projects = Project::where('is_published', true)
-            ->orderBy('order')
-            ->get();
+        $activeCategory = $categories->firstWhere('slug', $categorySlug);
 
-        return view('portfolio', compact('posts', 'projects'));
+        return view('home', compact('posts', 'categories', 'activeCategory', 'search'));
     }
 }
 

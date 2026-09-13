@@ -3,7 +3,7 @@
 @section('title', 'Blog')
 @section('meta_description', 'Thoughts on code, design, and the web — a developer blog by Kostas.')
 @section('og_title', 'Blog · kostas')
-@section('canonical', route('blog', array_filter([
+@section('canonical', route('home', array_filter([
     'category' => $activeCategory?->slug,
     'page' => $posts->currentPage() > 1 ? $posts->currentPage() : null,
 ])))
@@ -31,7 +31,7 @@
         $ldType => 'Blog',
         'name' => 'Blog · kostas',
         'description' => 'Thoughts on code, design, and the web — a developer blog by Kostas.',
-        'url' => route('blog'),
+        'url' => route('home'),
         'author' => [
             $ldType => 'Person',
             'name' => 'Konstantinos Kazazis',
@@ -82,7 +82,7 @@
                             <i class="fa-brands fa-linkedin"></i>
                         </a>
                         <a
-                            href="{{ route("blog") }}"
+                            href="{{ route("home") }}"
                             aria-label="Blog"
                             class="text-stone-600 hover:text-stone-900 transition text-xl"
                         >
@@ -101,7 +101,7 @@
                             <p class="text-stone-600 max-w-2xl">A quiet collection of notes, projects and technical ideas.</p>
                         </div>
 
-                        <form method="GET" action="{{ route('blog') }}" class="shrink-0 mt-4 md:mt-0">
+                        <form method="GET" action="{{ route('home') }}" class="shrink-0 mt-4 md:mt-0">
                             @if(request('category'))
                                 <input type="hidden" name="category" value="{{ request('category') }}">
                             @endif
@@ -199,4 +199,7 @@
 
         </div>
     </section>
+
+    <x-contact />
+
 @endsection

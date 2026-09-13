@@ -36,8 +36,8 @@
                     <i class="fa-brands fa-linkedin"></i>
                 </a>
                 <a
-                    href="{{ route("blog") }}"
-                    aria-label="Blog"
+                    href="{{ route("home") }}"
+                    aria-label="Home"
                     class="text-stone-600 hover:text-stone-900 transition text-xl"
                 >
                     <i class="fa fa-pencil"></i>

@@ -30,7 +30,7 @@
         </div>
 
         <div class="text-center">
-            <a href="{{ route('blog') }}"
+            <a href="{{ route('home') }}"
                 class="inline-block text-sm font-medium text-stone-900 border border-stone-400 px-6 py-2 hover:bg-stone-50 transition tracking-wide">
                 VIEW ALL ESSAYS
             </a>

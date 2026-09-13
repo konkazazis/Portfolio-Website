@@ -95,12 +95,6 @@
                             About
                         </a>
                         <a
-                            href="{{ route("blog") }}"
-                            class="transition-colors {{ request()->routeIs("blog") || request()->routeIs("posts.show") ? "text-stone-900" : "hover:text-stone-900" }}"
-                        >
-                            Blog
-                        </a>
-                        <a
                             href="{{ route("home") }}#contact"
                             class="transition-colors hover:text-stone-900"
                         >
@@ -223,12 +217,6 @@
                     @endauth
 
                     <a
-                        href="{{ route("blog") }}"
-                        class="py-3 border-b border-stone-100 transition-colors {{ request()->routeIs("blog") || request()->routeIs("posts.show") ? "text-stone-900" : "hover:text-stone-900" }}"
-                    >
-                        Blog
-                    </a>
-                    <a
                         href="{{ route("home") }}#contact"
                         class="py-3 border-b border-stone-100 transition-colors hover:text-stone-900"
                     >
@@ -292,11 +280,10 @@
                 </div>
             </div>
 
-            <div class="flex-1 w-full max-w-7xl mx-auto">
-                <div class="flex-1 w-full max-w-350 mx-auto">
-                    @yield("content")
-                </div>
+            <div class="flex-1 max-w-370 mx-auto">
+                @yield("content")
             </div>
+            
             @stack("scripts")
             <script>
                 const burgerBtn = document.getElementById('burger-btn');

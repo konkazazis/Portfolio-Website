@@ -22,7 +22,7 @@
         $ldType => 'BreadcrumbList',
         'itemListElement' => [
             [$ldType => 'ListItem', 'position' => 1, 'name' => 'Home', 'item' => route('home')],
-            [$ldType => 'ListItem', 'position' => 2, 'name' => 'Blog', 'item' => route('blog')],
+            [$ldType => 'ListItem', 'position' => 2, 'name' => 'About', 'item' => route('about')],
             [$ldType => 'ListItem', 'position' => 3, 'name' => $post->title, 'item' => route('posts.show', $post->slug)],
         ],
     ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
@@ -61,7 +61,7 @@
 @section('content')
     <div class="max-w-6xl mx-auto mt-8 px-6 sm:px-8">
 
-        <a href="{{ route('blog') }}"
+        <a href="{{ route('home') }}"
             class="text-sm text-brand hover:text-brand-dark font-semibold transition-colors mb-8 inline-block">
             &larr; Back to blog
         </a>
