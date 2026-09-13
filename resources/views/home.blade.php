@@ -123,13 +123,13 @@
 
                 @if($categories->isNotEmpty())
                     <div class="flex flex-wrap gap-2 mb-8">
-                        <a href="{{ route('blog', $search ? ['search' => $search] : []) }}"
+                        <a href="{{ route('home', $search ? ['search' => $search] : []) }}"
                             class="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide transition-colors
                                 {{ !$activeCategory ? 'bg-stone-900 text-white' : 'text-stone-600 border border-stone-200 hover:border-stone-300 hover:text-stone-900' }}">
                             All
                         </a>
                         @foreach($categories as $cat)
-                            <a href="{{ route('blog', array_filter(['category' => $cat->slug, 'search' => $search])) }}"
+                            <a href="{{ route('home', array_filter(['category' => $cat->slug, 'search' => $search])) }}"
                                 class="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide transition-colors
                                         {{ $activeCategory?->is($cat) ? 'bg-stone-900 text-white' : 'text-stone-600 border border-stone-200 hover:border-stone-300 hover:text-stone-900' }}">
                                 {{ $cat->name }}
@@ -171,7 +171,7 @@
 
                                 <div class="flex flex-wrap items-center gap-3 text-xs text-stone-500">
                                     @if($post->category)
-                                        <a href="{{ route('blog', ['category' => $post->category->slug]) }}"
+                                        <a href="{{ route('home', ['category' => $post->category->slug]) }}"
                                             class="category-badge hover:bg-brand-dark">
                                             {{ $post->category->name }}
                                         </a>
