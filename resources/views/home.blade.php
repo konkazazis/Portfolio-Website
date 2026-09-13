@@ -51,74 +51,32 @@
 
 @section('content')
     <section class="py-24 px-6 sm:px-8 bg-stone-50">
-        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-4">
-            <div class="lg:w-1/3">
-                <div class="max-w-3xl mx-auto lg:flex-row lg:gap-12">
-                    <div class="flex-col justify-between reveal">
-                        <h1 class="font-serif text-6xl md:text-7xl font-bold text-stone-900 mb-6 leading-tight">Kostas Kazazis</h1>
-                        <p class="text-2xl md:text-3xl text-stone-700 mb-4 font-light">Full-Stack Web Developer</p>
-                        <p class="text-lg text-stone-600 leading-relaxed mb-8 font-light">
-                            Every freelancer needs a website. Crafting clean, reliable and custom sites that get your name out
-                            there. My support, in your journey. Based in Düsseldorf.
-                        </p>
+        <div class="mx-auto flex flex-col">
+            <div class="mb-10">
+                <div class="md:flex md:items-end md:justify-between gap-6 mb-4">
+                    <div>
+                        <span class="section-label">Writing</span>
+                        <h3 class="section-heading font-light">Thoughts on code, design and the web.</h3>
+                        <p class="text-stone-600 max-w-2xl">A quiet collection of notes, projects and technical ideas.</p>
                     </div>
-                    <div class="flex justify-items-start gap-8 mb-12">
-                        <a
-                            href="https://github.com/konkazazis"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="GitHub"
-                            class="text-stone-600 hover:text-stone-900 transition text-xl"
-                        >
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-                        <a
-                            href="https://www.linkedin.com/in/konstantinos-kazazis-32a470228/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="LinkedIn"
-                            class="text-stone-600 hover:text-stone-900 transition text-xl"
-                        >
-                            <i class="fa-brands fa-linkedin"></i>
-                        </a>
-                        <a
-                            href="{{ route("home") }}"
-                            aria-label="Blog"
-                            class="text-stone-600 hover:text-stone-900 transition text-xl"
-                        >
-                            <i class="fa fa-pencil"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="lg:w-2/3">
-                <div class="panel-card mb-10">
-                    <div class="md:flex md:items-end md:justify-between gap-6">
 
-                        <div>
-                            <span class="section-label">Writing</span>
-                            <h3 class="section-heading font-light">Thoughts on code, design and the web.</h3>
-                            <p class="text-stone-600 max-w-2xl">A quiet collection of notes, projects and technical ideas.</p>
+                    <form method="GET" action="{{ route('home') }}" class="shrink-0 mt-4 md:mt-0">
+                        @if(request('category'))
+                            <input type="hidden" name="category" value="{{ request('category') }}">
+                        @endif
+                        <div class="relative">
+                            <input type="search" name="search" value="{{ $search }}" placeholder="Search posts..."
+                                class="w-72 rounded-full border border-stone-200 bg-white px-4 py-3 pr-10 text-sm text-stone-700 placeholder-stone-400 focus:outline-none focus:border-stone-400 transition-colors">
+                            <button type="submit" aria-label="Search posts"
+                                class="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
+                                </svg>
+                            </button>
                         </div>
-
-                        <form method="GET" action="{{ route('home') }}" class="shrink-0 mt-4 md:mt-0">
-                            @if(request('category'))
-                                <input type="hidden" name="category" value="{{ request('category') }}">
-                            @endif
-                            <div class="relative">
-                                <input type="search" name="search" value="{{ $search }}" placeholder="Search posts..."
-                                    class="w-72 rounded-full border border-stone-200 bg-white px-4 py-3 pr-10 text-sm text-stone-700 placeholder-stone-400 focus:outline-none focus:border-stone-400 transition-colors">
-                                <button type="submit" aria-label="Search posts"
-                                    class="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600 transition-colors">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
-                                        stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+                    </form>
                 </div>
 
                 @if($categories->isNotEmpty())
@@ -196,7 +154,6 @@
                     </div>
                 @endif
             </div>
-
         </div>
     </section>
 
