@@ -72,11 +72,9 @@
             <header
                 class="sticky top-0 z-50 px-4 md:px-0 bg-white/95 backdrop-blur-sm border-b border-stone-200"
             >
-                <div
-                    class="max-w-7xl mx-auto h-20 grid grid-cols-[1fr_auto_1fr] items-center"
-                >
+                <div class="max-w-7xl mx-auto h-20 flex items-center justify-between sm:grid sm:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]">
                     <div>
-                        <h1 class="pl-8 font-bold">{{ auth()->user()->brand_name ?? config('app.brand_name') ?? 'Brand name' }}</h1>
+                        <h1 class="pl-8 font-bold text-3xl">{{ auth()->user()->brand_name ?? config('app.brand_name') ?? 'Brand name' }}</h1>
                     </div>
 
                     <nav
