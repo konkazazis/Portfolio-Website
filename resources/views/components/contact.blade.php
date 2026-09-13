@@ -10,7 +10,7 @@
             </p>
 
             <a href="mailto:kostas@kazazis.dev" class="inline-flex items-center gap-3 mt-8 font-mono text-[1.05rem] border-b border-dark-line pb-1.5 transition-all hover:border-on-dark hover:gap-4">
-                kostas@kazazis.dev <span class="arr">&rarr;</span>
+                {{ auth()->user()->email ?? config('app.client_email') ?? 'email@example.com' }} <span class="arr">&rarr;</span>
             </a>
 
             <div class="flex gap-2.5 mt-[30px]">

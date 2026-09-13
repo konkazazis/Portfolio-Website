@@ -124,6 +124,7 @@ return [
     ],
 
     'brand_name' => env('BRAND_NAME', 'brand_name'),
-    'client_name' => env('CLIENT_NAME', 'client_name')
+    'client_name' => env('CLIENT_NAME', 'client_name'),
+    'client_email' => env('CLIENT_EMAIL', 'client_email')
 
 ];
