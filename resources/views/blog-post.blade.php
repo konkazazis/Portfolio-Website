@@ -73,7 +73,7 @@
                 @endif
             </div>
 
-            <h1 class="font-sans text-6xl prose-2xl max-sm:text-3xl font-bold tracking-tight text-stone-900 mb-4 leading-tight">
+            <h1 class="font-sans text-6xl prose-2xl max-sm:text-3xl font-bold tracking-tight text-stone-900 mb-4 leading-tight break-words">
                 {{ $post->title }}
             </h1>
 
@@ -109,7 +109,7 @@
         </div>
         @endif
 
-        <div class="prose prose-stone lg:prose-2xl max-w-none text-stone-700 leading-relaxed">
+        <div class="prose prose-stone lg:prose-2xl max-w-none min-w-0 text-stone-700 leading-relaxed">
             {!! $post->content !!}
         </div>
 

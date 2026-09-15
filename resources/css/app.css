@@ -160,6 +160,23 @@
         white-space: pre;
     }
 
+    .prose {
+        overflow-wrap: anywhere;
+    }
+
+    .prose img,
+    .prose video,
+    .prose iframe {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .prose table {
+        display: block;
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
     .reveal {
         opacity: 0;
         transform: translateY(24px);
