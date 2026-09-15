@@ -278,7 +278,7 @@
                 </div>
             </div>
 
-            <div class="flex-1 lg:w-350 mx-auto">
+            <div class="flex-1 max-w-370 mx-auto">
                 @yield("content")
             </div>
             
