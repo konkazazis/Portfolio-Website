@@ -1,5 +1,17 @@
 import './bootstrap';
 
+import Prism from 'prismjs';
+import 'prismjs/themes/prism-tomorrow.css';
+import 'prismjs/components/prism-markup';
+import 'prismjs/components/prism-css';
+
+// Toolbar + copy-to-clipboard plugin
+import 'prismjs/plugins/toolbar/prism-toolbar';
+import 'prismjs/plugins/toolbar/prism-toolbar.css';
+import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard';
+
+Prism.highlightAll();
+
 function initScrollReveal() {
     const revealEls = document.querySelectorAll('.reveal:not(.is-visible)');
     if (!revealEls.length) return;

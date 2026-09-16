@@ -92,6 +92,11 @@
                         >
                             About
                         </a>
+                         <a
+                            href="{{ route("library") }}"
+                            class="transition-colors {{ request()->routeIs("about") ? "text-stone-900" : "hover:text-stone-900" }}"
+                        >   Library                        
+                        </a>
                         <a
                             href="{{ route("home") }}#contact"
                             class="transition-colors hover:text-stone-900"
