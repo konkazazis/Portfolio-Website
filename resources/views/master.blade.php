@@ -208,11 +208,6 @@
                     >
                         About
                     </a>
-                    <a
-                            href="{{ route("library") }}"
-                            class="transition-colors {{ request()->routeIs("about") ? "text-stone-900" : "hover:text-stone-900" }}"
-                        >   Library                        
-                    </a>
                     @auth
                         @if (auth()->user()->is_admin)
                             <a
