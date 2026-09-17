@@ -139,7 +139,7 @@
                                         <span class="tag-badge">#{{ $tag->name }}</span>
                                     @endforeach
 
-                                    <span>{{ $post->published_at->format('M d, Y') }}</span>
+                                    <span>{{ $post->created_at->format('M d, Y') }}</span>
                                     <a href="{{ route('posts.show', $post->slug) }}"
                                         class="ml-auto text-brand hover:text-brand-dark font-semibold transition-colors">
                                         Read article →

@@ -23,7 +23,7 @@ class HomeController extends Controller
                     ->orWhereRaw('LOWER(content) LIKE ?', [$term])
                 );
             })
-            ->latest('published_at')
+            ->latest('created_at')
             ->paginate(10)
             ->withQueryString();
 

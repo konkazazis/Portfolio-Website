@@ -50,7 +50,11 @@
                         <tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/30 transition-colors">
                             <td class="px-6 py-4">
                                 <p class="font-semibold text-zinc-800 dark:text-zinc-100">{{ $post->title }}</p>
-                                <p class="text-xs text-zinc-400 dark:text-zinc-500">{{ $post->created_at->format('M j, Y') }}</p>
+                                <div class="flex">
+                                    <p class="text-xs text-zinc-400 dark:text-zinc-500">{{ $post->created_at->format('M j, Y') }}</p>
+                                    <p class="text-xs text-zinc-400 dark:text-zinc-500">, (Last update:</p>
+                                    <p class="text-xs text-zinc-400 dark:text-zinc-500">{{ $post->published_at->format('M j, Y') }})</p>
+                                </div>
                             </td>
                             <td class="px-4 py-4 text-zinc-600 dark:text-zinc-300 hidden md:table-cell">
                                 {{ $post->category?->name ?? '—' }}
