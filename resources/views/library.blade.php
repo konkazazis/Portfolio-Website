@@ -4,6 +4,10 @@
 @section('meta_description', 'Thoughts on code, design, and the web — a developer blog by Kostas.')
 @section('og_title', 'Blog · kostas')
 
+@push('head')
+    @vite(['resources/js/highlight.js'])
+@endpush
+
 @section('content')
     <section class="py-24 px-6 sm:px-8 bg-stone-50">
         <div class="mx-auto max-w-4xl flex flex-col">
