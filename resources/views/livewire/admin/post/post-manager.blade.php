@@ -52,8 +52,10 @@
                                 <p class="font-semibold text-zinc-800 dark:text-zinc-100">{{ $post->title }}</p>
                                 <div class="flex">
                                     <p class="text-xs text-zinc-400 dark:text-zinc-500">{{ $post->created_at->format('M j, Y') }}</p>
-                                    <p class="text-xs text-zinc-400 dark:text-zinc-500">, (Last update:</p>
-                                    <p class="text-xs text-zinc-400 dark:text-zinc-500">{{ $post->published_at->format('M j, Y') }})</p>
+                                    @if (!empty($post->published_at))
+                                        <p class="text-xs text-zinc-400 dark:text-zinc-500">, (Last update:</p>
+                                        <p class="text-xs text-zinc-400 dark:text-zinc-500">{{ $post->published_at->format('M j, Y') }})</p>                                    
+                                    @endif
                                 </div>
                             </td>
                             <td class="px-4 py-4 text-zinc-600 dark:text-zinc-300 hidden md:table-cell">
