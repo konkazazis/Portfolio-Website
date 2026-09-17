@@ -25,15 +25,15 @@
                 </x-slot:preview>
 
                <x-slot:tailwind>
-<nav class="flex items-center justify-between bg-white px-6 py-4 rounded-xl shadow-sm">
-    <span class="font-bold text-stone-900">Logo</span>
-    <div class="flex gap-6 text-sm text-stone-600">
-        <a href="#" class="hover:text-stone-900">Home</a>
-        <a href="#" class="hover:text-stone-900">About</a>
-        <a href="#" class="hover:text-stone-900">Contact</a>
-    </div>
-</nav>
-</x-slot:tailwind>
+                <nav class="flex items-center justify-between bg-white px-6 py-4 rounded-xl shadow-sm">
+                    <span class="font-bold text-stone-900">Logo</span>
+                    <div class="flex gap-6 text-sm text-stone-600">
+                        <a href="#" class="hover:text-stone-900">Home</a>
+                        <a href="#" class="hover:text-stone-900">About</a>
+                        <a href="#" class="hover:text-stone-900">Contact</a>
+                    </div>
+                </nav>
+                </x-slot:tailwind>
 
                 <x-slot:css>
 .navbar {

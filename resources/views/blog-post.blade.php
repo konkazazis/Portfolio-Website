@@ -7,10 +7,6 @@
 @section('canonical', route('posts.show', $post->slug))
 @section('og_image', asset('images/doodle.jpg'))
 
-@push('head')
-    @vite(['resources/js/highlight.js'])
-@endpush
-
 @push('schema')
     <script type="application/ld+json">
     @php
