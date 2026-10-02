@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Admin\Settings;
 
-use App\Concerns\PasswordValidationRules;
+use App\Actions\Fortify\PasswordValidationRules;
 use Flux\Flux;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;

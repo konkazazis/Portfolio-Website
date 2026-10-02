@@ -2,6 +2,7 @@
 
 namespace App\Actions\Fortify;
 
+use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
 
@@ -15,5 +16,13 @@ trait PasswordValidationRules
     protected function passwordRules(): array
     {
         return ['required', 'string', Password::default(), 'confirmed'];
+    }
+
+     /**
+     * @return array<int, ValidationRule|array<mixed>|string>
+     */
+    protected function currentPasswordRules(): array
+    {
+        return ['required', 'string', 'current_password'];
     }
 }
