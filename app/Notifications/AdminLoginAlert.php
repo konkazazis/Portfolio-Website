@@ -10,8 +10,7 @@ class AdminLoginAlert extends Notification
     public function __construct(
         public string $ip,
         public string $userAgent,
-    ) {
-    }
+    ) {}
 
     public function via(object $notifiable): array
     {

@@ -14,14 +14,22 @@ class ProjectManager extends Component
 
     public string $search = '';
 
-    public bool   $showModal     = false;
-    public ?int   $editingId     = null;
-    public string $title         = '';
-    public string $description   = '';
-    public string $live_url      = '';
-    public string $github_url    = '';
-    public string $technologies  = '';
-    public bool   $is_published  = false;
+    public bool $showModal = false;
+
+    public ?int $editingId = null;
+
+    public string $title = '';
+
+    public string $description = '';
+
+    public string $live_url = '';
+
+    public string $github_url = '';
+
+    public string $technologies = '';
+
+    public bool $is_published = false;
+
     public $cover = null;
 
     public ?int $deletingId = null;
@@ -29,13 +37,13 @@ class ProjectManager extends Component
     protected function rules(): array
     {
         return [
-            'title'        => ['required', 'string', 'max:200'],
-            'description'  => ['nullable', 'string', 'max:3000'],
-            'live_url'     => ['nullable', 'url', 'max:500'],
-            'github_url'   => ['nullable', 'url', 'max:500'],
+            'title' => ['required', 'string', 'max:200'],
+            'description' => ['nullable', 'string', 'max:3000'],
+            'live_url' => ['nullable', 'url', 'max:500'],
+            'github_url' => ['nullable', 'url', 'max:500'],
             'technologies' => ['nullable', 'string', 'max:500'],
             'is_published' => ['boolean'],
-            'cover'        => ['nullable', 'image', 'max:10240'],
+            'cover' => ['nullable', 'image', 'max:10240'],
         ];
     }
 
@@ -54,15 +62,15 @@ class ProjectManager extends Component
     {
         $project = Project::findOrFail($id);
 
-        $this->editingId    = $project->id;
-        $this->title        = $project->title;
-        $this->description  = $project->description ?? '';
-        $this->live_url     = $project->live_url ?? '';
-        $this->github_url   = $project->github_url ?? '';
+        $this->editingId = $project->id;
+        $this->title = $project->title;
+        $this->description = $project->description ?? '';
+        $this->live_url = $project->live_url ?? '';
+        $this->github_url = $project->github_url ?? '';
         $this->technologies = $project->technologies ?? '';
         $this->is_published = $project->is_published;
-        $this->cover        = null;
-        $this->showModal    = true;
+        $this->cover = null;
+        $this->showModal = true;
     }
 
     public function save(): void
@@ -70,10 +78,10 @@ class ProjectManager extends Component
         $this->validate();
 
         $data = [
-            'title'        => $this->title,
-            'description'  => $this->description ?: null,
-            'live_url'     => $this->live_url ?: null,
-            'github_url'   => $this->github_url ?: null,
+            'title' => $this->title,
+            'description' => $this->description ?: null,
+            'live_url' => $this->live_url ?: null,
+            'github_url' => $this->github_url ?: null,
             'technologies' => $this->technologies ?: null,
             'is_published' => $this->is_published,
         ];

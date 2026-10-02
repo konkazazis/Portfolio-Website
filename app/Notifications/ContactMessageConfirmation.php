@@ -8,9 +8,7 @@ use Illuminate\Notifications\Notification;
 
 class ContactMessageConfirmation extends Notification
 {
-    public function __construct(public ContactMessage $contactMessage)
-    {
-    }
+    public function __construct(public ContactMessage $contactMessage) {}
 
     public function via(object $notifiable): array
     {

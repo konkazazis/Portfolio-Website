@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-
-use App\Models\Post;
 use App\Models\Category;
+use App\Models\Post;
+
 class HomeController extends Controller
 {
     public function index()
@@ -14,10 +14,10 @@ class HomeController extends Controller
 
         $posts = Post::published()
             ->with(['user', 'category', 'tags'])
-            ->when($categorySlug, fn($q) => $q->whereHas('category', fn($q) => $q->where('slug', $categorySlug)))
+            ->when($categorySlug, fn ($q) => $q->whereHas('category', fn ($q) => $q->where('slug', $categorySlug)))
             ->when($search, function ($q) use ($search) {
-                $term = '%' . strtolower($search) . '%';
-                $q->where(fn($q) => $q
+                $term = '%'.strtolower($search).'%';
+                $q->where(fn ($q) => $q
                     ->whereRaw('LOWER(title) LIKE ?', [$term])
                     ->orWhereRaw('LOWER(excerpt) LIKE ?', [$term])
                     ->orWhereRaw('LOWER(content) LIKE ?', [$term])
@@ -27,7 +27,7 @@ class HomeController extends Controller
             ->paginate(10)
             ->withQueryString();
 
-        $categories = Category::whereHas('posts', fn($q) => $q->published())
+        $categories = Category::whereHas('posts', fn ($q) => $q->published())
             ->orderBy('name')
             ->get();
 
@@ -36,5 +36,3 @@ class HomeController extends Controller
         return view('home', compact('posts', 'categories', 'activeCategory', 'search'));
     }
 }
-
-?>

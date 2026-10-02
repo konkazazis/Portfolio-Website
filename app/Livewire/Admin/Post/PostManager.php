@@ -16,17 +16,25 @@ class PostManager extends Component
 {
     use WithFileUploads, WithPagination;
 
-    public string $search      = '';
+    public string $search = '';
+
     public string $filterStatus = '';
 
-    public string $mode        = 'list'; // list | create | edit
-    public ?int   $editingId   = null;
-    public string $title       = '';
-    public string $excerpt     = '';
-    public string $content     = '';
-    public string $status      = 'draft';
-    public ?int   $category_id = null;
-    public array  $selectedTags = [];
+    public string $mode = 'list'; // list | create | edit
+
+    public ?int $editingId = null;
+
+    public string $title = '';
+
+    public string $excerpt = '';
+
+    public string $content = '';
+
+    public string $status = 'draft';
+
+    public ?int $category_id = null;
+
+    public array $selectedTags = [];
 
     public ?int $deletingId = null;
 
@@ -56,11 +64,11 @@ class PostManager extends Component
     protected function rules(): array
     {
         return [
-            'title'        => ['required', 'string', 'max:200'],
-            'excerpt'      => ['nullable', 'string', 'max:500'],
-            'content'      => ['required', 'string'],
-            'status'       => ['required', 'in:draft,published'],
-            'category_id'  => ['nullable', 'exists:categories,id'],
+            'title' => ['required', 'string', 'max:200'],
+            'excerpt' => ['nullable', 'string', 'max:500'],
+            'content' => ['required', 'string'],
+            'status' => ['required', 'in:draft,published'],
+            'category_id' => ['nullable', 'exists:categories,id'],
             'selectedTags' => ['array'],
         ];
     }
@@ -74,7 +82,7 @@ class PostManager extends Component
     {
         $this->reset(['editingId', 'title', 'excerpt', 'content', 'category_id', 'selectedTags']);
         $this->status = 'draft';
-        $this->mode   = 'create';
+        $this->mode = 'create';
         $this->dispatch('post-loaded', content: '');
     }
 
@@ -82,14 +90,14 @@ class PostManager extends Component
     {
         $post = Post::with('tags')->findOrFail($id);
 
-        $this->editingId    = $post->id;
-        $this->title        = $post->title;
-        $this->excerpt      = $post->excerpt ?? '';
-        $this->content      = $post->content;
-        $this->status       = $post->status;
-        $this->category_id  = $post->category_id;
+        $this->editingId = $post->id;
+        $this->title = $post->title;
+        $this->excerpt = $post->excerpt ?? '';
+        $this->content = $post->content;
+        $this->status = $post->status;
+        $this->category_id = $post->category_id;
         $this->selectedTags = $post->tags->pluck('id')->toArray();
-        $this->mode         = 'edit';
+        $this->mode = 'edit';
         $this->dispatch('post-loaded', content: $post->content);
     }
 
@@ -105,7 +113,7 @@ class PostManager extends Component
     {
         $this->reset(['editingId', 'title', 'excerpt', 'content', 'category_id', 'selectedTags']);
         $this->status = 'draft';
-        $this->mode   = 'list';
+        $this->mode = 'list';
     }
 
     public function save(): void
@@ -113,16 +121,16 @@ class PostManager extends Component
         $this->validate();
 
         $data = [
-            'title'        => $this->title,
-            'slug'         => $this->editingId
+            'title' => $this->title,
+            'slug' => $this->editingId
                 ? Post::find($this->editingId)->slug
                 : Post::generateSlug($this->title),
-            'excerpt'      => $this->excerpt ?: null,
-            'content'      => $this->content,
-            'status'       => $this->status,
-            'category_id'  => $this->category_id ?: null,
+            'excerpt' => $this->excerpt ?: null,
+            'content' => $this->content,
+            'status' => $this->status,
+            'category_id' => $this->category_id ?: null,
             'published_at' => $this->status === 'published' ? now() : null,
-            'user_id'      => auth()->id(),
+            'user_id' => auth()->id(),
         ];
 
         if ($this->editingId) {
@@ -136,7 +144,7 @@ class PostManager extends Component
 
         $this->reset(['editingId', 'title', 'excerpt', 'content', 'category_id', 'selectedTags']);
         $this->status = 'draft';
-        $this->mode   = 'list';
+        $this->mode = 'list';
     }
 
     public function confirmDelete(int $id): void
@@ -166,8 +174,8 @@ class PostManager extends Component
             ->latest()
             ->paginate(15);
 
-        $categories  = Category::orderBy('name')->get();
-        $tags        = Tag::orderBy('name')->get();
+        $categories = Category::orderBy('name')->get();
+        $tags = Tag::orderBy('name')->get();
         $recentPosts = Post::latest()->limit(40)->get(['id', 'title', 'status']);
 
         return view('livewire.admin.post.post-manager', compact('posts', 'categories', 'tags', 'recentPosts'))

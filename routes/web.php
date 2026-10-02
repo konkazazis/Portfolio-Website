@@ -1,21 +1,21 @@
 <?php
 
 use App\Http\Controllers\AboutController;
-use App\Http\Controllers\LibraryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LegalController;
+use App\Http\Controllers\LibraryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RobotsController;
 use App\Http\Controllers\SitemapController;
+use App\Livewire\Admin\Category\CategoryManager;
+use App\Livewire\Admin\Contact\ContactManager;
 use App\Livewire\Admin\Dashboard as AdminDashboard;
+use App\Livewire\Admin\Post\PostManager;
+use App\Livewire\Admin\Project\ProjectManager;
+use App\Livewire\Admin\Settings\Appearance as SettingsAppearance;
 use App\Livewire\Admin\Settings\Profile as SettingsProfile;
 use App\Livewire\Admin\Settings\Security as SettingsSecurity;
-use App\Livewire\Admin\Settings\Appearance as SettingsAppearance;
-use App\Livewire\Admin\Post\PostManager;
-use App\Livewire\Admin\Category\CategoryManager;
 use App\Livewire\Admin\Tag\TagManager;
-use App\Livewire\Admin\Contact\ContactManager;
-use App\Livewire\Admin\Project\ProjectManager;
 use Illuminate\Support\Facades\Route;
 
 // ─── SEO ──────────────────────────────────────────────────────────────────────
@@ -31,7 +31,6 @@ Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/posts/{slug}', [PostController::class, 'show'])->name('posts.show');
 Route::get('/impressum', [LegalController::class, 'impressum'])->name('impressum');
 Route::get('/privacy', [LegalController::class, 'privacy'])->name('privacy');
-
 
 // Post-login redirect: admins go to CMS, everyone else to home
 Route::get('/dashboard', function () {
