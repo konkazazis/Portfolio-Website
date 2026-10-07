@@ -1,18 +1,39 @@
+@php
+    // [slug, label, brand colour]
+    $left = [
+        ['postgresql', 'PostgreSQL', '#4169E1'],
+        ['inertia', 'Inertia', '#9553E9'],
+        ['react', 'React', '#149ECA'],
+        ['proton', 'Proton', '#6D4AFF'],
+    ];
+    $right = [
+        ['railway', 'Railway', '#1C1917'],
+        ['cloudflare', 'Cloudflare', '#F38020'],
+        ['resend', 'Resend', '#1C1917'],
+        ['porkbun', 'Porkbun', '#EF7878'],
+    ];
+@endphp
+
 <section id="technologies" class="py-24 px-6 sm:px-8 bg-white border-t border-stone-300">
-    <div class="max-w-2xl mx-auto">
+    <div class="max-w-3xl mx-auto">
         <h2 class="font-serif text-5xl md:text-6xl font-bold text-stone-900 mb-20 text-center">
             Technologies
         </h2>
 
-        <div class="flex flex-col sm:flex-row gap-8 sm:gap-12 reveal">
-            <div class="flex flex-col items-center text-center sm:gap-0">
-                <i class="fa-brands fa-laravel colored text-5xl mb-4"></i>
-                <span class="font-bold text-stone-900 text-sm">Laravel</span>
-            </div>
-            <div class="border-t sm:border-t-0 sm:border-l-2 border-stone-400 pt-6 sm:pt-0 sm:pl-6">
-                <p>Laravel is a free and open-source PHP-based web framework for building web applications. It was created by Taylor Otwell and intended for the development of web applications following the model–view–controller (MVC) architectural pattern and based on Symfony. Some of the features of Laravel include modular packaging system with a dedicated dependency manager, different ways for accessing relational databases, 
-                    utilities that aid in application deployment and maintenance, and its orientation toward syntactic sugar.</p>
-            </div>
+        <div class="flex items-center justify-center gap-6 sm:gap-12 reveal">
+            <ul class="grid grid-cols-2 place-items-center gap-5 sm:gap-8">
+                @foreach ($left as $i => [$slug, $label, $color])
+                    <li><x-tech-logo :slug="$slug" :label="$label" :color="$color" :delay="$i" /></li>
+                @endforeach
+            </ul>
+
+            <x-tech-logo slug="laravel" label="Laravel" color="#FF2D20" :delay="4" size="size-20 sm:size-28" />
+
+            <ul class="grid grid-cols-2 place-items-center gap-5 sm:gap-8">
+                @foreach ($right as $i => [$slug, $label, $color])
+                    <li><x-tech-logo :slug="$slug" :label="$label" :color="$color" :delay="$i + 5" /></li>
+                @endforeach
+            </ul>
         </div>
     </div>
 </section>
