@@ -5,57 +5,50 @@
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div class="border-l-2 border-stone-400 pl-6 reveal transition-transform duration-300 hover:-translate-y-1">
-                <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">Custom Websites</h3>
-                <p class="text-stone-600 leading-relaxed font-light">
-                    Beautiful and custom websites, including blogs and an internal CMS. 
+            <article class="relative w-full max-w-[300px] -rotate-[2.5deg] rounded-[6px_18px_8px_22px] border-[3px] border-[#1C1B22] bg-[#FFE45C] px-[26px] pb-[30px] pt-11 font-['Bricolage_Grotesque'] text-[#1C1B22] shadow-[7px_7px_0_#1C1B22] reveal transition-transform duration-300 hover:-translate-y-1">
+                <div aria-hidden="true" class="absolute -top-4 left-1/2 h-[30px] w-24 -translate-x-1/2 -rotate-[4deg] border-[1.5px] border-[#1C1B22]/35 bg-white/75"></div>
+                <h3 class="mb-2 font-serif text-[26px] font-normal leading-tight">Custom Websites</h3>
+                <p class="text-stone-600 leading-relaxed font-light">Beautiful and custom websites, including blogs and an internal CMS. 
                     Custom crafted code that allowes you to post and edit blogposts,
-                    read email or even create a gallery for your shots.
-                </p>
-            </div>
+                    read email or even create a gallery for your shots.</p>
+            </article>
 
-            <div class="border-l-2 border-stone-400 pl-6 reveal reveal-delay-1 transition-transform duration-300 hover:-translate-y-1">
-                <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">Mobile-Friendly Design</h3>
-                <p class="text-stone-600 leading-relaxed font-light">
-                    Your website works perfectly on phones, tablets, and computers. Visitors can reach you on any device.
-                </p>
-            </div>
-
-            <div class="border-l-2 border-stone-400 pl-6 reveal reveal-delay-2 transition-transform duration-300 hover:-translate-y-1">
-                <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">Secure & Protected</h3>
-                <p class="text-stone-600 leading-relaxed font-light">
-                    I follow the best practises to secure your website. 
+             <article class="relative w-full max-w-[300px] -rotate-[2.5deg] rounded-[6px_18px_8px_22px] border-[3px] border-[#1C1B22] bg-[#FF9EC7] px-[26px] pb-[30px] pt-11 font-['Bricolage_Grotesque'] text-[#1C1B22] shadow-[7px_7px_0_#1C1B22] reveal transition-transform duration-300 hover:-translate-y-1">
+                <div aria-hidden="true" class="absolute -top-4 left-1/2 h-[30px] w-24 -translate-x-1/2 -rotate-[4deg] border-[1.5px] border-[#1C1B22]/35 bg-white/75"></div>
+                <h3 class="mb-2 font-serif text-[26px] font-normal leading-tight">Secure & Protected</h3>
+                <p class="text-stone-600 leading-relaxed font-light"> I follow the best practises to secure your website. 
                     Login sessions that can identify if its really you who is logging in and 
-                    encryption over all passwords and sensitive data.
-                </p>
-            </div>
+                    encryption over all passwords and sensitive data.</p>
+            </article>
 
-             <div class="border-l-2 border-stone-400 pl-6 reveal reveal-delay-3 transition-transform duration-300 hover:-translate-y-1">
-                <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">Performance in mind</h3>
-                <p class="text-stone-600 leading-relaxed font-light">
-                    The decision to make custom solutions for my clients comes from the need for total control
-                    over my code but also performance.
-                    Guarranted 100 scores across Google Lighthouse.
-                </p>
-            </div>
-
-             <div class="border-l-2 border-stone-400 pl-6 reveal reveal-delay-4 transition-transform duration-300 hover:-translate-y-1">
-                <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">Overall business support</h3>
-                <p class="text-stone-600 leading-relaxed font-light">
-                    As a fellow freelancer I will provide guidance for buisness domains handling
-                    and recommendations for hosting, email suites, office software and many more.
-                    
-                </p>
-            </div>
-
-             <div class="border-l-2 border-stone-400 pl-6 reveal reveal-delay-5 transition-transform duration-300 hover:-translate-y-1">
-                <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">Custom Enquires</h3>
-                <p class="text-stone-600 leading-relaxed font-light">
-                    Do you need something that my CMS doesn't contain?
+             <article class="relative w-full max-w-[300px] -rotate-[2.5deg] rounded-[6px_18px_8px_22px] border-[3px] border-[#1C1B22] bg-[#8EE3C8] px-[26px] pb-[30px] pt-11 font-['Bricolage_Grotesque'] text-[#1C1B22] shadow-[7px_7px_0_#1C1B22] reveal transition-transform duration-300 hover:-translate-y-1">
+                <div aria-hidden="true" class="absolute -top-4 left-1/2 h-[30px] w-24 -translate-x-1/2 -rotate-[4deg] border-[1.5px] border-[#1C1B22]/35 bg-white/75"></div>
+                <h3 class="mb-2 font-serif text-[26px] font-normal leading-tight">Custom Enquires</h3>
+                <p class="text-stone-600 leading-relaxed font-light">Do you need something that my CMS doesn't contain?
                     Always ready to take on special requests,
-                    so bring it on!
-                </p>
-            </div>
+                    so bring it on!</p>
+            </article>
+
+             <article class="relative w-full max-w-[300px] -rotate-[2.5deg] rounded-[6px_18px_8px_22px] border-[3px] border-[#1C1B22] bg-[#8EE3C8] px-[26px] pb-[30px] pt-11 font-['Bricolage_Grotesque'] text-[#1C1B22] shadow-[7px_7px_0_#1C1B22] reveal transition-transform duration-300 hover:-translate-y-1">
+                <div aria-hidden="true" class="absolute -top-4 left-1/2 h-[30px] w-24 -translate-x-1/2 -rotate-[4deg] border-[1.5px] border-[#1C1B22]/35 bg-white/75"></div>
+                <h3 class="mb-2 font-serif text-[26px] font-normal leading-tight">Overall business support</h3>
+                <p class="text-stone-600 leading-relaxed font-light">As a fellow freelancer I will provide guidance for buisness domains handling
+                    and recommendations for hosting, email suites, office software and many more.</p>
+            </article>
+
+             <article class="relative w-full max-w-[300px] -rotate-[2.5deg] rounded-[6px_18px_8px_22px] border-[3px] border-[#1C1B22] bg-[#FFE45C] px-[26px] pb-[30px] pt-11 font-['Bricolage_Grotesque'] text-[#1C1B22] shadow-[7px_7px_0_#1C1B22] reveal transition-transform duration-300 hover:-translate-y-1">
+                <div aria-hidden="true" class="absolute -top-4 left-1/2 h-[30px] w-24 -translate-x-1/2 -rotate-[4deg] border-[1.5px] border-[#1C1B22]/35 bg-white/75"></div>
+                <h3 class="mb-2 font-serif text-[26px] font-normal leading-tight">Performance in mind</h3>
+                <p class="text-stone-600 leading-relaxed font-light">The decision to make custom solutions for my clients comes from the need for total control
+                    over my code but also performance.
+                    Guarranted 100 scores across Google Lighthouse.</p>
+            </article>
+
+             <article class="relative w-full max-w-[300px] -rotate-[2.5deg] rounded-[6px_18px_8px_22px] border-[3px] border-[#1C1B22] bg-[#C7B8FF] px-[26px] pb-[30px] pt-11 font-['Bricolage_Grotesque'] text-[#1C1B22] shadow-[7px_7px_0_#1C1B22] reveal transition-transform duration-300 hover:-translate-y-1">
+                <div aria-hidden="true" class="absolute -top-4 left-1/2 h-[30px] w-24 -translate-x-1/2 -rotate-[4deg] border-[1.5px] border-[#1C1B22]/35 bg-white/75"></div>
+                <h3 class="mb-2 font-serif text-[26px] font-normal leading-tight">Mobile-Friendly Design</h3>
+                <p class="text-stone-600 leading-relaxed font-light">Your website works perfectly on phones, tablets, and computers. Visitors can reach you on any device.</p>
+            </article>   
         </div>
 
         <div class="text-center mt-16">

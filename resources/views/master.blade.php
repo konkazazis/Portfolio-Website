@@ -288,7 +288,7 @@
                 </div>
             </div>
 
-            <div class="flex-1 min-w-0 w-full max-w-370 mx-auto">
+            <div class="flex-1 min-w-0 w-full mx-auto">
                 @yield("content")
             </div>
             
