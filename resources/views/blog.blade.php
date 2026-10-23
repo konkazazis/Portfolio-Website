@@ -51,7 +51,7 @@
 
 @section('content')
     <section class="py-24 px-6 sm:px-8 bg-stone-50">
-        <div class="mx-auto flex flex-col">
+        <div class="max-w-5xl mx-auto flex flex-col">
             <div class="mb-10">
                 <div class="md:flex md:items-end md:justify-between gap-6 mb-4">
                     <div>
@@ -66,7 +66,7 @@
                         @endif
                         <div class="relative">
                             <input type="search" name="search" value="{{ $search }}" placeholder="Search posts..."
-                                class="w-72 rounded-full border border-stone-200 bg-white px-4 py-3 pr-10 text-sm text-stone-700 placeholder-stone-400 focus:outline-none focus:border-stone-400 transition-colors">
+                                class="w-full md:w-72 rounded-full border border-stone-200 bg-white px-4 py-3 pr-10 text-sm text-stone-700 placeholder-stone-400 focus:outline-none focus:border-stone-400 transition-colors">
                             <button type="submit" aria-label="Search posts"
                                 class="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600 transition-colors">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
@@ -118,10 +118,10 @@
                                         </p>
                                     </div>
                                     @if($post->user?->is_admin)
-                                        <div class="mt-4 md:mt-0 flex items-center gap-3">
+                                        <div class="mt-4 md:mt-0 flex shrink-0 items-center gap-3">
                                             <img src="https://images.kazazis.dev/profile-pic.png" alt="Kostas"
                                                 loading="lazy"
-                                                class="w-10 h-10 rounded-full object-cover bg-stone-100">
+                                                class="w-10 h-10 shrink-0 rounded-full object-cover bg-stone-100">
                                             <div class="text-xs text-stone-500 uppercase tracking-[0.25em] font-semibold">Kostas</div>
                                         </div>
                                     @endif

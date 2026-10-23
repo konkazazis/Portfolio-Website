@@ -94,10 +94,11 @@
                         @foreach ($navLinks as [$label, $href, $pattern])
                             <a
                                 href="{{ $href }}"
-                                class="transition-colors {{ request()->routeIs($pattern) ? "text-stone-900" : "hover:text-stone-900" }}"
+                                class="group relative inline-block transition-colors {{ request()->routeIs($pattern) ? "text-stone-900" : "hover:text-stone-900" }}"
                                 @if (request()->routeIs($pattern)) aria-current="page" @endif
                             >
-                                {{ $label }}
+                                <span class="relative z-10">{{ $label }}</span>
+                                <span aria-hidden="true" class="absolute left-0 right-[0.25em] bottom-0 h-2 -rotate-1 bg-[#FFE45C] origin-left transition-transform duration-300 {{ request()->routeIs($pattern) ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100" }}"></span>
                             </a>
                         @endforeach
                     </nav>
@@ -107,22 +108,31 @@
                     >
                         @auth
                             @if (auth()->user()->is_admin)
+                                @php
+                                    $userInitials = collect(preg_split('/\s+/', trim(auth()->user()->username ?? 'Admin')))
+                                        ->map(fn ($part) => mb_strtoupper(mb_substr($part, 0, 1)))
+                                        ->take(2)
+                                        ->join('');
+                                @endphp
                                 <button
                                     type="button"
                                     id="dropdown-button"
-                                    class="hidden sm:inline-flex items-center gap-1 rounded-full px-1.5 py-1.5 text-sm font-medium text-stone-600 hover:bg-stone-100 transition-colors focus:outline-none"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                    aria-controls="dropdown-menu"
+                                    aria-label="Account menu"
+                                    class="hidden sm:inline-flex items-center gap-1.5 rounded-full border-[2.5px] border-[#1C1B22] bg-white py-1 pl-1 pr-2.5 text-[#1C1B22] shadow-[3px_3px_0_#1C1B22] transition hover:-translate-y-0.5 active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0_#1C1B22] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#1C1B22]/20"
                                 >
-                                    <span
-                                        class="flex items-center justify-center w-9 h-9 rounded-full bg-stone-100 text-stone-500 text-lg"
-                                    >
-                                        <i class="fa-solid fa-user"></i>
+                                    <span class="grid h-8 w-8 place-items-center rounded-full border-2 border-[#1C1B22] bg-[#FFE45C] text-xs font-bold">
+                                        {{ $userInitials }}
                                     </span>
                                     <svg
-                                        class="mr-1 h-4 w-4 text-stone-400 transition-transform duration-200"
+                                        class="h-4 w-4 transition-transform duration-200"
                                         id="dropdown-arrow"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 20 20"
                                         fill="currentColor"
+                                        aria-hidden="true"
                                     >
                                         <path
                                             fill-rule="evenodd"
@@ -133,35 +143,44 @@
                                 </button>
                                 <div
                                     id="dropdown-menu"
-                                    class="origin-top-right absolute right-0 mt-2 w-52 rounded-lg shadow-lg bg-white ring-1 ring-stone-200 focus:outline-none hidden overflow-hidden"
+                                    class="origin-top-right absolute right-0 mt-3 w-60 rounded-[6px_18px_8px_22px] border-[3px] border-[#1C1B22] bg-white shadow-[6px_6px_0_#1C1B22] focus:outline-none hidden overflow-hidden"
                                 >
-                                    <div class="px-4 py-3 border-b border-stone-100">
-                                        <p class="text-sm font-medium text-stone-800 truncate">{{ auth()->user()->username }}</p>
-                                        <p class="text-sm text-stone-500 truncate">{{ auth()->user()->email }}</p>
+                                    <div class="flex items-center gap-3 border-b-2 border-dashed border-stone-200 bg-stone-50 px-4 py-4">
+                                        <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full border-2 border-[#1C1B22] bg-[#FFE45C] text-sm font-bold text-[#1C1B22]">
+                                            {{ $userInitials }}
+                                        </span>
+                                        <div class="min-w-0">
+                                            <p class="truncate font-serif text-lg leading-tight text-[#1C1B22]">{{ auth()->user()->username }}</p>
+                                            <p class="truncate text-xs text-stone-500">{{ auth()->user()->email }}</p>
+                                        </div>
                                     </div>
-                                    <div class="py-1">
+                                    <div class="p-2">
                                         <a
                                             href="{{ route("admin.dashboard") }}"
-                                            class="flex items-center gap-2.5 px-4 py-2.5 text-sm text-stone-700 hover:bg-stone-50 hover:text-stone-900 transition-colors"
+                                            class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold text-[#1C1B22] transition-colors hover:bg-[#FFE45C]"
                                         >
-                                            <i
-                                                class="fa-solid fa-gauge w-4 text-stone-400"
-                                            ></i>
+                                            <i class="fa-solid fa-gauge w-4 text-center" aria-hidden="true"></i>
                                             Admin Panel
+                                        </a>
+                                        <a
+                                            href="{{ route("admin.posts.index") }}"
+                                            class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold text-[#1C1B22] transition-colors hover:bg-[#8EE3C8]"
+                                        >
+                                            <i class="fa-solid fa-pen-nib w-4 text-center" aria-hidden="true"></i>
+                                            Write a post
                                         </a>
 
                                         <form
                                             method="POST"
                                             action="{{ route("logout") }}"
+                                            class="mt-1 border-t-2 border-dashed border-stone-200 pt-1"
                                         >
                                             @csrf
                                             <button
                                                 type="submit"
-                                                class="flex items-center gap-2.5 w-full text-left px-4 py-2.5 text-sm text-stone-700 hover:bg-stone-50 hover:text-stone-900 border-t border-stone-100 transition-colors"
+                                                class="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm font-semibold text-[#1C1B22] transition-colors hover:bg-[#FF9EC7]"
                                             >
-                                                <i
-                                                    class="fa-solid fa-arrow-right-from-bracket w-4 text-stone-400"
-                                                ></i>
+                                                <i class="fa-solid fa-arrow-right-from-bracket w-4 text-center" aria-hidden="true"></i>
                                                 Logout
                                             </button>
                                         </form>
@@ -199,7 +218,12 @@
                             class="py-3 border-b border-stone-100 transition-colors {{ request()->routeIs($pattern) ? "text-stone-900" : "hover:text-stone-900" }}"
                             @if (request()->routeIs($pattern)) aria-current="page" @endif
                         >
-                            {{ $label }}
+                            <span class="relative inline-block">
+                                <span class="relative z-10">{{ $label }}</span>
+                                @if (request()->routeIs($pattern))
+                                    <span aria-hidden="true" class="absolute -inset-x-0.5 bottom-0 h-2 -rotate-1 bg-[#FFE45C]"></span>
+                                @endif
+                            </span>
                         </a>
                     @endforeach
                     @auth
@@ -335,13 +359,9 @@
                         e.stopPropagation(); // Prevent click from bubbling to document
                         const isHidden = menu.classList.contains('hidden');
 
-                        if (isHidden) {
-                            menu.classList.remove('hidden');
-                            arrow.classList.add('rotate-180');
-                        } else {
-                            menu.classList.add('hidden');
-                            arrow.classList.remove('rotate-180');
-                        }
+                        menu.classList.toggle('hidden', !isHidden);
+                        arrow.classList.toggle('rotate-180', isHidden);
+                        button.setAttribute('aria-expanded', String(isHidden));
                     });
 
                     // Close when clicking outside
@@ -349,6 +369,7 @@
                         if (!container.contains(e.target)) {
                             menu.classList.add('hidden');
                             arrow.classList.remove('rotate-180');
+                            button.setAttribute('aria-expanded', 'false');
                         }
                     });
                 }
