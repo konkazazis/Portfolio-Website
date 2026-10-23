@@ -39,4 +39,9 @@ return [
         'site_verification' => env('GOOGLE_SITE_VERIFICATION'),
     ],
 
+    'booking' => [
+        // Public scheduling link (Cal.com, Calendly…) shown on the contact page
+        'url' => env('BOOKING_URL'),
+    ],
+
 ];

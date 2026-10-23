@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LegalController;
 use App\Http\Controllers\LibraryController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\RobotsController;
 use App\Http\Controllers\SitemapController;
 use App\Livewire\Admin\Category\CategoryManager;
@@ -26,8 +29,13 @@ Route::get('/robots.txt', [RobotsController::class, 'index'])->name('robots');
 // ─── Public Routes ────────────────────────────────────────────────────────────
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/library', [LibraryController::class, 'index'])->name('library');
+Route::get('/library/{slug}', [LibraryController::class, 'show'])->name('library.show');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::get('/work', [ProjectController::class, 'index'])->name('work');
+Route::get('/work/{slug}', [ProjectController::class, 'show'])->name('work.show');
 Route::get('/posts/{slug}', [PostController::class, 'show'])->name('posts.show');
 Route::get('/impressum', [LegalController::class, 'impressum'])->name('impressum');
 Route::get('/privacy', [LegalController::class, 'privacy'])->name('privacy');

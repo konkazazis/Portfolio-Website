@@ -141,6 +141,53 @@
                     </div>
                 </div>
 
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-zinc-600 dark:text-zinc-300 mb-1.5 uppercase tracking-wide">Client</label>
+                        <input type="text" wire:model="client" placeholder="Acme GmbH"
+                               class="w-full border border-zinc-200 dark:border-zinc-700 rounded-lg px-3 py-2 text-sm bg-white dark:bg-zinc-800 text-zinc-800 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-900">
+                        @error('client') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-zinc-600 dark:text-zinc-300 mb-1.5 uppercase tracking-wide">Year</label>
+                        <input type="text" wire:model="year" placeholder="2026"
+                               class="w-full border border-zinc-200 dark:border-zinc-700 rounded-lg px-3 py-2 text-sm bg-white dark:bg-zinc-800 text-zinc-800 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-900">
+                        @error('year') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-zinc-600 dark:text-zinc-300 mb-1.5 uppercase tracking-wide">Role</label>
+                        <input type="text" wire:model="role" placeholder="Design & development"
+                               class="w-full border border-zinc-200 dark:border-zinc-700 rounded-lg px-3 py-2 text-sm bg-white dark:bg-zinc-800 text-zinc-800 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-900">
+                        @error('role') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
+                    </div>
+                </div>
+
+                <div class="pt-2 border-t border-zinc-100 dark:border-zinc-800">
+                    <p class="text-sm font-semibold text-zinc-800 dark:text-zinc-100">Case study</p>
+                    <p class="text-xs text-zinc-500 mt-0.5">Shown on the project page. Leave a blank line between paragraphs.</p>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-zinc-600 dark:text-zinc-300 mb-1.5 uppercase tracking-wide">The challenge</label>
+                    <textarea wire:model="challenge" rows="5" placeholder="What problem did the client have? What were the goals?"
+                              class="w-full border border-zinc-200 dark:border-zinc-700 rounded-lg px-3 py-2 text-sm bg-white dark:bg-zinc-800 text-zinc-800 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-900 resize-y"></textarea>
+                    @error('challenge') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-zinc-600 dark:text-zinc-300 mb-1.5 uppercase tracking-wide">The approach</label>
+                    <textarea wire:model="solution" rows="5" placeholder="How did you solve it? Key decisions, features, design choices…"
+                              class="w-full border border-zinc-200 dark:border-zinc-700 rounded-lg px-3 py-2 text-sm bg-white dark:bg-zinc-800 text-zinc-800 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-900 resize-y"></textarea>
+                    @error('solution') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-zinc-600 dark:text-zinc-300 mb-1.5 uppercase tracking-wide">The outcome</label>
+                    <textarea wire:model="outcome" rows="5" placeholder="Results: launch, performance scores, client feedback, numbers…"
+                              class="w-full border border-zinc-200 dark:border-zinc-700 rounded-lg px-3 py-2 text-sm bg-white dark:bg-zinc-800 text-zinc-800 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-900 resize-y"></textarea>
+                    @error('outcome') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
+                </div>
+
                 <div>
                     <label class="block text-xs font-semibold text-zinc-600 dark:text-zinc-300 mb-1.5 uppercase tracking-wide">Cover Image</label>
                     <input type="file" wire:model="cover" accept="image/*"

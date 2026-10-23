@@ -22,5 +22,7 @@ class DatabaseSeeder extends Seeder
             'password' => password_hash(123456789, PASSWORD_BCRYPT),
             'is_admin' => true,
         ]);
+
+        $this->call(ProjectSeeder::class);
     }
 }

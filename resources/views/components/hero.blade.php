@@ -1,52 +1,67 @@
-<section id="home" class="pt-26 pb-32 px-6 sm:px-8 bg-white">
-    <div class="max-w-3xl mx-auto flex flex-col lg:flex-row lg:gap-12">
-        <div class="flex-col justify-between reveal">
-            <h1 class="font-serif text-6xl md:text-7xl font-bold text-stone-900 mb-6 leading-tight">Kostas Kazazis</h1>
-            <p class="text-2xl md:text-3xl text-stone-700 mb-4 font-light">Full-Stack Web Developer</p>
-            <p class="text-lg text-stone-600 leading-relaxed mb-8 font-light">
-                Every freelancer needs a website. Crafting clean, reliable and custom sites that get your name out
-                there. My support, in your journey. Based in Düsseldorf.
+@php
+    $highlights = [
+        ['55+', 'Coffee cups/month'],
+        ['Eventually', 'Typical reply time'],
+        ['All', 'Happy customers'],
+    ];
+@endphp
+
+<section id="home" class="pt-20 pb-24 md:pt-28 md:pb-32 px-6 sm:px-8 bg-white overflow-hidden">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-16 items-center">
+        <div>
+            <h1 class="mt-7 font-serif text-5xl sm:text-6xl md:text-7xl font-bold text-stone-900 leading-[1.05] reveal">
+                Websites that get your name
+                <span class="relative inline-block">
+                    <span class="relative z-10">out there.</span>
+                    <span aria-hidden="true" class="absolute inset-x-0 bottom-1 h-4 md:h-5 -rotate-1 bg-[#FFE45C] -z-0"></span>
+                </span>
+            </h1>
+
+            <p class="mt-7 text-lg md:text-xl text-stone-600 leading-relaxed font-light max-w-[46ch] reveal reveal-delay-1">
+                I design and build fast, custom websites with a simple CMS behind them, so freelancers and
+                small businesses can look professional and update their site themselves.
             </p>
+
+            <div class="mt-10 flex flex-wrap items-center gap-4 reveal reveal-delay-2">
+                <a href="{{ route('contact') }}"
+                   class="inline-flex items-center gap-2 rounded-[6px_14px_6px_16px] border-[2.5px] border-[#1C1B22] bg-[#FFE45C] px-7 py-3 text-sm font-semibold tracking-wide text-[#1C1B22] shadow-[5px_5px_0_#1C1B22] transition-transform hover:-translate-y-0.5">
+                    START A PROJECT <span aria-hidden="true">&rarr;</span>
+                </a>
+                <a href="{{ route('work') }}"
+                   class="inline-flex items-center gap-2 rounded-[6px_14px_6px_16px] border-[2.5px] border-[#1C1B22] bg-white px-7 py-3 text-sm font-semibold tracking-wide text-[#1C1B22] shadow-[5px_5px_0_#1C1B22] transition-transform hover:-translate-y-0.5">
+                    SEE MY WORK
+                </a>
+            </div>
+
+            <dl class="mt-14 grid grid-cols-3 gap-6 max-w-lg border-t border-stone-200 pt-8 reveal reveal-delay-3">
+                @foreach($highlights as [$value, $label])
+                    <div>
+                        <dt class="sr-only">{{ $label }}</dt>
+                        <dd class="font-serif text-3xl text-stone-900">{{ $value }}</dd>
+                        <dd class="mt-1 text-xs uppercase tracking-[0.15em] text-stone-500">{{ $label }}</dd>
+                    </div>
+                @endforeach
+            </dl>
         </div>
 
-        <div class="pb-12 flex-shrink-0 reveal reveal-delay-2">
-            <div class="relative mx-auto mb-10 flex w-fit items-center justify-center">
-                <img src="{{ asset('images/blob.svg') }}" alt="" aria-hidden="true"
-                    class="absolute w-[125%] max-w-none rotate-12" />
-                <img src="https://images.kazazis.dev/profile-pic.png" alt="Kostas Kazazis" class="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-82 lg:h-82 rounded-full object-cover
-                        bg-white border-4 border-[#1C1B22]
-                        rotate-[4deg] shadow-[7px_7px_0_#1C1B22] sm:shadow-[10px_10px_0_#1C1B22]
-                        transition-transform duration-500 hover:scale-105 hover:rotate-0" />
-            </div>
+        <div class="relative mx-auto w-fit reveal reveal-delay-2">
+            <img src="{{ asset('images/blob.svg') }}" alt="" aria-hidden="true"
+                 class="absolute inset-0 w-[125%] max-w-none -translate-x-[10%] -translate-y-[8%] rotate-12" />
+            <img src="https://images.kazazis.dev/profile-pic.png" alt="Kostas Kazazis"
+                 class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full object-cover bg-white border-4 border-[#1C1B22] rotate-[4deg] shadow-[10px_10px_0_#1C1B22] transition-transform duration-500 hover:rotate-0" />
 
-            <div class="flex justify-center gap-8 mb-12">
+            <span class="absolute -bottom-2 -left-6 -rotate-6 rounded-[6px_14px_6px_16px] border-[2.5px] border-[#1C1B22] bg-[#8EE3C8] px-4 py-2 text-sm font-semibold text-[#1C1B22] shadow-[4px_4px_0_#1C1B22]">
+                Based in Düsseldorf
+            </span>
+
+            <div class="absolute -top-4 -right-4 flex gap-2">
                 <a href="https://github.com/konkazazis" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
-                    class="text-stone-600 hover:text-stone-900 transition text-xl">
+                   class="w-11 h-11 grid place-items-center rounded-full border-[2.5px] border-[#1C1B22] bg-white text-[#1C1B22] shadow-[3px_3px_0_#1C1B22] transition-transform hover:-translate-y-0.5">
                     <i class="fa-brands fa-github"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/konstantinos-kazazis-32a470228/" target="_blank"
-                    rel="noopener noreferrer" aria-label="LinkedIn"
-                    class="text-stone-600 hover:text-stone-900 transition text-xl">
+                <a href="https://www.linkedin.com/in/konstantinos-kazazis-32a470228/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+                   class="w-11 h-11 grid place-items-center rounded-full border-[2.5px] border-[#1C1B22] bg-white text-[#1C1B22] shadow-[3px_3px_0_#1C1B22] transition-transform hover:-translate-y-0.5">
                     <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="{{ route("home") }}" aria-label="Home"
-                    class="text-stone-600 hover:text-stone-900 transition text-xl">
-                    <i class="fa fa-pencil"></i>
-                </a>
-            </div>
-
-            <div class="text-center">
-                <a href="#work"
-                    class="smoothScroll group relative inline-block px-10 py-4 text-sm font-medium tracking-wide text-stone-900">
-                    <svg class="absolute inset-0 h-full w-full" viewBox="-4 -4 236.202 68.763"
-                        preserveAspectRatio="none" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M4.4185791015625,0L182.46749877929688,4.662353515625C207.77005004882812,5.324951171875,228.24594116210938,7.2315673828125,228.20175170898438,8.921142578125L228.04177856445312,15.029052734375C227.37924194335938,40.33154296875,225.47256469726562,60.807373046875,223.78317260742188,60.76318359375L51.84210205078125,56.2607421875C23.166259765625,55.509765625,-0.04425048828125,53.5316162109375,0,51.842041015625L0,51.842041015625C0.360595703125,38.071533203125,1.0286865234375,24.873291015625,1.857330322265625,15.151123046875C2.686004638671875,5.4288330078125,3.6072998046875,-0.021240234375,4.4185791015625,0Z"
-                            fill="#fff" stroke="#1C1B22" stroke-width="3" stroke-dasharray="7 5"
-                            vector-effect="non-scaling-stroke" class="transition group-hover:fill-stone-50" />
-                    </svg>
-
-                    <span class="relative inline-block rotate-[2.3deg] translate-y-px">EXPLORE WORK</span>
                 </a>
             </div>
         </div>

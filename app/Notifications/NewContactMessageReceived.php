@@ -17,11 +17,19 @@ class NewContactMessageReceived extends Notification
 
     public function toMail(object $notifiable): MailMessage
     {
-        return (new MailMessage)
+        $mail = (new MailMessage)
             ->subject('New contact message: '.$this->contactMessage->subject)
             ->greeting('New message from '.$this->contactMessage->name)
             ->line('Email: '.$this->contactMessage->email)
-            ->line('Subject: '.$this->contactMessage->subject)
+            ->line('Subject: '.$this->contactMessage->subject);
+
+        foreach (['Project type' => 'project_type', 'Timeline' => 'timeline'] as $label => $field) {
+            if ($this->contactMessage->{$field}) {
+                $mail->line($label.': '.$this->contactMessage->{$field});
+            }
+        }
+
+        return $mail
             ->line($this->contactMessage->message)
             ->action('View in admin panel', route('admin.messages.index'));
     }

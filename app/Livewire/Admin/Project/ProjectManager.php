@@ -28,6 +28,18 @@ class ProjectManager extends Component
 
     public string $technologies = '';
 
+    public string $client = '';
+
+    public string $year = '';
+
+    public string $role = '';
+
+    public string $challenge = '';
+
+    public string $solution = '';
+
+    public string $outcome = '';
+
     public bool $is_published = false;
 
     public $cover = null;
@@ -42,6 +54,12 @@ class ProjectManager extends Component
             'live_url' => ['nullable', 'url', 'max:500'],
             'github_url' => ['nullable', 'url', 'max:500'],
             'technologies' => ['nullable', 'string', 'max:500'],
+            'client' => ['nullable', 'string', 'max:200'],
+            'year' => ['nullable', 'string', 'max:20'],
+            'role' => ['nullable', 'string', 'max:200'],
+            'challenge' => ['nullable', 'string', 'max:10000'],
+            'solution' => ['nullable', 'string', 'max:10000'],
+            'outcome' => ['nullable', 'string', 'max:10000'],
             'is_published' => ['boolean'],
             'cover' => ['nullable', 'image', 'max:10240'],
         ];
@@ -54,7 +72,7 @@ class ProjectManager extends Component
 
     public function openCreate(): void
     {
-        $this->reset(['editingId', 'title', 'description', 'live_url', 'github_url', 'technologies', 'is_published', 'cover']);
+        $this->reset(['editingId', 'title', 'description', 'live_url', 'github_url', 'technologies', 'client', 'year', 'role', 'challenge', 'solution', 'outcome', 'is_published', 'cover']);
         $this->showModal = true;
     }
 
@@ -68,6 +86,12 @@ class ProjectManager extends Component
         $this->live_url = $project->live_url ?? '';
         $this->github_url = $project->github_url ?? '';
         $this->technologies = $project->technologies ?? '';
+        $this->client = $project->client ?? '';
+        $this->year = $project->year ?? '';
+        $this->role = $project->role ?? '';
+        $this->challenge = $project->challenge ?? '';
+        $this->solution = $project->solution ?? '';
+        $this->outcome = $project->outcome ?? '';
         $this->is_published = $project->is_published;
         $this->cover = null;
         $this->showModal = true;
@@ -83,6 +107,12 @@ class ProjectManager extends Component
             'live_url' => $this->live_url ?: null,
             'github_url' => $this->github_url ?: null,
             'technologies' => $this->technologies ?: null,
+            'client' => $this->client ?: null,
+            'year' => $this->year ?: null,
+            'role' => $this->role ?: null,
+            'challenge' => $this->challenge ?: null,
+            'solution' => $this->solution ?: null,
+            'outcome' => $this->outcome ?: null,
             'is_published' => $this->is_published,
         ];
 
@@ -107,7 +137,7 @@ class ProjectManager extends Component
         }
 
         $this->showModal = false;
-        $this->reset(['editingId', 'title', 'description', 'live_url', 'github_url', 'technologies', 'is_published', 'cover']);
+        $this->reset(['editingId', 'title', 'description', 'live_url', 'github_url', 'technologies', 'client', 'year', 'role', 'challenge', 'solution', 'outcome', 'is_published', 'cover']);
     }
 
     public function confirmDelete(int $id): void

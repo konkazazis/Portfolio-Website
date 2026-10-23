@@ -67,42 +67,39 @@
         @vite(["resources/css/app.css", "resources/js/app.js"])
     </head>
 
-    <body class="{{ request()->routeIs('home') ? 'has-doodle-bg' : '' }}">
+    @php
+        $navLinks = [
+            ['Home', route('home'), 'home'],
+            ['Work', route('work'), 'work*'],
+            ['About', route('about'), 'about'],
+            ['Blog', route('blog'), 'blog'],
+            ['Library', route('library'), 'library*'],
+            ['Contact', route('contact'), 'contact'],
+        ];
+    @endphp
+
+    <body class="{{ request()->routeIs('blog') ? 'has-doodle-bg' : '' }}">
         <div class="min-h-screen flex flex-col">
             <header
                 class="sticky top-0 z-50 px-4 md:px-0 bg-white/95 backdrop-blur-sm border-b border-stone-200"
             >
                 <div class="max-w-7xl mx-auto h-20 flex items-center justify-between sm:grid sm:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]">
                     <div>
-                        <h1 class="pl-8 font-bold text-3xl">{{ auth()->user()->brand_name ?? config('app.brand_name') ?? 'Brand name' }}</h1>
+                        <a href="{{ route('home') }}" class="block pl-8 font-serif font-bold text-3xl">{{ auth()->user()->brand_name ?? config('app.brand_name') ?? 'Brand name' }}</a>
                     </div>
 
                     <nav
-                        class="hidden sm:flex justify-self-center gap-8 text-sm uppercase tracking-[0.35em] font-medium text-stone-600"
+                        class="hidden sm:flex justify-self-center gap-6 lg:gap-8 text-sm uppercase tracking-[0.25em] font-medium text-stone-600"
                     >
-                        <a
-                            href="{{ route("home") }}"
-                            class="transition-colors {{ request()->routeIs("home") ? "text-stone-900" : "hover:text-stone-900" }}"
-                        >
-                            Home
-                        </a>
-                        <a
-                            href="{{ route("about") }}"
-                            class="transition-colors {{ request()->routeIs("about") ? "text-stone-900" : "hover:text-stone-900" }}"
-                        >
-                            About
-                        </a>
-                         <a
-                            href="{{ route("library") }}"
-                            class="transition-colors {{ request()->routeIs("about") ? "text-stone-900" : "hover:text-stone-900" }}"
-                        >   Library                        
-                        </a>
-                        <a
-                            href="{{ route("home") }}#contact"
-                            class="transition-colors hover:text-stone-900"
-                        >
-                            Contact
-                        </a>
+                        @foreach ($navLinks as [$label, $href, $pattern])
+                            <a
+                                href="{{ $href }}"
+                                class="transition-colors {{ request()->routeIs($pattern) ? "text-stone-900" : "hover:text-stone-900" }}"
+                                @if (request()->routeIs($pattern)) aria-current="page" @endif
+                            >
+                                {{ $label }}
+                            </a>
+                        @endforeach
                     </nav>
                     <div
                         class="group relative inline-block justify-self-end text-left"
@@ -196,23 +193,15 @@
                     id="mobile-nav"
                     class="sm:hidden hidden flex-col gap-0 text-sm uppercase tracking-wide font-semibold border-t border-stone-200 px-6 pb-4 text-stone-700 bg-white"
                 >
-                    <a
-                        href="{{ route("home") }}"
-                        class="py-3 border-b border-stone-100 transition-colors {{ request()->routeIs("home") ? "text-stone-900" : "hover:text-stone-900" }}"
-                    >
-                        Home
-                    </a>
-                    <a
-                        href="{{ route("about") }}"
-                        class="py-3 border-b border-stone-100 transition-colors {{ request()->routeIs("about") ? "text-stone-900" : "hover:text-stone-900" }}"
-                    >
-                        About
-                    </a>
-                    <a
-                            href="{{ route("library") }}"
-                            class="transition-colors {{ request()->routeIs("about") ? "text-stone-900" : "hover:text-stone-900" }}"
-                        >   Library                        
-                    </a>
+                    @foreach ($navLinks as [$label, $href, $pattern])
+                        <a
+                            href="{{ $href }}"
+                            class="py-3 border-b border-stone-100 transition-colors {{ request()->routeIs($pattern) ? "text-stone-900" : "hover:text-stone-900" }}"
+                            @if (request()->routeIs($pattern)) aria-current="page" @endif
+                        >
+                            {{ $label }}
+                        </a>
+                    @endforeach
                     @auth
                         @if (auth()->user()->is_admin)
                             <a
@@ -224,24 +213,6 @@
                         @endif
                     @endauth
 
-                    <a
-                        href="{{ route("home") }}#contact"
-                        class="py-3 border-b border-stone-100 transition-colors hover:text-stone-900"
-                    >
-                        Contact
-                    </a>
-                    <a
-                        href="{{ route("impressum") }}"
-                        class="py-3 border-b border-stone-100 transition-colors hover:text-stone-900"
-                    >
-                        Impressum
-                    </a>
-                    <a
-                        href="{{ route("privacy") }}"
-                        class="py-3 border-b border-stone-100 transition-colors hover:text-stone-900"
-                    >
-                        Privacy
-                    </a>
                     @auth
                         <form method="POST" action="{{ route("logout") }}">
                             @csrf
@@ -291,6 +262,8 @@
             <div class="flex-1 min-w-0 w-full mx-auto">
                 @yield("content")
             </div>
+
+            <x-footer />
             
             @stack("scripts")
             <script>

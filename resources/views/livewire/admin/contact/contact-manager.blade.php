@@ -73,6 +73,17 @@
                         </div>
                     </div>
 
+                    @if($current->project_type || $current->timeline)
+                        <dl class="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-zinc-100 dark:border-zinc-800 py-4 text-sm">
+                            @foreach(['Project type' => $current->project_type, 'Timeline' => $current->timeline] as $label => $value)
+                                <div>
+                                    <dt class="text-xs font-semibold text-zinc-400 uppercase tracking-wide">{{ $label }}</dt>
+                                    <dd class="mt-1 text-zinc-700 dark:text-zinc-200">{{ $value ?? '—' }}</dd>
+                                </div>
+                            @endforeach
+                        </dl>
+                    @endif
+
                     <div class="prose prose-sm max-w-none text-zinc-600 dark:text-zinc-300 leading-relaxed border-t border-zinc-100 dark:border-zinc-800 pt-5">
                         {!! nl2br(e($current->message)) !!}
                     </div>
