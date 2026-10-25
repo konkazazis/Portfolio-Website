@@ -10,5 +10,10 @@
            class="mt-10 inline-block rounded-[6px_18px_8px_22px] border-[3px] border-white bg-[#FFE45C] px-8 py-3 text-sm font-semibold tracking-wide text-[#1C1B22] shadow-[6px_6px_0_#fff] transition-transform duration-300 hover:-translate-y-1">
             START A PROJECT
         </a>
+        <p class="mt-8 text-sm text-stone-400">
+            Still figuring it out?
+            <a href="{{ route('website-finder') }}" x-data x-on:click.prevent="$dispatch('open-website-finder')"
+               class="text-white underline decoration-[#FFE45C] decoration-2 underline-offset-4 hover:decoration-4">Try the free website finder</a>
+        </p>
     </div>
 </section>

@@ -20,6 +20,12 @@
     </url>
 
     <url>
+        <loc>{{ route('website-finder') }}</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
         <loc>{{ route('blog') }}</loc>
         <lastmod>{{ $latestPostDate->toAtomString() }}</lastmod>
         <changefreq>daily</changefreq>

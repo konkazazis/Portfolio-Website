@@ -288,7 +288,11 @@
             </div>
 
             <x-footer />
-            
+
+            @unless (request()->routeIs('website-finder'))
+                <x-website-finder-modal />
+            @endunless
+
             @stack("scripts")
             <script>
                 const burgerBtn = document.getElementById('burger-btn');

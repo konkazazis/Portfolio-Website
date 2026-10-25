@@ -9,6 +9,7 @@
         ],
         'Work with me' => [
             ['Start a project', route('contact')],
+            ['Website finder', route('website-finder')],
             ['Services', route('home') . '#services'],
             ['Pricing', route('home') . '#pricing'],
         ],

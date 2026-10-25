@@ -73,6 +73,10 @@
                 :current="request()->routeIs('admin.messages.*')" wire:navigate>
                 Messages
             </flux:sidebar.item>
+            <flux:sidebar.item icon="sparkles" :href="route('admin.leads.index')"
+                :current="request()->routeIs('admin.leads.*')" wire:navigate>
+                Leads
+            </flux:sidebar.item>
         </flux:sidebar.nav>
         <flux:sidebar.spacer />
         <flux:sidebar.nav>
