@@ -6,7 +6,7 @@
             <flux:input wire:model="password_confirmation" :label="__('Confirm password')" type="password" required autocomplete="new-password" viewable />
 
             <div class="flex items-center gap-4">
-                <flux:button variant="primary" type="submit">{{ __('Save') }}</flux:button>
+                <button type="submit" class="admin-btn">{{ __('Save') }}</button>
             </div>
         </form>
     </x-settings.layout>

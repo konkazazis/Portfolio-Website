@@ -1,13 +1,13 @@
 <section class="mt-10 space-y-6">
     <div class="relative mb-5">
-        <flux:heading>{{ __('Delete account') }}</flux:heading>
-        <flux:subheading>{{ __('Delete your account and all of its resources') }}</flux:subheading>
+        <h2 class="font-serif text-2xl font-bold text-[#1C1B22] dark:text-stone-100">{{ __('Delete account') }}</h2>
+        <p class="admin-subtitle">{{ __('Delete your account and all of its resources') }}</p>
     </div>
 
     <flux:modal.trigger name="confirm-user-deletion">
-        <flux:button variant="danger" x-data="" x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')">
+        <button type="button" class="admin-btn admin-btn-danger" x-data="" x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')">
             {{ __('Delete account') }}
-        </flux:button>
+        </button>
     </flux:modal.trigger>
 
     <flux:modal name="confirm-user-deletion" :show="$errors->isNotEmpty()" focusable class="max-w-lg">
@@ -21,11 +21,11 @@
 
             <flux:input wire:model="password" :label="__('Password')" type="password" viewable />
 
-            <div class="flex justify-end space-x-2 rtl:space-x-reverse">
+            <div class="flex justify-end gap-3">
                 <flux:modal.close>
-                    <flux:button variant="filled">{{ __('Cancel') }}</flux:button>
+                    <button type="button" class="admin-btn admin-btn-white">{{ __('Cancel') }}</button>
                 </flux:modal.close>
-                <flux:button variant="danger" type="submit">{{ __('Delete account') }}</flux:button>
+                <button type="submit" class="admin-btn admin-btn-danger">{{ __('Delete account') }}</button>
             </div>
         </form>
     </flux:modal>

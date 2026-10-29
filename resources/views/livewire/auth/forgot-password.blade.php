@@ -1,8 +1,8 @@
 <x-simple :title="__('Forgot password')">
     <div class="flex flex-col gap-6">
         <div class="text-center">
-            <h1 class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">Reset password</h1>
-            <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">Enter your email to receive a reset link</p>
+            <h1 class="font-serif text-3xl font-bold text-[#1C1B22] dark:text-stone-100">Reset password</h1>
+            <p class="text-sm text-stone-500 dark:text-stone-400 mt-1">Enter your email to receive a reset link</p>
         </div>
 
         @if (session('status'))
@@ -27,13 +27,11 @@
                 <p class="-mt-2 text-xs text-red-500">{{ $message }}</p>
             @enderror
 
-            <flux:button variant="primary" type="submit" class="w-full">
-                Send reset link
-            </flux:button>
+            <button type="submit" class="admin-btn w-full">Send reset link</button>
         </form>
 
-        <p class="text-sm text-center text-zinc-500 dark:text-zinc-400">
-            <a href="{{ route('login') }}" class="font-medium text-zinc-900 dark:text-zinc-100 hover:underline">
+        <p class="text-sm text-center text-stone-500 dark:text-stone-400">
+            <a href="{{ route('login') }}" class="font-semibold text-[#1C1B22] dark:text-stone-100 underline decoration-[#FFE45C] decoration-4 underline-offset-2">
                 Back to login
             </a>
         </p>

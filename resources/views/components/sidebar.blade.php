@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ $title ?? 'Admin' }} · {{ auth()->user()->brand_name ?? config('app.brand_name') ?? 'Admin' }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
     <script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script>
@@ -12,7 +13,8 @@
             border-left: none;
             border-right: none;
             border-top: none;
-            background: #fff;
+            background: #FBF8F1;
+            border-bottom: 2px dashed #e7e5e4;
             position: sticky;
             top: 0;
             z-index: 1;
@@ -38,11 +40,22 @@
     @fluxAppearance
 </head>
 
-<body class="min-h-screen bg-white dark:bg-zinc-800 antialiased">
-    <flux:sidebar sticky collapsible class="bg-zinc-50 dark:bg-zinc-900 border-r border-zinc-200 dark:border-zinc-700">
+@php
+    $brandName = auth()->user()->brand_name ?? config('app.brand_name') ?? 'Brand name';
+    $userInitials = collect(preg_split('/\s+/', trim(auth()->user()->username ?? 'Admin')))
+        ->map(fn ($part) => mb_strtoupper(mb_substr($part, 0, 1)))
+        ->take(2)
+        ->join('');
+@endphp
+
+<body class="min-h-screen bg-stone-50 dark:bg-stone-950 antialiased">
+    <flux:sidebar sticky collapsible class="bg-[#FBF8F1] dark:bg-stone-900 border-r-[2.5px] border-[#1C1B22] dark:border-stone-300">
         <flux:sidebar.header>
-            <flux:sidebar.brand href="{{ route('home') }}" logo="https://fluxui.dev/img/demo/logo.png"
-                logo:dark="https://fluxui.dev/img/demo/dark-mode-logo.png" name="{{ auth()->user()->brand_name ?? 'Brand name' }}" />
+            <flux:sidebar.brand href="{{ route('home') }}" :name="$brandName" class="[&>div:last-child]:font-serif [&>div:last-child]:text-2xl [&>div:last-child]:font-bold">
+                <x-slot:logo class="size-8! rounded-full! border-2 border-[#1C1B22] bg-[#FFE45C] text-xs font-bold text-[#1C1B22]">
+                    {{ mb_strtoupper(mb_substr($brandName, 0, 1)) }}
+                </x-slot:logo>
+            </flux:sidebar.brand>
             <flux:sidebar.collapse
                 class="in-data-flux-sidebar-on-desktop:not-in-data-flux-sidebar-collapsed-desktop:-mr-2" />
         </flux:sidebar.header>
@@ -89,8 +102,11 @@
             </flux:sidebar.item>
         </flux:sidebar.nav>
         <flux:dropdown position="top" align="start" class="max-lg:hidden">
-            <flux:sidebar.profile avatar="https://fluxui.dev/img/demo/user.png"
-                name="{{ auth()->user()->username ?? 'Username' }}" />
+            <flux:sidebar.profile name="{{ auth()->user()->username ?? 'Username' }}">
+                <x-slot:avatar>
+                    <span class="grid size-8 place-items-center rounded-full border-2 border-[#1C1B22] bg-[#FFE45C] text-xs font-bold text-[#1C1B22]">{{ $userInitials }}</span>
+                </x-slot:avatar>
+            </flux:sidebar.profile>
             <flux:menu>
                 <flux:menu.radio.group>
                     <flux:menu.radio checked>{{ auth()->user()->username ?? 'Username' }}</flux:menu.radio>
@@ -105,18 +121,25 @@
             </flux:menu>
         </flux:dropdown>
     </flux:sidebar>
-        <flux:header class="block! bg-white lg:bg-zinc-50 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-700">
+        <flux:header class="block! lg:hidden bg-[#FBF8F1] dark:bg-stone-900 border-b-[2.5px] border-[#1C1B22] dark:border-stone-300">
             <flux:navbar class="lg:hidden w-full">
                 <flux:sidebar.toggle class="lg:hidden" icon="bars-2" inset="left" />
                 <flux:spacer />
                 <flux:dropdown position="top" align="start">
-                    <flux:profile avatar="https://fluxui.dev/img/demo/user.png" />
+                    <flux:profile>
+                        <x-slot:avatar>
+                            <span class="grid size-8 place-items-center rounded-full border-2 border-[#1C1B22] bg-[#FFE45C] text-xs font-bold text-[#1C1B22]">{{ $userInitials }}</span>
+                        </x-slot:avatar>
+                    </flux:profile>
                     <flux:menu>
                         <flux:menu.radio.group>
                             <flux:menu.radio checked>{{ auth()->user()->username ?? 'Username' }}</flux:menu.radio>
                         </flux:menu.radio.group>
                         <flux:menu.separator />
-                        <flux:menu.item icon="arrow-right-start-on-rectangle">Logout</flux:menu.item>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <flux:menu.item type="submit" icon="arrow-right-start-on-rectangle" class="w-full">Logout</flux:menu.item>
+                        </form>
                     </flux:menu>
                 </flux:dropdown>
             </flux:navbar>

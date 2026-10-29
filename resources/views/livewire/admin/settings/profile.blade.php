@@ -16,25 +16,25 @@
 
                 <div>
                     {{-- <div>
-                        <label class="block text-xs font-semibold text-zinc-600 dark:text-zinc-300 mb-1.5 uppercase tracking-wide">Brand Icon</label>
+                        <label class="block text-xs font-semibold text-stone-600 dark:text-stone-300 mb-1.5 uppercase tracking-wide">Brand Icon</label>
                         <input type="file" wire:model="brand_icon" accept="image/*"
-                            class="w-full text-sm text-zinc-600 dark:text-zinc-300 file:mr-3 file:border-0 file:bg-zinc-100 dark:file:bg-zinc-800 file:text-zinc-700 dark:file:text-zinc-300 file:text-xs file:font-semibold file:px-3 file:py-1.5 file:rounded-lg file:cursor-pointer hover:file:bg-zinc-200 dark:hover:file:bg-zinc-700">
+                            class="w-full text-sm text-stone-600 dark:text-stone-300 file:mr-3 file:border-0 file:bg-stone-100 dark:file:bg-stone-800 file:text-stone-700 dark:file:text-stone-300 file:text-xs file:font-semibold file:px-3 file:py-1.5 file:rounded-lg file:cursor-pointer hover:file:bg-stone-200 dark:hover:file:bg-stone-700">
                         @error('cover') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
-                        <div wire:loading wire:target="brand_icon" class="mt-1 text-xs text-zinc-400">Uploading…</div>
+                        <div wire:loading wire:target="brand_icon" class="mt-1 text-xs text-stone-400">Uploading…</div>
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold text-zinc-600 dark:text-zinc-300 mb-1.5 uppercase tracking-wide">User Profile Image</label>
+                        <label class="block text-xs font-semibold text-stone-600 dark:text-stone-300 mb-1.5 uppercase tracking-wide">User Profile Image</label>
                         <input type="file" wire:model="user_profile_image" accept="image/*"
-                            class="w-full text-sm text-zinc-600 dark:text-zinc-300 file:mr-3 file:border-0 file:bg-zinc-100 dark:file:bg-zinc-800 file:text-zinc-700 dark:file:text-zinc-300 file:text-xs file:font-semibold file:px-3 file:py-1.5 file:rounded-lg file:cursor-pointer hover:file:bg-zinc-200 dark:hover:file:bg-zinc-700">
+                            class="w-full text-sm text-stone-600 dark:text-stone-300 file:mr-3 file:border-0 file:bg-stone-100 dark:file:bg-stone-800 file:text-stone-700 dark:file:text-stone-300 file:text-xs file:font-semibold file:px-3 file:py-1.5 file:rounded-lg file:cursor-pointer hover:file:bg-stone-200 dark:hover:file:bg-stone-700">
                         @error('cover') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
-                        <div wire:loading wire:target="user_profile_image" class="mt-1 text-xs text-zinc-400">Uploading…</div>
+                        <div wire:loading wire:target="user_profile_image" class="mt-1 text-xs text-stone-400">Uploading…</div>
                     </div> --}}
                 </div>
 
 
             </div>
             <div class="flex items-center gap-4">
-                <flux:button variant="primary" type="submit">{{ __('Save') }}</flux:button>
+                <button type="submit" class="admin-btn">{{ __('Save') }}</button>
             </div>
         </form>
 

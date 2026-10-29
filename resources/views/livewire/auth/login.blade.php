@@ -1,8 +1,8 @@
 <x-simple :title="__('Log in')">
     <div class="flex flex-col gap-6">
         <div class="text-center">
-            <h1 class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">Welcome back</h1>
-            <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">Sign in to your account</p>
+            <h1 class="font-serif text-3xl font-bold text-[#1C1B22] dark:text-stone-100">Welcome back</h1>
+            <p class="text-sm text-stone-500 dark:text-stone-400 mt-1">Sign in to your account</p>
         </div>
 
         @if (session('status'))
@@ -41,7 +41,7 @@
                 />
                 @if (Route::has('password.request'))
                     <a href="{{ route('password.request') }}"
-                       class="absolute top-0 inset-e-0 text-xs text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100">
+                       class="absolute top-0 inset-e-0 text-xs text-stone-500 hover:text-stone-900 dark:hover:text-stone-100">
                         Forgot password?
                     </a>
                 @endif
@@ -52,9 +52,7 @@
 
             <flux:checkbox name="remember" label="Remember me" :checked="old('remember')" />
 
-            <flux:button variant="primary" type="submit" class="w-full mt-2">
-                Log in
-            </flux:button>
+            <button type="submit" class="admin-btn w-full mt-2">Log in</button>
         </form>
     </div>
 </x-simple>

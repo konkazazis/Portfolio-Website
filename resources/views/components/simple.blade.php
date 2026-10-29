@@ -6,16 +6,13 @@
     <title>{{ $title ?? config('app.name', 'Laravel') }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="min-h-screen bg-white antialiased dark:bg-zinc-950">
+<body class="min-h-screen bg-stone-50 antialiased dark:bg-stone-950">
     <div class="flex min-h-svh flex-col items-center justify-center lg:p-2 md:p-10">
         <div class="flex w-full max-w-sm flex-col gap-2">
-            <a href="{{ route('home') }}" class="flex flex-col items-center gap-2 font-medium mb-2">
-                <div class="w-10 h-10 bg-zinc-900 flex items-center justify-center">
-                    <span class="text-white text-sm font-bold tracking-tight">KK</span>
-                </div>
-                <span class="text-sm font-semibold text-zinc-800 dark:text-zinc-100">kazazis.dev</span>
+            <a href="{{ route('home') }}" class="mb-4 text-center font-serif text-4xl font-bold text-[#1C1B22] dark:text-stone-100">
+                {{ config('app.brand_name') ?? 'kostas' }}
             </a>
-            <div class="flex flex-col gap-6">
+            <div class="admin-modal flex flex-col gap-6 p-8">
                 {{ $slot }}
             </div>
         </div>
