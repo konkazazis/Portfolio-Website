@@ -39,6 +39,8 @@
 
     <x-why-website />
 
+    <x-free-homepage />
+
     <x-services />
 
     <x-process />

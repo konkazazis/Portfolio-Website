@@ -10,6 +10,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\RobotsController;
 use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\StarterHomepageController;
 use App\Livewire\Admin\Category\CategoryManager;
 use App\Livewire\Admin\Contact\ContactManager;
 use App\Livewire\Admin\Dashboard as AdminDashboard;
@@ -36,6 +37,7 @@ Route::get('/library/{slug}', [LibraryController::class, 'show'])->name('library
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::view('/website-finder', 'website-finder')->name('website-finder');
+Route::get('/website-finder/homepage/{lead}', StarterHomepageController::class)->middleware('signed')->name('website-finder.homepage');
 Route::get('/work', [ProjectController::class, 'index'])->name('work');
 Route::get('/work/{slug}', [ProjectController::class, 'show'])->name('work.show');
 Route::get('/posts/{slug}', [PostController::class, 'show'])->name('posts.show');

@@ -35,8 +35,8 @@
 
             <a href="{{ route('website-finder') }}" x-data x-on:click.prevent="$dispatch('open-website-finder')"
                class="mt-6 inline-flex items-center gap-2 text-sm text-stone-600 hover:text-stone-900 reveal reveal-delay-2">
-                <i class="fa-solid fa-wand-magic-sparkles text-brand" aria-hidden="true"></i>
-                <span>Not sure what you need? <span class="font-semibold underline decoration-[#FFE45C] decoration-4 underline-offset-2">Find your website in 2 minutes</span></span>
+                <i class="fa-solid fa-gift text-brand" aria-hidden="true"></i>
+                <span>Not ready yet? <span class="font-semibold underline decoration-[#FFE45C] decoration-4 underline-offset-2">Get a free homepage built for you</span></span>
             </a>
 
             <dl class="mt-14 grid grid-cols-3 gap-6 max-w-lg border-t border-stone-200 pt-8 reveal reveal-delay-3">

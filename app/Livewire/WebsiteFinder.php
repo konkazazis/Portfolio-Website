@@ -6,11 +6,13 @@ use App\Models\Lead;
 use App\Models\User;
 use App\Notifications\NewLeadReceived;
 use App\Notifications\WebsiteFinderReport;
+use App\Support\StarterHomepage;
 use App\Support\WebsiteFinderResult;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\RateLimiter;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\Locked;
 use Livewire\Component;
 
 class WebsiteFinder extends Component
@@ -28,6 +30,9 @@ class WebsiteFinder extends Component
     public string $website = '';
 
     public bool $unlocked = false;
+
+    #[Locked]
+    public ?int $leadId = null;
 
     public function choose(string $value): void
     {
@@ -73,7 +78,7 @@ class WebsiteFinder extends Component
 
     public function restart(): void
     {
-        $this->reset(['step', 'answers', 'unlocked']);
+        $this->reset(['step', 'answers', 'unlocked', 'leadId']);
     }
 
     public function unlock(): void
@@ -111,6 +116,7 @@ class WebsiteFinder extends Component
         }
 
         $this->unlocked = true;
+        $this->leadId = $lead->id;
         $this->dispatch('website-finder-step', step: $this->step, key: 'unlocked');
     }
 
@@ -145,6 +151,10 @@ class WebsiteFinder extends Component
             'current' => $key ? config("website-finder.steps.$key") : null,
             'total' => $this->totalSteps(),
             'bookingUrl' => config('services.booking.url'),
+            'homepage' => ($lead = $this->leadId ? Lead::find($this->leadId) : null) ? [
+                'preview' => StarterHomepage::url($lead, preview: true),
+                'download' => StarterHomepage::url($lead),
+            ] : null,
         ]);
     }
 }

@@ -61,7 +61,7 @@
         <p class="mt-14 text-center text-lg text-stone-700 reveal">
             Keep posting on social media, just point it somewhere you own.
             <a href="{{ route('website-finder') }}" x-data x-on:click.prevent="$dispatch('open-website-finder')"
-               class="font-semibold underline decoration-[#FFE45C] decoration-4 underline-offset-2 hover:text-stone-900">See what your website could look like</a>
+               class="font-semibold underline decoration-[#FFE45C] decoration-4 underline-offset-2 hover:text-stone-900">Get a free homepage and see what yours could look like</a>
         </p>
     </div>
 </section>

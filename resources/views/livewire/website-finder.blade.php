@@ -109,60 +109,42 @@
         {{-- Result --}}
         @php($result = $this->result)
         <div wire:key="result">
-            <span class="inline-block -rotate-2 rounded-[6px_14px_6px_16px] border-2 border-[#1C1B22] bg-[#8EE3C8] px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em]">
-                Your match
-            </span>
-            <h2 class="mt-4 font-serif text-4xl md:text-5xl font-bold leading-tight">{{ $result['title'] }}</h2>
-            @if($result['summary'])
-                <p class="mt-3 text-lg text-stone-600">{{ $result['summary'] }}</p>
-            @endif
-
-            <div class="mt-8 grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-6 items-start">
-                @if($answers['style'] ?? null)
-                    <div class="w-full sm:w-48">
-                        @include('livewire.website-finder.style-preview', ['style' => $answers['style']])
-                    </div>
+            @if(! $unlocked)
+                <span class="inline-block -rotate-2 rounded-[6px_14px_6px_16px] border-2 border-[#1C1B22] bg-[#8EE3C8] px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em]">
+                    Your match
+                </span>
+                <h2 class="mt-4 font-serif text-4xl md:text-5xl font-bold leading-tight">{{ $result['title'] }}</h2>
+                @if($result['summary'])
+                    <p class="mt-3 text-lg text-stone-600">{{ $result['summary'] }}</p>
                 @endif
-                <div>
-                    <ul class="space-y-2">
-                        @foreach($result['traits'] as $trait)
-                            <li class="flex gap-3"><i class="fa-solid fa-check mt-1.5 text-sm text-brand" aria-hidden="true"></i>{{ $trait }}</li>
-                        @endforeach
-                    </ul>
+
+                <ul class="mt-6 flex flex-wrap gap-2 text-sm">
+                    @foreach($result['traits'] as $trait)
+                        <li class="rounded-full border-2 border-[#1C1B22] bg-white px-3 py-1">{{ $trait }}</li>
+                    @endforeach
                     @if($result['colors'])
-                        <div class="mt-4 flex items-center gap-3 text-sm text-stone-600">
-                            <span class="flex -space-x-1.5" aria-hidden="true">
+                        <li class="flex items-center gap-2 rounded-full border-2 border-[#1C1B22] bg-white py-1 pl-1.5 pr-3">
+                            <span class="flex -space-x-1" aria-hidden="true">
                                 @foreach($result['swatches'] as $swatch)
-                                    <span class="h-6 w-6 rounded-full border-2 border-[#1C1B22]" style="background: {{ $swatch }}"></span>
+                                    <span class="h-4 w-4 rounded-full border border-[#1C1B22]" style="background: {{ $swatch }}"></span>
                                 @endforeach
                             </span>
                             {{ $result['colors'] }}
-                        </div>
+                        </li>
                     @endif
-                </div>
-            </div>
+                </ul>
 
-            @if(! $unlocked)
                 <div class="relative mt-10">
-                    {{-- Teaser of what the full plan contains --}}
-                    <div aria-hidden="true" class="pointer-events-none select-none blur-[5px] opacity-70">
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                            @foreach(['Pages you need', 'Features', 'Size & timeline'] as $teaser)
-                                <div class="rounded-lg border-2 border-stone-300 p-4">
-                                    <p class="font-semibold">{{ $teaser }}</p>
-                                    <span class="mt-3 block h-2 w-full bg-stone-300"></span>
-                                    <span class="mt-2 block h-2 w-3/4 bg-stone-300"></span>
-                                    <span class="mt-2 block h-2 w-1/2 bg-stone-300"></span>
-                                </div>
-                            @endforeach
-                        </div>
+                    {{-- Blurred teaser of the homepage they are about to unlock --}}
+                    <div aria-hidden="true" class="pointer-events-none select-none blur-[6px] opacity-60">
+                        @include('livewire.website-finder.style-preview', ['style' => $answers['style'] ?? 'minimal'])
                     </div>
 
                     <form wire:submit="unlock"
-                          class="relative -mt-16 rounded-[6px_18px_8px_22px] border-[3px] border-[#1C1B22] bg-white p-6 shadow-[7px_7px_0_#1C1B22]">
-                        <p class="font-serif text-2xl font-bold">Get your full website plan</p>
+                          class="relative -mt-40 rounded-[6px_18px_8px_22px] border-[3px] border-[#1C1B22] bg-white p-6 shadow-[7px_7px_0_#1C1B22]">
+                        <p class="font-serif text-2xl font-bold">Get your free homepage</p>
                         <p class="mt-1 text-sm text-stone-600">
-                            Pages, features, project size and timeline, sent to your inbox. Free, no strings attached.
+                            A ready-to-use homepage built from your answers, to preview and download right away. Free, no strings attached.
                         </p>
 
                         <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -185,47 +167,53 @@
                         </div>
 
                         <button type="submit" class="{{ $primaryButton }} mt-4 w-full" wire:loading.attr="disabled" wire:target="unlock">
-                            <span wire:loading.remove wire:target="unlock">Show me the full plan <span aria-hidden="true">&rarr;</span></span>
-                            <span wire:loading wire:target="unlock">Preparing your plan…</span>
+                            <span wire:loading.remove wire:target="unlock">Show me my homepage <span aria-hidden="true">&rarr;</span></span>
+                            <span wire:loading wire:target="unlock">Building your homepage…</span>
                         </button>
 
                         <p class="mt-3 text-xs text-stone-500 text-center">
-                            I'll only use your email to send this plan and follow up once. See the
+                            I'll only use your email to send you a copy and follow up once. See the
                             <a href="{{ route('privacy') }}" class="underline hover:text-stone-800">privacy policy</a>.
                         </p>
                     </form>
                 </div>
             @else
-                <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="rounded-[6px_14px_6px_16px] border-[2.5px] border-[#1C1B22] p-5">
-                        <p class="text-xs uppercase tracking-[0.2em] text-stone-500">Pages you need</p>
-                        <ul class="mt-3 space-y-1.5 text-sm">
-                            @foreach($result['pages'] as $page)
-                                <li>{{ $page }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    <div class="rounded-[6px_14px_6px_16px] border-[2.5px] border-[#1C1B22] p-5">
-                        <p class="text-xs uppercase tracking-[0.2em] text-stone-500">Features</p>
-                        <ul class="mt-3 space-y-1.5 text-sm">
-                            @foreach([...$result['features'], ...$result['essentials']] as $feature)
-                                <li class="flex gap-2"><i class="fa-solid fa-check mt-1 text-xs text-brand" aria-hidden="true"></i>{{ $feature }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    <div class="rounded-[6px_14px_6px_16px] border-[2.5px] border-[#1C1B22] bg-stone-900 p-5 text-white">
-                        <p class="text-xs uppercase tracking-[0.2em] text-stone-400">Project size</p>
-                        <p class="mt-3 font-serif text-3xl">{{ $result['tier'] }}</p>
-                        <p class="mt-1 text-sm text-stone-300">About {{ $result['weeks'] }} from kickoff to launch</p>
-                        @if($result['price'])
-                            <p class="mt-3 text-[#FFE45C] font-semibold">{{ $result['price'] }}</p>
-                        @endif
-                    </div>
-                </div>
+                <span class="inline-block rotate-1 rounded-[6px_14px_6px_16px] border-2 border-[#1C1B22] bg-[#FF9EC7] px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em]">
+                    Your free homepage
+                </span>
+                <h2 class="mt-4 font-serif text-4xl md:text-5xl font-bold leading-tight">It's ready!</h2>
+                <p class="mt-3 text-lg text-stone-600">Your {{ mb_strtolower($result['title']) }}, built from your answers. Swap in your own text and photos and it's ready to go online. A copy is on its way to your inbox.</p>
 
-                <div class="mt-8 rounded-[6px_18px_8px_22px] border-[3px] border-[#1C1B22] bg-[#FFE45C] p-6 shadow-[7px_7px_0_#1C1B22]">
-                    <p class="font-serif text-2xl font-bold">The plan is on its way to your inbox.</p>
-                    <p class="mt-1 text-sm">Want to turn it into a real website? Let's talk it through, free and without obligation.</p>
+                @if($homepage)
+                    <div class="mt-5 overflow-hidden rounded-[6px_14px_6px_16px] border-[2.5px] border-[#1C1B22] bg-white shadow-[4px_4px_0_#1C1B22]">
+                        <div class="flex items-center gap-1.5 border-b-2 border-[#1C1B22] bg-stone-100 px-3 py-2" aria-hidden="true">
+                            <span class="h-2.5 w-2.5 rounded-full bg-[#FF9EC7]"></span>
+                            <span class="h-2.5 w-2.5 rounded-full bg-[#FFE45C]"></span>
+                            <span class="h-2.5 w-2.5 rounded-full bg-[#8EE3C8]"></span>
+                        </div>
+                        {{-- Rendered at desktop width and scaled down to fit, so it looks like the real thing. --}}
+                        <div x-data="{ scale: 0.5 }" x-init="new ResizeObserver(([entry]) => scale = entry.contentRect.width / 1280).observe($el)"
+                             class="relative aspect-[16/10] overflow-hidden">
+                            <iframe src="{{ $homepage['preview'] }}" title="Preview of your free homepage" loading="lazy" sandbox="allow-scripts"
+                                class="absolute left-0 top-0 origin-top-left" style="width: 1280px; height: 800px;"
+                                :style="{ transform: `scale(${scale})` }"></iframe>
+                        </div>
+                    </div>
+
+                    <div class="mt-5 flex flex-wrap gap-3">
+                        <a href="{{ $homepage['download'] }}" class="{{ $primaryButton }}">
+                            <i class="fa-solid fa-download" aria-hidden="true"></i> Download homepage
+                        </a>
+                        <a href="{{ $homepage['preview'] }}" target="_blank" rel="noopener"
+                           class="inline-flex items-center gap-2 rounded-[6px_14px_6px_16px] border-[2.5px] border-[#1C1B22] bg-white px-6 py-3 text-sm font-semibold tracking-wide shadow-[4px_4px_0_#1C1B22] transition-transform hover:-translate-y-0.5">
+                            Open full preview <span aria-hidden="true">&#8599;</span>
+                        </a>
+                    </div>
+                @endif
+
+                <div class="mt-10 rounded-[6px_18px_8px_22px] border-[3px] border-[#1C1B22] bg-[#FFE45C] p-6 shadow-[7px_7px_0_#1C1B22]">
+                    <p class="font-serif text-2xl font-bold">Want it built for real?</p>
+                    <p class="mt-1 text-sm">With your content, real photos and everything it needs to bring in customers. A {{ $result['tier'] }} project like this takes about {{ $result['weeks'] }}. Let's talk it through, free and without obligation.</p>
                     <div class="mt-5 flex flex-wrap gap-3">
                         @if($bookingUrl)
                             <a href="{{ $bookingUrl }}" target="_blank" rel="noopener"

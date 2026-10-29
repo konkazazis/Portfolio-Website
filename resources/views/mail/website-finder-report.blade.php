@@ -5,6 +5,14 @@ Thanks for taking the time to go through the website finder. Your answers landed
 
 So, from what you told me: you're after {!! $recap !!}. Honestly, that's my favourite kind of project to work on.
 
+## Your free homepage
+
+As promised, here's a homepage built from your answers. It's a single file: open it in your browser, swap in your own text and photos, and upload it anywhere.
+
+<x-mail::button :url="$homepageUrl" color="success">
+Download your homepage
+</x-mail::button>
+
 @if ($projects->isNotEmpty())
 ## Curious what that could look like?
 

@@ -4,6 +4,7 @@ namespace App\Notifications;
 
 use App\Models\Lead;
 use App\Models\Project;
+use App\Support\StarterHomepage;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Arr;
@@ -27,6 +28,7 @@ class WebsiteFinderReport extends Notification
                 'recap' => $this->recap(),
                 'projects' => $this->showcase(),
                 'bookingUrl' => config('services.booking.url'),
+                'homepageUrl' => StarterHomepage::url($this->lead),
             ]);
     }
 

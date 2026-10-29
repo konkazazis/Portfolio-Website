@@ -110,13 +110,13 @@
                 <i class="fa-solid fa-xmark" aria-hidden="true"></i>
             </button>
             <span class="inline-block -rotate-2 rounded-[6px_14px_6px_16px] border-2 border-[#1C1B22] bg-[#8EE3C8] px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-[0.2em]">
-                Free tool
+                Free homepage
             </span>
-            <p class="mt-3 font-serif text-2xl font-bold leading-tight">Not sure what kind of website you need?</p>
-            <p class="mt-1 text-sm text-stone-600">Answer 7 quick questions and get a free plan for a site you fully own.</p>
+            <p class="mt-3 font-serif text-2xl font-bold leading-tight">Want a free homepage for your business?</p>
+            <p class="mt-1 text-sm text-stone-600">Answer 7 quick questions and download a homepage built from your answers. Yours to keep.</p>
             <button type="button" x-on:click="openFinder('nudge')"
                     class="mt-4 inline-flex items-center gap-2 rounded-[6px_14px_6px_16px] border-[2.5px] border-[#1C1B22] bg-[#FFE45C] px-5 py-2.5 text-sm font-semibold tracking-wide shadow-[4px_4px_0_#1C1B22] transition-transform hover:-translate-y-0.5">
-                Find out in 2 minutes <span aria-hidden="true">&rarr;</span>
+                Build mine in 2 minutes <span aria-hidden="true">&rarr;</span>
             </button>
         </div>
     </div>

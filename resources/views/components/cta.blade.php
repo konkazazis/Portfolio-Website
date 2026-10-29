@@ -12,9 +12,9 @@
             START A PROJECT
         </a>
         <p class="mt-8 text-sm text-stone-400">
-            Still figuring it out?
+            Not ready to hire yet?
             <a href="{{ route('website-finder') }}" x-data x-on:click.prevent="$dispatch('open-website-finder')"
-               class="text-white underline decoration-[#FFE45C] decoration-2 underline-offset-4 hover:decoration-4">Try the free website finder</a>
+               class="text-white underline decoration-[#FFE45C] decoration-2 underline-offset-4 hover:decoration-4">Get a free homepage built from your answers</a>
         </p>
     </div>
 </section>
