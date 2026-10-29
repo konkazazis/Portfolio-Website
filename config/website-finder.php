@@ -11,6 +11,7 @@
 |
 | Option keys:
 |   label, description, icon (Font Awesome class)
+|   need    – short phrase used to recap the visitor's needs in their email
 |   weight  – adds to the project size, which picks the tier below
 |   score   – adds to the lead score shown in the admin panel
 |
@@ -150,16 +151,16 @@ return [
             'question' => 'What should the website be able to do?',
             'hint' => 'Select everything that applies, or skip if you are not sure yet.',
             'options' => [
-                'cms' => ['label' => 'Edit content myself', 'icon' => 'fa-pen-to-square', 'weight' => 1],
-                'blog' => ['label' => 'Blog or news', 'icon' => 'fa-newspaper', 'weight' => 1],
-                'booking' => ['label' => 'Online booking', 'icon' => 'fa-calendar-check', 'weight' => 2],
-                'payments' => ['label' => 'Take payments', 'icon' => 'fa-credit-card', 'weight' => 2],
-                'multilingual' => ['label' => 'Multiple languages', 'icon' => 'fa-language', 'weight' => 2],
-                'members' => ['label' => 'Member / customer area', 'icon' => 'fa-user-lock', 'weight' => 3],
-                'forms' => ['label' => 'Quote or enquiry forms', 'icon' => 'fa-clipboard-list', 'weight' => 1],
-                'newsletter' => ['label' => 'Newsletter sign-up', 'icon' => 'fa-envelope-open-text', 'weight' => 1],
-                'gallery' => ['label' => 'Gallery or portfolio', 'icon' => 'fa-images', 'weight' => 1],
-                'integrations' => ['label' => 'Connect to other tools', 'icon' => 'fa-plug', 'weight' => 2],
+                'cms' => ['label' => 'Edit content myself', 'need' => 'content you can edit yourself', 'icon' => 'fa-pen-to-square', 'weight' => 1],
+                'blog' => ['label' => 'Blog or news', 'need' => 'a blog', 'icon' => 'fa-newspaper', 'weight' => 1],
+                'booking' => ['label' => 'Online booking', 'need' => 'online booking', 'icon' => 'fa-calendar-check', 'weight' => 2],
+                'payments' => ['label' => 'Take payments', 'need' => 'online payments', 'icon' => 'fa-credit-card', 'weight' => 2],
+                'multilingual' => ['label' => 'Multiple languages', 'need' => 'more than one language', 'icon' => 'fa-language', 'weight' => 2],
+                'members' => ['label' => 'Member / customer area', 'need' => 'a member area', 'icon' => 'fa-user-lock', 'weight' => 3],
+                'forms' => ['label' => 'Quote or enquiry forms', 'need' => 'enquiry forms', 'icon' => 'fa-clipboard-list', 'weight' => 1],
+                'newsletter' => ['label' => 'Newsletter sign-up', 'need' => 'a newsletter sign-up', 'icon' => 'fa-envelope-open-text', 'weight' => 1],
+                'gallery' => ['label' => 'Gallery or portfolio', 'need' => 'a gallery', 'icon' => 'fa-images', 'weight' => 1],
+                'integrations' => ['label' => 'Connect to other tools', 'need' => 'links to the tools you already use', 'icon' => 'fa-plug', 'weight' => 2],
             ],
         ],
 
@@ -179,11 +180,11 @@ return [
             'question' => 'When would you like to launch?',
             'hint' => 'A rough idea is enough.',
             'options' => [
-                'asap' => ['label' => 'As soon as possible', 'icon' => 'fa-bolt', 'score' => 3],
-                '1-month' => ['label' => 'Within a month', 'icon' => 'fa-calendar-day', 'score' => 3],
-                '1-3-months' => ['label' => 'In 1–3 months', 'icon' => 'fa-calendar-week', 'score' => 2],
-                'flexible' => ['label' => 'Flexible', 'icon' => 'fa-mug-hot', 'score' => 1],
-                'exploring' => ['label' => 'Just exploring', 'icon' => 'fa-binoculars', 'score' => 0],
+                'asap' => ['label' => 'As soon as possible', 'need' => "you'd love to launch as soon as possible", 'icon' => 'fa-bolt', 'score' => 3],
+                '1-month' => ['label' => 'Within a month', 'need' => "you'd like to launch within a month", 'icon' => 'fa-calendar-day', 'score' => 3],
+                '1-3-months' => ['label' => 'In 1–3 months', 'need' => "you're aiming to launch in the next few months", 'icon' => 'fa-calendar-week', 'score' => 2],
+                'flexible' => ['label' => 'Flexible', 'need' => "you're flexible on timing", 'icon' => 'fa-mug-hot', 'score' => 1],
+                'exploring' => ['label' => 'Just exploring', 'need' => "you're still exploring", 'icon' => 'fa-binoculars', 'score' => 0],
             ],
         ],
 

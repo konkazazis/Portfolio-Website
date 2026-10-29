@@ -31,6 +31,7 @@ class NewContactMessageReceived extends Notification
 
         return $mail
             ->line($this->contactMessage->message)
-            ->action('View in admin panel', route('admin.messages.index'));
+            ->action('View in admin panel', route('admin.messages.index'))
+            ->salutation('— your site, kazazis.dev');
     }
 }

@@ -3,8 +3,11 @@
 namespace App\Notifications;
 
 use App\Models\Lead;
+use App\Models\Project;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 
 class WebsiteFinderReport extends Notification
 {
@@ -17,34 +20,52 @@ class WebsiteFinderReport extends Notification
 
     public function toMail(object $notifiable): MailMessage
     {
-        $result = $this->lead->result;
+        return (new MailMessage)
+            ->subject('Got your answers — a quick hello from Kostas')
+            ->markdown('mail.website-finder-report', [
+                'name' => $this->lead->name,
+                'recap' => $this->recap(),
+                'projects' => $this->showcase(),
+                'bookingUrl' => config('services.booking.url'),
+            ]);
+    }
 
-        $mail = (new MailMessage)
-            ->subject('Your website plan: '.$result['title'])
-            ->greeting($this->lead->name ? 'Hi '.$this->lead->name.',' : 'Hi there,')
-            ->line('Thanks for using the website finder. Here is the plan that fits your answers.')
-            ->line('**'.$result['title'].'**')
-            ->line($result['summary'] ?? '');
+    /**
+     * A one-sentence, human summary of what the visitor asked for, e.g.
+     * "a bold & playful business website with online booking, and you'd like to launch within a month".
+     */
+    protected function recap(): string
+    {
+        $steps = config('website-finder.steps');
+        $answers = $this->lead->answers;
 
-        if ($result['traits']) {
-            $mail->line('**Look & feel:** '.implode(' · ', $result['traits']).($result['colors'] ? ' · '.$result['colors'] : ''));
+        $site = mb_strtolower($this->lead->result['title'] ?? 'website');
+        $recap = (preg_match('/^[aeiou]/', $site) ? 'an ' : 'a ').'**'.e($site).'**';
+
+        $needs = collect($answers['features'] ?? [])
+            ->map(fn ($key) => $steps['features']['options'][$key]['need'] ?? null)
+            ->filter()
+            ->values();
+
+        if ($needs->isNotEmpty()) {
+            $recap .= ' with '.($needs->count() > 2
+                ? $needs->take(2)->join(', ').' and a few other bits'
+                : $needs->join(' and '));
         }
 
-        $mail->line('**Pages:** '.implode(', ', $result['pages']));
+        $timeline = Arr::get($steps, 'timeline.options.'.($answers['timeline'] ?? '').'.need');
 
-        if ($result['features']) {
-            $mail->line('**Features:** '.implode(', ', $result['features']));
-        }
+        return $timeline ? $recap.', and '.$timeline : $recap;
+    }
 
-        $mail->line('**Always included:** '.implode(', ', $result['essentials']))
-            ->line('**Project size:** '.$result['tier'].' · about '.$result['weeks'].($result['price'] ? ' · '.$result['price'] : ''));
+    /**
+     * Up to three published projects to tease, preferring ones with a full case study.
+     */
+    protected function showcase(): Collection
+    {
+        $projects = Project::published()->orderBy('order')->get();
+        $caseStudies = $projects->filter->hasCaseStudy();
 
-        $mail = config('services.booking.url')
-            ? $mail->action('Book a free 20-minute call', config('services.booking.url'))
-            : $mail->action('Start a project', route('contact'));
-
-        return $mail
-            ->line('Just reply to this email if you have questions. I read every message myself.')
-            ->salutation('— Kostas');
+        return ($caseStudies->isNotEmpty() ? $caseStudies : $projects)->take(3)->values();
     }
 }

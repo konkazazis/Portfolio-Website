@@ -27,6 +27,7 @@ class AdminLoginAlert extends Notification
             ->line('Browser: '.$this->userAgent)
             ->line('Time: '.now()->format('Y-m-d H:i:s').' UTC')
             ->line("If this wasn't you, reset your password immediately.")
-            ->action('Reset password', route('password.request'));
+            ->action('Reset password', route('password.request'))
+            ->salutation('— your site, kazazis.dev');
     }
 }

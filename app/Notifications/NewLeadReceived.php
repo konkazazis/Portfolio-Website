@@ -29,6 +29,7 @@ class NewLeadReceived extends Notification
             $mail->line('**'.$question.'** '.$answer);
         }
 
-        return $mail->action('View in admin panel', route('admin.leads.index'));
+        return $mail->action('View in admin panel', route('admin.leads.index'))
+            ->salutation('— your site, kazazis.dev');
     }
 }
