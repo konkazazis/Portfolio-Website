@@ -187,19 +187,6 @@ return [
             ],
         ],
 
-        'budget' => [
-            'type' => 'single',
-            'question' => 'What budget do you have in mind?',
-            'hint' => 'This only helps me suggest a realistic scope. It stays between us.',
-            'options' => [
-                'under-1500' => ['label' => 'Under €1,500', 'icon' => 'fa-coins', 'score' => 0],
-                '1500-3000' => ['label' => '€1,500 – €3,000', 'icon' => 'fa-coins', 'score' => 2],
-                '3000-6000' => ['label' => '€3,000 – €6,000', 'icon' => 'fa-sack-dollar', 'score' => 3],
-                '6000-plus' => ['label' => '€6,000+', 'icon' => 'fa-gem', 'score' => 4],
-                'unsure' => ['label' => 'Not sure yet', 'icon' => 'fa-circle-question', 'score' => 1],
-            ],
-        ],
-
     ],
 
     // Always part of the recommendation, whatever was selected.
@@ -230,10 +217,10 @@ return [
         'except' => ['contact', 'website-finder'],
     ],
 
-    // Lead temperature from the summed option scores (starting point + timeline + budget).
+    // Lead temperature from the summed option scores (starting point + timeline).
     'lead_ratings' => [
-        ['min' => 7, 'label' => 'Hot'],
-        ['min' => 4, 'label' => 'Warm'],
+        ['min' => 5, 'label' => 'Hot'],
+        ['min' => 3, 'label' => 'Warm'],
         ['min' => 0, 'label' => 'Cold'],
     ],
 

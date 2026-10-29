@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title', 'Website Finder — find the right website for your business — kostas')
-@section('meta_description', 'Answer 8 quick questions and get a free website plan: the visual style, pages, features and timeline that fit your business.')
+@section('meta_description', 'Answer 7 quick questions and get a free website plan: the visual style, pages, features and timeline that fit your business.')
 @section('og_title', 'Which website does your business need? — kostas')
 
 @section('content')
@@ -20,7 +20,7 @@
                     Answer a few quick questions and get a free plan: the visual style, pages, features and timeline that fit you.
                 </p>
                 <ul class="mt-8 space-y-3 text-stone-700 reveal reveal-delay-2">
-                    @foreach(['8 quick questions', 'Takes about 2 minutes', 'Free plan sent to your inbox'] as $point)
+                    @foreach(['7 quick questions', 'Takes about 2 minutes', 'Free plan sent to your inbox'] as $point)
                         <li class="flex items-center gap-3">
                             <i class="fa-solid fa-check text-brand" aria-hidden="true"></i>{{ $point }}
                         </li>
