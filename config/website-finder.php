@@ -169,7 +169,7 @@ return [
             'question' => 'Where are you starting from?',
             'hint' => 'Helps me understand how much groundwork we need.',
             'options' => [
-                'new' => ['label' => 'Starting from scratch', 'description' => 'No website yet', 'icon' => 'fa-seedling', 'score' => 1],
+                'new' => ['label' => 'Starting from scratch', 'description' => 'No website yet, or only social media', 'icon' => 'fa-seedling', 'score' => 1],
                 'redesign' => ['label' => 'My site looks outdated', 'description' => 'It needs a fresh design', 'icon' => 'fa-paint-roller', 'score' => 2],
                 'rebuild' => ['label' => 'My site does not do enough', 'description' => 'It needs new features or a rebuild', 'icon' => 'fa-hammer', 'score' => 2],
             ],

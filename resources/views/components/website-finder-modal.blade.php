@@ -113,7 +113,7 @@
                 Free tool
             </span>
             <p class="mt-3 font-serif text-2xl font-bold leading-tight">Not sure what kind of website you need?</p>
-            <p class="mt-1 text-sm text-stone-600">Answer 8 quick questions and get a free plan for your site.</p>
+            <p class="mt-1 text-sm text-stone-600">Answer 7 quick questions and get a free plan for a site you fully own.</p>
             <button type="button" x-on:click="openFinder('nudge')"
                     class="mt-4 inline-flex items-center gap-2 rounded-[6px_14px_6px_16px] border-[2.5px] border-[#1C1B22] bg-[#FFE45C] px-5 py-2.5 text-sm font-semibold tracking-wide shadow-[4px_4px_0_#1C1B22] transition-transform hover:-translate-y-0.5">
                 Find out in 2 minutes <span aria-hidden="true">&rarr;</span>

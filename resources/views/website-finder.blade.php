@@ -17,6 +17,7 @@
                     </span>
                 </h1>
                 <p class="mt-6 text-lg text-stone-600 font-light reveal reveal-delay-1">
+                    A social profile gets you noticed, but a website you own is what turns visitors into customers.
                     Answer a few quick questions and get a free plan: the visual style, pages, features and timeline that fit you.
                 </p>
                 <ul class="mt-8 space-y-3 text-stone-700 reveal reveal-delay-2">
