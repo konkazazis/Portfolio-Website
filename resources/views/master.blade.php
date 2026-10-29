@@ -78,7 +78,7 @@
         ];
     @endphp
 
-    <body class="{{ request()->routeIs('blog') ? 'has-doodle-bg' : '' }}">
+    <body>
         <div class="min-h-screen flex flex-col">
             <header
                 class="sticky top-0 z-50 px-4 md:px-0 bg-white/95 backdrop-blur-sm border-b border-stone-200"

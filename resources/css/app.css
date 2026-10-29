@@ -72,12 +72,6 @@
         @apply font-sans bg-stone-50 text-stone-800 leading-[1.75] antialiased;
     }
 
-    body.has-doodle-bg {
-        background-image: url('../../public/images/doodle.jpg');
-        background-attachment: fixed;
-        background-size: contain;
-    }
-
     h1,
     h2,
     h3,

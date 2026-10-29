@@ -13,6 +13,15 @@ class PostController extends Controller
             ->where('slug', $slug)
             ->firstOrFail();
 
-        return view('blog-post', compact('post'));
+        $next = Post::published()
+            ->where('published_at', '<', $post->published_at)
+            ->latest('published_at')
+            ->first(['id', 'title', 'slug', 'published_at'])
+            ?? Post::published()
+                ->whereKeyNot($post->id)
+                ->latest('published_at')
+                ->first(['id', 'title', 'slug', 'published_at']);
+
+        return view('blog-post', compact('post', 'next'));
     }
 }
