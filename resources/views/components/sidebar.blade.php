@@ -90,6 +90,10 @@
                 :current="request()->routeIs('admin.leads.*')" wire:navigate>
                 Leads
             </flux:sidebar.item>
+            <flux:sidebar.item icon="gift" :href="route('admin.offers.index')"
+                :current="request()->routeIs('admin.offers.*')" wire:navigate>
+                Offers
+            </flux:sidebar.item>
         </flux:sidebar.nav>
         <flux:sidebar.spacer />
         <flux:sidebar.nav>

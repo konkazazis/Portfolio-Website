@@ -45,6 +45,18 @@
             </a>
         </div>
 
+        @if($availability['offer'])
+            <div class="mb-12 flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-[6px_18px_8px_22px] border-[3px] border-[#1C1B22] bg-[#FFE45C] px-6 py-4 text-[#1C1B22] shadow-[5px_5px_0_#1C1B22] reveal">
+                <p class="text-sm">
+                    <span class="font-semibold">{{ $availability['month'] }} offer: {{ $availability['offer']['headline'] }}</span>
+                    {{ $availability['offer']['deadline'] }}.
+                </p>
+                <span class="shrink-0 self-start sm:self-auto rounded-full bg-[#1C1B22] px-3 py-1 text-xs font-semibold text-[#FFE45C]">
+                    <i class="fa-regular fa-clock" aria-hidden="true"></i> {{ $availability['offer']['countdown'] }}
+                </span>
+            </div>
+        @endif
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
             @foreach($packages as $i => $package)
                 <div class="flex flex-col rounded-[6px_18px_8px_22px] border-[3px] border-[#1C1B22] p-9 shadow-[7px_7px_0_#1C1B22] reveal transition-transform duration-300 hover:-translate-y-1 {{ $package['dark'] ? 'bg-stone-900 text-white reveal-delay-1' : 'bg-white text-stone-900' }}">

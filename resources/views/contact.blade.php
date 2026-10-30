@@ -24,6 +24,23 @@
                     Tell me a little about your project. I read every message myself and reply within a day.
                 </p>
 
+                <div class="mt-8 max-w-[44ch] rounded-[6px_18px_8px_22px] border-2 border-white/20 p-5 reveal reveal-delay-1">
+                    <p class="flex items-center gap-2 font-semibold text-[#FFE45C]">
+                        <span class="relative flex h-2 w-2 shrink-0">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFE45C] opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-[#FFE45C]"></span>
+                        </span>
+                        {{ $availability['summary'] }}
+                    </p>
+                    <p class="mt-2 text-sm text-stone-400 leading-relaxed">{{ $availability['reason'] }}</p>
+                    @if($availability['offer'])
+                        <p class="mt-3 text-sm text-stone-200">
+                            <span class="font-semibold text-white">{{ $availability['offer']['headline'] }}</span>
+                            {{ $availability['offer']['deadline'] }} ({{ strtolower($availability['offer']['countdown']) }}).
+                        </p>
+                    @endif
+                </div>
+
                 <ol class="mt-12 space-y-7 reveal reveal-delay-2">
                     @foreach($steps as $i => [$title, $text])
                         <li class="flex gap-5">

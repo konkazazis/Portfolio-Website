@@ -15,6 +15,7 @@ use App\Livewire\Admin\Category\CategoryManager;
 use App\Livewire\Admin\Contact\ContactManager;
 use App\Livewire\Admin\Dashboard as AdminDashboard;
 use App\Livewire\Admin\Lead\LeadManager;
+use App\Livewire\Admin\Offer\OfferManager;
 use App\Livewire\Admin\Post\PostManager;
 use App\Livewire\Admin\Project\ProjectManager;
 use App\Livewire\Admin\Settings\Appearance as SettingsAppearance;
@@ -61,6 +62,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/tags', TagManager::class)->name('tags.index');
     Route::get('/messages', ContactManager::class)->name('messages.index');
     Route::get('/leads', LeadManager::class)->name('leads.index');
+    Route::get('/offers', OfferManager::class)->name('offers.index');
     Route::redirect('/settings', '/admin/settings/profile')->name('settings');
     Route::get('/settings/profile', SettingsProfile::class)->name('settings.profile');
     Route::get('/settings/security', SettingsSecurity::class)->name('settings.security');

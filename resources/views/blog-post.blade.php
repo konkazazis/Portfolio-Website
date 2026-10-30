@@ -140,7 +140,8 @@
 
                     <div class="{{ $post->tags->isNotEmpty() ? 'mt-10' : '' }} rounded-[6px_18px_8px_22px] border-[3px] border-[#1C1B22] bg-[#8EE3C8] p-6 text-[#1C1B22] shadow-[6px_6px_0_#1C1B22]">
                         <p class="font-serif text-2xl leading-tight">Need a website like this?</p>
-                        <p class="mt-2 text-sm leading-relaxed">I build fast, custom sites for freelancers and small businesses.</p>
+                        <p class="mt-2 text-sm leading-relaxed">I build fast, custom sites for freelancers and small businesses, only {{ $availability['total'] }} a month.</p>
+                        <p class="mt-3 text-sm font-semibold">{{ $availability['summary'] }}.</p>
                         <a href="{{ route('contact') }}"
                            class="mt-4 inline-flex items-center gap-2 text-sm font-semibold border-b-2 border-[#1C1B22] pb-0.5 hover:gap-3 transition-all">
                             Start a project <span aria-hidden="true">&rarr;</span>

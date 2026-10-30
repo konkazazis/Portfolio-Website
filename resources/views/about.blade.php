@@ -140,7 +140,7 @@
                 </span>
             </a>
             <a href="{{ route('contact') }}" class="group block rounded-2xl border border-stone-200 p-8 hover:border-stone-400 transition">
-                <span class="text-xs uppercase tracking-[0.25em] text-stone-500">Ready when you are</span>
+                <span class="text-xs uppercase tracking-[0.25em] text-stone-500">{{ $availability['summary'] }}</span>
                 <span class="mt-3 flex items-center justify-between font-serif text-3xl font-bold text-stone-900">
                     Start a project <span class="text-brand transition-transform group-hover:translate-x-1.5" aria-hidden="true">&rarr;</span>
                 </span>

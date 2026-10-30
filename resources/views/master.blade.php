@@ -252,14 +252,15 @@
             </header>
 
             @php
-                $availabilityMonth = now()->translatedFormat('F Y');
                 $availabilityQuarter =
                     'Q' . (int) ceil(now()->month / 3) . ' ' . now()->year;
-                $availabilityMessages = [
-                    "Available for new freelance projects — booking now for {$availabilityMonth}",
-                    'Open for full-stack web development work',
+                $availabilityMessages = array_values(array_filter([
+                    "{$availability['summary']} — I take on just {$availability['total']} new clients a month",
+                    $availability['offer']
+                        ? "{$availability['month']} offer: {$availability['offer']['headline']} — {$availability['offer']['countdown']}"
+                        : null,
                     "Currently accepting new clients for {$availabilityQuarter}",
-                ];
+                ]));
             @endphp
 
             <div

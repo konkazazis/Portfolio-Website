@@ -214,6 +214,12 @@
                 <div class="mt-10 rounded-[6px_18px_8px_22px] border-[3px] border-[#1C1B22] bg-[#FFE45C] p-6 shadow-[7px_7px_0_#1C1B22]">
                     <p class="font-serif text-2xl font-bold">Want it built for real?</p>
                     <p class="mt-1 text-sm">With your content, real photos and everything it needs to bring in customers. A {{ $result['tier'] }} project like this takes about {{ $result['weeks'] }}. Let's talk it through, free and without obligation.</p>
+                    <p class="mt-3 text-sm font-semibold">
+                        {{ $availability['summary'] }}.
+                        @if($availability['offer'])
+                            {{ $availability['offer']['headline'] }} {{ $availability['offer']['deadline'] }}.
+                        @endif
+                    </p>
                     <div class="mt-5 flex flex-wrap gap-3">
                         @if($bookingUrl)
                             <a href="{{ $bookingUrl }}" target="_blank" rel="noopener"

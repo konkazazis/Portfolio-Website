@@ -33,8 +33,19 @@
                 </a>
             </div>
 
+            <p class="mt-6 flex items-center gap-2 text-sm font-semibold text-stone-800 reveal reveal-delay-2">
+                <span class="relative flex h-2 w-2 shrink-0">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                {{ $availability['summary'] }}
+                @if($availability['offer'])
+                    <span class="font-normal text-stone-500">· {{ $availability['offer']['headline'] }} this month</span>
+                @endif
+            </p>
+
             <a href="{{ route('website-finder') }}" x-data x-on:click.prevent="$dispatch('open-website-finder')"
-               class="mt-6 inline-flex items-center gap-2 text-sm text-stone-600 hover:text-stone-900 reveal reveal-delay-2">
+               class="mt-4 inline-flex items-center gap-2 text-sm text-stone-600 hover:text-stone-900 reveal reveal-delay-2">
                 <i class="fa-solid fa-gift text-brand" aria-hidden="true"></i>
                 <span>Not ready yet? <span class="font-semibold underline decoration-[#FFE45C] decoration-4 underline-offset-2">Get a free homepage built for you</span></span>
             </a>
