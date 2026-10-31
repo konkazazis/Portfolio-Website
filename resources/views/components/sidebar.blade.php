@@ -94,6 +94,10 @@
                 :current="request()->routeIs('admin.offers.*')" wire:navigate>
                 Offers
             </flux:sidebar.item>
+            <flux:sidebar.item icon="currency-euro" :href="route('admin.pricing.index')"
+                :current="request()->routeIs('admin.pricing.*')" wire:navigate>
+                Pricing
+            </flux:sidebar.item>
         </flux:sidebar.nav>
         <flux:sidebar.spacer />
         <flux:sidebar.nav>

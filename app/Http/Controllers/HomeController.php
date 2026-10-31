@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PricingPlan;
+
 class HomeController extends Controller
 {
     public function index()
@@ -11,6 +13,8 @@ class HomeController extends Controller
             return redirect()->route('blog', request()->query(), 301);
         }
 
-        return view('home');
+        return view('home', [
+            'plans' => PricingPlan::query()->where('is_active', true)->ordered()->get(),
+        ]);
     }
 }
