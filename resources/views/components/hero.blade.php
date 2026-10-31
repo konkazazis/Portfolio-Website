@@ -1,7 +1,7 @@
 @php
     $highlights = [
         ['55+', 'Coffee cups/month'],
-        ['Eventually', 'Typical reply time'],
+        ['< 1 day', 'Typical reply time'],
         ['All', 'Happy customers'],
     ];
 @endphp
@@ -10,6 +10,7 @@
     <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-16 items-center">
         <div>
             <h1 class="mt-7 font-serif text-5xl sm:text-6xl md:text-7xl font-bold text-stone-900 leading-[1.05] reveal">
+                <span class="block mb-5 font-sans text-sm font-medium uppercase tracking-[0.25em] leading-normal text-stone-600">Web developer in Düsseldorf</span>
                 Websites that get your name
                 <span class="relative inline-block">
                     <span class="relative z-10">out there.</span>
@@ -64,7 +65,8 @@
         <div class="relative mx-auto w-fit reveal reveal-delay-2">
             <img src="{{ asset('images/blob.svg') }}" alt="" aria-hidden="true"
                  class="absolute inset-0 w-[125%] max-w-none -translate-x-[10%] -translate-y-[8%] rotate-12" />
-            <img src="https://images.kazazis.dev/profile-pic.png" alt="Kostas Kazazis"
+            <img src="{{ asset('images/profile-pic.webp') }}" alt="Kostas Kazazis, web developer in Düsseldorf"
+                 width="640" height="640" fetchpriority="high"
                  class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full object-cover bg-white border-4 border-[#1C1B22] rotate-[4deg] shadow-[10px_10px_0_#1C1B22] transition-transform duration-500 hover:rotate-0" />
 
             <span class="absolute -bottom-2 -left-6 -rotate-6 rounded-[6px_14px_6px_16px] border-[2.5px] border-[#1C1B22] bg-[#8EE3C8] px-4 py-2 text-sm font-semibold text-[#1C1B22] shadow-[4px_4px_0_#1C1B22]">

@@ -62,3 +62,17 @@ test('old urls redirect permanently', function (string $from, string $to) {
     ['/datenschutz', '/privacy'],
     ['/posts/how-to-create-any-bootable-usb-ready-for-any-os-installation', '/posts/how-to-create-any-bootable-usb-ready-for-any-os-installation-1'],
 ]);
+
+test('the homepage targets its search terms', function () {
+    $response = $this->get(route('home'))
+        ->assertOk()
+        ->assertSee('<title>Kazazis - Web Developer in Düsseldorf for Small Businesses</title>', false)
+        ->assertSee('Web developer in Düsseldorf')
+        ->assertSee('"@type": "ProfessionalService"', false);
+
+    expect(substr_count($response->getContent(), '<h1'))->toBe(1);
+
+    preg_match('/name="description"\s+content="([^"]*)"/', $response->getContent(), $description);
+
+    expect(mb_strlen($description[1]))->toBeLessThanOrEqual(160);
+});

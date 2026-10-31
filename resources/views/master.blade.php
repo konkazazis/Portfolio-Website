@@ -32,10 +32,10 @@
             property="og:description"
             content="@yield("meta_description", "A developer who loves building things for the web. Thoughts on code, design, and everything in between.")"
         />
-        <meta property="og:site_name" content="kostas" />
+        <meta property="og:site_name" content="Kazazis" />
         <meta
             property="og:image"
-            content="@yield("og_image", asset("images/doodle.jpg"))"
+            content="@yield("og_image", asset("images/og-default.jpg"))"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -50,7 +50,7 @@
         />
         <meta
             name="twitter:image"
-            content="@yield("og_image", asset("images/doodle.jpg"))"
+            content="@yield("og_image", asset("images/og-default.jpg"))"
         />
 
         @if (config("services.google.site_verification"))

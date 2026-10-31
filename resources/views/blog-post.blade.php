@@ -5,7 +5,7 @@
 @section('og_type', 'article')
 @section('og_title', $post->title)
 @section('canonical', route('posts.show', $post->slug))
-@section('og_image', asset('images/doodle.jpg'))
+@section('og_image', asset('images/og-default.jpg'))
 
 @push('head')
     @vite(['resources/js/highlight.js'])
@@ -53,7 +53,7 @@
         'keywords' => $post->tags->pluck('name')->join(', '),
         'articleSection' => $post->category?->name,
         'wordCount' => str_word_count(strip_tags($post->content)),
-        'image' => asset('images/doodle.jpg'),
+        'image' => asset('images/og-default.jpg'),
     ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
                 </script>
 @endpush
