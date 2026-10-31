@@ -33,6 +33,10 @@ class BlogController extends Controller
 
         $activeCategory = $categories->firstWhere('slug', $categorySlug);
 
+        // Empty listings would otherwise be soft 404s
+        abort_if($categorySlug && ! $activeCategory, 404);
+        abort_if($posts->isEmpty() && $posts->currentPage() > 1, 404);
+
         return view('blog', compact('posts', 'categories', 'activeCategory', 'search'));
     }
 }

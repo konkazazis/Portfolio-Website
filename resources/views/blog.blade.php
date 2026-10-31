@@ -9,7 +9,7 @@
 ])))
 
 @push('head')
-    @if($search)
+    @if($search || $activeCategory)
         <meta name="robots" content="noindex, follow">
     @endif
     @if($posts->previousPageUrl())

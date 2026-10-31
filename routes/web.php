@@ -29,6 +29,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 Route::get('/robots.txt', [RobotsController::class, 'index'])->name('robots');
 
+// Old URLs Google may still know about
+Route::permanentRedirect('/datenschutz', '/privacy');
+Route::permanentRedirect('/posts/how-to-create-any-bootable-usb-ready-for-any-os-installation', '/posts/how-to-create-any-bootable-usb-ready-for-any-os-installation-1');
+
 // ─── Public Routes ────────────────────────────────────────────────────────────
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
