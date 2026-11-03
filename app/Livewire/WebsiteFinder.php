@@ -15,6 +15,9 @@ use Livewire\Attributes\Computed;
 use Livewire\Attributes\Locked;
 use Livewire\Component;
 
+/**
+ * @property-read array $result
+ */
 class WebsiteFinder extends Component
 {
     public int $step = 0;

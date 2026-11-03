@@ -11,7 +11,7 @@ class SitemapController extends Controller
     {
         $posts = Post::published()->latest('published_at')->get();
         $projects = Project::published()->orderBy('order')->get();
-        $latestPostDate = $posts->first()?->updated_at ?? now();
+        $latestPostDate = $posts->first()->updated_at ?? now();
 
         return response()
             ->view('sitemap', compact('posts', 'projects', 'latestPostDate'))
