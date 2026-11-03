@@ -7,11 +7,12 @@ use App\Models\ContactMessage;
 use App\Models\Post;
 use App\Models\Project;
 use App\Models\Tag;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class Dashboard extends Component
 {
-    public function render()
+    public function render(): View
     {
         $totalPosts = Post::count();
         $publishedPosts = Post::where('status', 'published')->count();

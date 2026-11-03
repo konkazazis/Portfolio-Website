@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Project;
+use Illuminate\Http\Response;
 
 class SitemapController extends Controller
 {
-    public function index()
+    public function index(): Response
     {
         $posts = Post::published()->latest('published_at')->get();
         $projects = Project::published()->orderBy('order')->get();

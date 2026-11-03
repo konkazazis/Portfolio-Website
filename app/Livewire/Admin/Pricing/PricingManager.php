@@ -3,6 +3,8 @@
 namespace App\Livewire\Admin\Pricing;
 
 use App\Models\PricingPlan;
+use Illuminate\Contracts\Validation\ValidationRule;
+use Illuminate\Contracts\View\View;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
 
@@ -30,6 +32,7 @@ class PricingManager extends Component
 
     public ?int $deletingId = null;
 
+    /** @return array<string, ValidationRule|array<mixed>|string> */
     protected function rules(): array
     {
         return [
@@ -71,7 +74,7 @@ class PricingManager extends Component
     {
         $data = $this->validate();
         $data['tagline'] = $data['tagline'] ?: null;
-        $data['features'] = array_values(array_filter(array_map('trim', preg_split('/\R/', $data['features']))));
+        $data['features'] = array_values(array_filter(array_map('trim', preg_split('/\R/', $data['features']) ?: [])));
 
         $this->editingId
             ? PricingPlan::findOrFail($this->editingId)->update($data)
@@ -111,7 +114,7 @@ class PricingManager extends Component
         $this->resetValidation();
     }
 
-    public function render()
+    public function render(): View
     {
         $plans = PricingPlan::query()->ordered()->get()->groupBy('category');
 

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -21,7 +22,11 @@ class Project extends Model
         ];
     }
 
-    public function scopePublished($query)
+    /**
+     * @param  Builder<Project>  $query
+     * @return Builder<Project>
+     */
+    public function scopePublished(Builder $query): Builder
     {
         return $query->where('is_published', true);
     }
@@ -53,6 +58,7 @@ class Project extends Model
         return $this->cover_image ? Storage::disk('r2')->url($this->cover_image) : null;
     }
 
+    /** @return list<string> */
     public function techList(): array
     {
         return $this->technologies

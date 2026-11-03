@@ -5,14 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Lead;
 use App\Support\StarterHomepage;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Str;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class StarterHomepageController extends Controller
 {
     /**
      * The free homepage a lead unlocked: shown in the browser with ?preview=1, downloaded otherwise.
      */
-    public function __invoke(Request $request, Lead $lead)
+    public function __invoke(Request $request, Lead $lead): Response|StreamedResponse
     {
         $html = StarterHomepage::render($lead->answers);
 

@@ -12,6 +12,7 @@ class AdminLoginAlert extends Notification
         public string $userAgent,
     ) {}
 
+    /** @return array<int, string> */
     public function via(object $notifiable): array
     {
         return ['mail'];

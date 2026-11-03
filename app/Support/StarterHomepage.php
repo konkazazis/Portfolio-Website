@@ -21,6 +21,7 @@ class StarterHomepage
      * Turn the quiz answers into everything the template needs.
      *
      * @param  array<string, string|array<int, string>>  $answers
+     * @return array<string, mixed>
      */
     public static function fromAnswers(array $answers): array
     {
@@ -38,11 +39,10 @@ class StarterHomepage
         }
 
         // Nav links come from the recommended pages, minus the ones that never sit in a header.
-        $nav = collect($config['purposes'][$purposeKey]['nav'] ?? $steps['purpose']['options'][$purposeKey]['pages'])
-            ->reject(fn ($page) => in_array($page, ['Home', 'Legal pages', 'Thank-you page', 'One long page with clear sections', 'Settings', 'Admin panel', 'Dashboard', 'Sign up & login', 'Cart & checkout', 'Product pages'], true))
-            ->take(4)
-            ->values()
-            ->all();
+        $nav = array_slice(array_values(array_diff(
+            $config['purposes'][$purposeKey]['nav'] ?? $steps['purpose']['options'][$purposeKey]['pages'],
+            ['Home', 'Legal pages', 'Thank-you page', 'One long page with clear sections', 'Settings', 'Admin panel', 'Dashboard', 'Sign up & login', 'Cart & checkout', 'Product pages'],
+        )), 0, 4);
 
         return [
             'style' => $style,

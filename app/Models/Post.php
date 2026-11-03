@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -45,7 +46,11 @@ class Post extends Model
         return $this->belongsToMany(Tag::class);
     }
 
-    public function scopePublished($query)
+    /**
+     * @param  Builder<Post>  $query
+     * @return Builder<Post>
+     */
+    public function scopePublished(Builder $query): Builder
     {
         return $query->where('status', 'published')
             ->where('published_at', '<=', now());

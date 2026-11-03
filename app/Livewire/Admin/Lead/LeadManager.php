@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Lead;
 
 use App\Models\Lead;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -31,7 +32,7 @@ class LeadManager extends Component
         }
     }
 
-    public function render()
+    public function render(): View
     {
         $leads = Lead::latest()->paginate(20);
         $unreadCount = Lead::where('is_read', false)->count();

@@ -3,8 +3,11 @@
 namespace App\Livewire\Admin\Project;
 
 use App\Models\Project;
+use Illuminate\Contracts\Validation\ValidationRule;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
 
@@ -42,10 +45,12 @@ class ProjectManager extends Component
 
     public bool $is_published = false;
 
+    /** @var TemporaryUploadedFile|null */
     public $cover = null;
 
     public ?int $deletingId = null;
 
+    /** @return array<string, ValidationRule|array<mixed>|string> */
     protected function rules(): array
     {
         return [
@@ -164,7 +169,7 @@ class ProjectManager extends Component
         }
     }
 
-    public function render()
+    public function render(): View
     {
         $projects = Project::query()
             ->when($this->search, fn ($q) => $q->where('title', 'like', "%{$this->search}%"))

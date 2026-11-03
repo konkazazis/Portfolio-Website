@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use Illuminate\Contracts\View\View;
 
 class BlogController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         $categorySlug = request('category');
         $search = trim(request('search', ''));

@@ -3,6 +3,8 @@
 namespace App\Livewire\Admin\Tag;
 
 use App\Models\Tag;
+use Illuminate\Contracts\Validation\ValidationRule;
+use Illuminate\Contracts\View\View;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -21,6 +23,7 @@ class TagManager extends Component
 
     public ?int $deletingId = null;
 
+    /** @return array<string, ValidationRule|array<mixed>|string> */
     protected function rules(): array
     {
         return [
@@ -88,7 +91,7 @@ class TagManager extends Component
         }
     }
 
-    public function render()
+    public function render(): View
     {
         $tags = Tag::query()
             ->when($this->search, fn ($q) => $q->where('name', 'like', "%{$this->search}%"))

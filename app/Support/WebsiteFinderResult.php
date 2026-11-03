@@ -8,6 +8,7 @@ class WebsiteFinderResult
      * Turn the quiz answers into the recommendation shown to the visitor and stored on the lead.
      *
      * @param  array<string, string|array<int, string>>  $answers
+     * @return array<string, mixed>
      */
     public static function fromAnswers(array $answers): array
     {
@@ -18,11 +19,11 @@ class WebsiteFinderResult
         $colors = $steps['colors']['options'][$answers['colors'] ?? ''] ?? null;
         $features = array_values(array_intersect_key(
             $steps['features']['options'],
-            array_flip($answers['features'] ?? []),
+            array_flip((array) ($answers['features'] ?? [])),
         ));
 
         $size = ($purpose['weight'] ?? 0) + array_sum(array_column($features, 'weight'));
-        $tier = collect(config('website-finder.tiers'))->first(fn ($tier) => $size <= $tier['max']);
+        $tier = collect(config()->array('website-finder.tiers'))->first(fn ($tier) => $size <= $tier['max']);
 
         return [
             'title' => trim(($style['label'] ?? '').' '.($purpose['site'] ?? 'Website')),
@@ -46,7 +47,7 @@ class WebsiteFinderResult
      */
     public static function score(array $answers): int
     {
-        return collect(config('website-finder.steps'))
+        return collect(config()->array('website-finder.steps'))
             ->map(fn ($step, $key) => is_string($answers[$key] ?? null)
                 ? ($step['options'][$answers[$key]]['score'] ?? 0)
                 : 0)
@@ -55,7 +56,7 @@ class WebsiteFinderResult
 
     public static function rating(int $score): string
     {
-        return collect(config('website-finder.lead_ratings'))->first(fn ($rating) => $score >= $rating['min'])['label'];
+        return collect(config()->array('website-finder.lead_ratings'))->first(fn ($rating) => $score >= $rating['min'])['label'];
     }
 
     /**
@@ -66,7 +67,7 @@ class WebsiteFinderResult
      */
     public static function readableAnswers(array $answers): array
     {
-        return collect(config('website-finder.steps'))
+        return collect(config()->array('website-finder.steps'))
             ->mapWithKeys(fn ($step, $key) => [
                 $step['question'] => collect((array) ($answers[$key] ?? []))
                     ->map(fn ($value) => $step['options'][$value]['label'] ?? $value)

@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Settings;
 
 use Flux\Flux;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use Livewire\Attributes\Title;
@@ -22,6 +23,7 @@ class Profile extends Component
     public function mount(): void
     {
         $user = Auth::user();
+        abort_if($user === null, 403);
 
         $this->username = $user->username;
         $this->email = $user->email;
@@ -32,6 +34,8 @@ class Profile extends Component
     public function updateProfileInformation(): void
     {
         $user = Auth::user();
+        abort_if($user === null, 403);
+
         try {
             $validated = $this->validate([
                 'username' => ['required', 'string', 'max:255'],
@@ -50,7 +54,7 @@ class Profile extends Component
 
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.admin.settings.profile')
             ->layout('app', ['title' => 'Profile']);

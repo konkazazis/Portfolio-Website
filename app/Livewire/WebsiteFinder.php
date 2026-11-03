@@ -8,6 +8,7 @@ use App\Notifications\NewLeadReceived;
 use App\Notifications\WebsiteFinderReport;
 use App\Support\StarterHomepage;
 use App\Support\WebsiteFinderResult;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\RateLimiter;
@@ -16,7 +17,7 @@ use Livewire\Attributes\Locked;
 use Livewire\Component;
 
 /**
- * @property-read array $result
+ * @property-read array<string, mixed> $result
  */
 class WebsiteFinder extends Component
 {
@@ -55,7 +56,7 @@ class WebsiteFinder extends Component
             return;
         }
 
-        $selected = $this->answers['features'] ?? [];
+        $selected = (array) ($this->answers['features'] ?? []);
 
         $this->answers['features'] = in_array($value, $selected, true)
             ? array_values(array_diff($selected, [$value]))
@@ -123,29 +124,36 @@ class WebsiteFinder extends Component
         $this->dispatch('website-finder-step', step: $this->step, key: 'unlocked');
     }
 
+    /** @return array<string, mixed> */
     #[Computed]
     public function result(): array
     {
         return WebsiteFinderResult::fromAnswers($this->answers);
     }
 
+    /** @return array<string, array<string, mixed>> */
+    private function steps(): array
+    {
+        return config('website-finder.steps');
+    }
+
     private function currentKey(): ?string
     {
-        return array_keys(config('website-finder.steps'))[$this->step] ?? null;
+        return array_keys($this->steps())[$this->step] ?? null;
     }
 
     private function totalSteps(): int
     {
-        return count(config('website-finder.steps'));
+        return count($this->steps());
     }
 
     private function isComplete(): bool
     {
-        return collect(config('website-finder.steps'))
+        return collect($this->steps())
             ->every(fn ($step, $key) => $step['type'] === 'multi' || isset($this->answers[$key]));
     }
 
-    public function render()
+    public function render(): View
     {
         $key = $this->currentKey();
 

@@ -29,6 +29,10 @@ class PricingPlan extends Model
         ];
     }
 
+    /**
+     * @param  Builder<PricingPlan>  $query
+     * @return Builder<PricingPlan>
+     */
     public function scopeOrdered(Builder $query): Builder
     {
         return $query->orderBy('sort_order')->orderBy('id');

@@ -5,10 +5,13 @@ namespace App\Livewire\Admin\Post;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
+use Illuminate\Contracts\Validation\ValidationRule;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Component;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
 
@@ -34,24 +37,35 @@ class PostManager extends Component
 
     public ?int $category_id = null;
 
+    /** @var array<int, int|string> */
     public array $selectedTags = [];
 
     public ?int $deletingId = null;
 
+    /** @var TemporaryUploadedFile|null */
     public $contentImage;
 
     public function updatedContentImage(): void
     {
+        if (! $this->contentImage) {
+            return;
+        }
+
         $this->validate([
             'contentImage' => ['image', 'max:5120'],
         ]);
 
         $folder = $this->editingId
-            ? Post::find($this->editingId)->slug
+            ? Post::findOrFail($this->editingId)->slug
             : (Str::slug($this->title) ?: 'untitled');
 
         try {
             $path = $this->contentImage->store("posts/content/{$folder}", 'r2');
+
+            if ($path === false) {
+                throw new \RuntimeException('The r2 disk did not store the file.');
+            }
+
             $this->dispatch('content-image-uploaded', url: Storage::disk('r2')->url($path));
         } catch (\Throwable $e) {
             Log::error('Failed to upload post content image: '.$e->getMessage());
@@ -61,6 +75,7 @@ class PostManager extends Component
         }
     }
 
+    /** @return array<string, ValidationRule|array<mixed>|string> */
     protected function rules(): array
     {
         return [
@@ -123,7 +138,7 @@ class PostManager extends Component
         $data = [
             'title' => $this->title,
             'slug' => $this->editingId
-                ? Post::find($this->editingId)->slug
+                ? Post::findOrFail($this->editingId)->slug
                 : Post::generateSlug($this->title),
             'excerpt' => $this->excerpt ?: null,
             'content' => $this->content,
@@ -165,7 +180,7 @@ class PostManager extends Component
         }
     }
 
-    public function render()
+    public function render(): View
     {
         $posts = Post::query()
             ->with(['category', 'tags'])

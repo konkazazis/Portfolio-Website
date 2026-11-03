@@ -11,6 +11,7 @@ class NewLeadReceived extends Notification
 {
     public function __construct(public Lead $lead) {}
 
+    /** @return array<int, string> */
     public function via(object $notifiable): array
     {
         return ['mail'];

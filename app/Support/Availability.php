@@ -10,10 +10,13 @@ class Availability
     /**
      * Cached for the request, since every view on the page asks for it.
      */
+    /** @var array<string, mixed>|null */
     protected static ?array $current = null;
 
     /**
      * Everything the CTAs need to talk about this month's spots and offer.
+     *
+     * @return array<string, mixed>
      */
     public static function current(): array
     {
@@ -43,6 +46,7 @@ class Availability
         ];
     }
 
+    /** @return array<string, mixed>|null */
     protected static function offer(Carbon $now): ?array
     {
         $offer = Offer::live($now);

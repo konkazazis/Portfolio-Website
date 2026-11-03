@@ -3,6 +3,8 @@
 namespace App\Livewire\Admin\Offer;
 
 use App\Models\Offer;
+use Illuminate\Contracts\Validation\ValidationRule;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class OfferManager extends Component
@@ -23,6 +25,7 @@ class OfferManager extends Component
 
     public ?int $deletingId = null;
 
+    /** @return array<string, ValidationRule|array<mixed>|string> */
     protected function rules(): array
     {
         return [
@@ -106,7 +109,7 @@ class OfferManager extends Component
         }
     }
 
-    public function render()
+    public function render(): View
     {
         $offers = Offer::query()->orderByDesc('is_active')->orderBy('name')->get();
 

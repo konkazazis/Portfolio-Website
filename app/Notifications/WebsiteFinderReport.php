@@ -14,6 +14,7 @@ class WebsiteFinderReport extends Notification
 {
     public function __construct(public Lead $lead) {}
 
+    /** @return array<int, string> */
     public function via(object $notifiable): array
     {
         return ['mail'];
@@ -44,7 +45,7 @@ class WebsiteFinderReport extends Notification
         $site = mb_strtolower($this->lead->result['title'] ?? 'website');
         $recap = (preg_match('/^[aeiou]/', $site) ? 'an ' : 'a ').'**'.e($site).'**';
 
-        $needs = collect($answers['features'] ?? [])
+        $needs = collect((array) ($answers['features'] ?? []))
             ->map(fn ($key) => $steps['features']['options'][$key]['need'] ?? null)
             ->filter()
             ->values();
@@ -62,6 +63,8 @@ class WebsiteFinderReport extends Notification
 
     /**
      * Up to three published projects to tease, preferring ones with a full case study.
+     *
+     * @return Collection<int, Project>
      */
     protected function showcase(): Collection
     {

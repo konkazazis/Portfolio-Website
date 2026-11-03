@@ -4,6 +4,7 @@ namespace App\Livewire\Admin\Settings;
 
 use App\Actions\Fortify\PasswordValidationRules;
 use App\Livewire\Actions\Logout;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -19,12 +20,16 @@ class DeleteUserForm extends Component
             'password' => $this->currentPasswordRules(),
         ]);
 
-        tap(Auth::user(), $logout(...))->delete();
+        $user = Auth::user();
+        abort_if($user === null, 403);
+
+        $logout();
+        $user->delete();
 
         $this->redirect(route('home'), navigate: true);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.admin.settings.delete-user-form');
     }

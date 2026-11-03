@@ -3,6 +3,8 @@
 namespace App\Livewire\Admin\Category;
 
 use App\Models\Category;
+use Illuminate\Contracts\Validation\ValidationRule;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
@@ -22,6 +24,7 @@ class CategoryManager extends Component
 
     public ?int $deletingId = null;
 
+    /** @return array<string, ValidationRule|array<mixed>|string> */
     protected function rules(): array
     {
         return [
@@ -91,7 +94,7 @@ class CategoryManager extends Component
         }
     }
 
-    public function render()
+    public function render(): View
     {
         $categories = Category::query()
             ->when($this->search, fn ($q) => $q->where('name', 'like', "%{$this->search}%"))

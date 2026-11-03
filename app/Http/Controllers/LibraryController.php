@@ -2,23 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\File;
 
 class LibraryController extends Controller
 {
-    public function index()
+    public function index(): View
     {
-        $components = collect(config('library'));
+        $components = collect(config()->array('library'));
 
         return view('library', compact('components'));
     }
 
-    public function show(string $slug)
+    public function show(string $slug): View
     {
         $component = config("library.{$slug}");
         abort_unless($component, 404);
 
-        $code = trim(file_get_contents(static::componentPath($slug)));
+        $code = trim(File::get(static::componentPath($slug)));
         $updatedAt = static::updatedAt($slug);
 
         $slugs = array_keys(config('library'));
@@ -36,6 +38,6 @@ class LibraryController extends Controller
 
     public static function updatedAt(string $slug): Carbon
     {
-        return Carbon::createFromTimestamp(filemtime(static::componentPath($slug)));
+        return Carbon::createFromTimestamp(File::lastModified(static::componentPath($slug)));
     }
 }

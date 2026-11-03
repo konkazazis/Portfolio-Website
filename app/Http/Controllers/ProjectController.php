@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use Illuminate\Contracts\View\View;
 
 class ProjectController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         $projects = Project::published()
             ->orderBy('order')
@@ -15,7 +16,7 @@ class ProjectController extends Controller
         return view('work', compact('projects'));
     }
 
-    public function show(string $slug)
+    public function show(string $slug): View
     {
         $project = Project::published()
             ->where('slug', $slug)

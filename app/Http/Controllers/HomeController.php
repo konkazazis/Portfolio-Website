@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\PricingPlan;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(): RedirectResponse|View
     {
         // Old blog URLs lived on "/" — send them to the blog
         if (request()->hasAny(['category', 'search', 'page'])) {

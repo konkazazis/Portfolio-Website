@@ -10,6 +10,7 @@ class ContactMessageConfirmation extends Notification
 {
     public function __construct(public ContactMessage $contactMessage) {}
 
+    /** @return array<int, string> */
     public function via(object $notifiable): array
     {
         return ['mail'];

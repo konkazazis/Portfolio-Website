@@ -4,6 +4,7 @@ namespace App\Livewire\Admin\Settings;
 
 use App\Actions\Fortify\PasswordValidationRules;
 use Flux\Flux;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Title;
@@ -32,14 +33,16 @@ class Security extends Component
             throw $e;
         }
 
-        Auth::user()->update(['password' => $validated['password']]);
+        $user = Auth::user();
+        abort_if($user === null, 403);
+        $user->update(['password' => $validated['password']]);
 
         $this->reset('current_password', 'password', 'password_confirmation');
 
         Flux::toast(variant: 'success', text: __('Password updated.'));
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.admin.settings.security')
             ->layout('app', ['title' => 'Security']);

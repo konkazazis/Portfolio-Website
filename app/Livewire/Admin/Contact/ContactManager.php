@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Contact;
 
 use App\Models\ContactMessage;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -31,7 +32,7 @@ class ContactManager extends Component
         }
     }
 
-    public function render()
+    public function render(): View
     {
         $messages = ContactMessage::latest()->paginate(20);
         $unreadCount = ContactMessage::where('is_read', false)->count();

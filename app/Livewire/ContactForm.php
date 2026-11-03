@@ -6,6 +6,8 @@ use App\Models\ContactMessage;
 use App\Models\User;
 use App\Notifications\ContactMessageConfirmation;
 use App\Notifications\NewContactMessageReceived;
+use Illuminate\Contracts\Validation\ValidationRule;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Validation\Rule;
@@ -41,6 +43,7 @@ class ContactForm extends Component
 
     public bool $sent = false;
 
+    /** @return array<string, ValidationRule|array<mixed>|string> */
     protected function rules(): array
     {
         return [
@@ -78,7 +81,7 @@ class ContactForm extends Component
         $this->sent = true;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.contact-form');
     }
