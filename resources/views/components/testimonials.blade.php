@@ -25,7 +25,7 @@
                           class="absolute -top-7 left-7 grid h-14 w-14 place-items-center rounded-full border-[3px] border-[#1C1B22] font-serif text-4xl leading-none text-[#1C1B22] shadow-[3px_3px_0_#1C1B22]"
                           style="background-color: {{ $color }}">&ldquo;</span>
 
-                    <div class="flex gap-1 text-[#F5B800]" aria-label="5 out of 5 stars">
+                    <div class="flex gap-1 text-[#F5B800]" role="img" aria-label="5 out of 5 stars">
                         @for($s = 0; $s < 5; $s++)
                             <i class="fa-solid fa-star text-sm" aria-hidden="true"></i>
                         @endfor

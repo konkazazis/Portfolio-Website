@@ -72,7 +72,7 @@
     {{-- Story --}}
     <section class="py-24 px-6 sm:px-8 bg-stone-50 border-t border-stone-200">
         <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20">
-            <aside class="lg:sticky lg:top-36 self-start reveal">
+            <div class="lg:sticky lg:top-36 self-start reveal">
                 <h2 class="font-serif text-4xl font-bold text-stone-900">My story</h2>
                 <dl class="mt-8 space-y-5 text-sm">
                     @foreach($facts as $label => $value)
@@ -82,7 +82,7 @@
                         </div>
                     @endforeach
                 </dl>
-            </aside>
+            </div>
 
             <div class="space-y-6 text-lg text-stone-700 font-light leading-relaxed reveal">
                 <p>

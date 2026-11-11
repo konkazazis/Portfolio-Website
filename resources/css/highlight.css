@@ -1,0 +1,6 @@
+/* Lighter comment colour than github-dark-dimmed's #768390, which fails WCAG AA contrast on #22272e. */
+.hljs .hljs-comment,
+.hljs .hljs-code,
+.hljs .hljs-formula {
+    color: #909dab;
+}

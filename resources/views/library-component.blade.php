@@ -52,7 +52,7 @@
         <header class="pt-16 pb-10 px-6 sm:px-8">
             <div class="max-w-5xl mx-auto">
                 <nav aria-label="Breadcrumb" class="text-sm text-stone-500">
-                    <a href="{{ route('library') }}" class="text-brand hover:text-brand-dark font-semibold">Library</a>
+                    <a href="{{ route('library') }}" class="text-brand-dark hover:text-stone-900 font-semibold">Library</a>
                     <span class="mx-2" aria-hidden="true">/</span>
                     <span aria-current="page">{{ $component['title'] }}</span>
                 </nav>
@@ -111,7 +111,7 @@
                     </p>
                 </section>
 
-                <aside class="self-start rounded-2xl border border-stone-200 p-6">
+                <div class="self-start rounded-2xl border border-stone-200 p-6">
                     <span class="text-xs uppercase tracking-[0.25em] text-stone-500">Next component</span>
                     <a href="{{ route('library.show', $next['slug']) }}" class="group mt-3 flex items-center justify-between gap-4 font-serif text-2xl font-bold text-stone-900">
                         {{ $next['title'] }}
@@ -121,7 +121,7 @@
                     <a href="{{ route('library') }}" class="mt-6 inline-block text-sm font-semibold text-stone-900 border-b-[1.5px] border-stone-300 hover:border-brand">
                         All components
                     </a>
-                </aside>
+                </div>
             </div>
         </div>
     </article>

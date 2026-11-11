@@ -20,7 +20,7 @@
                 <span>{{ (int) round($step / $total * 100) }}%</span>
             </div>
             <div class="mt-2 h-3 overflow-hidden rounded-full border-2 border-[#1C1B22] bg-white"
-                 role="progressbar" aria-valuemin="0" aria-valuemax="{{ $total }}" aria-valuenow="{{ $step }}">
+                 role="progressbar" aria-label="Questionnaire progress" aria-valuemin="0" aria-valuemax="{{ $total }}" aria-valuenow="{{ $step }}">
                 <div class="h-full bg-[#8EE3C8] transition-all duration-500" style="width: {{ $step / $total * 100 }}%"></div>
             </div>
         </div>

@@ -20,7 +20,7 @@
                 <h1 class="text-3xl font-bold tracking-tight uppercase mb-2">
                     Im<strong class="text-brand">pressum</strong>
                 </h1>
-                <p class="text-stone-400 text-sm">
+                <p class="text-stone-500 text-sm">
                     {{ $lang === 'en' ? 'Legal Notice — required by German law (§5 TMG)' : 'Angaben gemäß § 5 TMG' }}
                 </p>
             </div>
@@ -55,7 +55,7 @@
                     <h2 class="text-lg font-bold text-stone-800 mb-2">Kontakt</h2>
                     <p>
                         E-Mail:
-                        <a href="mailto:kostas@kazazis.dev" class="text-brand hover:underline">
+                        <a href="mailto:kostas@kazazis.dev" class="text-brand-dark hover:underline">
                             kostas@kazazis.dev
                         </a>
                     </p>
@@ -121,7 +121,7 @@
                     <h2 class="text-lg font-bold text-stone-800 mb-2">Contact</h2>
                     <p>
                         Email:
-                        <a href="mailto:kostas@kazazis.dev" class="text-brand hover:underline">
+                        <a href="mailto:kostas@kazazis.dev" class="text-brand-dark hover:underline">
                             kostas@kazazis.dev
                         </a>
                     </p>

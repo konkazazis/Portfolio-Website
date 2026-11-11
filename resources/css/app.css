@@ -113,7 +113,7 @@
 
 @layer components {
     .tag-badge {
-        @apply px-2 py-0.5 rounded text-xs font-medium border border-[#eb5424]/30 text-[#eb5424] bg-[#eb5424]/5;
+        @apply px-2 py-0.5 rounded text-xs font-medium border border-[#eb5424]/30 text-brand-dark bg-[#eb5424]/5;
     }
 
     .category-badge {

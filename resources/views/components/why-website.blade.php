@@ -31,12 +31,12 @@
                 <p class="text-xs font-semibold uppercase tracking-[0.2em] text-stone-500">Only a social media profile</p>
                 <dl class="mt-6 space-y-5">
                     @foreach($comparison as [$topic, $social])
-                        <div class="flex gap-4">
-                            <i class="fa-solid fa-xmark mt-1 w-4 text-center text-stone-400" aria-hidden="true"></i>
-                            <div>
-                                <dt class="font-semibold">{{ $topic }}</dt>
-                                <dd class="text-stone-600">{{ $social }}</dd>
-                            </div>
+                        <div class="relative pl-8">
+                            <dt class="font-semibold">
+                                <i class="fa-solid fa-xmark w-4 text-center text-stone-400 absolute left-0 top-1" aria-hidden="true"></i>
+                                {{ $topic }}
+                            </dt>
+                            <dd class="text-stone-600">{{ $social }}</dd>
                         </div>
                     @endforeach
                 </dl>
@@ -46,12 +46,12 @@
                 <p class="text-xs font-semibold uppercase tracking-[0.2em]">Your own website</p>
                 <dl class="mt-6 space-y-5">
                     @foreach($comparison as [$topic, , $website])
-                        <div class="flex gap-4">
-                            <i class="fa-solid fa-check mt-1 w-4 text-center" aria-hidden="true"></i>
-                            <div>
-                                <dt class="font-semibold">{{ $topic }}</dt>
-                                <dd class="text-stone-800">{{ $website }}</dd>
-                            </div>
+                        <div class="relative pl-8">
+                            <dt class="font-semibold">
+                                <i class="fa-solid fa-check w-4 text-center absolute left-0 top-1" aria-hidden="true"></i>
+                                {{ $topic }}
+                            </dt>
+                            <dd class="text-stone-800">{{ $website }}</dd>
                         </div>
                     @endforeach
                 </dl>

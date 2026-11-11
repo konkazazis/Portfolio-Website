@@ -59,7 +59,7 @@
         <header class="pt-16 pb-12 px-6 sm:px-8">
             <div class="max-w-6xl mx-auto">
                 <a href="{{ route('work') }}"
-                   class="text-sm text-brand hover:text-brand-dark font-semibold transition-colors mb-10 inline-block">
+                   class="text-sm text-brand-dark hover:text-stone-900 font-semibold transition-colors mb-10 inline-block">
                     &larr; All work
                 </a>
 
@@ -92,7 +92,9 @@
                             <dd class="mt-2 font-semibold text-stone-900">{{ $project->role }}</dd>
                         </div>
                     @endif
-                    <div class="col-span-2 md:col-span-1 flex flex-wrap items-start gap-3 md:justify-end">
+                    <div class="col-span-2 md:col-span-1">
+                        <dt class="sr-only">Links</dt>
+                        <dd class="flex flex-wrap items-start gap-3 md:justify-end">
                         @if($project->live_url)
                             <a href="{{ $project->live_url }}" target="_blank" rel="noopener"
                                class="inline-flex items-center gap-2 rounded-[6px_14px_6px_16px] border-[2.5px] border-[#1C1B22] bg-[#FFE45C] px-5 py-2 text-sm font-semibold text-[#1C1B22] shadow-[4px_4px_0_#1C1B22] transition-transform hover:-translate-y-0.5">
@@ -102,9 +104,10 @@
                         @if($project->github_url)
                             <a href="{{ $project->github_url }}" target="_blank" rel="noopener"
                                class="inline-flex items-center gap-2 rounded-[6px_14px_6px_16px] border-[2.5px] border-[#1C1B22] bg-white px-5 py-2 text-sm font-semibold text-[#1C1B22] shadow-[4px_4px_0_#1C1B22] transition-transform hover:-translate-y-0.5">
-                                <i class="fa-brands fa-github"></i> Code
+                                <i class="fa-brands fa-github" aria-hidden="true"></i> Code
                             </a>
                         @endif
+                        </dd>
                     </div>
                 </dl>
             </div>
@@ -121,14 +124,14 @@
         <div class="py-20 px-6 sm:px-8">
             <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20">
                 @if($project->techList())
-                    <aside class="lg:sticky lg:top-36 self-start reveal">
+                    <div class="lg:sticky lg:top-36 self-start reveal">
                         <h2 class="text-xs font-sans uppercase tracking-[0.25em] text-stone-500">Built with</h2>
                         <ul class="mt-4 flex flex-wrap gap-2">
                             @foreach($project->techList() as $tech)
                                 <li class="tag-badge">{{ $tech }}</li>
                             @endforeach
                         </ul>
-                    </aside>
+                    </div>
                 @endif
 
                 <div class="space-y-16 {{ $project->techList() ? '' : 'lg:col-start-2' }}">

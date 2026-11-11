@@ -36,7 +36,7 @@
 
             @foreach ($footerColumns as $heading => $links)
                 <nav aria-label="{{ $heading }}">
-                    <h2 class="font-sans text-xs uppercase tracking-[0.25em] text-stone-500 mb-4">{{ $heading }}</h2>
+                    <h2 class="font-sans text-xs uppercase tracking-[0.25em] text-stone-400 mb-4">{{ $heading }}</h2>
                     <ul class="space-y-2.5">
                         @foreach ($links as [$label, $href])
                             <li><a href="{{ $href }}" class="text-stone-400 hover:text-white transition-colors">{{ $label }}</a></li>

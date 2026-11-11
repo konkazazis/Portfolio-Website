@@ -42,7 +42,7 @@
             </fieldset>
 
             <div>
-                <label for="brief-timeline" class="mb-2 block text-sm text-stone-300">Timeline <span class="text-stone-500">(optional)</span></label>
+                <label for="brief-timeline" class="mb-2 block text-sm text-stone-300">Timeline <span class="text-stone-400">(optional)</span></label>
                 <select id="brief-timeline" wire:model="timeline"
                     class="w-full px-4 py-3 bg-stone-800 border border-stone-700 text-white focus:outline-none focus:border-white transition">
                     <option value="">When do you need it?</option>
@@ -66,7 +66,7 @@
                 <span wire:loading>Sending…</span>
             </button>
 
-            <p class="text-xs text-stone-500 text-center">
+            <p class="text-xs text-stone-400 text-center">
                 By submitting this form, your data will be processed in accordance with the
                 <a href="{{ route('privacy') }}" class="underline hover:text-stone-300">privacy policy</a>.
             </p>

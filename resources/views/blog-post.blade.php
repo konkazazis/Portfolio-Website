@@ -91,17 +91,17 @@
 
                 <dl class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 border-y border-stone-200 py-8 reveal reveal-delay-2">
                     @if($post->user?->is_admin)
-                        <div class="col-span-2 md:col-span-1 flex items-center gap-3">
-                            <img src="https://images.kazazis.dev/profile-pic.png" alt="Kostas"
-                                 class="w-11 h-11 shrink-0 rounded-full object-cover object-top bg-white border-2 border-[#1C1B22]">
-                            <div>
-                                <dt class="sr-only">Author</dt>
-                                <dd class="font-semibold text-stone-900 leading-tight">Konstantinos Kazazis</dd>
-                                <dd>
+                        <div class="col-span-2 md:col-span-1">
+                            <dt class="sr-only">Author</dt>
+                            <dd class="flex items-center gap-3">
+                                <img src="https://images.kazazis.dev/profile-pic.png" alt="Kostas"
+                                     class="w-11 h-11 shrink-0 rounded-full object-cover object-top bg-white border-2 border-[#1C1B22]">
+                                <span>
+                                    <span class="block font-semibold text-stone-900 leading-tight">Konstantinos Kazazis</span>
                                     <a href="{{ route('about') }}" rel="author"
                                        class="text-xs text-stone-500 hover:text-stone-900 transition-colors">Software Developer</a>
-                                </dd>
-                            </div>
+                                </span>
+                            </dd>
                         </div>
                     @endif
                     <div>
@@ -128,7 +128,7 @@
 
         <div class="pb-24 px-6 sm:px-8">
             <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-12 lg:gap-20">
-                <aside class="lg:sticky lg:top-36 self-start order-last lg:order-first">
+                <div class="lg:sticky lg:top-36 self-start order-last lg:order-first">
                     @if($post->tags->isNotEmpty())
                         <h2 class="text-xs font-sans uppercase tracking-[0.25em] text-stone-500">Tagged</h2>
                         <ul class="mt-4 flex flex-wrap gap-2">
@@ -147,7 +147,7 @@
                             Start a project <span aria-hidden="true">&rarr;</span>
                         </a>
                     </div>
-                </aside>
+                </div>
 
                 <div class="prose prose-stone md:prose-lg max-w-[72ch] min-w-0 text-stone-700 leading-relaxed
                             prose-headings:text-stone-900 prose-a:text-stone-900 prose-a:decoration-[#FFE45C] prose-a:decoration-2 prose-a:underline-offset-4 hover:prose-a:decoration-4

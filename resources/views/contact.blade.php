@@ -66,11 +66,11 @@
 
                 <dl class="mt-12 grid grid-cols-2 gap-6 text-sm reveal">
                     <div>
-                        <dt class="text-xs uppercase tracking-[0.25em] text-stone-500">Email</dt>
+                        <dt class="text-xs uppercase tracking-[0.25em] text-stone-400">Email</dt>
                         <dd class="mt-2"><a href="mailto:kostas@kazazis.dev" class="text-white hover:underline">kostas@kazazis.dev</a></dd>
                     </div>
                     <div>
-                        <dt class="text-xs uppercase tracking-[0.25em] text-stone-500">Based in</dt>
+                        <dt class="text-xs uppercase tracking-[0.25em] text-stone-400">Based in</dt>
                         <dd class="mt-2 text-white">Düsseldorf, Germany</dd>
                     </div>
                 </dl>

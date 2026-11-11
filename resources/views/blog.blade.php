@@ -159,7 +159,7 @@
                                 <div class="text-xs uppercase tracking-[0.25em] text-stone-500 md:pt-2.5">
                                     <time datetime="{{ $post->published_at->toDateString() }}">{{ $post->published_at->format('M d, Y') }}</time>
                                     @if($post->category)
-                                        <span class="md:block md:mt-2 text-brand"><span class="md:hidden" aria-hidden="true"> · </span>{{ $post->category->name }}</span>
+                                        <span class="md:block md:mt-2 text-brand-dark"><span class="md:hidden" aria-hidden="true"> · </span>{{ $post->category->name }}</span>
                                     @endif
                                 </div>
 

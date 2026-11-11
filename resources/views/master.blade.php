@@ -263,7 +263,8 @@
                 ]));
             @endphp
 
-            <div
+            <aside
+                aria-label="Availability"
                 class="bg-stone-900 text-white text-xs sm:text-sm tracking-wide"
             >
                 <div
@@ -282,11 +283,11 @@
                         class="availability-ticker-text truncate"
                     ></span>
                 </div>
-            </div>
+            </aside>
 
-            <div class="flex-1 min-w-0 w-full mx-auto">
+            <main id="main-content" class="flex-1 min-w-0 w-full mx-auto">
                 @yield("content")
-            </div>
+            </main>
 
             <x-footer />
 

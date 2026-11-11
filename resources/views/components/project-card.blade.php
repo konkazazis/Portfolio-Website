@@ -27,7 +27,7 @@
                     @if($project->year)<span>{{ $project->year }}</span>@endif
                 </div>
             @endif
-            <h3 class="mt-2 font-serif text-3xl font-bold text-stone-900 leading-tight">{{ $project->title }}</h3>
+            <h2 class="mt-2 font-serif text-3xl font-bold text-stone-900 leading-tight">{{ $project->title }}</h2>
             @if($project->description)
                 <p class="mt-3 text-stone-600 font-light leading-relaxed max-w-[48ch]">{{ $project->description }}</p>
             @endif

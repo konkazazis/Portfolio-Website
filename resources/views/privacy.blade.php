@@ -20,7 +20,7 @@
                 <h1 class="text-3xl font-bold tracking-tight uppercase mb-2">
                     Daten<strong class="text-brand">schutz</strong>
                 </h1>
-                <p class="text-stone-400 text-sm">
+                <p class="text-stone-500 text-sm">
                     {{ $lang === 'en' ? 'Privacy Policy — in accordance with GDPR' : 'Datenschutzerklärung gemäß DSGVO' }}
                 </p>
             </div>
@@ -49,7 +49,7 @@
                         Düsseldorf<br>
                         Deutschland<br>
                         E-Mail:
-                        <a href="mailto:kostas@kazazis.dev" class="text-brand hover:underline">
+                        <a href="mailto:kostas@kazazis.dev" class="text-brand-dark hover:underline">
                             kostas@kazazis.dev
                         </a>
                     </p>
@@ -148,7 +148,7 @@
                         Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen (LDI NRW)<br>
                         Kavalleriestraße 2–4, 40213 Düsseldorf<br>
                         <a href="https://www.ldi.nrw.de" target="_blank" rel="noopener noreferrer"
-                            class="text-brand hover:underline">www.ldi.nrw.de</a>
+                            class="text-brand-dark hover:underline">www.ldi.nrw.de</a>
                     </p>
                 </section>
 
@@ -161,7 +161,7 @@
                         Düsseldorf<br>
                         Germany<br>
                         Email:
-                        <a href="mailto:kostas@kazazis.dev" class="text-brand hover:underline">
+                        <a href="mailto:kostas@kazazis.dev" class="text-brand-dark hover:underline">
                             kostas@kazazis.dev
                         </a>
                     </p>
@@ -258,7 +258,7 @@
                         Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen (LDI NRW)<br>
                         Kavalleriestraße 2–4, 40213 Düsseldorf, Germany<br>
                         <a href="https://www.ldi.nrw.de" target="_blank" rel="noopener noreferrer"
-                            class="text-brand hover:underline">www.ldi.nrw.de</a>
+                            class="text-brand-dark hover:underline">www.ldi.nrw.de</a>
                     </p>
                 </section>
 
