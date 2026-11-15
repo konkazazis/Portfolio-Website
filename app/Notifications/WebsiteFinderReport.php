@@ -7,7 +7,6 @@ use App\Models\Project;
 use App\Support\StarterHomepage;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 
 class WebsiteFinderReport extends Notification
@@ -23,42 +22,19 @@ class WebsiteFinderReport extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-            ->subject('Got your answers — a quick hello from Kostas')
+            ->subject('Your homepage for '.$this->businessName())
             ->markdown('mail.website-finder-report', [
                 'name' => $this->lead->name,
-                'recap' => $this->recap(),
+                'businessName' => $this->businessName(),
                 'projects' => $this->showcase(),
                 'bookingUrl' => config('services.booking.url'),
-                'homepageUrl' => StarterHomepage::url($this->lead),
+                'homepageUrl' => StarterHomepage::url($this->lead, preview: true),
             ]);
     }
 
-    /**
-     * A one-sentence, human summary of what the visitor asked for, e.g.
-     * "a bold & playful business website with online booking, and you'd like to launch within a month".
-     */
-    protected function recap(): string
+    protected function businessName(): string
     {
-        $steps = config('website-finder.steps');
-        $answers = $this->lead->answers;
-
-        $site = mb_strtolower($this->lead->result['title'] ?? 'website');
-        $recap = (preg_match('/^[aeiou]/', $site) ? 'an ' : 'a ').'**'.e($site).'**';
-
-        $needs = collect((array) ($answers['features'] ?? []))
-            ->map(fn ($key) => $steps['features']['options'][$key]['need'] ?? null)
-            ->filter()
-            ->values();
-
-        if ($needs->isNotEmpty()) {
-            $recap .= ' with '.($needs->count() > 2
-                ? $needs->take(2)->join(', ').' and a few other bits'
-                : $needs->join(' and '));
-        }
-
-        $timeline = Arr::get($steps, 'timeline.options.'.($answers['timeline'] ?? '').'.need');
-
-        return $timeline ? $recap.', and '.$timeline : $recap;
+        return StarterHomepage::copy($this->lead->answers)['name'];
     }
 
     /**

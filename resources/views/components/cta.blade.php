@@ -36,7 +36,7 @@
         <p class="mt-8 text-sm text-stone-400">
             Not ready to hire?
             <a href="{{ route('website-finder') }}" x-data x-on:click.prevent="$dispatch('open-website-finder')"
-               class="text-white underline decoration-[#FFE45C] decoration-2 underline-offset-4 hover:decoration-4">Get a free homepage instead</a>
+               class="text-white underline decoration-[#FFE45C] decoration-2 underline-offset-4 hover:decoration-4">Design your homepage for free</a>
         </p>
     </div>
 </section>

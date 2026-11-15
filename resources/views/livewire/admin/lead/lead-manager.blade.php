@@ -91,13 +91,18 @@
                         @endforeach
                     </dl>
 
-                    <div class="border-t border-zinc-200 dark:border-zinc-800 pt-4 text-sm text-zinc-600 dark:text-zinc-300">
-                        <p class="text-xs font-semibold text-zinc-500">Recommended</p>
-                        <p class="mt-1">{{ $current->result['tier'] }} · {{ $current->result['weeks'] }}</p>
-                    </div>
+                    @isset($current->result['tier'])
+                        <div class="border-t border-zinc-200 dark:border-zinc-800 pt-4 text-sm text-zinc-600 dark:text-zinc-300">
+                            <p class="text-xs font-semibold text-zinc-500">Recommended</p>
+                            <p class="mt-1">{{ $current->result['tier'] }} · {{ $current->result['weeks'] }}</p>
+                        </div>
+                    @endisset
 
-                    <div class="mt-6 pt-4 border-t border-zinc-200 dark:border-zinc-800">
-                        <a href="mailto:{{ $current->email }}?subject=Your website plan: {{ $current->result['title'] }}"
+                    <div class="mt-6 pt-4 border-t border-zinc-200 dark:border-zinc-800 flex flex-wrap gap-3">
+                        <a href="{{ \App\Support\StarterHomepage::url($current, preview: true) }}" target="_blank" rel="noopener" class="admin-btn">
+                            Open their homepage
+                        </a>
+                        <a href="mailto:{{ $current->email }}?subject=Your homepage: {{ $current->result['title'] }}"
                            class="admin-btn">
                             Follow up via email
                         </a>

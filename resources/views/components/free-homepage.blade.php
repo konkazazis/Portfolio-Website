@@ -1,14 +1,14 @@
 @php
     $steps = [
-        ['fa-list-check', 'Answer 7 quick questions', 'What your business does, the look you like and what the site should do.'],
-        ['fa-wand-magic-sparkles', 'See your homepage instantly', 'It uses the style and colours you picked.'],
-        ['fa-download', 'Download it and use it', 'Swap in your own text and photos, then host it anywhere.'],
+        ['fa-shop', 'Pick your kind of business', 'Your homepage appears straight away, with example text that fits.'],
+        ['fa-palette', 'Choose a look and a colour', 'Four looks, a few colours, or your own brand colour.'],
+        ['fa-i-cursor', 'Click any text to change it', 'Write your own name, headline and services right on the page.'],
     ];
 
     // [style, tilt, offset] of the example homepages fanned out on the right.
     $examples = [
         ['editorial', '-rotate-6', 'left-0 top-10'],
-        ['dark', 'rotate-3', 'right-0 top-0'],
+        ['warm', 'rotate-3', 'right-0 top-0'],
         ['bold', '-rotate-1', 'left-1/2 -translate-x-1/2 bottom-0'],
     ];
 @endphp
@@ -18,15 +18,14 @@
         <div>
             <span class="section-label">Free for you</span>
             <h2 class="font-serif text-5xl md:text-6xl font-bold text-stone-900 leading-tight reveal">
-                Get a homepage,
+                Design your homepage
                 <span class="relative inline-block">
-                    <span class="relative z-10">on the house.</span>
+                    <span class="relative z-10">yourself.</span>
                     <span aria-hidden="true" class="absolute inset-x-0 bottom-1 h-4 -rotate-1 bg-[#FFE45C] -z-0"></span>
                 </span>
             </h2>
             <p class="mt-5 text-lg text-stone-600 font-light reveal reveal-delay-1">
-                Take a 2-minute quiz and get a homepage built from your answers. It's yours to keep, even if we
-                never work together.
+                See your site before you spend anything. Save it for free, and when you like it, I'll build it and put it online.
             </p>
 
             <ol class="mt-10 space-y-6 reveal reveal-delay-2">
@@ -45,12 +44,12 @@
 
             <a href="{{ route('website-finder') }}" x-data x-on:click.prevent="$dispatch('open-website-finder', { source: 'free_homepage_section' })"
                class="mt-10 inline-flex items-center gap-2 rounded-[6px_14px_6px_16px] border-[2.5px] border-[#1C1B22] bg-[#FFE45C] px-7 py-3.5 font-semibold tracking-wide text-[#1C1B22] shadow-[5px_5px_0_#1C1B22] transition-transform hover:-translate-y-0.5 reveal reveal-delay-3">
-                Get my free homepage <span aria-hidden="true">&rarr;</span>
+                Start designing <span aria-hidden="true">&rarr;</span>
             </a>
-            <p class="mt-3 text-sm text-stone-500">Free · No card · Takes about 2 minutes</p>
+            <p class="mt-3 text-sm text-stone-500">Free · No code · About 2 minutes</p>
         </div>
 
-        {{-- Example homepages in three of the styles the quiz offers --}}
+        {{-- Example homepages in three of the looks the designer offers --}}
         <div aria-hidden="true" class="relative mx-auto h-[22rem] w-full max-w-lg sm:h-[26rem]">
             @foreach($examples as [$style, $tilt, $position])
                 <div class="absolute {{ $position }} {{ $tilt }} w-[68%] overflow-hidden rounded-[6px_14px_6px_16px] border-[2.5px] border-[#1C1B22] bg-white shadow-[6px_6px_0_#1C1B22]">

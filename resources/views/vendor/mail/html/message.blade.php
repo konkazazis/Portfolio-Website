@@ -24,7 +24,7 @@
 Custom websites and CMS for freelancers and small businesses.<br>
 Based in Düsseldorf, working worldwide.
 
-[Work]({{ route('work') }}) &nbsp;·&nbsp; [Website finder]({{ route('website-finder') }}) &nbsp;·&nbsp; [kostas@kazazis.dev](mailto:kostas@kazazis.dev)
+[Work]({{ route('work') }}) &nbsp;·&nbsp; [Design your homepage]({{ route('website-finder') }}) &nbsp;·&nbsp; [kostas@kazazis.dev](mailto:kostas@kazazis.dev)
 
 © {{ date('Y') }} Konstantinos Kazazis &nbsp;·&nbsp; [Impressum]({{ route('impressum') }}) &nbsp;·&nbsp; [Privacy]({{ route('privacy') }})
 </x-mail::footer>

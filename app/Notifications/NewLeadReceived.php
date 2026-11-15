@@ -3,6 +3,7 @@
 namespace App\Notifications;
 
 use App\Models\Lead;
+use App\Support\StarterHomepage;
 use App\Support\WebsiteFinderResult;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
@@ -21,7 +22,7 @@ class NewLeadReceived extends Notification
     {
         $mail = (new MailMessage)
             ->subject('New '.mb_strtolower($this->lead->rating()).' lead: '.$this->lead->result['title'])
-            ->greeting('New website finder lead')
+            ->greeting('New homepage designer lead')
             ->line('Name: '.($this->lead->name ?: '—'))
             ->line('Email: '.$this->lead->email)
             ->line('Rating: '.$this->lead->rating().' ('.$this->lead->score.' points)');
@@ -30,7 +31,8 @@ class NewLeadReceived extends Notification
             $mail->line('**'.$question.'** '.$answer);
         }
 
-        return $mail->action('View in admin panel', route('admin.leads.index'))
+        return $mail->line('[See the homepage they designed]('.StarterHomepage::url($this->lead, preview: true).')')
+            ->action('View in admin panel', route('admin.leads.index'))
             ->salutation('— your site, kazazis.dev');
     }
 }

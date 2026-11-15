@@ -5,53 +5,32 @@ namespace App\Support;
 class WebsiteFinderResult
 {
     /**
-     * Turn the quiz answers into the recommendation shown to the visitor and stored on the lead.
+     * The summary stored on the lead and shown in the admin panel and emails.
      *
-     * @param  array<string, string|array<int, string>>  $answers
-     * @return array<string, mixed>
+     * @param  array<string, mixed>  $answers
+     * @return array<string, string|null>
      */
     public static function fromAnswers(array $answers): array
     {
-        $steps = config('website-finder.steps');
-
-        $purpose = $steps['purpose']['options'][$answers['purpose'] ?? ''] ?? null;
-        $style = $steps['style']['options'][$answers['style'] ?? ''] ?? null;
-        $colors = $steps['colors']['options'][$answers['colors'] ?? ''] ?? null;
-        $features = array_values(array_intersect_key(
-            $steps['features']['options'],
-            array_flip((array) ($answers['features'] ?? [])),
-        ));
-
-        $size = ($purpose['weight'] ?? 0) + array_sum(array_column($features, 'weight'));
-        $tier = collect(config()->array('website-finder.tiers'))->first(fn ($tier) => $size <= $tier['max']);
-
         return [
-            'title' => trim(($style['label'] ?? '').' '.($purpose['site'] ?? 'Website')),
-            'summary' => $style['description'] ?? null,
-            'traits' => $style['traits'] ?? [],
-            'colors' => $colors['label'] ?? null,
-            'swatches' => $colors['swatches'] ?? [],
-            'pages' => $purpose['pages'] ?? [],
-            'features' => array_column($features, 'label'),
-            'essentials' => config('website-finder.essentials'),
-            'tier' => $tier['name'],
-            'weeks' => $tier['weeks'],
-            'price' => $tier['price'],
+            'title' => StarterHomepage::copy($answers)['name'],
+            'style' => config('website-finder.styles.'.($answers['style'] ?? '').'.label'),
+            'colors' => ($answers['colors'] ?? null) === 'custom'
+                ? 'Own colour '.($answers['custom_color'] ?? '')
+                : config('website-finder.colors.'.($answers['colors'] ?? '').'.label'),
         ];
     }
 
     /**
-     * Sum the option scores across all answered steps.
+     * How keen the lead looks: their timeline, plus a bonus if they rewrote any of the example text.
      *
-     * @param  array<string, string|array<int, string>>  $answers
+     * @param  array<string, mixed>  $answers
      */
     public static function score(array $answers): int
     {
-        return collect(config()->array('website-finder.steps'))
-            ->map(fn ($step, $key) => is_string($answers[$key] ?? null)
-                ? ($step['options'][$answers[$key]]['score'] ?? 0)
-                : 0)
-            ->sum();
+        $timeline = (int) config('website-finder.timeline.options.'.($answers['timeline'] ?? '').'.score', 0);
+
+        return $timeline + (empty($answers['content']) ? 0 : (int) config('website-finder.edited_score'));
     }
 
     public static function rating(int $score): string
@@ -60,19 +39,36 @@ class WebsiteFinderResult
     }
 
     /**
-     * Human-readable question => answer pairs, for emails and the admin panel.
+     * Human-readable label => answer pairs, for emails and the admin panel.
+     * Leads saved by the older quiz have different keys; those are shown as they were stored.
      *
-     * @param  array<string, string|array<int, string>>  $answers
+     * @param  array<string, mixed>  $answers
      * @return array<string, string>
      */
     public static function readableAnswers(array $answers): array
     {
-        return collect(config()->array('website-finder.steps'))
-            ->mapWithKeys(fn ($step, $key) => [
-                $step['question'] => collect((array) ($answers[$key] ?? []))
-                    ->map(fn ($value) => $step['options'][$value]['label'] ?? $value)
-                    ->join(', ') ?: '—',
-            ])
+        $labels = [
+            'industry' => ['Business', config('website-finder.industries')],
+            'style' => ['Look', config('website-finder.styles')],
+            'colors' => ['Colour', config('website-finder.colors')],
+            'timeline' => ['Online by', config('website-finder.timeline.options')],
+        ];
+
+        return collect($answers)
+            ->except(['content', 'custom_color'])
+            ->mapWithKeys(function ($value, string $key) use ($labels, $answers) {
+                [$label, $options] = $labels[$key] ?? [str($key)->replace('_', ' ')->ucfirst()->toString(), []];
+
+                $readable = collect((array) $value)
+                    ->map(fn ($item) => $options[$item]['label'] ?? ($key === 'colors' && $item === 'custom' ? 'Own colour '.($answers['custom_color'] ?? '') : $item))
+                    ->join(', ');
+
+                return [$label => $readable ?: '—'];
+            })
+            ->when(array_key_exists('content', $answers), fn ($readable) => $readable->put(
+                'Text they rewrote',
+                empty($answers['content']) ? 'None' : implode(', ', array_keys((array) $answers['content'])),
+            ))
             ->all();
     }
 }

@@ -12,87 +12,111 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\RateLimiter;
-use Livewire\Attributes\Computed;
+use Illuminate\Validation\Rule;
 use Livewire\Attributes\Locked;
 use Livewire\Component;
 
 /**
- * @property-read array<string, mixed> $result
+ * The free homepage designer: pick a kind of business, then shape the page live and save it with an email.
  */
 class WebsiteFinder extends Component
 {
-    public int $step = 0;
+    /** Empty until the visitor picks their kind of business on the first screen. */
+    public string $industry = '';
 
-    /** @var array<string, string|array<int, string>> */
-    public array $answers = [];
+    public string $businessName = '';
+
+    public string $style = '';
+
+    public string $colors = '';
+
+    public string $customColor = '#E8590C';
+
+    /**
+     * Text the visitor rewrote on the page, keyed by field. Filled from the preview frame, sanitised on render and save.
+     *
+     * @var array<string, mixed>
+     */
+    public array $content = [];
+
+    /** Which side panel is showing: design, save or saved. Switched client-side so the preview doesn't reload. */
+    public string $panel = 'design';
 
     public string $name = '';
 
     public string $email = '';
 
+    public string $timeline = '';
+
     // Honeypot: real visitors never see or fill this field.
     public string $website = '';
-
-    public bool $unlocked = false;
 
     #[Locked]
     public ?int $leadId = null;
 
-    public function choose(string $value): void
+    public function mount(): void
     {
-        $key = $this->currentKey();
+        $this->style = config('website-finder.default_style');
+        $this->colors = config('website-finder.default_color');
+    }
 
-        if ($key === null || ! isset(config("website-finder.steps.$key.options")[$value])) {
+    public function start(string $industry): void
+    {
+        if (! isset(config('website-finder.industries')[$industry])) {
             return;
         }
 
-        $this->answers[$key] = $value;
-        $this->next();
+        $this->industry = $industry;
+
+        // Always holds the name, which also keeps it a JSON object for the frame's deferred `content.*` updates.
+        $this->content = ['name' => trim($this->businessName) ?: StarterHomepage::defaultCopy($industry)['name']];
+
+        $this->dispatch('website-finder-step', step: 'designer');
     }
 
-    public function toggle(string $value): void
+    public function pickStyle(string $style): void
     {
-        if ($this->currentKey() !== 'features' || ! isset(config('website-finder.steps.features.options')[$value])) {
+        if (isset(config('website-finder.styles')[$style])) {
+            $this->style = $style;
+        }
+    }
+
+    public function pickColor(string $color): void
+    {
+        if (isset(config('website-finder.colors')[$color])) {
+            $this->colors = $color;
+        }
+    }
+
+    public function pickCustomColor(string $color): void
+    {
+        if (StarterHomepage::isHexColor($color)) {
+            $this->customColor = $color;
+            $this->colors = 'custom';
+        }
+    }
+
+    public function save(): void
+    {
+        if ($this->industry === '') {
             return;
         }
 
-        $selected = (array) ($this->answers['features'] ?? []);
+        // Saved before: just store the latest version, no new lead and no new emails.
+        if ($lead = $this->leadId ? Lead::find($this->leadId) : null) {
+            $lead->update($this->leadDesign());
+            $this->panel = 'saved';
 
-        $this->answers['features'] = in_array($value, $selected, true)
-            ? array_values(array_diff($selected, [$value]))
-            : [...$selected, $value];
-    }
-
-    public function next(): void
-    {
-        $key = $this->currentKey();
-
-        if ($key !== null && config("website-finder.steps.$key.type") !== 'multi' && ! isset($this->answers[$key])) {
             return;
         }
 
-        $this->step = min($this->step + 1, $this->totalSteps());
-        $this->dispatch('website-finder-step', step: $this->step, key: $this->currentKey() ?? 'result');
-    }
-
-    public function back(): void
-    {
-        $this->step = max($this->step - 1, 0);
-    }
-
-    public function restart(): void
-    {
-        $this->reset(['step', 'answers', 'unlocked', 'leadId']);
-    }
-
-    public function unlock(): void
-    {
         $this->validate([
             'name' => 'nullable|string|max:255',
             'email' => 'required|email|max:255',
+            'timeline' => ['nullable', Rule::in(array_keys(config('website-finder.timeline.options')))],
         ]);
 
-        if ($this->website !== '' || ! $this->isComplete()) {
+        if ($this->website !== '') {
             return;
         }
 
@@ -107,9 +131,7 @@ class WebsiteFinder extends Component
         $lead = Lead::create([
             'name' => $this->name ?: null,
             'email' => $this->email,
-            'answers' => $this->answers,
-            'result' => $this->result,
-            'score' => WebsiteFinderResult::score($this->answers),
+            ...$this->leadDesign(),
         ]);
 
         try {
@@ -119,53 +141,61 @@ class WebsiteFinder extends Component
             Log::error('Failed to send website finder notifications: '.$e->getMessage());
         }
 
-        $this->unlocked = true;
         $this->leadId = $lead->id;
-        $this->dispatch('website-finder-step', step: $this->step, key: 'unlocked');
+        $this->panel = 'saved';
+        $this->dispatch('website-finder-step', step: 'saved');
     }
 
-    /** @return array<string, mixed> */
-    #[Computed]
-    public function result(): array
+    /**
+     * Back to the first screen. Who they are (and their lead) is kept, so a new design updates the same lead.
+     */
+    public function restart(): void
     {
-        return WebsiteFinderResult::fromAnswers($this->answers);
+        $this->reset(['industry', 'businessName', 'style', 'colors', 'customColor', 'content', 'panel']);
+        $this->mount();
     }
 
-    /** @return array<string, array<string, mixed>> */
-    private function steps(): array
+    /**
+     * The design as stored on the lead: only the text they actually changed.
+     *
+     * @return array<string, mixed>
+     */
+    private function answers(): array
     {
-        return config('website-finder.steps');
+        return array_filter([
+            'industry' => $this->industry,
+            'style' => $this->style,
+            'colors' => $this->colors,
+            'custom_color' => $this->colors === 'custom' ? $this->customColor : null,
+            'content' => StarterHomepage::edits($this->content, $this->industry),
+            'timeline' => $this->timeline ?: null,
+        ], fn ($value) => $value !== null);
     }
 
-    private function currentKey(): ?string
+    /**
+     * @return array{answers: array<string, mixed>, result: array<string, string|null>, score: int}
+     */
+    private function leadDesign(): array
     {
-        return array_keys($this->steps())[$this->step] ?? null;
-    }
+        $answers = $this->answers();
 
-    private function totalSteps(): int
-    {
-        return count($this->steps());
-    }
-
-    private function isComplete(): bool
-    {
-        return collect($this->steps())
-            ->every(fn ($step, $key) => $step['type'] === 'multi' || isset($this->answers[$key]));
+        return [
+            'answers' => $answers,
+            'result' => WebsiteFinderResult::fromAnswers($answers),
+            'score' => WebsiteFinderResult::score($answers),
+        ];
     }
 
     public function render(): View
     {
-        $key = $this->currentKey();
+        $answers = $this->industry !== '' ? $this->answers() : null;
+        $lead = $this->leadId ? Lead::find($this->leadId) : null;
 
         return view('livewire.website-finder', [
-            'key' => $key,
-            'current' => $key ? config("website-finder.steps.$key") : null,
-            'total' => $this->totalSteps(),
+            'page' => $answers ? StarterHomepage::render($answers, editable: true) : null,
+            'pageName' => $answers ? StarterHomepage::copy($answers)['name'] : null,
+            'homepageUrl' => $lead ? StarterHomepage::url($lead, preview: true) : null,
             'bookingUrl' => config('services.booking.url'),
-            'homepage' => ($lead = $this->leadId ? Lead::find($this->leadId) : null) ? [
-                'preview' => StarterHomepage::url($lead, preview: true),
-                'download' => StarterHomepage::url($lead),
-            ] : null,
         ]);
     }
 }

@@ -15,7 +15,7 @@
             </p>
             <a href="{{ route('website-finder') }}" x-data x-on:click.prevent="$dispatch('open-website-finder')"
                class="mt-6 inline-flex items-center gap-2 rounded-full border-2 border-[#1C1B22] bg-[#8EE3C8] px-5 py-2 text-sm font-semibold text-[#1C1B22] shadow-[3px_3px_0_#1C1B22] transition-transform hover:-translate-y-0.5">
-                <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Not sure which fits? Take the 2-minute quiz
+                <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Not sure yet? Design your homepage first
             </a>
         </div>
 
