@@ -10,7 +10,7 @@ class PostController extends Controller
     public function show(string $slug): View
     {
         $post = Post::published()
-            ->with(['user', 'category', 'tags'])
+            ->with(['user', 'category'])
             ->where('slug', $slug)
             ->firstOrFail();
 

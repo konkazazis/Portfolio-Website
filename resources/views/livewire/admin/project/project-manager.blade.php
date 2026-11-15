@@ -33,32 +33,32 @@
                         <th class="px-6 py-3"></th>
                     </tr>
                 </thead>
-                <tbody class="divide-y-2 divide-dashed divide-stone-200 dark:divide-stone-700">
+                <tbody class="divide-y divide-zinc-200 dark:divide-zinc-800">
                     @foreach($projects as $project)
                         <tr class="admin-row">
                             <td class="px-6 py-4">
                                 <div class="flex items-center gap-3">
                                     @if($project->coverUrl())
                                         <img src="{{ $project->coverUrl() }}" alt="{{ $project->title }}"
-                                             class="w-10 h-10 object-cover rounded-md border-2 border-[#1C1B22] shrink-0">
+                                             class="w-10 h-10 object-cover rounded-md border border-zinc-200 dark:border-zinc-700 shrink-0">
                                     @else
-                                        <div class="w-10 h-10 bg-[#FBF8F1] dark:bg-stone-800 rounded-md border-2 border-[#1C1B22] shrink-0 flex items-center justify-center">
-                                            <svg class="w-5 h-5 text-stone-300 dark:text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <div class="w-10 h-10 bg-zinc-100 dark:bg-zinc-800 rounded-md border border-zinc-200 dark:border-zinc-700 shrink-0 flex items-center justify-center">
+                                            <svg class="w-5 h-5 text-zinc-300 dark:text-zinc-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14M14 8h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                                             </svg>
                                         </div>
                                     @endif
                                     <div>
-                                        <p class="font-semibold text-stone-800 dark:text-stone-100">{{ $project->title }}</p>
+                                        <p class="font-semibold text-zinc-800 dark:text-zinc-100">{{ $project->title }}</p>
                                     </div>
                                 </div>
                             </td>
-                            <td class="px-4 py-4 text-stone-500 dark:text-stone-400 text-xs hidden md:table-cell">
+                            <td class="px-4 py-4 text-zinc-500 dark:text-zinc-400 text-xs hidden md:table-cell">
                                 {{ $project->technologies ?? '—' }}
                             </td>
                             <td class="px-4 py-4">
                                 @if($project->is_published)
-                                    <span class="admin-badge bg-[#8EE3C8]">
+                                    <span class="admin-badge admin-badge-success">
                                         Published
                                     </span>
                                 @else
@@ -81,7 +81,7 @@
             </table>
             </div>
             @if($projects->hasPages())
-                <div class="px-6 py-4 border-t-2 border-dashed border-stone-200 dark:border-stone-700">{{ $projects->links() }}</div>
+                <div class="px-6 py-4 border-t border-zinc-200 dark:border-zinc-800">{{ $projects->links() }}</div>
             @endif
         @endif
     </div>
@@ -99,8 +99,8 @@
              x-transition:enter="transition duration-200 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100">
 
             <div class="flex items-center justify-between mb-6">
-                <h2 class="font-serif text-2xl font-bold text-[#1C1B22] dark:text-stone-100">{{ $editingId ? 'Edit Project' : 'New Project' }}</h2>
-                <button wire:click="$set('showModal', false)" class="text-stone-400 hover:text-stone-700 p-1">
+                <h2 class="admin-heading">{{ $editingId ? 'Edit Project' : 'New Project' }}</h2>
+                <button wire:click="$set('showModal', false)" class="text-zinc-400 hover:text-zinc-700 p-1">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
                 </button>
             </div>
@@ -161,9 +161,9 @@
                     </div>
                 </div>
 
-                <div class="pt-2 border-t-2 border-dashed border-stone-200 dark:border-stone-700">
-                    <p class="font-serif text-xl font-bold text-[#1C1B22] dark:text-stone-100">Case study</p>
-                    <p class="text-xs text-stone-500 mt-0.5">Shown on the project page. Leave a blank line between paragraphs.</p>
+                <div class="pt-2 border-t border-zinc-200 dark:border-zinc-800">
+                    <p class="text-base font-bold text-zinc-900 dark:text-white">Case study</p>
+                    <p class="text-xs text-zinc-500 mt-0.5">Shown on the project page. Leave a blank line between paragraphs.</p>
                 </div>
 
                 <div>
@@ -192,17 +192,17 @@
                     <input type="file" wire:model="cover" accept="image/*"
                            class="admin-file">
                     @error('cover') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
-                    <div wire:loading wire:target="cover" class="mt-1 text-xs text-stone-400">Uploading…</div>
+                    <div wire:loading wire:target="cover" class="mt-1 text-xs text-zinc-400">Uploading…</div>
                 </div>
 
                 <div class="flex items-center gap-2">
                     <input type="checkbox" wire:model="is_published" id="proj_is_published"
                            class="admin-checkbox">
-                    <label for="proj_is_published" class="text-sm text-stone-700 dark:text-stone-300 font-medium">Published</label>
+                    <label for="proj_is_published" class="text-sm text-zinc-700 dark:text-zinc-300 font-medium">Published</label>
                 </div>
             </div>
 
-            <div class="flex justify-end gap-3 mt-6 pt-4 border-t-2 border-dashed border-stone-200 dark:border-stone-700">
+            <div class="flex justify-end gap-3 mt-6 pt-4 border-t border-zinc-200 dark:border-zinc-800">
                 <button wire:click="$set('showModal', false)" class="admin-btn admin-btn-white">Cancel</button>
                 <button wire:click="save" wire:loading.attr="disabled"
                         class="admin-btn">
@@ -220,8 +220,8 @@
          class="admin-backdrop"
          style="display: none;">
         <div @click.stop class="admin-modal max-w-sm text-center">
-            <p class="font-serif text-2xl font-bold text-[#1C1B22] dark:text-stone-100 mb-2">Delete project?</p>
-            <p class="text-sm text-stone-500 mb-6">This cannot be undone.</p>
+            <p class="admin-heading mb-2">Delete project?</p>
+            <p class="text-sm text-zinc-500 mb-6">This cannot be undone.</p>
             <div class="flex justify-center gap-3">
                 <button wire:click="cancelDelete" class="admin-btn admin-btn-white">Cancel</button>
                 <button wire:click="delete" class="admin-btn admin-btn-danger">Delete</button>

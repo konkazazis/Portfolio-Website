@@ -50,7 +50,6 @@
             $ldType => 'Person',
             'name' => 'Konstantinos Kazazis',
         ],
-        'keywords' => $post->tags->pluck('name')->join(', '),
         'articleSection' => $post->category?->name,
         'wordCount' => str_word_count(strip_tags($post->content)),
         'image' => asset('images/og-default.jpg'),
@@ -129,16 +128,7 @@
         <div class="pb-24 px-6 sm:px-8">
             <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-12 lg:gap-20">
                 <div class="lg:sticky lg:top-36 self-start order-last lg:order-first">
-                    @if($post->tags->isNotEmpty())
-                        <h2 class="text-xs font-sans uppercase tracking-[0.25em] text-stone-500">Tagged</h2>
-                        <ul class="mt-4 flex flex-wrap gap-2">
-                            @foreach($post->tags as $tag)
-                                <li class="tag-badge">#{{ $tag->name }}</li>
-                            @endforeach
-                        </ul>
-                    @endif
-
-                    <div class="{{ $post->tags->isNotEmpty() ? 'mt-10' : '' }} rounded-[6px_18px_8px_22px] border-[3px] border-[#1C1B22] bg-[#8EE3C8] p-6 text-[#1C1B22] shadow-[6px_6px_0_#1C1B22]">
+                    <div class="rounded-[6px_18px_8px_22px] border-[3px] border-[#1C1B22] bg-[#8EE3C8] p-6 text-[#1C1B22] shadow-[6px_6px_0_#1C1B22]">
                         <p class="font-serif text-2xl leading-tight">Need a website?</p>
                         <p class="mt-2 text-sm leading-relaxed">I build custom sites for freelancers and small businesses, {{ $availability['total'] }} a month.</p>
                         <p class="mt-3 text-sm font-semibold">{{ $availability['summary'] }}.</p>

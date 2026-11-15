@@ -1,8 +1,8 @@
 <x-simple :title="__('Confirm password')">
     <div class="flex flex-col gap-6">
         <div class="text-center">
-            <h1 class="font-serif text-3xl font-bold text-[#1C1B22] dark:text-stone-100">Confirm password</h1>
-            <p class="text-sm text-stone-500 dark:text-stone-400 mt-1">Please confirm your password to continue</p>
+            <h1 class="admin-title">Confirm password</h1>
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">Please confirm your password to continue</p>
         </div>
 
         <form method="POST" action="{{ route('password.confirm') }}" class="flex flex-col gap-4">

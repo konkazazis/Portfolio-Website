@@ -170,13 +170,6 @@
                                     <p class="mt-3 text-stone-600 font-light leading-relaxed max-w-[62ch]">
                                         {!! $post->excerpt ?? Str::limit(strip_tags($post->content), 160) !!}
                                     </p>
-                                    @if($post->tags->isNotEmpty())
-                                        <div class="flex flex-wrap gap-2 mt-4">
-                                            @foreach($post->tags as $tag)
-                                                <span class="tag-badge">#{{ $tag->name }}</span>
-                                            @endforeach
-                                        </div>
-                                    @endif
                                 </div>
 
                                 <span class="hidden md:block self-center text-3xl text-stone-900 transition-transform duration-300 group-hover:translate-x-2" aria-hidden="true">&rarr;</span>

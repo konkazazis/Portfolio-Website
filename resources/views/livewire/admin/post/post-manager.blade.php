@@ -44,25 +44,25 @@
                         <th class="px-6 py-3"></th>
                     </tr>
                 </thead>
-                <tbody class="divide-y-2 divide-dashed divide-stone-200 dark:divide-stone-700">
+                <tbody class="divide-y divide-zinc-200 dark:divide-zinc-800">
                     @foreach($posts as $post)
                         <tr class="admin-row">
                             <td class="px-6 py-4">
-                                <p class="font-semibold text-stone-800 dark:text-stone-100">{{ $post->title }}</p>
+                                <p class="font-semibold text-zinc-800 dark:text-zinc-100">{{ $post->title }}</p>
                                 <div class="flex">
-                                    <p class="text-xs text-stone-400 dark:text-stone-500">{{ $post->created_at->format('M j, Y') }}</p>
+                                    <p class="text-xs text-zinc-400 dark:text-zinc-500">{{ $post->created_at->format('M j, Y') }}</p>
                                     @if (!empty($post->published_at))
-                                        <p class="text-xs text-stone-400 dark:text-stone-500">, (Last update:</p>
-                                        <p class="text-xs text-stone-400 dark:text-stone-500">{{ $post->published_at->format('M j, Y') }})</p>                                    
+                                        <p class="text-xs text-zinc-400 dark:text-zinc-500">, (Last update:</p>
+                                        <p class="text-xs text-zinc-400 dark:text-zinc-500">{{ $post->published_at->format('M j, Y') }})</p>                                    
                                     @endif
                                 </div>
                             </td>
-                            <td class="px-4 py-4 text-stone-600 dark:text-stone-300 hidden md:table-cell">
+                            <td class="px-4 py-4 text-zinc-600 dark:text-zinc-300 hidden md:table-cell">
                                 {{ $post->category?->name ?? '—' }}
                             </td>
                             <td class="px-4 py-4">
                                 @if($post->status === 'published')
-                                    <span class="admin-badge bg-[#8EE3C8]">
+                                    <span class="admin-badge admin-badge-success">
                                         Published
                                     </span>
                                 @else
@@ -90,7 +90,7 @@
             </div>
 
             @if($posts->hasPages())
-                <div class="px-6 py-4 border-t-2 border-dashed border-stone-200 dark:border-stone-700">
+                <div class="px-6 py-4 border-t border-zinc-200 dark:border-zinc-800">
                     {{ $posts->links() }}
                 </div>
             @endif
@@ -213,14 +213,14 @@
 
             <div class="flex items-center gap-4">
                 {{-- Word count --}}
-                <span class="text-xs text-stone-400 dark:text-stone-500 tabular-nums">
+                <span class="text-xs text-zinc-400 dark:text-zinc-500 tabular-nums">
                     <span x-text="wordCount.toLocaleString()"></span> words
                 </span>
 
                 {{-- Save status --}}
                 <div class="text-xs">
                     <template x-if="saveStatus === 'saving'">
-                        <span class="text-stone-400 flex items-center gap-1">
+                        <span class="text-zinc-400 flex items-center gap-1">
                             <svg class="w-3 h-3 animate-spin" fill="none" viewBox="0 0 24 24">
                                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
                                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
@@ -254,8 +254,8 @@
         <div class="admin-card flex flex-col lg:flex-row overflow-hidden">
 
             {{-- Posts list sidebar — hidden on mobile, vertical on desktop --}}
-            <aside class="hidden lg:flex w-44 shrink-0 border-r-[2.5px] border-[#1C1B22] dark:border-stone-300 bg-[#FBF8F1] dark:bg-stone-900/60 flex-col">
-                <div class="px-3 py-3 border-b-2 border-dashed border-stone-200 dark:border-stone-700">
+            <aside class="hidden lg:flex w-44 shrink-0 border-r border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 flex-col">
+                <div class="px-3 py-3 border-b border-zinc-200 dark:border-zinc-800">
                     <p class="admin-label mb-0">Posts</p>
                 </div>
                 <nav class="flex-1 py-1 overflow-y-auto max-h-[600px]">
@@ -263,17 +263,17 @@
                         <button wire:click="openEdit({{ $p->id }})"
                             @class([
                                 'w-full flex items-center gap-2 px-3 py-2 text-left transition-colors',
-                                'bg-[#FFE45C] text-[#1C1B22] font-semibold' => $p->id === $editingId,
-                                'text-stone-600 dark:text-stone-400 hover:text-[#1C1B22] dark:hover:text-stone-200 hover:bg-white dark:hover:bg-stone-800' => $p->id !== $editingId,
+                                'bg-blue-50 text-blue-700 font-semibold dark:bg-blue-500/10 dark:text-blue-300' => $p->id === $editingId,
+                                'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800' => $p->id !== $editingId,
                             ])>
                             <span class="truncate text-[12px]">{{ $p->title ?: 'Untitled' }}</span>
                             @if($p->status === 'published')
-                                <span class="w-2 h-2 rounded-full bg-[#8EE3C8] border border-[#1C1B22] shrink-0 ml-auto"></span>
+                                <span class="w-2 h-2 rounded-full bg-green-500 shrink-0 ml-auto"></span>
                             @endif
                         </button>
                     @endforeach
                 </nav>
-                <div class="px-3 py-3 border-t-2 border-dashed border-stone-200 dark:border-stone-700">
+                <div class="px-3 py-3 border-t border-zinc-200 dark:border-zinc-800">
                     <button wire:click="openCreate"
                         class="admin-btn admin-btn-sm w-full">
                         <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -285,23 +285,23 @@
             </aside>
 
             {{-- Writing area --}}
-            <main class="flex-1 flex flex-col min-w-0 bg-white dark:bg-stone-950">
-                <div class="border-b-2 border-dashed border-stone-200 dark:border-stone-700 px-4 sm:px-6 py-4 space-y-2">
+            <main class="flex-1 flex flex-col min-w-0 bg-white dark:bg-zinc-950">
+                <div class="border-b border-zinc-200 dark:border-zinc-800 px-4 sm:px-6 py-4 space-y-2">
                     <input type="text" wire:model.lazy="title" placeholder="Post title"
-                        class="w-full bg-transparent border-none outline-none font-serif text-3xl font-bold text-[#1C1B22] dark:text-stone-100 placeholder-stone-300 dark:placeholder-stone-600 focus:ring-0">
+                        class="w-full bg-transparent border-none outline-none text-2xl font-bold text-zinc-900 dark:text-white placeholder-zinc-300 dark:placeholder-zinc-600 focus:ring-0">
                     @error('title') <p class="text-xs text-red-500">{{ $message }}</p> @enderror
                     <textarea wire:model.lazy="excerpt" rows="2" placeholder="Short excerpt…"
-                        class="w-full bg-transparent border-none outline-none text-sm text-stone-400 dark:text-stone-500 placeholder-stone-300 dark:placeholder-stone-600 focus:ring-0 resize-none leading-relaxed"></textarea>
+                        class="w-full bg-transparent border-none outline-none text-sm text-zinc-400 dark:text-zinc-500 placeholder-zinc-300 dark:placeholder-zinc-600 focus:ring-0 resize-none leading-relaxed"></textarea>
                 </div>
 
                 <div wire:ignore>
-                    <div x-ref="quillEditor" data-initial-content="{{ $content }}" class="text-stone-900 dark:text-stone-100"></div>
+                    <div x-ref="quillEditor" data-initial-content="{{ $content }}" class="text-zinc-900 dark:text-zinc-100"></div>
                 </div>
                 @error('content') <p class="px-4 sm:px-6 py-1 text-xs text-red-500">{{ $message }}</p> @enderror
             </main>
 
             {{-- Meta sidebar — full-width row on mobile, fixed column on desktop --}}
-            <aside class="w-full lg:w-52 shrink-0 border-t-[2.5px] lg:border-t-0 lg:border-l-[2.5px] border-[#1C1B22] dark:border-stone-300 bg-[#FBF8F1] dark:bg-stone-900/60 p-4">
+            <aside class="w-full lg:w-52 shrink-0 border-t lg:border-t-0 lg:border-l border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 p-4">
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-1 gap-4 lg:gap-5">
                 <div>
                     <label class="admin-label">Status</label>
@@ -321,20 +321,6 @@
                         @endforeach
                     </select>
                 </div>
-                @if($tags->isNotEmpty())
-                <div class="col-span-2 sm:col-span-3 lg:col-span-1">
-                    <label class="admin-label mb-3">Tags</label>
-                    <div class="flex flex-wrap gap-2">
-                        @foreach($tags as $tag)
-                            <label class="inline-flex items-center gap-2 cursor-pointer">
-                                <input type="checkbox" wire:model="selectedTags" value="{{ $tag->id }}"
-                                    class="admin-checkbox">
-                                <span class="text-sm text-stone-600 dark:text-stone-300">{{ $tag->name }}</span>
-                            </label>
-                        @endforeach
-                    </div>
-                </div>
-                @endif
             </div>{{-- end meta grid --}}
             </aside>
         </div>
@@ -351,8 +337,8 @@
      class="admin-backdrop"
      style="display: none;">
     <div @click.stop class="admin-modal max-w-sm text-center">
-        <p class="font-serif text-2xl font-bold text-[#1C1B22] dark:text-stone-100 mb-2">Delete post?</p>
-        <p class="text-sm text-stone-500 dark:text-stone-400 mb-6">This cannot be undone.</p>
+        <p class="admin-heading mb-2">Delete post?</p>
+        <p class="text-sm text-zinc-500 dark:text-zinc-400 mb-6">This cannot be undone.</p>
         <div class="flex justify-center gap-3">
             <button wire:click="cancelDelete"
                     class="admin-btn admin-btn-white">Cancel</button>

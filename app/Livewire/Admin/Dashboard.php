@@ -6,7 +6,6 @@ use App\Models\Category;
 use App\Models\ContactMessage;
 use App\Models\Post;
 use App\Models\Project;
-use App\Models\Tag;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
@@ -19,7 +18,6 @@ class Dashboard extends Component
         $totalProjects = Project::count();
         $publishedProjects = Project::where('is_published', true)->count();
         $totalCategories = Category::count();
-        $totalTags = Tag::count();
         $unreadMessages = ContactMessage::where('is_read', false)->count();
         $totalMessages = ContactMessage::count();
 
@@ -29,7 +27,7 @@ class Dashboard extends Component
 
         return view('livewire.admin.dashboard', compact(
             'totalPosts', 'publishedPosts', 'totalProjects', 'publishedProjects',
-            'totalCategories', 'totalTags', 'unreadMessages', 'totalMessages',
+            'totalCategories', 'unreadMessages', 'totalMessages',
             'recentPosts', 'recentMessages'
         ))->layout('app', ['title' => 'Overview — CMS']);
     }

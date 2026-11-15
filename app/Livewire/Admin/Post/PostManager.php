@@ -4,7 +4,6 @@ namespace App\Livewire\Admin\Post;
 
 use App\Models\Category;
 use App\Models\Post;
-use App\Models\Tag;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Log;
@@ -36,9 +35,6 @@ class PostManager extends Component
     public string $status = 'draft';
 
     public ?int $category_id = null;
-
-    /** @var array<int, int|string> */
-    public array $selectedTags = [];
 
     public ?int $deletingId = null;
 
@@ -84,7 +80,6 @@ class PostManager extends Component
             'content' => ['required', 'string'],
             'status' => ['required', 'in:draft,published'],
             'category_id' => ['nullable', 'exists:categories,id'],
-            'selectedTags' => ['array'],
         ];
     }
 
@@ -95,7 +90,7 @@ class PostManager extends Component
 
     public function openCreate(): void
     {
-        $this->reset(['editingId', 'title', 'excerpt', 'content', 'category_id', 'selectedTags']);
+        $this->reset(['editingId', 'title', 'excerpt', 'content', 'category_id']);
         $this->status = 'draft';
         $this->mode = 'create';
         $this->dispatch('post-loaded', content: '');
@@ -103,7 +98,7 @@ class PostManager extends Component
 
     public function openEdit(int $id): void
     {
-        $post = Post::with('tags')->findOrFail($id);
+        $post = Post::findOrFail($id);
 
         $this->editingId = $post->id;
         $this->title = $post->title;
@@ -111,7 +106,6 @@ class PostManager extends Component
         $this->content = $post->content;
         $this->status = $post->status;
         $this->category_id = $post->category_id;
-        $this->selectedTags = $post->tags->pluck('id')->toArray();
         $this->mode = 'edit';
         $this->dispatch('post-loaded', content: $post->content);
     }
@@ -126,7 +120,7 @@ class PostManager extends Component
 
     public function cancel(): void
     {
-        $this->reset(['editingId', 'title', 'excerpt', 'content', 'category_id', 'selectedTags']);
+        $this->reset(['editingId', 'title', 'excerpt', 'content', 'category_id']);
         $this->status = 'draft';
         $this->mode = 'list';
     }
@@ -149,15 +143,12 @@ class PostManager extends Component
         ];
 
         if ($this->editingId) {
-            $post = Post::findOrFail($this->editingId);
-            $post->update($data);
+            Post::findOrFail($this->editingId)->update($data);
         } else {
-            $post = Post::create($data);
+            Post::create($data);
         }
 
-        $post->tags()->sync($this->selectedTags);
-
-        $this->reset(['editingId', 'title', 'excerpt', 'content', 'category_id', 'selectedTags']);
+        $this->reset(['editingId', 'title', 'excerpt', 'content', 'category_id']);
         $this->status = 'draft';
         $this->mode = 'list';
     }
@@ -183,17 +174,16 @@ class PostManager extends Component
     public function render(): View
     {
         $posts = Post::query()
-            ->with(['category', 'tags'])
+            ->with('category')
             ->when($this->search, fn ($q) => $q->where('title', 'like', "%{$this->search}%"))
             ->when($this->filterStatus, fn ($q) => $q->where('status', $this->filterStatus))
             ->latest()
             ->paginate(15);
 
         $categories = Category::orderBy('name')->get();
-        $tags = Tag::orderBy('name')->get();
         $recentPosts = Post::latest()->limit(40)->get(['id', 'title', 'status']);
 
-        return view('livewire.admin.post.post-manager', compact('posts', 'categories', 'tags', 'recentPosts'))
+        return view('livewire.admin.post.post-manager', compact('posts', 'categories', 'recentPosts'))
             ->layout('app', ['title' => 'Posts']);
     }
 }

@@ -24,7 +24,7 @@ class ProjectSeeder extends Seeder
                 'live_url' => 'https://kazazis.dev',
                 'github_url' => 'https://github.com/konkazazis',
                 'challenge' => "As a freelancer, my website is my business card. It had to show my work, host a blog and let me publish new content in minutes — without relying on WordPress plugins or a page builder.\n\nIt also had to be fast. If I promise clients top Lighthouse scores, my own site has to prove it.",
-                'solution' => "I built a custom CMS on Laravel and Livewire: posts with categories and tags, a rich-text editor with image uploads, a project manager, and an inbox for contact messages. Images are stored on Cloudflare R2 so the server stays lean.\n\nThe front end uses Tailwind CSS with a playful, hand-drawn visual style, scroll-reveal animations that respect reduced-motion settings, and structured data on every page for search engines.",
+                'solution' => "I built a custom CMS on Laravel and Livewire: posts with categories, a rich-text editor with image uploads, a project manager, and an inbox for contact messages. Images are stored on Cloudflare R2 so the server stays lean.\n\nThe front end uses Tailwind CSS with a playful, hand-drawn visual style, scroll-reveal animations that respect reduced-motion settings, and structured data on every page for search engines.",
                 'outcome' => "A site I can update from any device in a few clicks, with 100 scores across Lighthouse performance, accessibility, best practices and SEO.\n\nThe same CMS is now the foundation I offer to clients who want to manage their own content.",
             ],
             [
@@ -61,7 +61,7 @@ class ProjectSeeder extends Seeder
                 'technologies' => 'Laravel, Livewire, Tailwind CSS, Cloudflare R2',
                 'challenge' => "The photographer was paying monthly for a portfolio platform that compressed her images and looked like everyone else's.\n\nShe wanted full control over how her work is presented, without a recurring subscription.",
                 'solution' => "I built a minimal, image-first layout with full-screen galleries and a simple upload area. Photos are stored on Cloudflare R2 and served in modern formats at the right size for each screen.\n\nGalleries can be reordered by drag and drop, and each one gets its own shareable link for clients.",
-                'outcome' => "Sharp, fast-loading galleries at a fraction of the old subscription cost, and a portfolio that finally looks like her own.",
+                'outcome' => 'Sharp, fast-loading galleries at a fraction of the old subscription cost, and a portfolio that finally looks like her own.',
             ],
         ];
 

@@ -1,6 +1,6 @@
 <section class="mt-10 space-y-6">
     <div class="relative mb-5">
-        <h2 class="font-serif text-2xl font-bold text-[#1C1B22] dark:text-stone-100">{{ __('Delete account') }}</h2>
+        <h2 class="admin-heading">{{ __('Delete account') }}</h2>
         <p class="admin-subtitle">{{ __('Delete your account and all of its resources') }}</p>
     </div>
 

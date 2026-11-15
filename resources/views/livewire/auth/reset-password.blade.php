@@ -1,8 +1,8 @@
 <x-simple :title="__('Reset password')">
     <div class="flex flex-col gap-6">
         <div class="text-center">
-            <h1 class="font-serif text-3xl font-bold text-[#1C1B22] dark:text-stone-100">New password</h1>
-            <p class="text-sm text-stone-500 dark:text-stone-400 mt-1">Choose a strong password</p>
+            <h1 class="admin-title">New password</h1>
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">Choose a strong password</p>
         </div>
 
         <form method="POST" action="{{ route('password.update') }}" class="flex flex-col gap-4">

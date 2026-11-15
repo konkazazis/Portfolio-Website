@@ -33,12 +33,12 @@
                         <th class="px-6 py-3"></th>
                     </tr>
                 </thead>
-                <tbody class="divide-y-2 divide-dashed divide-stone-200 dark:divide-stone-700">
+                <tbody class="divide-y divide-zinc-200 dark:divide-zinc-800">
                     @foreach($categories as $category)
                         <tr class="admin-row">
-                            <td class="px-6 py-4 font-semibold text-stone-800 dark:text-stone-100">{{ $category->name }}</td>
-                            <td class="px-4 py-4 text-stone-400 dark:text-stone-500 text-xs font-mono hidden sm:table-cell">{{ $category->slug }}</td>
-                            <td class="px-4 py-4 text-stone-600 dark:text-stone-300 hidden sm:table-cell">{{ $category->posts_count }}</td>
+                            <td class="px-6 py-4 font-semibold text-zinc-800 dark:text-zinc-100">{{ $category->name }}</td>
+                            <td class="px-4 py-4 text-zinc-400 dark:text-zinc-500 text-xs font-mono hidden sm:table-cell">{{ $category->slug }}</td>
+                            <td class="px-4 py-4 text-zinc-600 dark:text-zinc-300 hidden sm:table-cell">{{ $category->posts_count }}</td>
                             <td class="px-6 py-4">
                                 <div class="flex items-center justify-end gap-2">
                                     <button wire:click="openEdit({{ $category->id }})"
@@ -53,7 +53,7 @@
             </table>
             </div>
             @if($categories->hasPages())
-                <div class="px-6 py-4 border-t-2 border-dashed border-stone-200 dark:border-stone-700">{{ $categories->links() }}</div>
+                <div class="px-6 py-4 border-t border-zinc-200 dark:border-zinc-800">{{ $categories->links() }}</div>
             @endif
         @endif
     </div>
@@ -69,8 +69,8 @@
         <div @click.stop class="admin-modal max-w-md"
              x-transition:enter="transition duration-200 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100">
             <div class="flex items-center justify-between mb-6">
-                <h2 class="font-serif text-2xl font-bold text-[#1C1B22] dark:text-stone-100">{{ $editingId ? 'Edit Category' : 'New Category' }}</h2>
-                <button wire:click="$set('showModal', false)" class="text-stone-400 hover:text-stone-700 p-1">
+                <h2 class="admin-heading">{{ $editingId ? 'Edit Category' : 'New Category' }}</h2>
+                <button wire:click="$set('showModal', false)" class="text-zinc-400 hover:text-zinc-700 p-1">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
                 </button>
             </div>
@@ -80,7 +80,7 @@
                        class="admin-input">
                 @error('name') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
             </div>
-            <div class="flex justify-end gap-3 mt-6 pt-4 border-t-2 border-dashed border-stone-200 dark:border-stone-700">
+            <div class="flex justify-end gap-3 mt-6 pt-4 border-t border-zinc-200 dark:border-zinc-800">
                 <button wire:click="$set('showModal', false)" class="admin-btn admin-btn-white">Cancel</button>
                 <button wire:click="save" wire:loading.attr="disabled"
                         class="admin-btn">
@@ -98,8 +98,8 @@
          class="admin-backdrop"
          style="display: none;">
         <div @click.stop class="admin-modal max-w-sm text-center">
-            <p class="font-serif text-2xl font-bold text-[#1C1B22] dark:text-stone-100 mb-2">Delete category?</p>
-            <p class="text-sm text-stone-500 mb-6">Posts in this category will be uncategorised.</p>
+            <p class="admin-heading mb-2">Delete category?</p>
+            <p class="text-sm text-zinc-500 mb-6">Posts in this category will be uncategorised.</p>
             <div class="flex justify-center gap-3">
                 <button wire:click="cancelDelete" class="admin-btn admin-btn-white">Cancel</button>
                 <button wire:click="delete" class="admin-btn admin-btn-danger">Delete</button>

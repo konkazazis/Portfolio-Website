@@ -13,7 +13,7 @@
     </div>
 
     <div class="flex-1 mt-8 self-stretch">
-        <h2 class="font-serif text-2xl font-bold text-[#1C1B22] dark:text-stone-100">{{ $heading ?? '' }}</h2>
+        <h2 class="admin-heading">{{ $heading ?? '' }}</h2>
         <p class="admin-subtitle">{{ $subheading ?? '' }}</p>
 
         <div class="mt-5 w-full max-w-4xl">

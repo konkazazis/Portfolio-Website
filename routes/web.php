@@ -22,7 +22,6 @@ use App\Livewire\Admin\Project\ProjectManager;
 use App\Livewire\Admin\Settings\Appearance as SettingsAppearance;
 use App\Livewire\Admin\Settings\Profile as SettingsProfile;
 use App\Livewire\Admin\Settings\Security as SettingsSecurity;
-use App\Livewire\Admin\Tag\TagManager;
 use Illuminate\Support\Facades\Route;
 
 // ─── SEO ──────────────────────────────────────────────────────────────────────
@@ -64,7 +63,6 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/posts', PostManager::class)->name('posts.index');
     Route::get('/projects', ProjectManager::class)->name('projects.index');
     Route::get('/categories', CategoryManager::class)->name('categories.index');
-    Route::get('/tags', TagManager::class)->name('tags.index');
     Route::get('/messages', ContactManager::class)->name('messages.index');
     Route::get('/leads', LeadManager::class)->name('leads.index');
     Route::get('/offers', OfferManager::class)->name('offers.index');

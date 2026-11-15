@@ -28,22 +28,22 @@
                         <th class="px-6 py-3"></th>
                     </tr>
                 </thead>
-                <tbody class="divide-y-2 divide-dashed divide-stone-200 dark:divide-stone-700">
+                <tbody class="divide-y divide-zinc-200 dark:divide-zinc-800">
                     @foreach($offers as $offer)
                         @php $expired = $offer->ends_at && $offer->ends_at->lt(today()); @endphp
                         <tr class="admin-row">
                             <td class="px-6 py-4">
-                                <p class="font-semibold text-stone-800 dark:text-stone-100">{{ $offer->headline }}</p>
-                                <p class="mt-0.5 text-xs text-stone-400 dark:text-stone-500">{{ $offer->name }}</p>
+                                <p class="font-semibold text-zinc-800 dark:text-zinc-100">{{ $offer->headline }}</p>
+                                <p class="mt-0.5 text-xs text-zinc-400 dark:text-zinc-500">{{ $offer->name }}</p>
                             </td>
-                            <td class="px-4 py-4 text-stone-500 dark:text-stone-400 text-xs hidden md:table-cell">
+                            <td class="px-4 py-4 text-zinc-500 dark:text-zinc-400 text-xs hidden md:table-cell">
                                 {{ $offer->ends_at?->format('M j, Y') ?? 'End of each month' }}
                             </td>
                             <td class="px-4 py-4">
                                 @if($offer->is_active && $expired)
-                                    <span class="admin-badge bg-[#FFE45C]">Expired</span>
+                                    <span class="admin-badge admin-badge-warning">Expired</span>
                                 @elseif($offer->is_active)
-                                    <span class="admin-badge bg-[#8EE3C8]">Live</span>
+                                    <span class="admin-badge admin-badge-success">Live</span>
                                 @else
                                     <span class="admin-badge">Off</span>
                                 @endif
@@ -77,8 +77,8 @@
         <div @click.stop class="admin-modal max-w-lg"
              x-transition:enter="transition duration-200 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100">
             <div class="flex items-center justify-between mb-6">
-                <h2 class="font-serif text-2xl font-bold text-[#1C1B22] dark:text-stone-100">{{ $editingId ? 'Edit Offer' : 'New Offer' }}</h2>
-                <button wire:click="$set('showModal', false)" class="text-stone-400 hover:text-stone-700 p-1">
+                <h2 class="admin-heading">{{ $editingId ? 'Edit Offer' : 'New Offer' }}</h2>
+                <button wire:click="$set('showModal', false)" class="text-zinc-400 hover:text-zinc-700 p-1">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
                 </button>
             </div>
@@ -95,7 +95,7 @@
                     <label class="admin-label">Headline</label>
                     <input type="text" wire:model="headline" placeholder="e.g. 3 months of Care Package free"
                            class="admin-input">
-                    <p class="mt-1 text-xs text-stone-400">Short and punchy, shown in big type and in the top ticker.</p>
+                    <p class="mt-1 text-xs text-zinc-400">Short and punchy, shown in big type and in the top ticker.</p>
                     @error('headline') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
                 </div>
 
@@ -110,18 +110,18 @@
                     <label class="admin-label">End date</label>
                     <input type="date" wire:model="ends_at"
                            class="admin-input">
-                    <p class="mt-1 text-xs text-stone-400">Leave empty to end on the last day of each month. Once it passes, the offer disappears from the site.</p>
+                    <p class="mt-1 text-xs text-zinc-400">Leave empty to end on the last day of each month. Once it passes, the offer disappears from the site.</p>
                     @error('ends_at') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
                 </div>
 
                 <div class="flex items-center gap-2">
                     <input type="checkbox" wire:model="is_active" id="offer_is_active"
                            class="admin-checkbox">
-                    <label for="offer_is_active" class="text-sm text-stone-700 dark:text-stone-300 font-medium">Live on the site (turns off any other offer)</label>
+                    <label for="offer_is_active" class="text-sm text-zinc-700 dark:text-zinc-300 font-medium">Live on the site (turns off any other offer)</label>
                 </div>
             </div>
 
-            <div class="flex justify-end gap-3 mt-6 pt-4 border-t-2 border-dashed border-stone-200 dark:border-stone-700">
+            <div class="flex justify-end gap-3 mt-6 pt-4 border-t border-zinc-200 dark:border-zinc-800">
                 <button wire:click="$set('showModal', false)" class="admin-btn admin-btn-white">Cancel</button>
                 <button wire:click="save" wire:loading.attr="disabled"
                         class="admin-btn">
@@ -139,8 +139,8 @@
          class="admin-backdrop"
          style="display: none;">
         <div @click.stop class="admin-modal max-w-sm text-center">
-            <p class="font-serif text-2xl font-bold text-[#1C1B22] dark:text-stone-100 mb-2">Delete offer?</p>
-            <p class="text-sm text-stone-500 mb-6">If it's live, it disappears from the site right away.</p>
+            <p class="admin-heading mb-2">Delete offer?</p>
+            <p class="text-sm text-zinc-500 mb-6">If it's live, it disappears from the site right away.</p>
             <div class="flex justify-center gap-3">
                 <button wire:click="cancelDelete" class="admin-btn admin-btn-white">Cancel</button>
                 <button wire:click="delete" class="admin-btn admin-btn-danger">Delete</button>
