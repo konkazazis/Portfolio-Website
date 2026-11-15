@@ -9,13 +9,13 @@
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
             <span class="section-label">Packages</span>
-            <h2 class="font-serif text-5xl md:text-6xl font-bold text-stone-900">Simple, honest pricing</h2>
+            <h2 class="font-serif text-5xl md:text-6xl font-bold text-stone-900">What it costs</h2>
             <p class="mt-5 text-lg text-stone-600 font-light max-w-2xl mx-auto">
-                Every project is different, so these are estimates to start from. Your quote is a fixed price up front, no hidden costs.
+                These are starting prices. Your quote is a fixed price we agree on before I start.
             </p>
             <a href="{{ route('website-finder') }}" x-data x-on:click.prevent="$dispatch('open-website-finder')"
                class="mt-6 inline-flex items-center gap-2 rounded-full border-2 border-[#1C1B22] bg-[#8EE3C8] px-5 py-2 text-sm font-semibold text-[#1C1B22] shadow-[3px_3px_0_#1C1B22] transition-transform hover:-translate-y-0.5">
-                <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Which package fits me? Find out, plus a free homepage
+                <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Not sure which fits? Take the 2-minute quiz
             </a>
         </div>
 
@@ -47,7 +47,7 @@
             <div class="mt-20 mb-10 text-center">
                 <h3 class="font-serif text-4xl md:text-5xl font-bold text-stone-900">Care Package</h3>
                 <p class="mt-3 text-lg text-stone-600 font-light">
-                    Ongoing peace of mind after launch, from {{ $carePlans->sortBy('price')->first()->formattedPrice() }}* per month.
+                    Ongoing care after launch, from {{ $carePlans->sortBy('price')->first()->formattedPrice() }}* per month.
                 </p>
             </div>
 
@@ -58,7 +58,7 @@
             </div>
 
             <p class="mt-10 text-center text-sm text-stone-500">
-                * Care Package prices are not final, as the cost of domains and hosting can fluctuate.
+                * Care Package prices are not final because domain and hosting costs change.
             </p>
         @endif
     </div>

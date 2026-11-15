@@ -37,8 +37,8 @@
                 Tailwind CSS components, ready to copy.
             </h1>
             <p class="mt-6 text-lg text-stone-600 font-light max-w-2xl reveal reveal-delay-1">
-                Small, accessible UI pieces I use in client projects. Each one is plain HTML with Tailwind CSS classes,
-                most need no JavaScript at all. Open a component to see it live and copy the code.
+                Small, accessible UI pieces I use in client projects. They're plain HTML with Tailwind CSS classes,
+                and most need no JavaScript. Open one to see it live and copy the code.
             </p>
         </div>
     </section>

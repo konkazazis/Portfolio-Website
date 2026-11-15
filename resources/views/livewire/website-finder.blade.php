@@ -144,7 +144,7 @@
                           class="relative -mt-40 rounded-[6px_18px_8px_22px] border-[3px] border-[#1C1B22] bg-white p-6 shadow-[7px_7px_0_#1C1B22]">
                         <p class="font-serif text-2xl font-bold">Get your free homepage</p>
                         <p class="mt-1 text-sm text-stone-600">
-                            A ready-to-use homepage built from your answers, to preview and download right away. Free, no strings attached.
+                            Built from your answers. Preview and download it right away, for free.
                         </p>
 
                         <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -182,7 +182,7 @@
                     Your free homepage
                 </span>
                 <h2 class="mt-4 font-serif text-4xl md:text-5xl font-bold leading-tight">It's ready!</h2>
-                <p class="mt-3 text-lg text-stone-600">Your {{ mb_strtolower($result['title']) }}, built from your answers. Swap in your own text and photos and it's ready to go online. A copy is on its way to your inbox.</p>
+                <p class="mt-3 text-lg text-stone-600">Your {{ mb_strtolower($result['title']) }}. Swap in your own text and photos and it's ready to go online. I've also emailed you a copy.</p>
 
                 @if($homepage)
                     <div class="mt-5 overflow-hidden rounded-[6px_14px_6px_16px] border-[2.5px] border-[#1C1B22] bg-white shadow-[4px_4px_0_#1C1B22]">
@@ -213,7 +213,7 @@
 
                 <div class="mt-10 rounded-[6px_18px_8px_22px] border-[3px] border-[#1C1B22] bg-[#FFE45C] p-6 shadow-[7px_7px_0_#1C1B22]">
                     <p class="font-serif text-2xl font-bold">Want it built for real?</p>
-                    <p class="mt-1 text-sm">With your content, real photos and everything it needs to bring in customers. A {{ $result['tier'] }} project like this takes about {{ $result['weeks'] }}. Let's talk it through, free and without obligation.</p>
+                    <p class="mt-1 text-sm">I can build it with your content and photos. A {{ $result['tier'] }} project like this takes about {{ $result['weeks'] }}, and the first call is free.</p>
                     <p class="mt-3 text-sm font-semibold">
                         {{ $availability['summary'] }}.
                         @if($availability['offer'])

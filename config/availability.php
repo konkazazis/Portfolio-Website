@@ -26,7 +26,7 @@ return [
     'spots_booked' => (int) env('CLIENT_SPOTS_BOOKED', 1),
 
     // The simple reason behind the limit, shown next to the spot count.
-    'reason' => 'I build every website myself, start to finish. No juniors, no outsourcing, so each project gets my full attention.',
+    'reason' => 'I build every site myself, start to finish, without subcontractors.',
 
     // The limited-time offers themselves are managed in the admin panel (Offers).
 

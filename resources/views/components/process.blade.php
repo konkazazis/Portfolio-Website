@@ -1,11 +1,11 @@
 @php
     // [title, text]
     $steps = [
-        ['Discovery', 'A short call or a few emails to understand your business, your audience and what the site needs to do.'],
-        ['Design', 'A clear layout and visual direction for your approval, before a single line of production code is written.'],
-        ['Build', 'I hand-code your site and CMS, keeping you updated along the way with a live preview link.'],
-        ['Launch', 'Domain, hosting, email and SEO set up. I walk you through the CMS so you can update it yourself.'],
-        ['Support', "After launch I'm still here: updates, backups and changes whenever you need them."],
+        ['Discovery', 'A short call or a few emails about your business and what the site needs to do.'],
+        ['Design', 'You approve the layout and look before I write any code.'],
+        ['Build', 'I code your site and CMS by hand. You can follow along on a live preview link.'],
+        ['Launch', 'I set up the domain, hosting, email and SEO, then show you how to use the CMS.'],
+        ['Support', 'Updates, backups and changes after launch, whenever you need them.'],
     ];
 @endphp
 
@@ -15,7 +15,7 @@
             <span class="section-label text-stone-400">How I work</span>
             <h2 class="font-serif text-5xl md:text-6xl font-bold text-white leading-tight">From first message to launch day.</h2>
             <p class="mt-5 text-lg text-stone-300 font-light">
-                A simple, transparent process. You always know what is happening next and what it costs.
+                You always know what happens next and what it costs.
             </p>
         </div>
 

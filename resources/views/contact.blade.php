@@ -1,14 +1,14 @@
 @extends('master')
 
 @section('title', 'Contact — kostas')
-@section('meta_description', 'Start a project with Konstantinos Kazazis — tell me what you need and get a reply within a day.')
+@section('meta_description', 'Start a project with Konstantinos Kazazis. Tell me what you need and get a reply within a day.')
 @section('og_title', 'Start a project — kostas')
 
 @php
     $steps = [
         ['You send a brief', 'A few lines are enough: what you need, roughly when, and any sites you like.'],
         ['I reply within a day', "I'll ask a couple of questions and suggest a short call if it helps."],
-        ['You get a clear proposal', 'A fixed price, a timeline and exactly what is included. No surprises.'],
+        ['You get a clear proposal', 'A fixed price, a timeline and exactly what is included.'],
     ];
 @endphp
 

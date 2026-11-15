@@ -40,8 +40,8 @@ class Availability
             'full' => $left === 0,
             'reason' => $config['reason'],
             'summary' => $left > 0
-                ? "Only {$left} of {$total} spots left for {$now->translatedFormat('F')}"
-                : "{$now->translatedFormat('F')} is fully booked, now taking {$bookingFor->translatedFormat('F')} projects",
+                ? "{$left} of {$total} spots left for {$now->translatedFormat('F')}"
+                : "{$now->translatedFormat('F')} is full. Now booking {$bookingFor->translatedFormat('F')}",
             'offer' => static::offer($now),
         ];
     }

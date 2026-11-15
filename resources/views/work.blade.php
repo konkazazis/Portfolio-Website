@@ -29,11 +29,10 @@
         <div class="max-w-6xl mx-auto">
             <span class="section-label reveal">Selected work</span>
             <h1 class="font-serif text-5xl md:text-7xl font-bold text-stone-900 leading-tight max-w-3xl reveal">
-                Websites built for real people and real businesses.
+                Websites for real businesses.
             </h1>
             <p class="mt-6 text-lg text-stone-600 font-light max-w-2xl reveal reveal-delay-1">
-                A closer look at projects I've designed and developed: what the client needed,
-                how I approached it, and what came out the other end.
+                What each client needed, how I built it and how it turned out.
             </p>
         </div>
     </section>

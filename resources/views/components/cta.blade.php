@@ -9,11 +9,11 @@
         </span>
 
         <h2 class="mt-7 font-serif text-4xl md:text-5xl font-bold text-white leading-tight">
-            Ready for a place online that's truly yours?
+            Want a website of your own?
         </h2>
         <p class="mt-5 text-lg text-stone-300 font-light">
-            I only take on {{ $availability['total'] }} new clients a month. {{ $availability['reason'] }}
-            Tell me what you need and I'll get back to you within a day with ideas and a rough estimate.
+            I take on {{ $availability['total'] }} new clients a month. {{ $availability['reason'] }}
+            Tell me what you need and I'll reply within a day with a rough estimate.
         </p>
 
         @if($availability['offer'])
@@ -34,9 +34,9 @@
             {{ $availability['full'] ? 'RESERVE A ' . strtoupper($availability['bookingMonth']) . ' SPOT' : 'CLAIM YOUR ' . strtoupper($availability['month']) . ' SPOT' }}
         </a>
         <p class="mt-8 text-sm text-stone-400">
-            Not ready to hire yet?
+            Not ready to hire?
             <a href="{{ route('website-finder') }}" x-data x-on:click.prevent="$dispatch('open-website-finder')"
-               class="text-white underline decoration-[#FFE45C] decoration-2 underline-offset-4 hover:decoration-4">Get a free homepage built from your answers</a>
+               class="text-white underline decoration-[#FFE45C] decoration-2 underline-offset-4 hover:decoration-4">Get a free homepage instead</a>
         </p>
     </div>
 </section>

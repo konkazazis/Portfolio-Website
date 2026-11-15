@@ -1,8 +1,8 @@
 @php
     $steps = [
         ['fa-list-check', 'Answer 7 quick questions', 'What your business does, the look you like and what the site should do.'],
-        ['fa-wand-magic-sparkles', 'See your homepage instantly', 'Built from your answers: your style, your colours, your kind of business.'],
-        ['fa-download', 'Download it and use it', 'One file you own. Swap in your text and photos, then put it online anywhere.'],
+        ['fa-wand-magic-sparkles', 'See your homepage instantly', 'It uses the style and colours you picked.'],
+        ['fa-download', 'Download it and use it', 'Swap in your own text and photos, then host it anywhere.'],
     ];
 
     // [style, tilt, offset] of the example homepages fanned out on the right.
@@ -25,8 +25,8 @@
                 </span>
             </h2>
             <p class="mt-5 text-lg text-stone-600 font-light reveal reveal-delay-1">
-                Not ready to hire anyone yet? No problem. Take the 2-minute quiz and I'll build you a ready-to-use homepage
-                based on your answers. It's yours to keep, whether we ever work together or not.
+                Take a 2-minute quiz and get a homepage built from your answers. It's yours to keep, even if we
+                never work together.
             </p>
 
             <ol class="mt-10 space-y-6 reveal reveal-delay-2">

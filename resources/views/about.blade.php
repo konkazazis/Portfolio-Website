@@ -14,10 +14,10 @@
 
     // [title, text, card colour]
     $values = [
-        ['Hand-crafted, not templated', 'Every site is written from scratch for the business it serves. No bloated page builders, no plugins you will never use.', '#FFE45C'],
-        ['Fast by default', 'Performance is not an afterthought. I aim for top Lighthouse scores on every project, because speed is something your visitors feel.', '#8EE3C8'],
-        ['Plain-language communication', 'You will always know what I am working on, what it costs and why — without the jargon.', '#FF9EC7'],
-        ['In it for the long run', 'Launch day is the start, not the end. I stay around for updates, questions and the next idea.', '#C7B8FF'],
+        ['Written from scratch', "I write every site for the business it's for, without page builders or plugins you'll never use.", '#FFE45C'],
+        ['Fast by default', 'Slow sites lose visitors, so I aim for top Lighthouse scores on every project.', '#8EE3C8'],
+        ['Plain language', "You'll always know what I'm working on and what it costs, explained without jargon.", '#FF9EC7'],
+        ['In it for the long run', 'I stick around after launch for updates, questions and whatever you want to add next.', '#C7B8FF'],
     ];
 @endphp
 
@@ -86,19 +86,18 @@
 
             <div class="space-y-6 text-lg text-stone-700 font-light leading-relaxed reveal">
                 <p>
-                    I'm a full-stack web developer based in Düsseldorf. I started writing code because I loved the moment
-                    an idea turns into something you can click on — and that feeling never really went away.
+                    I'm a full-stack web developer in Düsseldorf. I got into code because I loved seeing an idea turn
+                    into something you can click on, and I still do.
                 </p>
                 <p>
-                    Over the years I noticed that a lot of small businesses end up with websites that don't fit them:
-                    slow templates, a dozen plugins nobody understands, and a monthly bill for features they never use.
-                    As a freelancer myself, I know how much your website matters. It's often the first impression a
-                    client gets.
+                    A lot of small businesses end up with websites that don't fit them: slow templates, a dozen plugins
+                    nobody understands, and a monthly bill for features they never use. I'm a freelancer too, and I know
+                    a website is often the first thing a client sees.
                 </p>
                 <p>
-                    So that's what I do now. I design and build custom websites with a simple CMS behind them, so you can
-                    publish posts, update your menu or add new work without calling a developer. Everything is written
-                    by hand, which means it's fast, secure and does exactly what you need — nothing more.
+                    So I build custom websites with a simple CMS behind them. You can publish posts, update your menu or
+                    add new work without calling a developer. I write the code by hand, so the site stays fast and does
+                    what you need and nothing extra.
                 </p>
                 <p>
                     When I'm not building client sites, I write about code and design on my

@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title', 'Free homepage for your business — kostas')
-@section('meta_description', 'Answer 7 quick questions and get a free, ready-to-use homepage built from your answers: your style, your colours, your kind of business.')
+@section('meta_description', 'Answer 7 quick questions and get a free homepage in the style and colours you pick, ready to download.')
 @section('og_title', 'Get a free homepage for your business — kostas')
 
 @section('content')
@@ -17,8 +17,8 @@
                     </span>
                 </h1>
                 <p class="mt-6 text-lg text-stone-600 font-light reveal reveal-delay-1">
-                    A social profile gets you noticed, but a website you own is what turns visitors into customers.
-                    Answer a few quick questions and I'll build you a homepage in the style you pick. Preview it, download it, keep it.
+                    Answer a few quick questions and I'll build you a homepage in the style you pick. Preview it, download it
+                    and keep it.
                 </p>
                 <ul class="mt-8 space-y-3 text-stone-700 reveal reveal-delay-2">
                     @foreach(['7 quick questions, about 2 minutes', 'A homepage built from your answers', 'Download it and use it, free'] as $point)

@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title', 'Blog')
-@section('meta_description', 'Thoughts on code, design, and the web — a developer blog by Kostas.')
+@section('meta_description', 'Notes on code, design and the web from Kostas Kazazis, a web developer in Düsseldorf.')
 @section('og_title', 'Blog · kostas')
 @section('canonical', route('blog', array_filter([
     'category' => $activeCategory?->slug,
@@ -30,7 +30,7 @@
         $ldContext => 'https://schema.org',
         $ldType => 'Blog',
         'name' => 'Blog · kostas',
-        'description' => 'Thoughts on code, design, and the web — a developer blog by Kostas.',
+        'description' => 'Notes on code, design and the web from Kostas Kazazis, a web developer in Düsseldorf.',
         'url' => route('blog'),
         'author' => [
             $ldType => 'Person',
@@ -65,8 +65,8 @@
                         Thoughts on code, design and the web.
                     </h1>
                     <p class="mt-6 text-lg text-stone-600 font-light max-w-2xl reveal reveal-delay-1">
-                        Notes from building websites for real businesses: what worked, what didn't,
-                        and the small technical ideas picked up along the way.
+                        Notes from building websites for small businesses: what worked, what didn't,
+                        and technical tricks I picked up.
                     </p>
                 </div>
 

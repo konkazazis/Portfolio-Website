@@ -1,12 +1,12 @@
 @php
     // [icon, title, text, card colour]
     $services = [
-        ['fa-solid fa-pen-ruler', 'Custom Websites', 'Beautiful, custom websites with a built-in CMS. Post and edit blog posts, read your messages or create a gallery for your shots — all without a developer.', '#FFE45C'],
-        ['fa-solid fa-shield-halved', 'Secure & Protected', "I follow best practices to secure your website: login sessions that can tell if it's really you, and encryption for all passwords and sensitive data.", '#FF9EC7'],
-        ['fa-solid fa-gauge-high', 'Performance in Mind', 'Custom code means total control over performance. I aim for 100 scores across Google Lighthouse, because speed is something your visitors feel.', '#8EE3C8'],
-        ['fa-solid fa-mobile-screen', 'Mobile-Friendly Design', 'Your website works perfectly on phones, tablets and computers. Visitors can reach you on any device.', '#C7B8FF'],
-        ['fa-solid fa-briefcase', 'Business Support', "As a fellow freelancer, I'll guide you through domains, hosting, business email, office software and everything else around your site.", '#FFE45C'],
-        ['fa-solid fa-wand-magic-sparkles', 'Custom Enquiries', "Need something my CMS doesn't do yet? I'm always ready to take on special requests, so bring it on!", '#FF9EC7'],
+        ['fa-solid fa-pen-ruler', 'Custom Websites', 'Every site comes with a built-in CMS, so you can write blog posts, read messages and update your gallery without a developer.', '#FFE45C'],
+        ['fa-solid fa-shield-halved', 'Security', "Login sessions check that it's really you, and passwords and sensitive data are encrypted.", '#FF9EC7'],
+        ['fa-solid fa-gauge-high', 'Speed', 'Custom code gives me full control over performance. I aim for 100 across Google Lighthouse.', '#8EE3C8'],
+        ['fa-solid fa-mobile-screen', 'Mobile-Friendly', 'Your site works on phones, tablets and desktops.', '#C7B8FF'],
+        ['fa-solid fa-briefcase', 'Business Support', "I'm a freelancer too, so I can help with domains, hosting, business email and office software.", '#FFE45C'],
+        ['fa-solid fa-wand-magic-sparkles', 'Custom Requests', "Need something the CMS doesn't do yet? Ask, and we'll work out how to build it.", '#FF9EC7'],
     ];
 @endphp
 

@@ -24,7 +24,7 @@ return [
         'purpose' => [
             'type' => 'single',
             'question' => 'What is the website for?',
-            'hint' => 'Pick the one that fits best — you can explain the details later.',
+            'hint' => 'Pick the closest one. You can explain the details later.',
             'options' => [
                 'business' => [
                     'label' => 'My business',

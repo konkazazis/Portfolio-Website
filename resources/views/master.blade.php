@@ -255,11 +255,11 @@
                 $availabilityQuarter =
                     'Q' . (int) ceil(now()->month / 3) . ' ' . now()->year;
                 $availabilityMessages = array_values(array_filter([
-                    "{$availability['summary']} — I take on just {$availability['total']} new clients a month",
+                    "{$availability['summary']}. I take on {$availability['total']} new clients a month",
                     $availability['offer']
-                        ? "{$availability['month']} offer: {$availability['offer']['headline']} — {$availability['offer']['countdown']}"
+                        ? "{$availability['month']} offer: {$availability['offer']['headline']}. {$availability['offer']['countdown']}"
                         : null,
-                    "Currently accepting new clients for {$availabilityQuarter}",
+                    "Taking new clients for {$availabilityQuarter}",
                 ]));
             @endphp
 

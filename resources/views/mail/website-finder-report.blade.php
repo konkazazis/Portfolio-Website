@@ -1,13 +1,11 @@
 <x-mail::message>
 # {{ $name ? 'Hi '.$name.',' : 'Hi there,' }}
 
-Thanks for taking the time to go through the website finder. Your answers landed safely in my inbox, and I've already had a read.
-
-So, from what you told me: you're after {!! $recap !!}. Honestly, that's my favourite kind of project to work on.
+Thanks for going through the website finder. From your answers, you're after {!! $recap !!}.
 
 ## Your free homepage
 
-As promised, here's a homepage built from your answers. It's a single file: open it in your browser, swap in your own text and photos, and upload it anywhere.
+Here's the homepage built from your answers. It's a single file: open it in your browser, swap in your own text and photos, and upload it anywhere.
 
 <x-mail::button :url="$homepageUrl" color="success">
 Download your homepage
@@ -16,7 +14,7 @@ Download your homepage
 @if ($projects->isNotEmpty())
 ## Curious what that could look like?
 
-The best way to get a feel for how I work is to see what I've built for others. Each project comes with a short case study: what the client needed, how I approached it, and what changed once it went live.
+Here are a few sites I've built, each with a short case study.
 
 <x-mail::panel>
 @foreach ($projects as $project)
@@ -28,14 +26,14 @@ The best way to get a feel for how I work is to see what I've built for others. 
 @else
 ## Curious what that could look like?
 
-Have a look around my work. Each project shows what the client needed, how I approached it, and what changed once it went live.
+Have a look at sites I've built for other clients.
 @endif
 
 <x-mail::button :url="route('work')">
 See my work
 </x-mail::button>
 
-If something there sparks an idea, {!! $bookingUrl ? '[grab a free 20-minute call]('.e($bookingUrl).') or simply' : 'simply' !!} hit reply and tell me a bit more. I read every message myself, and I'll come back with a few ideas shaped around your project.
+If you'd like it built for real, {!! $bookingUrl ? '[book a free 20-minute call]('.e($bookingUrl).') or' : '' !!} reply to this email and tell me a bit more. I read every message myself.
 
 Talk soon,<br>
 Kostas

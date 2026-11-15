@@ -19,8 +19,8 @@
             </h1>
 
             <p class="mt-7 text-lg md:text-xl text-stone-600 leading-relaxed font-light max-w-[46ch] reveal reveal-delay-1">
-                Your Instagram page belongs to Instagram. A website belongs to you. I design and build fast,
-                custom websites that freelancers and small businesses own outright and can update themselves.
+                I build fast, custom websites for freelancers and small businesses. You own the site and can
+                update it yourself.
             </p>
 
             <div class="mt-10 flex flex-wrap items-center gap-4 reveal reveal-delay-2">

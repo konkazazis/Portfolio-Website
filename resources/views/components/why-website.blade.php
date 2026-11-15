@@ -1,10 +1,10 @@
 @php
     // [topic, on a social media profile, on your own website]
     $comparison = [
-        ['Ownership', 'The platform owns your page, your posts and your followers.', 'Your domain, your content, your customer list. Nobody can take it away.'],
-        ['Being found', 'Only people who already follow you, and whoever the algorithm picks today.', 'Anyone who searches Google for what you offer, or checks you out before calling.'],
-        ['When rules change', 'Reach drops overnight, or an account ban wipes out years of work.', 'Nothing changes unless you decide it should.'],
-        ['First impression', 'The same template as millions of others, between ads and competitors.', 'Designed around your business, with no distractions and room to show why you are the right choice.'],
+        ['Ownership', 'The platform owns your page, your posts and your followers.', 'You own the domain, the content and your customer list.'],
+        ['Being found', 'Only people who already follow you, and whoever the algorithm picks today.', 'Anyone who searches Google for what you offer, or looks you up before calling.'],
+        ['When rules change', 'Reach drops overnight, or an account ban wipes out years of work.', 'Nothing changes unless you change it.'],
+        ['First impression', 'The same template as millions of others, between ads and competitors.', 'Designed for your business, with no ads or competitors next to you.'],
     ];
 @endphp
 
@@ -20,9 +20,8 @@
                 </span>
             </h2>
             <p class="mt-5 text-lg text-stone-600 font-light reveal reveal-delay-1">
-                Before people buy, book or call, they look you up. If all they find is a social profile, or nothing at all,
-                they move on to someone who looks more established. Your own website is the one place online that works for you
-                around the clock, on your terms.
+                Before people book or call, they look you up. If all they find is a social profile, or nothing at all,
+                they often go with someone who looks more established.
             </p>
         </div>
 
@@ -59,9 +58,9 @@
         </div>
 
         <p class="mt-14 text-center text-lg text-stone-700 reveal">
-            Keep posting on social media, just point it somewhere you own.
+            Keep posting on social media and link people to a site you own.
             <a href="{{ route('website-finder') }}" x-data x-on:click.prevent="$dispatch('open-website-finder')"
-               class="font-semibold underline decoration-[#FFE45C] decoration-4 underline-offset-2 hover:text-stone-900">Get a free homepage and see what yours could look like</a>
+               class="font-semibold underline decoration-[#FFE45C] decoration-4 underline-offset-2 hover:text-stone-900">See what yours could look like</a>
         </p>
     </div>
 </section>
