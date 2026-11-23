@@ -1,8 +1,10 @@
-@props(['plans'])
+@props(['plans', 'disclaimers' => []])
 
 @php
     $websitePlans = $plans->where('category', \App\Models\PricingPlan::WEBSITE);
     $carePlans = $plans->where('category', \App\Models\PricingPlan::CARE);
+    $websiteDisclaimer = $disclaimers[\App\Models\PricingPlan::WEBSITE] ?? null;
+    $careDisclaimer = $disclaimers[\App\Models\PricingPlan::CARE] ?? null;
 @endphp
 
 <section id="pricing" class="py-24 px-6 sm:px-8 bg-white border-t border-stone-200">
@@ -38,28 +40,32 @@
                 @endforeach
             </div>
 
-            <p class="mt-10 text-center text-sm text-stone-500">
-                Paying in installments is possible, just ask when you get your quote.
-            </p>
+            @if($websiteDisclaimer)
+                <p class="mt-10 text-center text-sm text-stone-500">
+                    {{ $websiteDisclaimer }}
+                </p>
+            @endif
         @endif
 
         @if($carePlans->isNotEmpty())
             <div class="mt-20 mb-10 text-center">
                 <h3 class="font-serif text-4xl md:text-5xl font-bold text-stone-900">Care Package</h3>
                 <p class="mt-3 text-lg text-stone-600 font-light">
-                    Ongoing care after launch, from {{ $carePlans->sortBy('price')->first()->formattedPrice() }}* per month.
+                    Ongoing care after launch, from {{ $carePlans->sortBy('price')->first()->formattedPrice() }}{{ $careDisclaimer ? '*' : '' }} per month.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 @foreach($carePlans as $plan)
-                    <x-pricing-card :plan="$plan" />
+                    <x-pricing-card :plan="$plan" :footnoted="(bool) $careDisclaimer" />
                 @endforeach
             </div>
 
-            <p class="mt-10 text-center text-sm text-stone-500">
-                * Care Package prices are not final because domain and hosting costs change.
-            </p>
+            @if($careDisclaimer)
+                <p class="mt-10 text-center text-sm text-stone-500">
+                    * {{ $careDisclaimer }}
+                </p>
+            @endif
         @endif
     </div>
 </section>

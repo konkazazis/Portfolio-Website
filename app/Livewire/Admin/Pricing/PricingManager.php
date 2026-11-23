@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Pricing;
 
 use App\Models\PricingPlan;
+use App\Models\Setting;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Contracts\View\View;
 use Illuminate\Validation\Rule;
@@ -31,6 +32,35 @@ class PricingManager extends Component
     public string $sort_order = '';
 
     public ?int $deletingId = null;
+
+    /** @var array<string, string> */
+    public array $disclaimers = [];
+
+    public ?string $savedDisclaimer = null;
+
+    public function mount(): void
+    {
+        $this->disclaimers = array_map(fn (?string $text) => $text ?? '', PricingPlan::disclaimers());
+    }
+
+    public function saveDisclaimer(string $category): void
+    {
+        abort_unless(array_key_exists($category, PricingPlan::CATEGORIES), 404);
+
+        $this->validate(
+            ["disclaimers.{$category}" => ['nullable', 'string', 'max:500']],
+            attributes: ["disclaimers.{$category}" => 'disclaimer'],
+        );
+
+        Setting::store(PricingPlan::disclaimerKey($category), $this->disclaimers[$category] ?? null);
+
+        $this->savedDisclaimer = $category;
+    }
+
+    public function updatedDisclaimers(): void
+    {
+        $this->savedDisclaimer = null;
+    }
 
     /** @return array<string, ValidationRule|array<mixed>|string> */
     protected function rules(): array

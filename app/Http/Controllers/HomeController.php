@@ -17,6 +17,7 @@ class HomeController extends Controller
 
         return view('home', [
             'plans' => PricingPlan::query()->where('is_active', true)->ordered()->get(),
+            'pricingDisclaimers' => PricingPlan::disclaimers(),
         ]);
     }
 }

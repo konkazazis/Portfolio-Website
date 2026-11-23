@@ -1,4 +1,4 @@
-@props(['plan'])
+@props(['plan', 'footnoted' => false])
 
 @php $dark = $plan->isCare(); @endphp
 
@@ -16,7 +16,7 @@
         @unless($dark)
             <span class="uppercase tracking-[0.2em]">From</span>
         @endunless
-        <span class="text-4xl font-bold {{ $dark ? 'text-white' : 'text-stone-900' }}">{{ $plan->formattedPrice() }}@if($dark)<span class="text-[#FFE45C]">*</span>@endif</span>
+        <span class="text-4xl font-bold {{ $dark ? 'text-white' : 'text-stone-900' }}">{{ $plan->formattedPrice() }}@if($dark && $footnoted)<span class="text-[#FFE45C]">*</span>@endif</span>
         @if($dark)
             <span>/month</span>
         @endif

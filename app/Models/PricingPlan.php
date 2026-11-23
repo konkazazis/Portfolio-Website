@@ -38,6 +38,25 @@ class PricingPlan extends Model
         return $query->orderBy('sort_order')->orderBy('id');
     }
 
+    /**
+     * The note shown under each section's plans, keyed by category. Null when a section has none.
+     *
+     * @return array<string, string|null>
+     */
+    public static function disclaimers(): array
+    {
+        $values = Setting::many(array_map(self::disclaimerKey(...), array_keys(self::CATEGORIES)));
+
+        return collect(self::CATEGORIES)
+            ->mapWithKeys(fn (string $label, string $category) => [$category => $values[self::disclaimerKey($category)]])
+            ->all();
+    }
+
+    public static function disclaimerKey(string $category): string
+    {
+        return "pricing.disclaimer.{$category}";
+    }
+
     public function isCare(): bool
     {
         return $this->category === self::CARE;

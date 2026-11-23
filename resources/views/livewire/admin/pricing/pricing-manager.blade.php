@@ -69,6 +69,25 @@
                         </div>
                     @endif
                 </div>
+
+                <div class="admin-card mt-3 p-6">
+                    <label for="disclaimer_{{ $key }}" class="admin-label">Disclaimer</label>
+                    <textarea wire:model="disclaimers.{{ $key }}" id="disclaimer_{{ $key }}" rows="2"
+                              placeholder="Shown under these plans. Leave empty to hide it."
+                              class="admin-input resize-y"></textarea>
+                    @if($key === \App\Models\PricingPlan::CARE)
+                        <p class="mt-1 text-xs text-zinc-400">Starts with an asterisk on the site, matching the one next to each price.</p>
+                    @endif
+                    @error("disclaimers.$key") <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
+
+                    <div class="mt-3 flex items-center justify-end gap-3">
+                        @if($savedDisclaimer === $key)
+                            <span class="text-xs text-zinc-500">Saved.</span>
+                        @endif
+                        <button wire:click="saveDisclaimer('{{ $key }}')" wire:loading.attr="disabled"
+                                class="admin-btn admin-btn-white">Save disclaimer</button>
+                    </div>
+                </div>
             </div>
         @endforeach
     </div>

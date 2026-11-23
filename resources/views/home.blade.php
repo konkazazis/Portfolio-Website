@@ -67,7 +67,7 @@
 
     <x-process />
 
-    <x-pricing :plans="$plans" />
+    <x-pricing :plans="$plans" :disclaimers="$pricingDisclaimers" />
 
     <x-testimonials />
 

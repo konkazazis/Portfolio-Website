@@ -38,6 +38,48 @@ test('each disclaimer shows under its own plans', function () {
         ->assertDontSee('Care Package prices are not final');
 });
 
+test('an admin can rewrite the disclaimers and the homepage follows', function () {
+    Livewire::actingAs(pricingAdmin())
+        ->test(PricingManager::class)
+        ->assertSet('disclaimers.website', 'Paying in installments is possible, just ask when you get your quote.')
+        ->set('disclaimers.website', '  Pay in three parts if you like.  ')
+        ->call('saveDisclaimer', PricingPlan::WEBSITE)
+        ->set('disclaimers.care', 'Hosting costs may change.')
+        ->call('saveDisclaimer', PricingPlan::CARE)
+        ->assertHasNoErrors()
+        ->assertSet('savedDisclaimer', PricingPlan::CARE);
+
+    $this->get(route('home'))
+        ->assertSeeInOrder(['Custom Software', 'Pay in three parts if you like.', 'Premium', '* Hosting costs may change.'])
+        ->assertDontSee('Paying in installments is possible');
+});
+
+test('clearing the care disclaimer also drops its asterisks', function () {
+    Livewire::actingAs(pricingAdmin())
+        ->test(PricingManager::class)
+        ->set('disclaimers.care', '   ')
+        ->call('saveDisclaimer', PricingPlan::CARE)
+        ->assertHasNoErrors();
+
+    $this->get(route('home'))
+        ->assertSee('from €50 per month')
+        ->assertDontSee('€100<span class="text-[#FFE45C]">*</span>', false)
+        ->assertDontSee('Care Package prices are not final');
+});
+
+test('disclaimers are validated', function () {
+    Livewire::actingAs(pricingAdmin())
+        ->test(PricingManager::class)
+        ->set('disclaimers.website', str_repeat('a', 501))
+        ->call('saveDisclaimer', PricingPlan::WEBSITE)
+        ->assertHasErrors('disclaimers.website');
+
+    Livewire::actingAs(pricingAdmin())
+        ->test(PricingManager::class)
+        ->call('saveDisclaimer', 'other')
+        ->assertNotFound();
+});
+
 test('hidden plans stay off the homepage', function () {
     PricingPlan::where('name', 'Premium')->update(['is_active' => false]);
 
