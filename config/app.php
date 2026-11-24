@@ -127,4 +127,23 @@ return [
     'client_name' => env('CLIENT_NAME', 'client_name'),
     'client_email' => env('CLIENT_EMAIL', 'client_email'),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Debug Blacklist
+    |--------------------------------------------------------------------------
+    |
+    | When APP_DEBUG is true, Whoops debug pages mask every key listed here
+    | so environment variables, server variables and request input are never
+    | exposed in an exception's stack trace page.
+    |
+    */
+
+    'debug_blacklist' => [
+        '_ENV' => array_keys($_ENV),
+        '_SERVER' => array_keys($_SERVER),
+        '_GET' => array_keys($_GET),
+        '_POST' => array_keys($_POST),
+        '_COOKIE' => array_keys($_COOKIE),
+    ],
+
 ];
